@@ -347,7 +347,16 @@ div#clients-results-cta-section {
 }
 
 /* What We Do section - Cards with background images at 30% opacity */
-#section-what-we-do .has-background-image {
+#section-what-we-do .has-background-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-image) 50% 50% / cover;
     opacity: 0.3;
+    border-radius: inherit;
+    z-index: -1;
 }
 
