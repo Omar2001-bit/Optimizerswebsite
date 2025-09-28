@@ -1,8 +1,13 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export const WhyChooseUsSection = (): JSX.Element => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, threshold: 0.3 });
+
   const featureCards = [
     {
       title: "Proven Track Record",
@@ -108,13 +113,57 @@ export const WhyChooseUsSection = (): JSX.Element => {
           </p>
         </div>
 
-        <div id="why-choose-us-features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {featureCards.map((card, index) => (
-            <Card
-              key={index}
-              id={`why-choose-us-feature-card-${index}`}
-              className={`${card.height} rounded-2xl overflow-hidden border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(27,140,70,0.2)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative`}
-            >
+        <div ref={ref} id="why-choose-us-features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 relative">
+          {featureCards.map((card, index) => {
+            // Define initial stacked positions with 3D perspective - cards stacked in center
+            const stackedTransforms = [
+              { x: -30, y: -15, rotate: -12, z: 0 },   // Card 0: bottom left
+              { x: -15, y: -8, rotate: -6, z: 15 },   // Card 1: second from bottom
+              { x: 15, y: 8, rotate: 6, z: 30 },     // Card 2: second from top
+              { x: 30, y: 15, rotate: 12, z: 45 }     // Card 3: top right
+            ];
+
+            return (
+              <motion.div
+                key={index}
+                id={`why-choose-us-feature-card-${index}`}
+                className={`${card.height} rounded-2xl overflow-hidden border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(27,140,70,0.2)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative`}
+                initial={{
+                  x: stackedTransforms[index].x,
+                  y: stackedTransforms[index].y,
+                  rotate: stackedTransforms[index].rotate,
+                  z: stackedTransforms[index].z,
+                  scale: 0.85,
+                  opacity: 0.8
+                }}
+                animate={isInView ? {
+                  x: 0,
+                  y: 0,
+                  rotate: 0,
+                  z: 0,
+                  scale: 1,
+                  opacity: 1
+                } : {
+                  x: stackedTransforms[index].x,
+                  y: stackedTransforms[index].y,
+                  rotate: stackedTransforms[index].rotate,
+                  z: stackedTransforms[index].z,
+                  scale: 0.85,
+                  opacity: 0.8
+                }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.15,
+                  ease: [0.25, 0.4, 0.25, 1],
+                  type: "spring",
+                  stiffness: 120,
+                  damping: 20
+                }}
+                style={{
+                  perspective: 1000,
+                  transformStyle: "preserve-3d"
+                }}
+              >
               <CardContent id={`why-choose-us-feature-card-content-${index}`} className="p-0 h-full relative">
                 <div id={`why-choose-us-feature-content-${index}`} className="flex flex-col w-[266px] items-start gap-3 absolute top-6 left-6">
                   <h3 id={`why-choose-us-feature-title-${index}`} className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
@@ -155,8 +204,9 @@ export const WhyChooseUsSection = (): JSX.Element => {
                   src={card.bottomMask}
                 />
               </CardContent>
-            </Card>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         <div id="why-choose-us-cta-section" className="flex justify-center">
