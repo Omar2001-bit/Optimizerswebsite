@@ -113,69 +113,50 @@ export const WhyChooseUsSection = (): JSX.Element => {
           </p>
         </div>
 
-        <div ref={ref} id="why-choose-us-features-grid" className="relative mb-16 min-h-[400px]">
-          {/* Grid layout container for final positions */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 opacity-0 pointer-events-none">
-            {featureCards.map((card, index) => (
-              <div key={`spacer-${index}`} className={`${card.height}`} />
-            ))}
-          </div>
-          
-          {featureCards.map((card, index) => {
-            // Calculate final positions based on grid layout
-            const finalPositions = [
-              { x: -450, y: 0 },    // Card 0: far left
-              { x: -150, y: 0 },    // Card 1: center left  
-              { x: 150, y: 0 },     // Card 2: center right
-              { x: 450, y: 0 }      // Card 3: far right
-            ];
-
-            return (
-              <motion.div
-                key={index}
-                id={`why-choose-us-feature-card-${index}`}
-                className={`${card.height} absolute rounded-2xl overflow-hidden border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(27,140,70,0.2)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]`}
-                initial={{
-                  x: 0, // All start at center
-                  y: 0,
-                  rotate: index * 8 - 12, // Stagger rotations: -12°, -4°, 4°, 12°
-                  z: index * 15,
-                  scale: 0.8,
-                  opacity: 0.7
-                }}
-                animate={isInView ? {
-                  x: finalPositions[index].x,
-                  y: finalPositions[index].y,
-                  rotate: 0,
-                  z: 0,
-                  scale: 1,
-                  opacity: 1
-                } : {
-                  x: 0,
-                  y: 0,
-                  rotate: index * 8 - 12,
-                  z: index * 15,
-                  scale: 0.8,
-                  opacity: 0.7
-                }}
-                transition={{
-                  duration: 1.2,
-                  delay: index * 0.15,
-                  ease: [0.25, 0.4, 0.25, 1],
-                  type: "spring",
-                  stiffness: 80,
-                  damping: 15
-                }}
-                style={{
-                  top: '50%',
-                  left: '50%',
-                  transformOrigin: 'center center',
-                  perspective: 1000,
-                  transformStyle: "preserve-3d",
-                  zIndex: 20 - index,
-                  width: '300px' // Fixed width for consistent positioning
-                }}
-              >
+        <div ref={ref} id="why-choose-us-features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {featureCards.map((card, index) => (
+            <motion.div
+              key={index}
+              id={`why-choose-us-feature-card-${index}`}
+              className={`${card.height} rounded-2xl overflow-hidden border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(27,140,70,0.2)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative`}
+              initial={{
+                x: `calc(-50vw + 50%)`, // Start from center of viewport
+                y: `calc(-25vh + 25%)`,
+                rotate: index * 8 - 12, // Stagger rotations: -12°, -4°, 4°, 12°
+                z: index * 15,
+                scale: 0.8,
+                opacity: 0.7
+              }}
+              animate={isInView ? {
+                x: 0, // Move to natural grid position
+                y: 0,
+                rotate: 0,
+                z: 0,
+                scale: 1,
+                opacity: 1
+              } : {
+                x: `calc(-50vw + 50%)`,
+                y: `calc(-25vh + 25%)`,
+                rotate: index * 8 - 12,
+                z: index * 15,
+                scale: 0.8,
+                opacity: 0.7
+              }}
+              transition={{
+                duration: 1.2,
+                delay: index * 0.15,
+                ease: [0.25, 0.4, 0.25, 1],
+                type: "spring",
+                stiffness: 80,
+                damping: 15
+              }}
+              style={{
+                transformOrigin: 'center center',
+                perspective: 1000,
+                transformStyle: "preserve-3d",
+                zIndex: 20 - index
+              }}
+            >
               <CardContent id={`why-choose-us-feature-card-content-${index}`} className="p-0 h-full relative">
                 <div id={`why-choose-us-feature-content-${index}`} className="flex flex-col w-[266px] items-start gap-3 absolute top-6 left-6">
                   <h3 id={`why-choose-us-feature-title-${index}`} className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
