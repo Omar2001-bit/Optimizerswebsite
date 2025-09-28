@@ -177,13 +177,7 @@ export const ClientsResultsSection: React.FC = () => {
 
       <div className="relative px-4 mb-16 max-w-7xl mx-auto">
         {/* Stacked Carousel Content */}
-        <div 
-          className="relative h-[600px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-        >
+        <div className="relative h-[600px] flex items-center justify-center">
           {clientsData.map((client, index) => {
             const position = index - currentIndex;
             const isCenter = position === 0;
@@ -195,11 +189,15 @@ export const ClientsResultsSection: React.FC = () => {
               <Card
                 key={client.id}
                 onClick={() => !isCenter && !isDragging && goToSlide(index)}
-                className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-500 ease-in-out ${
-                  isCenter ? 'z-30 scale-100 opacity-100 cursor-grab' : 'z-10 scale-85 opacity-40 hover:opacity-60 cursor-pointer'
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
+                className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-500 ease-in-out select-none ${
+                  isCenter ? 'z-30 scale-100 opacity-100 cursor-grab active:cursor-grabbing' : 'z-10 scale-85 opacity-40 hover:opacity-60 cursor-pointer'
                 } ${isDragging ? 'transition-none' : ''}`}
                 style={{
-                  transform: `translateX(${(position * 180) + (isDragging ? dragDistance : 0)}px) scale(${isCenter ? 1 : 0.85})`,
+                  transform: `translateX(${(position * 280) + (isDragging ? dragDistance : 0)}px) scale(${isCenter ? 1 : 0.85})`,
                   zIndex: isCenter ? 30 : 20 - Math.abs(position)
                 }}
                 data-testid={`card-client-${client.id}`}
