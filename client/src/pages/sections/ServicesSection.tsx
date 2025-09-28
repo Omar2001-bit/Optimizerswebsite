@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -10,6 +11,7 @@ const servicesData = [
     topMask: "/figmaAssets/mask-group-2.svg",
     bottomMask: "/figmaAssets/mask-group-29.svg",
     position: "top-[216px] left-[calc(50.00%_-_688px)]",
+    animateFrom: { x: -200, y: 0 }, // comes from left
   },
   {
     title: "A/B Testing",
@@ -18,6 +20,7 @@ const servicesData = [
     topMask: "/figmaAssets/mask-group-18.svg",
     bottomMask: "/figmaAssets/mask-group-71.svg",
     position: "top-[216px] left-[calc(50.00%_+_258px)]",
+    animateFrom: { x: 200, y: -100 }, // comes from top-right
   },
   {
     title: "GA4 Implementation & Tracking",
@@ -27,6 +30,7 @@ const servicesData = [
     bottomMask: "/figmaAssets/mask-group-4.svg",
     position: "top-[404px] left-[calc(50.00%_+_258px)]",
     titleWidth: "w-[364px]",
+    animateFrom: { x: 200, y: 150 }, // comes from bottom-right
   },
   {
     title: "CRO Audits",
@@ -35,6 +39,7 @@ const servicesData = [
     topMask: "/figmaAssets/mask-group-23.svg",
     bottomMask: "/figmaAssets/mask-group-7.svg",
     position: "top-[404px] left-[calc(50.00%_-_688px)]",
+    animateFrom: { x: -200, y: 150 }, // comes from bottom-left
   },
   {
     title: "Landing Page Optimization",
@@ -43,6 +48,7 @@ const servicesData = [
     topMask: "/figmaAssets/mask-group-28.svg",
     bottomMask: "/figmaAssets/mask-group-14.svg",
     position: "top-[592px] left-[calc(50.00%_-_214px)]",
+    animateFrom: { x: 0, y: 200 }, // comes from bottom
   },
 ];
 
@@ -50,22 +56,27 @@ const backgroundFrames = [
   {
     className:
       "top-[210px] left-[628px] w-[166px] h-[166px] rounded-[10.19px] bg-[url(/figmaAssets/frame-37613.png)] bg-cover bg-[50%_50%]",
+    animateFrom: { x: 0, y: -300 }, // comes from top
   },
   {
     className:
       "top-[367px] left-[558px] w-[175px] h-[175px] rounded-[10.77px] border border-solid border-[#ffffff33] rotate-[17.91deg] [background:url(..//figmaAssets/frame-37614.png)_50%_50%_/_cover]",
+    animateFrom: { x: -250, y: 200 }, // comes from bottom-left
   },
   {
     className:
       "top-[262px] left-[534px] w-[178px] h-[178px] rounded-[10.98px] rotate-[-25.19deg] [background:url(..//figmaAssets/frame-37617.png)_50%_50%_/_cover]",
+    animateFrom: { x: -300, y: 0 }, // comes from left
   },
   {
     className:
       "top-[367px] left-[740px] w-[175px] h-[175px] rounded-[10.76px] rotate-[34.12deg] bg-[url(/figmaAssets/frame-37618.png)] bg-cover bg-[50%_50%]",
+    animateFrom: { x: 250, y: 200 }, // comes from bottom-right
   },
   {
     className:
       "top-[236px] left-[710px] w-[187px] h-[187px] rounded-[11.51px] rotate-[-11.61deg] bg-[url(/figmaAssets/frame-37616.png)] bg-cover bg-[50%_50%]",
+    animateFrom: { x: 300, y: -200 }, // comes from top-right
   },
 ];
 
@@ -73,10 +84,28 @@ export const ServicesSection = (): JSX.Element => {
   return (
     <section className="relative w-full min-h-[950px] bg-dark-mode900">
       {servicesData.map((service, index) => (
-        <Card
+        <motion.div
           key={index}
-          className={`flex flex-col w-[430px] items-start justify-center p-[9px] absolute ${service.position} bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08]`}
+          initial={{ 
+            x: service.animateFrom.x, 
+            y: service.animateFrom.y,
+            opacity: 0 
+          }}
+          animate={{ 
+            x: 0, 
+            y: 0,
+            opacity: 1 
+          }}
+          transition={{ 
+            duration: 0.8,
+            delay: index * 0.2,
+            ease: "easeOut"
+          }}
+          className={`absolute ${service.position}`}
         >
+          <Card
+            className={`flex flex-col w-[430px] items-start justify-center p-[9px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08]`}
+          >
           <CardContent className="flex flex-col items-center justify-center gap-4 p-6 relative self-stretch w-full flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
             <h3
               className={`relative ${service.titleWidth || "self-stretch"} mt-[-1.00px] font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]`}
@@ -101,6 +130,7 @@ export const ServicesSection = (): JSX.Element => {
             />
           </CardContent>
         </Card>
+        </motion.div>
       ))}
 
       <Button className="px-5 py-3.5 absolute top-[800px] left-[calc(50.00%_-_149px)] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded h-auto bg-transparent hover:bg-[#6ae49910]">
@@ -116,7 +146,27 @@ export const ServicesSection = (): JSX.Element => {
       </header>
 
       {backgroundFrames.map((frame, index) => (
-        <div key={index} className={`absolute ${frame.className}`} />
+        <motion.div
+          key={index}
+          initial={{ 
+            x: frame.animateFrom.x, 
+            y: frame.animateFrom.y,
+            opacity: 0,
+            scale: 0.5
+          }}
+          animate={{ 
+            x: 0, 
+            y: 0,
+            opacity: 1,
+            scale: 1
+          }}
+          transition={{ 
+            duration: 1,
+            delay: 0.5 + index * 0.15,
+            ease: "easeOut"
+          }}
+          className={`absolute ${frame.className}`}
+        />
       ))}
     </section>
   );
