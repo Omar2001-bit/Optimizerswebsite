@@ -71,9 +71,9 @@ export const DataTableSection = (): JSX.Element => {
       </div>
 
       <div className="flex flex-col w-full max-w-[1246px] items-start justify-center p-[9px] absolute top-[214px] left-1/2 transform -translate-x-1/2 bg-[#6ae49914] rounded-3xl overflow-hidden border-2 border-solid border-[#6ae4994c] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
-        <Card className="inline-flex flex-col items-center justify-center p-6 relative flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(2,6,1,0.4)_0%,rgba(2,6,1,0.4)_100%)] overflow-x-hidden">
-          <CardContent className="relative w-full max-w-[1176px] flex-[0_0_auto] rounded-lg overflow-x-hidden p-0">
-            <Table className="w-full overflow-x-hidden">
+        <Card className="inline-flex flex-col items-center justify-center p-6 relative flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(2,6,1,0.4)_0%,rgba(2,6,1,0.4)_100%)] overflow-hidden">
+          <CardContent className="relative w-full max-w-[1176px] flex-[0_0_auto] rounded-lg overflow-hidden p-0">
+            <Table className="w-full overflow-hidden">
               <TableHeader>
                 <TableRow className="shadow-[inset_0px_-1px_0px_#0a391c] border-0">
                   <TableHead className="w-[366px] h-[72px] p-4 bg-[#0b130e] text-left">
