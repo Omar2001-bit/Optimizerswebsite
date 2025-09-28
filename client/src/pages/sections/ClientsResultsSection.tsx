@@ -151,10 +151,11 @@ export const ClientsResultsSection: React.FC = () => {
     
     const threshold = 80;
     if (Math.abs(dragDistance) > threshold) {
+      // Reversed logic: moving left (negative) goes right (next), moving right (positive) goes left (prev)
       if (dragDistance > 0) {
-        prevSlide();
-      } else {
         nextSlide();
+      } else {
+        prevSlide();
       }
     }
     
@@ -181,9 +182,9 @@ export const ClientsResultsSection: React.FC = () => {
         </p>
       </div>
 
-      <div className="relative px-4 mb-16 max-w-7xl mx-auto">
+      <div className="relative px-4 mb-16 max-w-7xl mx-auto mt-12">
         {/* Stacked Carousel Content */}
-        <div className="relative h-[600px] flex items-center justify-center">
+        <div className="relative h-[600px] flex items-center justify-center overflow-x-auto scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
           {clientsData.map((client, index) => {
             const position = index - currentIndex;
             const isCenter = position === 0;
