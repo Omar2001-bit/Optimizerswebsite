@@ -1,4 +1,6 @@
 import React from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -73,8 +75,11 @@ const serviceCards = [
 ];
 
 export const WhatWeDoSection = (): JSX.Element => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id="section-what-we-do" className="w-full bg-dark-mode900 py-[100px] px-8">
+    <section ref={ref} id="section-what-we-do" className="w-full bg-dark-mode900 py-[100px] px-8">
       <div id="what-we-do-header" className="max-w-[870px] mx-auto flex flex-col items-center gap-6 mb-[76px]">
         <h1 id="what-we-do-title" className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
           What We Do
@@ -102,10 +107,21 @@ export const WhatWeDoSection = (): JSX.Element => {
 
       <div id="what-we-do-services-grid-1" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[16px]">
         {serviceCards.slice(0, 4).map((card, index) => (
-          <Card
+          <motion.div
             key={index}
             id={`what-we-do-card-${index}`}
             className="w-full bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
+            initial={{ rotateY: 90, opacity: 0 }}
+            animate={isInView ? { rotateY: 0, opacity: 1 } : { rotateY: 90, opacity: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: index * 0.15,
+              ease: [0.25, 0.4, 0.25, 1],
+            }}
+            style={{
+              perspective: 1000,
+              transformStyle: "preserve-3d",
+            }}
           >
             <CardContent
               className={`flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
@@ -136,15 +152,27 @@ export const WhatWeDoSection = (): JSX.Element => {
                 src={card.bottomMask}
               />
             </CardContent>
-          </Card>
+          </motion.div>
         ))}
       </div>
 
       <div id="what-we-do-services-grid-2" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[70px]">
         {serviceCards.slice(4, 8).map((card, index) => (
-          <Card
+          <motion.div
             key={index + 4}
+            id={`what-we-do-card-${index + 4}`}
             className="w-full bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
+            initial={{ rotateY: 90, opacity: 0 }}
+            animate={isInView ? { rotateY: 0, opacity: 1 } : { rotateY: 90, opacity: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: (index + 4) * 0.15, // Bottom row continues the staggered timing
+              ease: [0.25, 0.4, 0.25, 1],
+            }}
+            style={{
+              perspective: 1000,
+              transformStyle: "preserve-3d",
+            }}
           >
             <CardContent
               className={`flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
@@ -175,7 +203,7 @@ export const WhatWeDoSection = (): JSX.Element => {
                 src={card.bottomMask}
               />
             </CardContent>
-          </Card>
+          </motion.div>
         ))}
       </div>
 
