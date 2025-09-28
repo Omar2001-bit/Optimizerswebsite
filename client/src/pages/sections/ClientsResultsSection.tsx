@@ -130,20 +130,24 @@ export const ClientsResultsSection: React.FC = () => {
     setCurrentIndex(index);
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
+  const handleMouseDown = (e: React.MouseEvent, cardIndex: number) => {
+    // Only allow dragging on the center card
+    if (cardIndex !== currentIndex) return;
     setIsDragging(true);
     setDragStart(e.clientX);
     setDragDistance(0);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
+  const handleMouseMove = (e: React.MouseEvent, cardIndex: number) => {
+    // Only allow dragging on the center card
+    if (!isDragging || cardIndex !== currentIndex) return;
     const distance = e.clientX - dragStart;
     setDragDistance(distance);
   };
 
-  const handleMouseUp = () => {
-    if (!isDragging) return;
+  const handleMouseUp = (cardIndex: number) => {
+    // Only allow dragging on the center card
+    if (!isDragging || cardIndex !== currentIndex) return;
     
     const threshold = 80;
     if (Math.abs(dragDistance) > threshold) {
@@ -158,7 +162,9 @@ export const ClientsResultsSection: React.FC = () => {
     setDragDistance(0);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (cardIndex: number) => {
+    // Only allow dragging on the center card
+    if (cardIndex !== currentIndex) return;
     setIsDragging(false);
     setDragDistance(0);
   };
@@ -189,10 +195,10 @@ export const ClientsResultsSection: React.FC = () => {
               <Card
                 key={client.id}
                 onClick={() => !isCenter && !isDragging && goToSlide(index)}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseLeave}
+                onMouseDown={(e) => handleMouseDown(e, index)}
+                onMouseMove={(e) => handleMouseMove(e, index)}
+                onMouseUp={() => handleMouseUp(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
                 className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-500 ease-in-out select-none ${
                   isCenter 
                     ? 'scale-100 opacity-100 cursor-grab active:cursor-grabbing' 
