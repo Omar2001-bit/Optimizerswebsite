@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 export const WhyChooseUsSection = (): JSX.Element => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const featureCards = [
     {
@@ -115,27 +115,22 @@ export const WhyChooseUsSection = (): JSX.Element => {
 
         <div ref={ref} id="why-choose-us-features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 relative">
           {featureCards.map((card, index) => {
-            // Define initial stacked positions with 3D perspective - cards stacked in center
-            const stackedTransforms = [
-              { x: -30, y: -15, rotate: -12, z: 0 },   // Card 0: bottom left
-              { x: -15, y: -8, rotate: -6, z: 15 },   // Card 1: second from bottom
-              { x: 15, y: 8, rotate: 6, z: 30 },     // Card 2: second from top
-              { x: 30, y: 15, rotate: 12, z: 45 }     // Card 3: top right
-            ];
+            // All cards start stacked at the center with slight rotation differences
+            const stackedState = {
+              x: 0, // All cards start at same center position
+              y: 0, // All cards start at same center position
+              rotate: index * 3 - 4.5, // Slight rotation differences: -4.5, -1.5, 1.5, 4.5
+              z: index * 10, // Z-depth for stacking effect
+              scale: 0.7,
+              opacity: 0.6
+            };
 
             return (
               <motion.div
                 key={index}
                 id={`why-choose-us-feature-card-${index}`}
                 className={`${card.height} rounded-2xl overflow-hidden border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(27,140,70,0.2)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative`}
-                initial={{
-                  x: stackedTransforms[index].x,
-                  y: stackedTransforms[index].y,
-                  rotate: stackedTransforms[index].rotate,
-                  z: stackedTransforms[index].z,
-                  scale: 0.85,
-                  opacity: 0.8
-                }}
+                initial={stackedState}
                 animate={isInView ? {
                   x: 0,
                   y: 0,
@@ -143,25 +138,19 @@ export const WhyChooseUsSection = (): JSX.Element => {
                   z: 0,
                   scale: 1,
                   opacity: 1
-                } : {
-                  x: stackedTransforms[index].x,
-                  y: stackedTransforms[index].y,
-                  rotate: stackedTransforms[index].rotate,
-                  z: stackedTransforms[index].z,
-                  scale: 0.85,
-                  opacity: 0.8
-                }}
+                } : stackedState}
                 transition={{
-                  duration: 0.7,
-                  delay: index * 0.15,
+                  duration: 0.8,
+                  delay: index * 0.2,
                   ease: [0.25, 0.4, 0.25, 1],
                   type: "spring",
-                  stiffness: 120,
-                  damping: 20
+                  stiffness: 100,
+                  damping: 15
                 }}
                 style={{
                   perspective: 1000,
-                  transformStyle: "preserve-3d"
+                  transformStyle: "preserve-3d",
+                  zIndex: 10 - index // Higher z-index for bottom cards in stack
                 }}
               >
               <CardContent id={`why-choose-us-feature-card-content-${index}`} className="p-0 h-full relative">
