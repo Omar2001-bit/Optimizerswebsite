@@ -181,7 +181,7 @@ export const ClientsResultsSection: React.FC = () => {
         </p>
       </div>
 
-      <div className="relative px-4 mb-16 max-w-7xl mx-auto">
+      <div className="relative px-4 mb-16 max-w-7xl mx-auto top-[60px]">
         {/* Stacked Carousel Content */}
         <div className="relative h-[600px] flex items-center justify-center">
           {clientsData.map((client, index) => {
