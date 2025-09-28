@@ -113,7 +113,10 @@ const clientsData = [
 ];
 
 export const ClientsResultsSection: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(Math.floor(clientsData.length / 2));
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState(0);
+  const [dragDistance, setDragDistance] = useState(0);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % clientsData.length);
@@ -125,6 +128,39 @@ export const ClientsResultsSection: React.FC = () => {
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setDragStart(e.clientX);
+    setDragDistance(0);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    const distance = e.clientX - dragStart;
+    setDragDistance(distance);
+  };
+
+  const handleMouseUp = () => {
+    if (!isDragging) return;
+    
+    const threshold = 80;
+    if (Math.abs(dragDistance) > threshold) {
+      if (dragDistance > 0) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+    }
+    
+    setIsDragging(false);
+    setDragDistance(0);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setDragDistance(0);
   };
 
   return (
@@ -141,7 +177,13 @@ export const ClientsResultsSection: React.FC = () => {
 
       <div className="relative px-4 mb-16 max-w-7xl mx-auto">
         {/* Stacked Carousel Content */}
-        <div className="relative h-[600px] flex items-center justify-center">
+        <div 
+          className="relative h-[600px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+        >
           {clientsData.map((client, index) => {
             const position = index - currentIndex;
             const isCenter = position === 0;
@@ -152,12 +194,12 @@ export const ClientsResultsSection: React.FC = () => {
             return (
               <Card
                 key={client.id}
-                onClick={() => !isCenter && goToSlide(index)}
-                className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-500 ease-in-out cursor-pointer ${
-                  isCenter ? 'z-30 scale-100 opacity-100' : 'z-10 scale-90 opacity-70 hover:opacity-85'
-                }`}
+                onClick={() => !isCenter && !isDragging && goToSlide(index)}
+                className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-500 ease-in-out ${
+                  isCenter ? 'z-30 scale-100 opacity-100 cursor-grab' : 'z-10 scale-85 opacity-40 hover:opacity-60 cursor-pointer'
+                } ${isDragging ? 'transition-none' : ''}`}
                 style={{
-                  transform: `translateX(${position * 120}px) scale(${isCenter ? 1 : 0.9})`,
+                  transform: `translateX(${(position * 180) + (isDragging ? dragDistance : 0)}px) scale(${isCenter ? 1 : 0.85})`,
                   zIndex: isCenter ? 30 : 20 - Math.abs(position)
                 }}
                 data-testid={`card-client-${client.id}`}
