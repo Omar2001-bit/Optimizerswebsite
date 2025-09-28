@@ -74,17 +74,17 @@ const serviceCards = [
 
 export const WhatWeDoSection = (): JSX.Element => {
   return (
-    <section className="w-full bg-dark-mode900 py-[100px] px-8">
-      <div className="max-w-[870px] mx-auto flex flex-col items-center gap-6 mb-[76px]">
-        <h1 className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+    <section id="section-what-we-do" className="w-full bg-dark-mode900 py-[100px] px-8">
+      <div id="what-we-do-header" className="max-w-[870px] mx-auto flex flex-col items-center gap-6 mb-[76px]">
+        <h1 id="what-we-do-title" className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
           What We Do
         </h1>
 
-        <h2 className="font-heading-h1-small-semi-bold font-[number:var(--heading-h1-small-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-small-semi-bold-font-size)] text-center tracking-[var(--heading-h1-small-semi-bold-letter-spacing)] leading-[var(--heading-h1-small-semi-bold-line-height)] [font-style:var(--heading-h1-small-semi-bold-font-style)]">
+        <h2 id="what-we-do-subtitle" className="font-heading-h1-small-semi-bold font-[number:var(--heading-h1-small-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-small-semi-bold-font-size)] text-center tracking-[var(--heading-h1-small-semi-bold-letter-spacing)] leading-[var(--heading-h1-small-semi-bold-line-height)] [font-style:var(--heading-h1-small-semi-bold-font-style)]">
           Ongoing CRO Programs — The Engine of Growth
         </h2>
 
-        <p className="[font-family:'Sora',Helvetica] font-normal text-shadeswhite text-xl text-center tracking-[0] leading-5">
+        <p id="what-we-do-description" className="[font-family:'Sora',Helvetica] font-normal text-shadeswhite text-xl text-center tracking-[0] leading-5">
           <span className="leading-6">The biggest wins come from </span>
           <span className="font-[number:var(--subheading-semi-bold-font-weight)] leading-[var(--subheading-semi-bold-line-height)] font-subheading-semi-bold [font-style:var(--subheading-semi-bold-font-style)] tracking-[var(--subheading-semi-bold-letter-spacing)] text-[length:var(--subheading-semi-bold-font-size)]">
             a continuous cycle of research, testing, and improvement{" "}
@@ -100,10 +100,11 @@ export const WhatWeDoSection = (): JSX.Element => {
         </p>
       </div>
 
-      <div className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[16px]">
+      <div id="what-we-do-services-grid-1" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[16px]">
         {serviceCards.slice(0, 4).map((card, index) => (
           <Card
             key={index}
+            id={`what-we-do-card-${index}`}
             className="w-full bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
           >
             <CardContent
@@ -138,7 +139,7 @@ export const WhatWeDoSection = (): JSX.Element => {
         ))}
       </div>
 
-      <div className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[70px]">
+      <div id="what-we-do-services-grid-2" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[70px]">
         {serviceCards.slice(4, 8).map((card, index) => (
           <Card
             key={index + 4}
@@ -176,8 +177,8 @@ export const WhatWeDoSection = (): JSX.Element => {
         ))}
       </div>
 
-      <div className="flex justify-center">
-        <Button className="px-5 py-3.5 bg-secondary-500 text-neutral-900 font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] rounded h-auto hover:bg-secondary-400">
+      <div id="what-we-do-cta-section" className="flex justify-center">
+        <Button id="what-we-do-cta-button" className="px-5 py-3.5 bg-secondary-500 text-neutral-900 font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] rounded h-auto hover:bg-secondary-400">
           Talk to a CRO Expert
         </Button>
       </div>
