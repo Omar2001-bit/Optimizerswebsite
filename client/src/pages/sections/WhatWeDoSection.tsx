@@ -111,7 +111,7 @@ export const WhatWeDoSection = (): JSX.Element => {
               className="flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)]"
               style={{
                 background: card.backgroundImage
-                  ? `linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), ${card.backgroundImage} 50% 50% / cover, radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)`
+                  ? `${card.backgroundImage} 50% 50% / cover, radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)`
                   : "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
               }}
             >
@@ -127,12 +127,14 @@ export const WhatWeDoSection = (): JSX.Element => {
                 className="absolute top-0 right-[57px] w-[180px] h-2"
                 alt="Mask group"
                 src={card.topMask}
+                style={{ opacity: 0.3 }}
               />
 
               <img
                 className="absolute left-[57px] bottom-[-7px] w-[180px] h-2"
                 alt="Mask group"
                 src={card.bottomMask}
+                style={{ opacity: 0.3 }}
               />
             </CardContent>
           </Card>
@@ -149,7 +151,7 @@ export const WhatWeDoSection = (): JSX.Element => {
               className="flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)]"
               style={{
                 background: card.backgroundImage
-                  ? `linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), ${card.backgroundImage} 50% 50% / cover, radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)`
+                  ? `${card.backgroundImage} 50% 50% / cover, radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)`
                   : "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
               }}
             >
@@ -165,12 +167,14 @@ export const WhatWeDoSection = (): JSX.Element => {
                 className="absolute top-0 right-[57px] w-[180px] h-2"
                 alt="Mask group"
                 src={card.topMask}
+                style={{ opacity: 0.3 }}
               />
 
               <img
                 className="absolute left-[57px] bottom-[-7px] w-[180px] h-2"
                 alt="Mask group"
                 src={card.bottomMask}
+                style={{ opacity: 0.3 }}
               />
             </CardContent>
           </Card>
