@@ -100,14 +100,14 @@ export const WhatWeDoSection = (): JSX.Element => {
         </p>
       </div>
 
-      <div className="max-w-[1376px] mx-auto flex flex-wrap justify-center gap-4 mb-[16px]">
+      <div className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[16px]">
         {serviceCards.slice(0, 4).map((card, index) => (
           <Card
             key={index}
-            className="flex-shrink-0 bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
+            className="w-full bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
           >
             <CardContent
-              className="flex flex-col items-center justify-center gap-4 p-6 relative rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] min-w-[280px] max-w-[320px]"
+              className="flex flex-col items-center justify-center gap-4 p-6 relative w-full h-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)]"
               style={{
                 background: "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
               }}
@@ -147,14 +147,14 @@ export const WhatWeDoSection = (): JSX.Element => {
         ))}
       </div>
 
-      <div className="max-w-[1376px] mx-auto flex flex-wrap justify-center gap-4 mb-[70px]">
+      <div className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[70px]">
         {serviceCards.slice(4, 8).map((card, index) => (
           <Card
             key={index + 4}
-            className="flex-shrink-0 bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
+            className="w-full bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
           >
             <CardContent
-              className="flex flex-col items-center justify-center gap-4 p-6 relative rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] min-w-[280px] max-w-[320px]"
+              className="flex flex-col items-center justify-center gap-4 p-6 relative w-full h-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)]"
               style={{
                 background: "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
               }}
