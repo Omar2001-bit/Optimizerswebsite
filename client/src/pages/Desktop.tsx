@@ -109,9 +109,6 @@ export const Desktop = (): JSX.Element => {
 
       <HeroSection />
 
-      <div className="relative w-full flex justify-center mt-[297px]">
-        <div className="w-[806px] h-[658px] bg-[url(/figmaAssets/q-44e26a19-png.png)] bg-cover bg-[50%_50%]" />
-      </div>
 
       <div className="relative w-full flex justify-center mt-[-105px]">
         <div className="w-[806px] h-[579px] bg-[url(/figmaAssets/q-44e26a19-png-1.png)] bg-cover bg-[50%_50%]" />
