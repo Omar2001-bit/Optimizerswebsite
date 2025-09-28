@@ -83,7 +83,7 @@ const backgroundFrames = [
 
 export const ServicesSection = (): JSX.Element => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.7 });
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
     <section id="section-services" ref={ref} className="relative w-full min-h-[950px] bg-dark-mode900">

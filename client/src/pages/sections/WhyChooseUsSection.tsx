@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 export const WhyChooseUsSection = (): JSX.Element => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.7 });
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   const featureCards = [
     {
