@@ -86,10 +86,11 @@ export const ServicesSection = (): JSX.Element => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="relative w-full min-h-[950px] bg-dark-mode900">
+    <section id="section-services" ref={ref} className="relative w-full min-h-[950px] bg-dark-mode900">
       {servicesData.map((service, index) => (
         <motion.div
           key={index}
+          id={`service-card-wrapper-${index}`}
           initial={{ 
             x: service.animateFrom.x, 
             y: service.animateFrom.y,
@@ -112,26 +113,30 @@ export const ServicesSection = (): JSX.Element => {
           className={`absolute ${service.position}`}
         >
           <Card
+            id={`service-card-${index}`}
             className={`flex flex-col w-[430px] items-start justify-center p-[9px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08]`}
           >
-          <CardContent className="flex flex-col items-center justify-center gap-4 p-6 relative self-stretch w-full flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
+          <CardContent id={`service-card-content-${index}`} className="flex flex-col items-center justify-center gap-4 p-6 relative self-stretch w-full flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
             <h3
+              id={`service-title-${index}`}
               className={`relative ${service.titleWidth || "self-stretch"} mt-[-1.00px] font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]`}
             >
               {service.title}
             </h3>
 
-            <p className="relative self-stretch font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
+            <p id={`service-description-${index}`} className="relative self-stretch font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
               {service.description}
             </p>
 
             <img
+              id={`service-top-mask-${index}`}
               className="absolute top-0 right-[57px] w-[180px] h-2"
               alt="Mask group"
               src={service.topMask}
             />
 
             <img
+              id={`service-bottom-mask-${index}`}
               className="absolute left-[57px] bottom-[-7px] w-[180px] h-2"
               alt="Mask group"
               src={service.bottomMask}
@@ -141,14 +146,14 @@ export const ServicesSection = (): JSX.Element => {
         </motion.div>
       ))}
 
-      <Button className="px-5 py-3.5 absolute top-[800px] left-[calc(50.00%_-_149px)] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded h-auto bg-transparent hover:bg-[#6ae49910]">
-        <span className="font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-500 text-[length:var(--paragraph-p3-semi-bold-font-size)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap relative w-fit mt-[-1.00px] font-paragraph-p3-semi-bold tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+      <Button id="services-cta-button" className="px-5 py-3.5 absolute top-[800px] left-[calc(50.00%_-_149px)] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded h-auto bg-transparent hover:bg-[#6ae49910]">
+        <span id="services-cta-button-text" className="font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-500 text-[length:var(--paragraph-p3-semi-bold-font-size)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap relative w-fit mt-[-1.00px] font-paragraph-p3-semi-bold tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
           See How Our Process Works
         </span>
       </Button>
 
-      <header className="flex w-[870px] items-center absolute top-[100px] left-[calc(50.00%_-_434px)] flex-col gap-6">
-        <h1 className="relative self-stretch mt-[-1.00px] font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+      <header id="services-header" className="flex w-[870px] items-center absolute top-[100px] left-[calc(50.00%_-_434px)] flex-col gap-6">
+        <h1 id="services-title" className="relative self-stretch mt-[-1.00px] font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
           Our Services
         </h1>
       </header>
@@ -156,6 +161,7 @@ export const ServicesSection = (): JSX.Element => {
       {backgroundFrames.map((frame, index) => (
         <motion.div
           key={index}
+          id={`services-bg-frame-${index}`}
           initial={{ 
             x: frame.animateFrom.x, 
             y: frame.animateFrom.y,
