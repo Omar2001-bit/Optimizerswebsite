@@ -261,9 +261,9 @@ export const ClientsResultsSection: React.FC = () => {
                 alt="Mask group"
                 src={client.maskImage2}
               />
-                </CardContent>
-              </Card>
-            );
+            </CardContent>
+          </Card>
+        );
           })}
         </div>
       </div>
