@@ -306,7 +306,7 @@ NEW
 <img
                                 className="w-12 h-12"
                                 alt="Background overlay"
-                                src={index === 0 ? "/figmaAssets/background-overlay-border-overlayblur-10.svg" : "/figmaAssets/background-overlay-border-overlayblur-11.svg"
+                                src={index === 0 ? "/figmaAssets/background-overlay-border-overlayblur-10.svg" : "/figmaAssets/background-overlay-border-overlayblur-11.svg"}
                               />
 </div>
 </div>
