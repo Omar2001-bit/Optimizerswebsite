@@ -170,20 +170,20 @@ export const ClientsResultsSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-dark-mode900 overflow-hidden py-24">
-      <div className="flex flex-col items-center gap-6 mb-16 px-4">
-        <h1 className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+    <section id="section-clients-results" className="w-full bg-dark-mode900 overflow-hidden py-24">
+      <div id="clients-results-header" className="flex flex-col items-center gap-6 mb-16 px-4">
+        <h1 id="clients-results-title" className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
           TOP CLIENTS & RESULTS
         </h1>
-        <p className="max-w-[770px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] text-center tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+        <p id="clients-results-description" className="max-w-[770px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] text-center tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
           See how we&apos;ve helped leading e-commerce brands increase
           conversions, revenue, and customer loyalty through CRO.
         </p>
       </div>
 
-      <div className="relative px-4 mb-16 max-w-7xl mx-auto">
+      <div id="carousel-container" className="relative px-4 mb-16 max-w-7xl mx-auto">
         {/* Stacked Carousel Content */}
-        <div className="relative h-[600px] flex items-center justify-center">
+        <div id="carousel-wrapper" className="relative h-[600px] flex items-center justify-center">
           {clientsData.map((client, index) => {
             const position = index - currentIndex;
             const isCenter = position === 0;
@@ -194,6 +194,7 @@ export const ClientsResultsSection: React.FC = () => {
             return (
               <Card
                 key={client.id}
+                id={`client-card-${client.id}`}
                 onClick={() => !isCenter && !isDragging && goToSlide(index)}
                 onMouseDown={(e) => handleMouseDown(e, index)}
                 onMouseMove={(e) => handleMouseMove(e, index)}
@@ -214,85 +215,88 @@ export const ClientsResultsSection: React.FC = () => {
                 }}
                 data-testid={`card-client-${client.id}`}
               >
-            <CardContent className="p-3">
-              <div className="flex flex-col items-start justify-center gap-5 px-6 py-8 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
-                <div className="flex flex-col h-[284px] items-center justify-center gap-6 p-6 w-full rounded-xl overflow-hidden border-[none] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(176,241,201,0.3)_0%,rgba(6,35,17,1)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-xl before:[background:linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(59,126,85,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none relative">
-                  <div className="flex items-center gap-4 w-full">
+            <CardContent id={`card-content-${client.id}`} className="p-3">
+              <div id={`card-inner-content-${client.id}`} className="flex flex-col items-start justify-center gap-5 px-6 py-8 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
+                <div id={`client-profile-section-${client.id}`} className="flex flex-col h-[284px] items-center justify-center gap-6 p-6 w-full rounded-xl overflow-hidden border-[none] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(176,241,201,0.3)_0%,rgba(6,35,17,1)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-xl before:[background:linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(59,126,85,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none relative">
+                  <div id={`client-header-${client.id}`} className="flex items-center gap-4 w-full">
                     <img
+                      id={`client-profile-image-${client.id}`}
                       className="w-20 h-20 object-cover rounded-full"
                       alt="Profile photo"
                       src={client.profileImage}
                     />
-                    <div className="flex flex-col items-start gap-3 flex-1">
-                      <h3 className="font-heading-h4-semi-bold font-[number:var(--heading-h4-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h4-semi-bold-font-size)] tracking-[var(--heading-h4-semi-bold-letter-spacing)] leading-[var(--heading-h4-semi-bold-line-height)] [font-style:var(--heading-h4-semi-bold-font-style)]">
+                    <div id={`client-info-${client.id}`} className="flex flex-col items-start gap-3 flex-1">
+                      <h3 id={`client-name-${client.id}`} className="font-heading-h4-semi-bold font-[number:var(--heading-h4-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h4-semi-bold-font-size)] tracking-[var(--heading-h4-semi-bold-letter-spacing)] leading-[var(--heading-h4-semi-bold-line-height)] [font-style:var(--heading-h4-semi-bold-font-style)]">
                         {client.name}
                       </h3>
-                      <Badge className="bg-[#6ae49926] text-secondary-300 border-none px-3 py-1.5 rounded-[100px]">
-                        <span className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
+                      <Badge id={`client-industry-badge-${client.id}`} className="bg-[#6ae49926] text-secondary-300 border-none px-3 py-1.5 rounded-[100px]">
+                        <span id={`client-industry-text-${client.id}`} className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
                           {client.industry}
                         </span>
                       </Badge>
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-5 w-full">
-                    <p className="font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+                  <div id={`client-description-section-${client.id}`} className="flex flex-col gap-5 w-full">
+                    <p id={`client-description-${client.id}`} className="font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
                       {client.description}
                     </p>
-                    <div className="flex items-center gap-2">
+                    <div id={`client-market-info-${client.id}`} className="flex items-center gap-2">
                       <img
+                        id={`client-flag-${client.id}`}
                         className="w-10 h-10"
                         alt="Country flag"
                         src={client.flagImage}
                       />
-                      <span className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+                      <span id={`client-market-${client.id}`} className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
                         {client.market}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-3 w-full">
-                  <Card className="bg-transparent border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-                    <CardContent className="flex flex-col items-center justify-center gap-3 p-6">
-                      <h4 className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
+                <div id={`client-details-cards-${client.id}`} className="flex flex-col gap-3 w-full">
+                  <Card id={`client-goal-card-${client.id}`} className="bg-transparent border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
+                    <CardContent id={`client-goal-content-${client.id}`} className="flex flex-col items-center justify-center gap-3 p-6">
+                      <h4 id={`client-goal-title-${client.id}`} className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
                         Our Goal:
                       </h4>
-                      <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+                      <p id={`client-goal-text-${client.id}`} className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
                         {client.goal}
                       </p>
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-transparent border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-                    <CardContent className="flex flex-col items-center justify-center gap-3 p-6">
-                      <h4 className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
+                  <Card id={`client-improvements-card-${client.id}`} className="bg-transparent border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
+                    <CardContent id={`client-improvements-content-${client.id}`} className="flex flex-col items-center justify-center gap-3 p-6">
+                      <h4 id={`client-improvements-title-${client.id}`} className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
                         Areas of Improvement:
                       </h4>
-                      <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+                      <p id={`client-improvements-text-${client.id}`} className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
                         {client.improvements}
                       </p>
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-transparent border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-                    <CardContent className="flex flex-col items-center justify-center gap-3 p-6">
-                      <h4 className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
+                  <Card id={`client-results-card-${client.id}`} className="bg-transparent border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
+                    <CardContent id={`client-results-content-${client.id}`} className="flex flex-col items-center justify-center gap-3 p-6">
+                      <h4 id={`client-results-title-${client.id}`} className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
                         Results:
                       </h4>
-                      <div className="flex flex-col gap-2 w-full">
+                      <div id={`client-results-list-${client.id}`} className="flex flex-col gap-2 w-full">
                         {client.results.map((result, index) => (
                           <div
                             key={index}
+                            id={`client-result-item-${client.id}-${index}`}
                             className="[font-family:'Sora',Helvetica] font-normal text-shadeswhite text-lg tracking-[0] leading-[18px]"
                           >
-                            <span className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[#6ae499] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+                            <span id={`client-result-percentage-${client.id}-${index}`} className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[#6ae499] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
                               {result.percentage}
                             </span>
                             <span className="text-white leading-[21.6px]">
                               &nbsp;&nbsp;
                             </span>
-                            <span className="text-white font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
+                            <span id={`client-result-metric-${client.id}-${index}`} className="text-white font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
                               {result.metric}
                             </span>
                           </div>
@@ -304,11 +308,13 @@ export const ClientsResultsSection: React.FC = () => {
               </div>
 
               <img
+                id={`client-mask-image-1-${client.id}`}
                 className="absolute top-0 right-3 w-[308px] h-2"
                 alt="Mask group"
                 src={client.maskImage1}
               />
               <img
+                id={`client-mask-image-2-${client.id}`}
                 className="absolute top-[-1274px] right-[6271px] w-[308px] h-2"
                 alt="Mask group"
                 src={client.maskImage2}
@@ -320,12 +326,12 @@ export const ClientsResultsSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-8 px-4">
-        <h2 className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-white text-[length:var(--subheading-semi-bold-font-size)] text-center tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
+      <div id="clients-results-cta-section" className="flex flex-col items-center justify-center gap-8 px-4">
+        <h2 id="clients-results-cta-title" className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-white text-[length:var(--subheading-semi-bold-font-size)] text-center tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
           Ready to be our next success story?
         </h2>
-        <Button className="h-auto bg-secondary-500 text-neutral-900 px-5 py-3.5 rounded hover:bg-secondary-400 transition-colors">
-          <span className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+        <Button id="clients-results-cta-button" className="h-auto bg-secondary-500 text-neutral-900 px-5 py-3.5 rounded hover:bg-secondary-400 transition-colors">
+          <span id="clients-results-cta-button-text" className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
             Book Your Free Consultation
           </span>
         </Button>
