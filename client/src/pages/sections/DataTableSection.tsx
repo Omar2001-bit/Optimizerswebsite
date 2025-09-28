@@ -15,7 +15,7 @@ import {
 export const DataTableSection = (): JSX.Element => {
   const gridItems = Array.from({ length: 234 }, (_, index) => index);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, amount: 0.7 });
 
   const tableData = [
     {

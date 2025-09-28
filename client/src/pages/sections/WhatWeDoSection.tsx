@@ -76,7 +76,7 @@ const serviceCards = [
 
 export const WhatWeDoSection = (): JSX.Element => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, amount: 0.7 });
 
   return (
     <section ref={ref} id="section-what-we-do" className="w-full bg-dark-mode900 py-[100px] px-8">
