@@ -194,11 +194,17 @@ export const ClientsResultsSection: React.FC = () => {
                 onMouseUp={handleMouseUp}
                 onMouseLeave={handleMouseLeave}
                 className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-500 ease-in-out select-none ${
-                  isCenter ? 'z-30 scale-100 opacity-100 cursor-grab active:cursor-grabbing' : 'z-10 scale-85 opacity-40 hover:opacity-60 cursor-pointer'
+                  isCenter 
+                    ? 'scale-100 opacity-100 cursor-grab active:cursor-grabbing' 
+                    : Math.abs(position) === 1 
+                      ? 'scale-90 opacity-60 hover:opacity-75 cursor-pointer' 
+                      : 'scale-80 opacity-30 hover:opacity-50 cursor-pointer'
                 } ${isDragging ? 'transition-none' : ''}`}
                 style={{
-                  transform: `translateX(${(position * 280) + (isDragging ? dragDistance : 0)}px) scale(${isCenter ? 1 : 0.85})`,
-                  zIndex: isCenter ? 30 : 20 - Math.abs(position)
+                  transform: `translateX(${(position * 280) + (isDragging ? dragDistance : 0)}px) scale(${
+                    isCenter ? 1 : Math.abs(position) === 1 ? 0.9 : 0.8
+                  })`,
+                  zIndex: isCenter ? 50 : Math.abs(position) === 1 ? 40 : 30
                 }}
                 data-testid={`card-client-${client.id}`}
               >
