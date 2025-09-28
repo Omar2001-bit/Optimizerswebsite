@@ -197,9 +197,8 @@ export const WhyChooseUsSection = (): JSX.Element => {
                   src={card.bottomMask}
                 />
               </CardContent>
-              </motion.div>
-            );
-          })}
+            </motion.div>
+          ))}
         </div>
 
         <div id="why-choose-us-cta-section" className="flex justify-center">
