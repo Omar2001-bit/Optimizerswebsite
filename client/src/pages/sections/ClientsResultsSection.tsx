@@ -1,14 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const clientsData = [
   {
@@ -118,7 +112,24 @@ const clientsData = [
   },
 ];
 
-export const ClientsResultsSection = (): JSX.Element => {
+export const ClientsResultsSection: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(clientsData.length / itemsPerPage);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
+  const getCurrentItems = () => {
+    const start = currentIndex * itemsPerPage;
+    return clientsData.slice(start, start + itemsPerPage);
+  };
+
   return (
     <section className="w-full bg-dark-mode900 overflow-hidden py-24">
       <div className="flex flex-col items-center gap-6 mb-16 px-4">
@@ -131,20 +142,50 @@ export const ClientsResultsSection = (): JSX.Element => {
         </p>
       </div>
 
-      <div className="relative px-4 mb-16">
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-7xl mx-auto"
-        >
-          <CarouselContent className="-ml-4">
-            {clientsData.map((client) => (
-              <CarouselItem key={client.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <Card
-                  className={`w-full bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden`}
-                >
+      <div className="relative px-4 mb-16 max-w-7xl mx-auto">
+        {/* Carousel Navigation */}
+        <div className="flex items-center justify-between mb-8">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={prevSlide}
+            className="h-10 w-10 rounded-full bg-dark-mode800 border-[#6ae49933] text-white hover:bg-dark-mode700"
+            data-testid="button-prev-clients"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          
+          <div className="flex gap-2">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  i === currentIndex ? 'bg-secondary-500' : 'bg-dark-mode600'
+                }`}
+                data-testid={`button-dot-${i}`}
+              />
+            ))}
+          </div>
+          
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={nextSlide}
+            className="h-10 w-10 rounded-full bg-dark-mode800 border-[#6ae49933] text-white hover:bg-dark-mode700"
+            data-testid="button-next-clients"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </div>
+
+        {/* Carousel Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {getCurrentItems().map((client) => (
+            <Card
+              key={client.id}
+              className={`w-full bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden`}
+            >
             <CardContent className="p-3">
               <div className="flex flex-col items-start justify-center gap-5 px-6 py-8 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
                 <div className="flex flex-col h-[284px] items-center justify-center gap-6 p-6 w-full rounded-xl overflow-hidden border-[none] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(176,241,201,0.3)_0%,rgba(6,35,17,1)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-xl before:[background:linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(59,126,85,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none relative">
@@ -245,13 +286,9 @@ export const ClientsResultsSection = (): JSX.Element => {
                 src={client.maskImage2}
               />
             </CardContent>
-          </Card>
-        </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+            </Card>
+          ))}
+        </div>
       </div>
 
       <div className="flex flex-col items-center justify-center gap-8 px-4">
