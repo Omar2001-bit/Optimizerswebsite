@@ -110,9 +110,6 @@ export const Desktop = (): JSX.Element => {
       <HeroSection />
 
 
-      <div className="relative w-full flex justify-center mt-[-105px]">
-        <div className="w-[806px] h-[579px] bg-[url(/figmaAssets/q-44e26a19-png-1.png)] bg-cover bg-[50%_50%]" />
-      </div>
 
       <section className="flex flex-col w-[1144px] items-start justify-center p-[9px] relative mx-auto mt-[157px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#6ae49933] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
         <div className="flex flex-col items-center justify-center gap-6 px-5 py-6 relative self-stretch w-full flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.5)_100%)]">

@@ -2,6 +2,13 @@ import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const clientsData = [
   {
@@ -124,12 +131,20 @@ export const ClientsResultsSection = (): JSX.Element => {
         </p>
       </div>
 
-      <div className="relative flex flex-wrap justify-center gap-8 px-4 mb-16">
-        {clientsData.map((client) => (
-          <Card
-            key={client.id}
-            className={`w-full max-w-[480px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden ${client.opacity} ${client.blur}`}
-          >
+      <div className="relative px-4 mb-16">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-7xl mx-auto"
+        >
+          <CarouselContent className="-ml-4">
+            {clientsData.map((client) => (
+              <CarouselItem key={client.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <Card
+                  className={`w-full bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden`}
+                >
             <CardContent className="p-3">
               <div className="flex flex-col items-start justify-center gap-5 px-6 py-8 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
                 <div className="flex flex-col h-[284px] items-center justify-center gap-6 p-6 w-full rounded-xl overflow-hidden border-[none] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(176,241,201,0.3)_0%,rgba(6,35,17,1)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-xl before:[background:linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(59,126,85,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none relative">
@@ -231,7 +246,12 @@ export const ClientsResultsSection = (): JSX.Element => {
               />
             </CardContent>
           </Card>
-        ))}
+        </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
 
       <div className="flex flex-col items-center justify-center gap-8 px-4">
