@@ -151,11 +151,10 @@ export const ClientsResultsSection: React.FC = () => {
     
     const threshold = 80;
     if (Math.abs(dragDistance) > threshold) {
-      // Reversed logic: moving left (negative) goes right (next), moving right (positive) goes left (prev)
       if (dragDistance > 0) {
-        nextSlide();
-      } else {
         prevSlide();
+      } else {
+        nextSlide();
       }
     }
     
