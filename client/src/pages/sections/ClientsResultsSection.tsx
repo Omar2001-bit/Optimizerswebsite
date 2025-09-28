@@ -181,9 +181,9 @@ export const ClientsResultsSection: React.FC = () => {
         </p>
       </div>
 
-      <div className="relative px-4 mb-16 max-w-7xl mx-auto mt-12">
+      <div className="relative px-4 mb-16 max-w-7xl mx-auto">
         {/* Stacked Carousel Content */}
-        <div className="relative h-[600px] flex items-center justify-center overflow-x-auto scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
+        <div className="relative h-[600px] flex items-center justify-center">
           {clientsData.map((client, index) => {
             const position = index - currentIndex;
             const isCenter = position === 0;

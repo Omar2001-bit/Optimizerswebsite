@@ -110,29 +110,26 @@ export const WhatWeDoSection = (): JSX.Element => {
               className="flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)]"
               style={{
                 background: card.backgroundImage
-                  ? `linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7) 100%), ${card.backgroundImage} 50% 50% / cover, radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)`
+                  ? `${card.backgroundImage} 50% 50% / cover, radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)`
                   : "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
               }}
             >
-              {/* White overlay on top of background image but below text */}
-              <div className="absolute inset-0 bg-white opacity-5 rounded-2xl z-0"></div>
-              
-              <h3 className="relative z-10 font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
+              <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
                 {card.title}
               </h3>
 
-              <p className="relative z-10 font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+              <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
                 {card.description}
               </p>
 
               <img
-                className="absolute top-0 right-[57px] w-[180px] h-2 opacity-30 z-20"
+                className="absolute top-0 right-[57px] w-[180px] h-2"
                 alt="Mask group"
                 src={card.topMask}
               />
 
               <img
-                className="absolute left-[57px] bottom-[-7px] w-[180px] h-2 opacity-30 z-20"
+                className="absolute left-[57px] bottom-[-7px] w-[180px] h-2"
                 alt="Mask group"
                 src={card.bottomMask}
               />
@@ -151,29 +148,26 @@ export const WhatWeDoSection = (): JSX.Element => {
               className="flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)]"
               style={{
                 background: card.backgroundImage
-                  ? `linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7) 100%), ${card.backgroundImage} 50% 50% / cover, radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)`
+                  ? `${card.backgroundImage} 50% 50% / cover, radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)`
                   : "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
               }}
             >
-              {/* White overlay on top of background image but below text */}
-              <div className="absolute inset-0 bg-white opacity-5 rounded-2xl z-0"></div>
-              
-              <h3 className="relative z-10 font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
+              <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
                 {card.title}
               </h3>
 
-              <p className="relative z-10 font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+              <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
                 {card.description}
               </p>
 
               <img
-                className="absolute top-0 right-[57px] w-[180px] h-2 opacity-30 z-20"
+                className="absolute top-0 right-[57px] w-[180px] h-2"
                 alt="Mask group"
                 src={card.topMask}
               />
 
               <img
-                className="absolute left-[57px] bottom-[-7px] w-[180px] h-2 opacity-30 z-20"
+                className="absolute left-[57px] bottom-[-7px] w-[180px] h-2"
                 alt="Mask group"
                 src={card.bottomMask}
               />

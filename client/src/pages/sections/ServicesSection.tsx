@@ -1,5 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -81,8 +82,11 @@ const backgroundFrames = [
 ];
 
 export const ServicesSection = (): JSX.Element => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section className="relative w-full min-h-[950px] bg-dark-mode900">
+    <section ref={ref} className="relative w-full min-h-[950px] bg-dark-mode900">
       {servicesData.map((service, index) => (
         <motion.div
           key={index}
@@ -91,10 +95,14 @@ export const ServicesSection = (): JSX.Element => {
             y: service.animateFrom.y,
             opacity: 0 
           }}
-          animate={{ 
+          animate={isInView ? { 
             x: 0, 
             y: 0,
             opacity: 1 
+          } : {
+            x: service.animateFrom.x, 
+            y: service.animateFrom.y,
+            opacity: 0 
           }}
           transition={{ 
             duration: 0.8,
@@ -154,11 +162,16 @@ export const ServicesSection = (): JSX.Element => {
             opacity: 0,
             scale: 0.5
           }}
-          animate={{ 
+          animate={isInView ? { 
             x: 0, 
             y: 0,
             opacity: 1,
             scale: 1
+          } : {
+            x: frame.animateFrom.x, 
+            y: frame.animateFrom.y,
+            opacity: 0,
+            scale: 0.5
           }}
           transition={{ 
             duration: 1,
