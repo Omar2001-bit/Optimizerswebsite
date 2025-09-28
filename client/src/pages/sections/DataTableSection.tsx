@@ -1,5 +1,7 @@
 import { CheckIcon, XIcon } from "lucide-react";
 import React from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Table,
@@ -12,6 +14,8 @@ import {
 
 export const DataTableSection = (): JSX.Element => {
   const gridItems = Array.from({ length: 234 }, (_, index) => index);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const tableData = [
     {
@@ -53,7 +57,7 @@ export const DataTableSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="relative w-full min-h-[790px] bg-dark-mode900 overflow-hidden">
+    <section ref={ref} className="relative w-full min-h-[790px] bg-dark-mode900 overflow-hidden">
       <div className="flex flex-wrap w-full items-center gap-0 absolute top-0 left-0">
         {gridItems.map((index) => (
           <div key={index} className="relative w-20 h-20" />
@@ -95,11 +99,23 @@ export const DataTableSection = (): JSX.Element => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {tableData.map((row, index) => (
-                  <TableRow
-                    key={index}
-                    className={`shadow-[inset_0px_-1px_0px_#0a391c] border-0 ${index === tableData.length - 1 ? "shadow-none" : ""}`}
-                  >
+                {tableData.map((row, index) => {
+                  // Alternating animation: even rows from left, odd rows from right
+                  const animateFrom = index % 2 === 0 ? { x: -300, opacity: 0 } : { x: 300, opacity: 0 };
+                  const animateTo = { x: 0, opacity: 1 };
+                  
+                  return (
+                    <motion.tr
+                      key={index}
+                      className={`shadow-[inset_0px_-1px_0px_#0a391c] border-0 ${index === tableData.length - 1 ? "shadow-none" : ""}`}
+                      initial={animateFrom}
+                      animate={isInView ? animateTo : animateFrom}
+                      transition={{
+                        duration: 0.8,
+                        delay: index * 0.15,
+                        ease: [0.25, 0.4, 0.25, 1],
+                      }}
+                    >
                     <TableCell className="w-[366px] h-14 p-4 bg-[#0b130e] align-top">
                       <div className="mt-[-1.00px] font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] whitespace-nowrap [font-style:var(--paragraph-p2-regular-font-style)]">
                         {row.feature}
@@ -126,8 +142,9 @@ export const DataTableSection = (): JSX.Element => {
                         <XIcon className="w-6 h-6 mx-auto text-red-500" />
                       )}
                     </TableCell>
-                  </TableRow>
-                ))}
+                  </motion.tr>
+                );
+                })}
               </TableBody>
             </Table>
           </CardContent>
