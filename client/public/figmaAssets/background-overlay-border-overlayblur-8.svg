@@ -1,0 +1,19 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-6.6" y="-6.6" width="61.2" height="61.2"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(3.3px);clip-path:url(#bgblur_0_464_32653_clip_path);height:100%;width:100%"></div></foreignObject><g data-figma-bg-blur-radius="6.6">
+<rect width="48" height="48" rx="4" fill="white" fill-opacity="0.1"/>
+<rect width="48" height="48" rx="4" fill="url(#paint0_radial_464_32653)"/>
+<rect x="0.25" y="0.25" width="47.5" height="47.5" rx="3.75" stroke="url(#paint1_linear_464_32653)" stroke-opacity="0.2" stroke-width="0.5"/>
+<path d="M31.11 24.8874H16.89C16.6433 24.8874 16.4333 24.8008 16.26 24.6274C16.0867 24.4541 16 24.2441 16 23.9974C16 23.7441 16.0867 23.5341 16.26 23.3674C16.4333 23.1941 16.6433 23.1074 16.89 23.1074H31.11C31.3567 23.1074 31.5667 23.1941 31.74 23.3674C31.9133 23.5341 32 23.7441 32 23.9974C32 24.2441 31.9133 24.4541 31.74 24.6274C31.5667 24.8008 31.3567 24.8874 31.11 24.8874Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="bgblur_0_464_32653_clip_path" transform="translate(6.6 6.6)"><rect width="48" height="48" rx="4"/>
+</clipPath><radialGradient id="paint0_radial_464_32653" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24) scale(34.4928 24)">
+<stop stop-color="#A87FFF" stop-opacity="0.04"/>
+<stop offset="1" stop-color="#A87FFF" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="paint1_linear_464_32653" x1="48" y1="10.2" x2="24" y2="48" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#31DA72"/>
+</linearGradient>
+</defs>
+</svg>
