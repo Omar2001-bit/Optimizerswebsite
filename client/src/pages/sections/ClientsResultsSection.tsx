@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -117,50 +117,22 @@ export const ClientsResultsSection: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
   const [dragDistance, setDragDistance] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-
-    autoPlayRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % clientsData.length);
-    }, 3000); // Change slide every 3 seconds
-
-    return () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-      }
-    };
-  }, [isAutoPlaying]);
-
-  // Pause auto-play when user interacts
-  const pauseAutoPlay = () => {
-    setIsAutoPlaying(false);
-    // Resume auto-play after 5 seconds of inactivity
-    setTimeout(() => setIsAutoPlaying(true), 5000);
-  };
 
   const nextSlide = () => {
-    pauseAutoPlay();
     setCurrentIndex((prev) => (prev + 1) % clientsData.length);
   };
 
   const prevSlide = () => {
-    pauseAutoPlay();
     setCurrentIndex((prev) => (prev - 1 + clientsData.length) % clientsData.length);
   };
 
   const goToSlide = (index: number) => {
-    pauseAutoPlay();
     setCurrentIndex(index);
   };
 
   const handleMouseDown = (e: React.MouseEvent, cardIndex: number) => {
     // Only allow dragging on the center card
     if (cardIndex !== currentIndex) return;
-    pauseAutoPlay();
     setIsDragging(true);
     setDragStart(e.clientX);
     setDragDistance(0);
