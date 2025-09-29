@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useState, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -90,167 +92,30 @@ const caseStudies = [
 ];
 
 export const OverviewSection = (): JSX.Element => {
-  const [selectedStudy, setSelectedStudy] = useState(caseStudies[0]);
+  // --- CHANGE: Initialize state with the ID of the LAST item ---
+  const [selectedStudyId, setSelectedStudyId] = useState(caseStudies[caseStudies.length - 1].id);
 
-  const renderSidebarCard = (study: typeof caseStudies[0], isActive: boolean) => (
-    <Card 
-      key={study.id}
-      className={`w-[100px] h-[800px] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] cursor-pointer transition-all duration-300 hover:scale-105 ${
-        isActive ? 'ring-2 ring-[#6ae499] scale-105' : ''
-      }`}
-      onClick={() => setSelectedStudy(study)}
-    >
-      <CardContent className="p-4 h-full flex flex-col items-center justify-end gap-4">
-        <h3 className="font-heading-h6-semi-bold font-[number:var(--heading-h6-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h6-semi-bold-font-size)] tracking-[var(--heading-h6-semi-bold-letter-spacing)] leading-[var(--heading-h6-semi-bold-line-height)] [font-style:var(--heading-h6-semi-bold-font-style)] text-center writing-mode-vertical-rl text-orientation-mixed">
-          {study.company}
-        </h3>
-        <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-          <img
-            className="w-8 h-8 object-cover rounded-full"
-            alt="Company logo"
-            src={study.profileImage}
-          />
-        </div>
-      </CardContent>
-    </Card>
-  );
+  // This logic is now correct for both the initial state and interactions
+  const orderedCaseStudies = useMemo(() => {
+    const selected = caseStudies.find(s => s.id === selectedStudyId);
+    if (!selected) return []; 
+    
+    const openIndex = caseStudies.findIndex(s => s.id === selectedStudyId);
+    const leftCards = caseStudies.slice(0, openIndex);
+    const rightCards = caseStudies.slice(openIndex + 1);
 
-  const renderMainContent = (study: typeof caseStudies[0]) => (
-    <Card className="w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
-      <CardContent className="p-6">
-        <Card className="rounded-xl border-none backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(176,241,201,0.3)_0%,rgba(6,35,17,1)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-xl before:[background:linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(59,126,85,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none relative">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <img
-                className="w-10 h-16 object-cover"
-                alt="Profile photo"
-                src={study.profileImage}
-              />
-
-              <div className="flex-1 flex flex-col gap-2.5">
-                <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
-                  {study.company}
-                </h3>
-
-                <Badge className="gap-2 px-3 py-1.5 rounded-[100px] bg-[#6ae49926] text-secondary-300 font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)] w-fit">
-                  {study.industry}
-                </Badge>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <img
-                  className="w-8 h-8"
-                  alt="Country flag"
-                  src={study.flagImage}
-                />
-
-                <span className="font-paragraph-p2-semi-bold font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-semi-bold-font-size)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] leading-[var(--paragraph-p2-semi-bold-line-height)] [font-style:var(--paragraph-p2-semi-bold-font-style)] whitespace-nowrap">
-                  {study.market}
-                </span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <div className="flex gap-4 mt-6">
-          <div className="flex flex-col gap-3 w-[491px]">
-            <Card className="rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-              <CardContent className="p-5">
-                <h4 className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] mb-2.5">
-                  The Challenge:
-                </h4>
-                <p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)] whitespace-pre-line">
-                  {study.challenge}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-              <CardContent className="p-5">
-                <h4 className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] mb-2.5">
-                  Our Hypothesis:
-                </h4>
-                <p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)] whitespace-pre-line">
-                  {study.hypothesis}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-              <CardContent className="p-5">
-                <h4 className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] mb-2.5">
-                  The Solution:
-                </h4>
-                <p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)] whitespace-pre-line">
-                  {study.solution}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-              <CardContent className="p-5">
-                <h4 className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] mb-2.5">
-                  The Results:
-                </h4>
-                <div className="flex items-center gap-6">
-                  {study.results.map((result, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-col items-center gap-1.5"
-                    >
-                      <span className="font-heading-h4-semi-bold font-[number:var(--heading-h4-semi-bold-font-weight)] text-secondary-500 text-[length:var(--heading-h4-semi-bold-font-size)] text-center tracking-[var(--heading-h4-semi-bold-letter-spacing)] leading-[var(--heading-h4-semi-bold-line-height)] [font-style:var(--heading-h4-semi-bold-font-style)]">
-                        {result.metric}
-                      </span>
-                      <span className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] text-center tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
-                        {result.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="w-[490px] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)] relative">
-            <CardContent className="p-6">
-              <div className="flex justify-between mb-6">
-                <span className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] text-center tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
-                  Before
-                </span>
-                <span className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] text-center tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
-                  After
-                </span>
-              </div>
-              <div className="flex gap-4 justify-center">
-                <img
-                  className="w-[201px] h-[465px] rounded-[19.89px] border-[7.46px] border-solid border-[#4b5768] object-cover"
-                  alt="Before image"
-                  src={study.beforeImage}
-                />
-                <img
-                  className="w-[201px] h-[465px] rounded-[19.89px] border-[7.46px] border-solid border-[#4b5768] object-cover"
-                  alt="After image"
-                  src={study.afterImage}
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </CardContent>
-    </Card>
-  );
+    return [...leftCards, selected, ...rightCards];
+  }, [selectedStudyId]);
 
   return (
-    <section className="w-full bg-dark-mode900 py-24">
+    <section className="w-full bg-dark-mode900 py-24 overflow-hidden">
       <div className="flex flex-col items-center gap-6 mb-16 px-4">
         <h1 className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
           Case Studies
         </h1>
-
         <h2 className="font-heading-h1-small-semi-bold font-[number:var(--heading-h1-small-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-small-semi-bold-font-size)] text-center tracking-[var(--heading-h1-small-semi-bold-letter-spacing)] leading-[var(--heading-h1-small-semi-bold-line-height)] [font-style:var(--heading-h1-small-semi-bold-font-style)]">
           We Don&apos;t Guess. We Deliver.
         </h2>
-
         <p className="max-w-4xl font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] text-center tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
           Instead of relying on &quot;best practices&quot; or guesswork, every
           change we make is backed by data, testing, and proven CRO strategies.
@@ -259,18 +124,118 @@ export const OverviewSection = (): JSX.Element => {
         </p>
       </div>
 
-      <div className="flex gap-8 px-4 max-w-7xl mx-auto">
-        {/* Left Sidebar - Case Study Navigation */}
-        <div className="flex gap-4 w-[320px]">
-          {caseStudies.slice(0, 3).map((study) => 
-            renderSidebarCard(study, study.id === selectedStudy.id)
-          )}
-        </div>
+      <div className="flex justify-center items-start gap-4 px-4 max-w-7xl mx-auto">
+        {orderedCaseStudies.map((study) => {
+          const isSelected = study.id === selectedStudyId;
 
-        {/* Right Main Content - Selected Case Study */}
-        <div className="flex-1">
-          {renderMainContent(selectedStudy)}
-        </div>
+          return (
+            <div
+              key={study.id}
+              onClick={() => !isSelected && setSelectedStudyId(study.id)}
+              className={`transition-all duration-700 ease-in-out ${
+                isSelected ? 'w-[1000px] flex-shrink-0' : 'w-[100px] flex-shrink-0'
+              }`}
+            >
+              {isSelected ? (
+                // --- OPEN CARD ---
+                <div className="w-full h-[800px] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
+                  <CardContent className="p-6">
+                    <Card className="rounded-xl border-none backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(176,241,201,0.3)_0%,rgba(6,35,17,1)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-xl before:[background:linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(59,126,85,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none relative">
+                      <CardContent className="p-6">
+                        <div className="flex items-center gap-3">
+                          <img className="w-10 h-16 object-cover" alt="Profile photo" src={study.profileImage} />
+                          <div className="flex-1 flex flex-col gap-2.5">
+                            <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
+                              {study.company}
+                            </h3>
+                            <Badge className="gap-2 px-3 py-1.5 rounded-[100px] bg-[#6ae49926] text-secondary-300 font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)] w-fit">
+                              {study.industry}
+                            </Badge>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <img className="w-8 h-8" alt="Country flag" src={study.flagImage} />
+                            <span className="font-paragraph-p2-semi-bold font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-semi-bold-font-size)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] leading-[var(--paragraph-p2-semi-bold-line-height)] [font-style:var(--paragraph-p2-semi-bold-font-style)] whitespace-nowrap">
+                              {study.market}
+                            </span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    <div className="flex gap-4 mt-6">
+                      <div className="flex flex-col gap-3 w-[491px]">
+                        {/* Challenge, Hypothesis, Solution, Results Cards */}
+                        {/* The Challenge */}
+                        <Card className="rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
+                          <CardContent className="p-5">
+                            <h4 className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] mb-2.5">The Challenge:</h4>
+                            <p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)] whitespace-pre-line">{study.challenge}</p>
+                          </CardContent>
+                        </Card>
+                         {/* Our Hypothesis */}
+                        <Card className="rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
+                          <CardContent className="p-5">
+                            <h4 className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] mb-2.5">Our Hypothesis:</h4>
+                            <p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)] whitespace-pre-line">{study.hypothesis}</p>
+                          </CardContent>
+                        </Card>
+                        {/* The Solution */}
+                        <Card className="rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
+                          <CardContent className="p-5">
+                            <h4 className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] mb-2.5">The Solution:</h4>
+                            <p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)] whitespace-pre-line">{study.solution}</p>
+                          </CardContent>
+                        </Card>
+                        {/* The Results */}
+                        <Card className="rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
+                          <CardContent className="p-5">
+                            <h4 className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] mb-2.5">The Results:</h4>
+                            <div className="flex items-center gap-6">
+                              {study.results.map((result, index) => (
+                                <div key={index} className="flex flex-col items-center gap-1.5">
+                                  <span className="font-heading-h4-semi-bold font-[number:var(--heading-h4-semi-bold-font-weight)] text-secondary-500 text-[length:var(--heading-h4-semi-bold-font-size)] text-center tracking-[var(--heading-h4-semi-bold-letter-spacing)] leading-[var(--heading-h4-semi-bold-line-height)] [font-style:var(--heading-h4-semi-bold-font-style)]">{result.metric}</span>
+                                  <span className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] text-center tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">{result.label}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                      <Card className="w-[490px] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)] relative">
+                        <CardContent className="p-6">
+                          <div className="flex justify-between mb-6">
+                            <span className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] text-center tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">Before</span>
+                            <span className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-200 text-[length:var(--paragraph-p3-semi-bold-font-size)] text-center tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">After</span>
+                          </div>
+                          <div className="flex gap-4 justify-center">
+                            <img className="w-[201px] h-[465px] rounded-[19.89px] border-[7.46px] border-solid border-[#4b5768] object-cover" alt="Before image" src={study.beforeImage} />
+                            <img className="w-[201px] h-[465px] rounded-[19.89px] border-[7.46px] border-solid border-[#4b5768] object-cover" alt="After image" src={study.afterImage} />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CardContent>
+                </div>
+              ) : (
+                // --- CLOSED CARD ---
+                <div className="relative overflow-hidden w-full h-[800px] rounded-2xl border border-solid border-[#6ae49933] bg-transparent cursor-pointer hover:scale-105">
+                  <div className="absolute inset-0 z-10">
+                    <img className="absolute top-1/2 -translate-y-1/2 -left-1/2 w-[200px] h-auto rounded-lg border-2 border-solid border-[#4b5768] object-cover blur-sm" alt="Before preview" src={study.beforeImage} />
+                    <img className="absolute top-1/2 -translate-y-1/2 -right-1/2 w-[200px] h-auto rounded-lg border-2 border-solid border-[#4b5768] object-cover blur-sm" alt="After preview" src={study.afterImage} />
+                    <div className="absolute inset-0 bg-[#4d6655] opacity-80"></div>
+                  </div>
+                  <CardContent className="relative z-20 p-4 h-full flex flex-col items-center justify-end gap-4">
+                    <h3 className="font-heading-h6-semi-bold font-[number:var(--heading-h6-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h6-semi-bold-font-size)] tracking-[var(--heading-h6-semi-bold-letter-spacing)] leading-[var(--heading-h6-semi-bold-line-height)] [font-style:var(--heading-h6-semi-bold-font-style)] text-center writing-mode-vertical-rl text-orientation-mixed">
+                      {study.company}
+                    </h3>
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                      <img className="w-8 h-8 object-cover rounded-full" alt="Company logo" src={study.profileImage} />
+                    </div>
+                  </CardContent>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );

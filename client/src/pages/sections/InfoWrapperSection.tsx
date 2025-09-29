@@ -1,396 +1,210 @@
-import React from "react";
+"use client";
+
+import React, { useState, useMemo } from "react";
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
-import { RotateCcwIcon, ArrowRightIcon, ArrowLeftRightIcon } from 'lucide-react';
+import { RotateCcwIcon, ArrowLeftRightIcon, MinusIcon, PlusIcon } from 'lucide-react';
 
-const inputFields = [
-  {
-    label: "Monthly Website Users",
-    value: "12000",
-    hasSlider: false
-  }
-];
+// --- Default Values for Reset ---
+const defaultValues = {
+  currency: "SAR",
+  monthlyUsers: 12000,
+  currentCR: 2.5,
+  currentAOV: 260,
+  newCR: 3.5,
+  newAOV: 280,
+};
 
-const currentMetrics = [
-  {
-    label: "Your CURRENT conversion rate",
-    value: "2.5%",
-    sliderWidth: "w-[294px]"
-  },
-  {
-    label: "Your CURRENT average order value", 
-    value: "260",
-    currency: true,
-    sliderWidth: "w-[216px]"
-  }
-];
-
-const newMetrics = [
-  {
-    label: "Your NEW conversion rate",
-    value: "2.5%",
-    sliderWidth: "w-[294px]"
-  },
-  {
-    label: "Your NEW average order value",
-    value: "260", 
-    currency: true,
-    sliderWidth: "w-[216px]"
-  }
-];
-
-const currentRevenueCards = [
-  {
-    title: "Current Monthly Revenue",
-    value: "50,000",
-    currency: true
-  },
-  {
-    title: "Current Annual Revenue", 
-    value: "600,000",
-    currency: true
-  }
-];
-
-const newRevenueCards = [
-  {
-    title: "New Monthly Revenue",
-    value: "50,000",
-    currency: true,
-    textColor: "text-secondary-200"
-  },
-  {
-    title: "New Annual Revenue",
-    value: "600,000", 
-    currency: true,
-    textColor: "text-secondary-200"
-  }
-];
-
-const additionalMetrics = [
-  {
-    title: "Additional Revenue / Month",
-    value: "+27,400",
-    currency: true,
-    textColor: "text-secondary-500"
-  },
-  {
-    title: "% Increase in Revenue", 
-    value: "32%",
-    currency: false,
-    textColor: "text-secondary-500"
-  }
-];
+// --- Reusable Number Input with +/- Controls ---
+const NumberInputWithControls = ({ id, value, onChange, onDecrement, onIncrement, prefix, suffix, className }: {
+    id: string;
+    value: number | string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onDecrement: () => void;
+    onIncrement: () => void;
+    prefix?: string;
+    suffix?: string;
+    className?: string;
+}) => (
+    <div className={`inline-flex items-center h-12 rounded-md bg-[#2d2d2d] border border-neutral-700 ${className}`}>
+        <Button id={`btn-decrement-${id}`} onClick={onDecrement} variant="ghost" size="icon" className="w-12 h-full rounded-r-none hover:bg-white/10">
+            <MinusIcon className="w-4 h-4 text-white" />
+        </Button>
+        <div className="relative flex items-center justify-center w-[180px] h-full">
+            <Input
+                id={id}
+                type="number"
+                value={value}
+                onChange={onChange}
+                className="w-full h-full p-0 text-center font-paragraph-p3-semi-bold text-shadeswhite bg-transparent border-x border-neutral-700 rounded-none focus-visible:ring-0 focus-visible:ring-offset-0"
+            />
+             {suffix && <span className="absolute right-4 font-paragraph-p3-semi-bold text-shadeswhite pointer-events-none">{suffix}</span>}
+             {prefix && <span className="absolute left-4 font-paragraph-p3-semi-bold text-shadeswhite pointer-events-none">{prefix}</span>}
+        </div>
+        <Button id={`btn-increment-${id}`} onClick={onIncrement} variant="ghost" size="icon" className="w-12 h-full rounded-l-none hover:bg-white/10">
+            <PlusIcon className="w-4 h-4 text-white" />
+        </Button>
+    </div>
+);
 
 export const InfoWrapperSection = (): JSX.Element => {
-  return (
-    <section className="w-full bg-dark-mode900 py-[100px]">
-<div className="flex flex-col max-w-[1144px] mx-auto items-center gap-[60px] px-4">
-<header className="flex flex-col items-start gap-6 w-full">
-<h1 className="w-full font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
-ROI Calculator
-          </h1>
-<p className="max-w-[980px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
-See the real impact CRO can have on your business. Enter just a few
-            numbers and instantly discover what a 10–40% lift in conversions
-            could mean for your monthly revenue.
-          </p>
-</header>
-<div className="flex flex-col items-start gap-10 w-full">
-<div className="flex flex-col items-center gap-6 w-full">
-<div className="flex flex-col items-center gap-6 w-full">
-<h2 className="w-full font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
-Start&nbsp;&nbsp;Entering Your Data
-              </h2>
-</div>
-<div className="flex items-end gap-6 w-full flex-wrap">
-<div className="inline-flex flex-col items-start gap-3">
-<div className="inline-flex items-center gap-2">
-<label className="font-paragraph-p3-regular font-[number:var(--paragraph-p3-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-regular-font-size)] tracking-[var(--paragraph-p3-regular-letter-spacing)] leading-[var(--paragraph-p3-regular-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-regular-font-style)]">
-Currency
-                  </label>
-</div>
-<Select defaultValue="SAR">
-<SelectTrigger className="w-[324px] h-12 px-4 py-0 rounded border-none backdrop-blur-[3.3px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(3.3px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.1)_100%)] before:content-[''] before:absolute before:inset-0 before:p-[0.5px] before:rounded before:[background:linear-gradient(212deg,rgba(255,255,255,0.2)_0%,rgba(49,218,114,0.2)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none">
-<SelectValue className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]" />
-</SelectTrigger>
-<SelectContent>
-<SelectItem value="SAR">SAR</SelectItem>
-</SelectContent>
-</Select>
-</div>
-{inputFields.map((field, index) => (
-                <div key={index} className="inline-flex flex-col items-start gap-3">
-<div className="inline-flex items-center gap-2">
-<label className="font-paragraph-p3-regular font-[number:var(--paragraph-p3-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-regular-font-size)] tracking-[var(--paragraph-p3-regular-letter-spacing)] leading-[var(--paragraph-p3-regular-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-regular-font-style)]">
-{field.label}
-                    </label>
-</div>
-<div className="inline-flex items-center gap-1 rounded-md border-[0.5px] border-solid border-[#1e211d]">
-<img
-                      className="w-12 h-12"
-                      alt="Background overlay"
-                      src="/figmaAssets/background-overlay-border-overlayblur-8.svg"
-                    />
-<Input
-                      defaultValue={field.value}
-                      className="w-[220px] h-12 p-[7.04px] rounded border-none backdrop-blur-[3.3px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(3.3px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.1)_100%)] before:content-[''] before:absolute before:inset-0 before:p-[0.5px] before:rounded before:[background:linear-gradient(212deg,rgba(255,255,255,0.2)_0%,rgba(49,218,114,0.2)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-semi-bold-font-size)] text-center tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]"
-                    />
-<img
-                      className="w-12 h-12"
-                      alt="Background overlay"
-                      src="/figmaAssets/background-overlay-border-overlayblur-9.svg"
-                    />
-</div>
-</div>
-))}
+  const [currency, setCurrency] = useState(defaultValues.currency);
+  const [monthlyUsers, setMonthlyUsers] = useState(defaultValues.monthlyUsers);
+  const [currentCR, setCurrentCR] = useState(defaultValues.currentCR);
+  const [currentAOV, setCurrentAOV] = useState(defaultValues.currentAOV);
+  const [newCR, setNewCR] = useState(defaultValues.newCR);
+  const [newAOV, setNewAOV] = useState(defaultValues.newAOV);
 
-              <Button 
-                variant="outline" 
-                className="h-auto px-[18px] py-3 border border-solid border-[#6ae499] bg-transparent hover:bg-transparent"
-              >
-<span className="font-paragraph-p2-semi-bold font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-secondary-500 text-[length:var(--paragraph-p2-semi-bold-font-size)] leading-[var(--paragraph-p2-semi-bold-line-height)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] [font-style:var(--paragraph-p2-semi-bold-font-style)]">
-Reset
-                </span>
-<RotateCcwIcon className="w-4 h-4 ml-2" />
-</Button>
-</div>
-</div>
-<div className="flex flex-col items-center gap-6 w-full">
-<div className="flex flex-col items-center gap-6 w-full">
-<h2 className="w-full font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
-Now Calculate Your ROI Projection
-              </h2>
-</div>
-<div className="flex items-center justify-between w-full gap-6 flex-wrap lg:flex-nowrap">
-<Card className="w-full lg:w-[500px] p-6 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(106,228,153,0.05)_0%,rgba(106,228,153,0.05)_100%)]">
-<CardContent className="p-0 space-y-6">
-<div className="flex flex-col items-center gap-3">
-<h3 className="w-full font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] text-center tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
-CURRENT
-                    </h3>
-</div>
-<div className="flex flex-col items-start gap-12">
-<div className="flex flex-col items-start gap-8 w-full">
-{currentMetrics.map((metric, index) => (
-                        <div key={index} className="flex flex-col items-center gap-5 w-full">
-<div className="[font-family:'Sora',Helvetica] font-normal text-white text-base text-center tracking-[0] leading-4">
-<span className="leading-[var(--paragraph-p2-regular-line-height)] font-paragraph-p2-regular [font-style:var(--paragraph-p2-regular-font-style)] font-[number:var(--paragraph-p2-regular-font-weight)] tracking-[var(--paragraph-p2-regular-letter-spacing)] text-[length:var(--paragraph-p2-regular-font-size)]">
-Your
-                            </span>
-<span className="text-lg leading-[21.6px]">&nbsp;</span>
-<span className="font-[number:var(--paragraph-p2-semi-bold-font-weight)] leading-[var(--paragraph-p2-semi-bold-line-height)] font-paragraph-p2-semi-bold [font-style:var(--paragraph-p2-semi-bold-font-style)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] text-[length:var(--paragraph-p2-semi-bold-font-size)]">
-CURRENT
-                            </span>
-<span className="text-lg leading-[21.6px]">&nbsp;</span>
-<span className="leading-[var(--paragraph-p2-regular-line-height)] font-paragraph-p2-regular [font-style:var(--paragraph-p2-regular-font-style)] font-[number:var(--paragraph-p2-regular-font-weight)] tracking-[var(--paragraph-p2-regular-letter-spacing)] text-[length:var(--paragraph-p2-regular-font-size)]">
-{metric.label.includes('conversion') ? 'conversion rate' : 'average order value'}
-                            </span>
-</div>
-<div className="flex flex-col items-center justify-center gap-5 w-full">
-<div className="w-full h-2 bg-dark-mode300 rounded-[290.91px] relative">
-<div className={`relative -top-1.5 ${metric.sliderWidth} h-5`}>
-<div className="absolute w-[calc(100%_-_20px)] top-1.5 left-0 h-2 bg-secondary-500 rounded-[290.91px_0px_0px_290.91px]" />
-<div className="absolute top-[calc(50.00%_-_10px)] right-[18px] w-5 h-5 bg-secondary-50 rounded-[290.91px]" />
-</div>
-</div>
-<div className="inline-flex items-center gap-1 rounded-md border-[0.5px] border-solid border-[#1e211d]">
-<img
-                                className="w-12 h-12"
-                                alt="Background overlay"
-                                src={index === 0 ? "/figmaAssets/background-overlay-border-overlayblur-7.svg" : "/figmaAssets/background-overlay-border-overlayblur-13.svg"}
-                              />
-<div className="w-[220px] h-12 p-[7.04px] flex items-center justify-center rounded border-none backdrop-blur-[3.3px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(3.3px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.1)_100%)] before:content-[''] before:absolute before:inset-0 before:p-[0.5px] before:rounded before:[background:linear-gradient(212deg,rgba(255,255,255,0.2)_0%,rgba(49,218,114,0.2)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none">
-<span className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-semi-bold-font-size)] text-center tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-semi-bold-font-style)]">
-{metric.value}
-                                </span>
-{metric.currency && (
-                                  <img
-                                    className="w-[14.37px] h-4 ml-2"
-                                    alt="Saudi riyal symbol"
-                                    src="/figmaAssets/saudi-riyal-symbol-2--1--1.svg"
-                                  />
-)}
-                              </div>
-<img
-                                className="w-12 h-12"
-                                alt="Background overlay"
-                                src={index === 0 ? "/figmaAssets/background-overlay-border-overlayblur-5.svg" : "/figmaAssets/background-overlay-border-overlayblur-14.svg"}
-                              />
-</div>
-</div>
-</div>
-))}
-                    </div>
-<div className="flex gap-3 w-full">
-{currentRevenueCards.map((card, index) => (
-                        <Card key={index} className="flex-1 p-5 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-<CardContent className="p-0 flex flex-col items-center justify-center gap-3">
-<p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] text-center tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
-{card.title}
-                            </p>
-<div className="flex items-center justify-center gap-3 w-full">
-<span className="font-heading-h6-semi-bold font-[number:var(--heading-h6-semi-bold-font-weight)] text-neutral-200 text-[length:var(--heading-h6-semi-bold-font-size)] text-center tracking-[var(--heading-h6-semi-bold-letter-spacing)] leading-[var(--heading-h6-semi-bold-line-height)] whitespace-nowrap [font-style:var(--heading-h6-semi-bold-font-style)]">
-{card.value}
-                              </span>
-{card.currency && (
-                                <img
-                                  className="w-[18.13px] h-[20.18px]"
-                                  alt="Saudi riyal symbol"
-                                  src="/figmaAssets/saudi-riyal-symbol-2--1--1-1.svg"
-                                />
-)}
-                            </div>
-</CardContent>
-</Card>
-))}
-                    </div>
-</div>
-</CardContent>
-</Card>
-<div className="flex items-center justify-center w-12 h-12 p-[7.04px] rounded border-none backdrop-blur-[3.3px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(3.3px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(106,228,153,1)_0%,rgba(106,228,153,1)_100%)] before:content-[''] before:absolute before:inset-0 before:p-[0.5px] before:rounded before:[background:linear-gradient(212deg,rgba(255,255,255,0.2)_0%,rgba(49,218,114,0.2)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none">
-<ArrowLeftRightIcon className="w-6 h-6" />
-</div>
-<Card className="w-full lg:w-[500px] p-6 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(106,228,153,0.05)_0%,rgba(106,228,153,0.05)_100%)]">
-<CardContent className="p-0 space-y-6">
-<div className="flex flex-col items-center gap-3">
-<h3 className="w-full font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] text-center tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
-NEW
-                    </h3>
-</div>
-<div className="flex flex-col items-start gap-12">
-<div className="flex flex-col items-start gap-8 w-full">
-{newMetrics.map((metric, index) => (
-                        <div key={index} className="flex flex-col items-center gap-5 w-full">
-<div className="[font-family:'Sora',Helvetica] font-normal text-white text-base text-center tracking-[0] leading-4">
-<span className="leading-[var(--paragraph-p2-regular-line-height)] font-paragraph-p2-regular [font-style:var(--paragraph-p2-regular-font-style)] font-[number:var(--paragraph-p2-regular-font-weight)] tracking-[var(--paragraph-p2-regular-letter-spacing)] text-[length:var(--paragraph-p2-regular-font-size)]">
-Your
-                            </span>
-<span className="text-lg leading-[21.6px]">&nbsp;</span>
-<span className="font-[number:var(--paragraph-p2-semi-bold-font-weight)] leading-[var(--paragraph-p2-semi-bold-line-height)] font-paragraph-p2-semi-bold [font-style:var(--paragraph-p2-semi-bold-font-style)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] text-[length:var(--paragraph-p2-semi-bold-font-size)]">
-NEW
-                            </span>
-<span className="text-lg leading-[21.6px]">&nbsp;</span>
-<span className="leading-[var(--paragraph-p2-regular-line-height)] font-paragraph-p2-regular [font-style:var(--paragraph-p2-regular-font-style)] font-[number:var(--paragraph-p2-regular-font-weight)] tracking-[var(--paragraph-p2-regular-letter-spacing)] text-[length:var(--paragraph-p2-regular-font-size)]">
-{metric.label.includes('conversion') ? 'conversion rate' : 'average order value'}
-                            </span>
-</div>
-<div className="flex flex-col items-center justify-center gap-5 w-full">
-<div className="w-full h-2 bg-dark-mode300 rounded-[290.91px] relative">
-<div className={`relative -top-1.5 ${metric.sliderWidth} h-5`}>
-<div className="absolute w-[calc(100%_-_20px)] top-1.5 left-0 h-2 bg-secondary-500 rounded-[290.91px_0px_0px_290.91px]" />
-<div className="absolute top-[calc(50.00%_-_10px)] right-[18px] w-5 h-5 bg-secondary-50 rounded-[290.91px]" />
-</div>
-</div>
-<div className="inline-flex items-center gap-1 rounded-md border-[0.5px] border-solid border-[#1e211d]">
-<img
-                                className="w-12 h-12"
-                                alt="Background overlay"
-                                src={index === 0 ? "/figmaAssets/background-overlay-border-overlayblur-6.svg" : "/figmaAssets/background-overlay-border-overlayblur-12.svg"}
-                              />
-<div className="w-[220px] h-12 p-[7.04px] flex items-center justify-center rounded border-none backdrop-blur-[3.3px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(3.3px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.1)_100%)] before:content-[''] before:absolute before:inset-0 before:p-[0.5px] before:rounded before:[background:linear-gradient(212deg,rgba(255,255,255,0.2)_0%,rgba(49,218,114,0.2)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none">
-<span className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-semi-bold-font-size)] text-center tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-semi-bold-font-style)]">
-{metric.value}
-                                </span>
-{metric.currency && (
-                                  <img
-                                    className="w-[14.37px] h-4 ml-2"
-                                    alt="Saudi riyal symbol"
-                                    src="/figmaAssets/saudi-riyal-symbol-2--1--1.svg"
-                                  />
-)}
-                              </div>
-<img
-                                className="w-12 h-12"
-                                alt="Background overlay"
-                                src={index === 0 ? "/figmaAssets/background-overlay-border-overlayblur-10.svg" : "/figmaAssets/background-overlay-border-overlayblur-11.svg"}
-                              />
-</div>
-</div>
-</div>
-))}
-                    </div>
-<div className="flex flex-col gap-3 w-full">
-<div className="flex gap-3 w-full">
-{newRevenueCards.map((card, index) => (
-                          <Card key={index} className="flex-1 p-5 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-<CardContent className="p-0 flex flex-col items-center justify-center gap-3">
-<p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] text-center tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
-{card.title}
-                              </p>
-<div className="flex items-center justify-center gap-3 w-full">
-<span className={`font-heading-h6-semi-bold font-[number:var(--heading-h6-semi-bold-font-weight)] ${card.textColor || 'text-neutral-200'} text-[length:var(--heading-h6-semi-bold-font-size)] text-center tracking-[var(--heading-h6-semi-bold-letter-spacing)] leading-[var(--heading-h6-semi-bold-line-height)] whitespace-nowrap [font-style:var(--heading-h6-semi-bold-font-style)]`}>
-{card.value}
-                                </span>
-{card.currency && (
-                                  <img
-                                    className="w-[18.13px] h-[20.18px]"
-                                    alt="Saudi riyal symbol"
-                                    src="/figmaAssets/saudi-riyal-symbol-2--1--1-1.svg"
-                                  />
-)}
-                              </div>
-</CardContent>
-</Card>
-))}
+  const calculatedValues = useMemo(() => {
+    const currentConversions = Math.round(monthlyUsers * (currentCR / 100));
+    const newConversions = Math.round(monthlyUsers * (newCR / 100));
+    const currentMonthlyRevenue = currentConversions * currentAOV;
+    const newMonthlyRevenue = newConversions * newAOV;
+    const additionalMonthlyRevenue = newMonthlyRevenue - currentMonthlyRevenue;
+    const percentageIncrease = currentMonthlyRevenue > 0 ? (additionalMonthlyRevenue / currentMonthlyRevenue) * 100 : 0;
+    return {
+      currentMonthlyRevenue,
+      currentAnnualRevenue: currentMonthlyRevenue * 12,
+      newMonthlyRevenue,
+      newAnnualRevenue: newMonthlyRevenue * 12,
+      additionalMonthlyRevenue: Math.max(0, additionalMonthlyRevenue),
+      percentageIncrease: Math.max(0, percentageIncrease),
+      newConversions,
+    };
+  }, [monthlyUsers, currentCR, currentAOV, newCR, newAOV]);
+
+  const formatCurrency = (value: number) => value.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  const handleReset = () => {
+    setCurrency(defaultValues.currency);
+    setMonthlyUsers(defaultValues.monthlyUsers);
+    setCurrentCR(defaultValues.currentCR);
+    setCurrentAOV(defaultValues.currentAOV);
+    setNewCR(defaultValues.newCR);
+    setNewAOV(defaultValues.newAOV);
+  };
+  
+  const getCurrencySymbol = () => {
+      switch(currency) {
+          case 'SAR': return '﷼';
+          case 'USD': return '$';
+          case 'EGP': return '£';
+          default: return '﷼';
+      }
+  };
+
+  return (
+    <section id="roi-calculator-section" className="w-full bg-dark-mode900 py-[100px]">
+      <div className="flex flex-col max-w-[1144px] mx-auto items-center gap-[60px] px-4">
+        <header id="roi-calculator-header" className="flex flex-col items-start gap-6 w-full">
+            <h1 className="w-full font-heading-h1-semi-bold text-shadeswhite">ROI Calculator</h1>
+            <p className="max-w-[980px] font-subheading-regular text-shadeswhite">
+                See the real impact CRO can have on your business. Enter just a few numbers and instantly discover what a 10–40% lift in conversions could mean for your monthly revenue.
+            </p>
+        </header>
+
+        <div id="roi-calculator-body" className="flex flex-col items-start gap-10 w-full">
+          <div id="roi-inputs-container" className="flex flex-col items-center gap-6 w-full">
+            <h2 className="w-full font-heading-h5-semi-bold text-shadeswhite">1. Start Entering Your Data</h2>
+            <div className="flex items-end gap-6 w-full flex-wrap">
+              <div className="inline-flex flex-col items-start gap-3">
+                <label id="label-currency" htmlFor="select-currency-trigger" className="font-paragraph-p3-regular text-shadeswhite">Currency</label>
+                <Select value={currency} onValueChange={setCurrency}>
+                    <SelectTrigger id="select-currency-trigger" className="w-[300px] h-12 text-shadeswhite bg-[#2d2d2d] border-neutral-700"><SelectValue /></SelectTrigger>
+                    <SelectContent><SelectItem value="SAR">SAR</SelectItem><SelectItem value="USD">USD</SelectItem><SelectItem value="EGP">EGP</SelectItem></SelectContent>
+                </Select>
+              </div>
+              <div className="inline-flex flex-col items-start gap-3">
+                <label id="label-monthly-users" htmlFor="input-monthly-users" className="font-paragraph-p3-regular text-shadeswhite">Monthly Website Users</label>
+                <NumberInputWithControls
+                    id="input-monthly-users"
+                    value={monthlyUsers}
+                    onChange={(e) => setMonthlyUsers(parseInt(e.target.value) || 0)}
+                    onDecrement={() => setMonthlyUsers(prev => Math.max(0, prev - 100))}
+                    onIncrement={() => setMonthlyUsers(prev => prev + 100)}
+                />
+              </div>
+              <Button id="btn-reset-calculator" onClick={handleReset} variant="outline" className="h-12 px-[18px] py-3 bg-transparent border-[#66d992] text-[#66d992] hover:bg-[#66d992]/10 hover:text-[#66d992]">
+                  <span>Reset</span>
+                  <RotateCcwIcon className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+          </div>
+
+          <div id="roi-projections-container" className="flex flex-col items-center gap-6 w-full">
+            <h2 className="w-full font-heading-h5-semi-bold text-shadeswhite">2. Now Calculate Your ROI Projection</h2>
+            <div className="flex items-center justify-between w-full gap-6 flex-wrap lg:flex-nowrap">
+              {/* CURRENT Card */}
+              <Card id="card-current-projection" className="w-full lg:w-[500px] p-8 rounded-2xl border border-solid border-white/20 bg-[#1c1c1c] relative bottom-[111px]">
+                <CardContent className="p-0 flex flex-col gap-12">
+                  <h3 className="w-full font-heading-h5-semi-bold text-center text-shadeswhite">CURRENT</h3>
+                  <div className="flex flex-col items-center gap-5 w-full">
+                      <label id="label-current-cr" htmlFor="slider-current-cr" className="font-paragraph-p2-regular text-white text-center">Your CURRENT conversion rate</label>
+                      <Slider id="slider-current-cr" value={[currentCR]} onValueChange={([val]) => setCurrentCR(val)} max={20} step={0.1} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
+                      <NumberInputWithControls id="input-current-cr" value={currentCR.toFixed(1)} onChange={e => setCurrentCR(parseFloat(e.target.value) || 0)} onDecrement={() => setCurrentCR(p => Math.max(0.1, p - 0.1))} onIncrement={() => setCurrentCR(p => p + 0.1)} suffix="%" />
+                  </div>
+                  <div className="flex flex-col items-center gap-5 w-full">
+                      <label id="label-current-aov" htmlFor="slider-current-aov" className="font-paragraph-p2-regular text-white text-center">Your CURRENT average order value</label>
+                      <Slider id="slider-current-aov" value={[currentAOV]} onValueChange={([val]) => setCurrentAOV(val)} max={2000} step={10} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
+                      <NumberInputWithControls id="input-current-aov" value={currentAOV} onChange={e => setCurrentAOV(parseInt(e.target.value) || 0)} onDecrement={() => setCurrentAOV(p => Math.max(0, p - 10))} onIncrement={() => setCurrentAOV(p => p + 10)} prefix={getCurrencySymbol()} />
+                  </div>
+                  <div className="flex gap-3 w-full pt-6 relative right-[20px]">
+                      <InfoCard id="card-current-monthly-revenue" title="Current Monthly Revenue" value={formatCurrency(calculatedValues.currentMonthlyRevenue)} currencySymbol={getCurrencySymbol()} />
+                      <InfoCard id="card-current-annual-revenue" title="Current Annual Revenue" value={formatCurrency(calculatedValues.currentAnnualRevenue)} currencySymbol={getCurrencySymbol()} />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div id="projection-separator-icon" className="flex items-center justify-center w-12 h-12 rounded bg-[#66d992] shrink-0">
+                <ArrowLeftRightIcon className="w-6 h-6 text-black" />
+              </div>
+
+              {/* NEW Card */}
+              <Card id="card-new-projection" className="w-full lg:w-[500px] p-8 rounded-2xl border border-solid border-white/20 bg-[#1c1c1c]">
+                <CardContent className="p-0 flex flex-col gap-12">
+                  <h3 className="w-full font-heading-h5-semi-bold text-center text-shadeswhite">NEW</h3>
+                  <div className="flex flex-col items-center gap-5 w-full">
+                      <label id="label-new-cr" htmlFor="slider-new-cr" className="font-paragraph-p2-regular text-white text-center">Your NEW conversion rate</label>
+                      <Slider id="slider-new-cr" value={[newCR]} onValueChange={([val]) => setNewCR(val)} max={20} step={0.1} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
+                      <NumberInputWithControls id="input-new-cr" value={newCR.toFixed(1)} onChange={e => setNewCR(parseFloat(e.target.value) || 0)} onDecrement={() => setNewCR(p => Math.max(0.1, p - 0.1))} onIncrement={() => setNewCR(p => p + 0.1)} suffix="%" />
+                  </div>
+                  <div className="flex flex-col items-center gap-5 w-full">
+                      <label id="label-new-aov" htmlFor="slider-new-aov" className="font-paragraph-p2-regular text-white text-center">Your NEW average order value</label>
+                      <Slider id="slider-new-aov" value={[newAOV]} onValueChange={([val]) => setNewAOV(val)} max={2000} step={10} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
+                      <NumberInputWithControls id="input-new-aov" value={newAOV} onChange={e => setNewAOV(parseInt(e.target.value) || 0)} onDecrement={() => setNewAOV(p => Math.max(0, p - 10))} onIncrement={() => setNewAOV(p => p + 10)} prefix={getCurrencySymbol()} />
+                  </div>
+                  <div className="flex flex-col gap-3 w-full pt-6 relative right-[20px]">
+                      <div className="flex gap-3 w-full">
+                          <InfoCard id="card-new-monthly-revenue" title="New Monthly Revenue" value={formatCurrency(calculatedValues.newMonthlyRevenue)} currencySymbol={getCurrencySymbol()} textColor="text-[#66d992]"/>
+                          <InfoCard id="card-new-annual-revenue" title="New Annual Revenue" value={formatCurrency(calculatedValues.newAnnualRevenue)} currencySymbol={getCurrencySymbol()} textColor="text-[#66d992]"/>
                       </div>
-<div className="flex flex-col w-full gap-3">
-<div className="flex gap-3 w-full">
-{additionalMetrics.map((metric, index) => (
-                            <Card key={index} className="flex-1 p-5 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-<CardContent className="p-0 flex flex-col items-center justify-center gap-3">
-<p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] text-center tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
-{metric.title.includes('Additional') ? (
-                                    <>
-Additional Revenue <br />/ Month
-                                    </>
-) : (
-                                    <>
-% Increase in <br />
-Revenue
-                                    </>
-)}
-                                </p>
-<div className="flex items-center justify-center gap-3 w-full">
-<span className={`font-heading-h6-semi-bold font-[number:var(--heading-h6-semi-bold-font-weight)] ${metric.textColor} text-[length:var(--heading-h6-semi-bold-font-size)] text-center tracking-[var(--heading-h6-semi-bold-letter-spacing)] leading-[var(--heading-h6-semi-bold-line-height)] whitespace-nowrap [font-style:var(--heading-h6-semi-bold-font-style)]`}>
-{metric.value}
-                                  </span>
-{metric.currency && (
-                                    <img
-                                      className="w-[18.13px] h-[20.18px]"
-                                      alt="Saudi riyal symbol"
-                                      src="/figmaAssets/saudi-riyal-symbol-2--1--1-1.svg"
-                                    />
-)}
-                                </div>
-</CardContent>
-</Card>
-))}
-                        </div>
-<Card className="w-full p-5 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-<CardContent className="p-0 flex flex-col items-center justify-center gap-3">
-<p className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] text-center tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
-New number of conversions / Month
-                            </p>
-<div className="flex items-center justify-center gap-3 w-full">
-<span className="font-heading-h6-semi-bold font-[number:var(--heading-h6-semi-bold-font-weight)] text-secondary-500 text-[length:var(--heading-h6-semi-bold-font-size)] text-center tracking-[var(--heading-h6-semi-bold-letter-spacing)] leading-[var(--heading-h6-semi-bold-line-height)] whitespace-nowrap [font-style:var(--heading-h6-semi-bold-font-style)]">
-150
-                              </span>
-</div>
-</CardContent>
-</Card>
-</div>
-</div>
-</div>
-</CardContent>
-</Card>
-</div>
-</div>
-</div>
-</div>
-</section>
-);
+                      <div className="flex gap-3 w-full">
+                          <InfoCard id="card-additional-monthly-revenue" title="Additional Revenue / Month" value={`+${formatCurrency(calculatedValues.additionalMonthlyRevenue)}`} currencySymbol={getCurrencySymbol()} textColor="text-[#66d992]" />
+                          <InfoCard id="card-percentage-increase" title="% Increase in Revenue" value={`${calculatedValues.percentageIncrease.toFixed(1)}%`} textColor="text-[#66d992]" />
+                      </div>
+                      <InfoCard id="card-new-conversions" title="New number of conversions / Month" value={calculatedValues.newConversions.toLocaleString()} textColor="text-[#66d992]" />
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
+
+// --- Reusable Helper Component for Display Cards (Now with ID prop) ---
+const InfoCard = ({ id, title, value, textColor = "text-neutral-200", currencySymbol }: { id: string, title: string, value: string, textColor?: string, currencySymbol?: string }) => (
+    <Card id={id} className="flex-1 p-5 rounded-2xl border border-solid border-white/10 bg-[#2d2d2d]">
+        <CardContent className="p-0 flex flex-col items-center justify-center gap-2">
+            <p className="font-paragraph-p1-regular text-shadeswhite text-center whitespace-nowrap">{title}</p>
+            <div className="flex items-center justify-center gap-1.5 w-full">
+                <span id={`value-${id}`} className={`font-heading-h6-semi-bold ${textColor}`}>{value}</span>
+                {currencySymbol && <span id={`currency-${id}`} className={`font-heading-h6-semi-bold ${textColor}`}>{currencySymbol}</span>}
+            </div>
+        </CardContent>
+    </Card>
+);

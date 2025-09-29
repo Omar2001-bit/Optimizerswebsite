@@ -100,7 +100,7 @@ export const WhyChooseUsSection = (): JSX.Element => {
   ];
 
   return (
-    <section id="section-why-choose-us" className="w-full bg-dark-mode900 py-[100px] px-4">
+    <section id="section-why-choose-us" className="w-full bg-dark-mode900 py-[100px] px-4 overflow-hidden">
       <div id="why-choose-us-container" className="max-w-7xl mx-auto">
         <div id="why-choose-us-header" className="flex flex-col items-center justify-center gap-6 mb-16">
           <h2 id="why-choose-us-title" className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
@@ -120,41 +120,34 @@ export const WhyChooseUsSection = (): JSX.Element => {
               id={`why-choose-us-feature-card-${index}`}
               className={`${card.height} rounded-2xl overflow-hidden border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(27,140,70,0.2)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative`}
               initial={{
-                x: 0, // Start stacked at center
-                y: 0,
-                rotate: index * 15 - 30, // Different rotations for each card: -30°, -15°, 0°, 15°
-                z: index * 20, // Stack them with different z-index
-                scale: 0.9 - (index * 0.05), // Slightly different scales
-                opacity: 0.8
+                opacity: 0,
+                x: (1.5 - index) * 300, 
+                y: 100, 
+                scale: 0.5,
+                rotate: 20 - index * 20,
               }}
-              animate={isInView ? {
-                x: 0, // Move to natural grid position
-                y: 0,
-                rotate: 0,
-                z: 0,
-                scale: 1,
-                opacity: 1
-              } : {
-                x: 0,
-                y: 0,
-                rotate: index * 15 - 30,
-                z: index * 20,
-                scale: 0.9 - (index * 0.05),
-                opacity: 0.8
-              }}
+              animate={
+                isInView
+                  ? {
+                      opacity: 1,
+                      x: 0,
+                      y: 0,
+                      scale: 1,
+                      rotate: 0,
+                    }
+                  : {}
+              }
               transition={{
-                duration: 1.5,
-                delay: index * 0.2,
-                ease: [0.25, 0.4, 0.25, 1],
                 type: "spring",
-                stiffness: 60,
-                damping: 20
+                stiffness: 60, // Reduced from 120 for a slower, softer spring
+                damping: 25, // Increased from 20 for less bounce
+                delay: index * 0.15, // Increased from 0.1 for a longer stagger
               }}
               style={{
-                transformOrigin: 'center center',
+                transformOrigin: "center center",
                 perspective: 1000,
                 transformStyle: "preserve-3d",
-                zIndex: 20 - index
+                zIndex: 20 - index,
               }}
             >
               <CardContent id={`why-choose-us-feature-card-content-${index}`} className="p-0 h-full relative">
@@ -162,7 +155,6 @@ export const WhyChooseUsSection = (): JSX.Element => {
                   <h3 id={`why-choose-us-feature-title-${index}`} className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
                     {card.title}
                   </h3>
-
                   <div
                     id={`why-choose-us-feature-description-${index}`}
                     className={`relative ${card.descriptionWidth} [font-family:'Sora',Helvetica] font-normal text-shadeswhite text-base tracking-[0] leading-4`}
@@ -170,26 +162,22 @@ export const WhyChooseUsSection = (): JSX.Element => {
                     {card.description}
                   </div>
                 </div>
-
                 <img
                   id={`why-choose-us-feature-top-mask-${index}`}
                   className="absolute top-0 right-[57px] w-[180px] h-2"
                   alt="Mask group"
                   src={card.topMask}
                 />
-
                 <div
                   id={`why-choose-us-feature-blur-element-${index}`}
                   className={`absolute ${card.blurElement} w-[90px] h-[312px] -rotate-90 backdrop-blur-[17.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(17.5px)_brightness(100%)] bg-[linear-gradient(270deg,rgba(255,255,255,0.03)_0%,rgba(255,255,255,0.1)_100%)]`}
                 />
-
                 <img
                   id={`why-choose-us-feature-icon-${index}`}
                   className={`absolute ${card.iconClasses}`}
                   alt="Feature icon"
                   src={card.icon}
                 />
-
                 <img
                   id={`why-choose-us-feature-bottom-mask-${index}`}
                   className="absolute left-9 bottom-[-7px] w-[180px] h-px"
