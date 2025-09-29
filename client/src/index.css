@@ -360,3 +360,18 @@ div#clients-results-cta-section {
     z-index: -1;
 }
 
+/* Services section - z-index and positioning */
+div#services-bg-frame-0 {
+    z-index: 1;
+}
+
+div#service-card-3 {
+    position: relative;
+    top: 50px;
+}
+
+div#service-card-2 {
+    position: relative;
+    top: 50px;
+}
+

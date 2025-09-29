@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 export const WhyChooseUsSection = (): JSX.Element => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const featureCards = [
     {
@@ -120,12 +120,12 @@ export const WhyChooseUsSection = (): JSX.Element => {
               id={`why-choose-us-feature-card-${index}`}
               className={`${card.height} rounded-2xl overflow-hidden border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(27,140,70,0.2)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative`}
               initial={{
-                x: `calc(-50vw + 50%)`, // Start from center of viewport
-                y: `calc(-25vh + 25%)`,
-                rotate: index * 8 - 12, // Stagger rotations: -12°, -4°, 4°, 12°
-                z: index * 15,
-                scale: 0.8,
-                opacity: 0.7
+                x: 0, // Start stacked at center
+                y: 0,
+                rotate: index * 15 - 30, // Different rotations for each card: -30°, -15°, 0°, 15°
+                z: index * 20, // Stack them with different z-index
+                scale: 0.9 - (index * 0.05), // Slightly different scales
+                opacity: 0.8
               }}
               animate={isInView ? {
                 x: 0, // Move to natural grid position
@@ -135,20 +135,20 @@ export const WhyChooseUsSection = (): JSX.Element => {
                 scale: 1,
                 opacity: 1
               } : {
-                x: `calc(-50vw + 50%)`,
-                y: `calc(-25vh + 25%)`,
-                rotate: index * 8 - 12,
-                z: index * 15,
-                scale: 0.8,
-                opacity: 0.7
+                x: 0,
+                y: 0,
+                rotate: index * 15 - 30,
+                z: index * 20,
+                scale: 0.9 - (index * 0.05),
+                opacity: 0.8
               }}
               transition={{
-                duration: 1.2,
-                delay: index * 0.15,
+                duration: 1.5,
+                delay: index * 0.2,
                 ease: [0.25, 0.4, 0.25, 1],
                 type: "spring",
-                stiffness: 80,
-                damping: 15
+                stiffness: 60,
+                damping: 20
               }}
               style={{
                 transformOrigin: 'center center',

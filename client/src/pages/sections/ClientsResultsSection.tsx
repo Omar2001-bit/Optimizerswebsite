@@ -113,17 +113,17 @@ const clientsData = [
 ];
 
 export const ClientsResultsSection: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(Math.floor(clientsData.length / 2));
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
   const [dragDistance, setDragDistance] = useState(0);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % clientsData.length);
+    setCurrentIndex((prev) => prev + 1);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + clientsData.length) % clientsData.length);
+    setCurrentIndex((prev) => prev - 1);
   };
 
   const goToSlide = (index: number) => {
@@ -184,8 +184,12 @@ export const ClientsResultsSection: React.FC = () => {
       <div id="carousel-container" className="relative px-4 mb-16 max-w-7xl mx-auto">
         {/* Stacked Carousel Content */}
         <div id="carousel-wrapper" className="relative h-[600px] flex items-center justify-center">
-          {clientsData.map((client, index) => {
-            const position = index - currentIndex;
+          {/* Render cards around current index for infinite effect */}
+          {[-2, -1, 0, 1, 2].map((offset) => {
+            const cardIndex = currentIndex + offset;
+            const clientIndex = ((cardIndex % clientsData.length) + clientsData.length) % clientsData.length;
+            const client = clientsData[clientIndex];
+            const position = offset;
             const isCenter = position === 0;
             const isVisible = Math.abs(position) <= 2;
             
@@ -195,11 +199,11 @@ export const ClientsResultsSection: React.FC = () => {
               <Card
                 key={client.id}
                 id={`client-card-${client.id}`}
-                onClick={() => !isCenter && !isDragging && goToSlide(index)}
-                onMouseDown={(e) => handleMouseDown(e, index)}
-                onMouseMove={(e) => handleMouseMove(e, index)}
-                onMouseUp={() => handleMouseUp(index)}
-                onMouseLeave={() => handleMouseLeave(index)}
+                onClick={() => !isCenter && !isDragging && goToSlide(cardIndex)}
+                onMouseDown={(e) => handleMouseDown(e, cardIndex)}
+                onMouseMove={(e) => handleMouseMove(e, cardIndex)}
+                onMouseUp={() => handleMouseUp(cardIndex)}
+                onMouseLeave={() => handleMouseLeave(cardIndex)}
                 className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-500 ease-in-out select-none ${
                   isCenter 
                     ? 'scale-100 opacity-100 cursor-grab active:cursor-grabbing' 
