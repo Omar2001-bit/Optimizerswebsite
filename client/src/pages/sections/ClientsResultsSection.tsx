@@ -183,10 +183,10 @@ export const ClientsResultsSection: React.FC = () => {
   return (
     <section id="section-clients-results" className="w-full bg-dark-mode900 overflow-hidden py-24">
       <div id="clients-results-header" className="flex flex-col items-center gap-6 mb-16 px-4">
-        <h1 id="clients-results-title" className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+        <h1 id="clients-results-title" className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
           TOP CLIENTS & RESULTS
         </h1>
-        <p id="clients-results-description" className="max-w-[770px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] text-center tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+        <p id="clients-results-description" className="max-w-[770px] font-semibold text-shadeswhite text-[20px] text-center tracking-[0px] leading-[24px]">
           See how we&apos;ve helped leading e-commerce brands increase
           conversions, revenue, and customer loyalty through CRO.
         </p>
@@ -241,11 +241,11 @@ export const ClientsResultsSection: React.FC = () => {
                       src={client.profileImage}
                     />
                     <div id={`client-info-${client.id}`} className="flex flex-col items-start gap-3 flex-1">
-                      <h3 id={`client-name-${client.id}`} className="font-heading-h4-semi-bold font-[number:var(--heading-h4-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h4-semi-bold-font-size)] tracking-[var(--heading-h4-semi-bold-letter-spacing)] leading-[var(--heading-h4-semi-bold-line-height)] [font-style:var(--heading-h4-semi-bold-font-style)]">
+                      <h3 id={`client-name-${client.id}`} className="font-semibold text-shadeswhite text-[28px] tracking-[-0.56px] leading-[34px]">
                         {client.name}
                       </h3>
                       <Badge id={`client-industry-badge-${client.id}`} className="bg-[#6ae49926] text-secondary-300 border-none px-3 py-1.5 rounded-[100px]">
-                        <span id={`client-industry-text-${client.id}`} className="font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
+                        <span id={`client-industry-text-${client.id}`} className="font-normal text-[14px] tracking-[0px] leading-[17px]">
                           {client.industry}
                         </span>
                       </Badge>
@@ -253,7 +253,7 @@ export const ClientsResultsSection: React.FC = () => {
                   </div>
 
                   <div id={`client-description-section-${client.id}`} className="flex flex-col gap-5 w-full">
-                    <p id={`client-description-${client.id}`} className="font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+                    <p id={`client-description-${client.id}`} className="font-normal text-shadeswhite text-[20px] tracking-[0px] leading-[24px]">
                       {client.description}
                     </p>
                     <div id={`client-market-info-${client.id}`} className="flex items-center gap-2">
@@ -263,7 +263,7 @@ export const ClientsResultsSection: React.FC = () => {
                         alt="Country flag"
                         src={client.flagImage}
                       />
-                      <span id={`client-market-${client.id}`} className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+                      <span id={`client-market-${client.id}`} className="font-semibold text-shadeswhite text-[18px] tracking-[0px] leading-[21.6px]">
                         {client.market}
                       </span>
                     </div>
@@ -272,30 +272,30 @@ export const ClientsResultsSection: React.FC = () => {
 
                 <div id={`client-details-cards-${client.id}`} className="flex flex-col gap-3 w-full">
                   <Card id={`client-goal-card-${client.id}`} className="bg-transparent border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-                    <CardContent id={`client-goal-content-${client.id}`} className="flex flex-col items-center justify-center gap-3 p-6">
-                      <h4 id={`client-goal-title-${client.id}`} className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
+                    <CardContent id={`client-goal-content-${client.id}`} className="flex flex-col items-start justify-center gap-3 p-6">
+                      <h4 id={`client-goal-title-${client.id}`} className="font-semibold text-shadeswhite text-[20px] tracking-[0px] leading-[24px]">
                         Our Goal:
                       </h4>
-                      <p id={`client-goal-text-${client.id}`} className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+                      <p id={`client-goal-text-${client.id}`} className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-left">
                         {client.goal}
                       </p>
                     </CardContent>
                   </Card>
 
                   <Card id={`client-improvements-card-${client.id}`} className="bg-transparent border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-                    <CardContent id={`client-improvements-content-${client.id}`} className="flex flex-col items-center justify-center gap-3 p-6">
-                      <h4 id={`client-improvements-title-${client.id}`} className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
+                    <CardContent id={`client-improvements-content-${client.id}`} className="flex flex-col items-start justify-center gap-3 p-6">
+                      <h4 id={`client-improvements-title-${client.id}`} className="font-semibold text-shadeswhite text-[20px] tracking-[0px] leading-[24px]">
                         Areas of Improvement:
                       </h4>
-                      <p id={`client-improvements-text-${client.id}`} className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+                      <p id={`client-improvements-text-${client.id}`} className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-left">
                         {client.improvements}
                       </p>
                     </CardContent>
                   </Card>
 
                   <Card id={`client-results-card-${client.id}`} className="bg-transparent border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]">
-                    <CardContent id={`client-results-content-${client.id}`} className="flex flex-col items-center justify-center gap-3 p-6">
-                      <h4 id={`client-results-title-${client.id}`} className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
+                    <CardContent id={`client-results-content-${client.id}`} className="flex flex-col items-start justify-center gap-3 p-6">
+                      <h4 id={`client-results-title-${client.id}`} className="font-semibold text-shadeswhite text-[20px] tracking-[0px] leading-[24px]">
                         Results:
                       </h4>
                       <div id={`client-results-list-${client.id}`} className="flex flex-col gap-2 w-full">
@@ -305,13 +305,13 @@ export const ClientsResultsSection: React.FC = () => {
                             id={`client-result-item-${client.id}-${index}`}
                             className="[font-family:'Sora',Helvetica] font-normal text-shadeswhite text-lg tracking-[0] leading-[18px]"
                           >
-                            <span id={`client-result-percentage-${client.id}-${index}`} className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[#6ae499] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+                            <span id={`client-result-percentage-${client.id}-${index}`} className="font-semibold text-[#6ae499] text-[18px] tracking-[0px] leading-[21.6px]">
                               {result.percentage}
                             </span>
                             <span className="text-white leading-[21.6px]">
                               &nbsp;&nbsp;
                             </span>
-                            <span id={`client-result-metric-${client.id}-${index}`} className="text-white font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
+                            <span id={`client-result-metric-${client.id}-${index}`} className="text-white font-normal text-[16px] tracking-[0px] leading-[19px]">
                               {result.metric}
                             </span>
                           </div>
@@ -342,7 +342,7 @@ export const ClientsResultsSection: React.FC = () => {
       </div>
 
       <div id="clients-results-cta-section" className="flex flex-col items-center justify-center gap-8 px-4">
-        <h2 id="clients-results-cta-title" className="font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-white text-[length:var(--subheading-semi-bold-font-size)] text-center tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
+        <h2 id="clients-results-cta-title" className="font-semibold text-white text-[20px] text-center tracking-[0px] leading-[24px]">
           Ready to be our next success story?
         </h2>
         <Button 
@@ -352,7 +352,7 @@ export const ClientsResultsSection: React.FC = () => {
             document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }}
         >
-          <span id="clients-results-cta-button-text" className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+          <span id="clients-results-cta-button-text" className="font-semibold text-[18px] tracking-[0px] leading-[21.6px]">
             Book Your Free Consultation
           </span>
         </Button>

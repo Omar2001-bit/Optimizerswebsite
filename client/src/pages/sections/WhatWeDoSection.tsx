@@ -87,22 +87,22 @@ export const WhatWeDoSection = (): JSX.Element => {
   return (
     <section ref={ref} id="section-what-we-do" className="w-full bg-dark-mode900 py-[100px] px-8">
       <div id="what-we-do-header" className="max-w-[870px] mx-auto flex flex-col items-center gap-6 mb-[76px]">
-        <h1 id="what-we-do-title" className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+        <h1 id="what-we-do-title" className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
           What We Do
         </h1>
-        <h2 id="what-we-do-subtitle" className="font-heading-h1-small-semi-bold font-[number:var(--heading-h1-small-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-small-semi-bold-font-size)] text-center tracking-[var(--heading-h1-small-semi-bold-letter-spacing)] leading-[var(--heading-h1-small-semi-bold-line-height)] [font-style:var(--heading-h1-small-semi-bold-font-style)]">
+        <h2 id="what-we-do-subtitle" className="font-semibold text-shadeswhite text-[34px] text-center tracking-[-1.36px] leading-[40px]">
           Ongoing CRO Programs — The Engine of Growth
         </h2>
-        <p id="what-we-do-description" className="[font-family:'Sora',Helvetica] font-normal text-shadeswhite text-xl text-center tracking-[0] leading-5">
+        <p id="what-we-do-description" className="[font-family:'Sora',Helvetica] font-normal text-shadeswhite text-[20px] text-center tracking-[0] leading-6">
           <span className="leading-6">The biggest wins come from </span>
-          <span className="font-[number:var(--subheading-semi-bold-font-weight)] leading-[var(--subheading-semi-bold-line-height)] font-subheading-semi-bold [font-style:var(--subheading-semi-bold-font-style)] tracking-[var(--subheading-semi-bold-letter-spacing)] text-[length:var(--subheading-semi-bold-font-size)]">
+          <span className="font-semibold leading-6">
             a continuous cycle of research, testing, and improvement{" "}
           </span>
           <span className="leading-6">
             that compounds results over time. Our retainers give GCC e-commerce
             brands{" "}
           </span>
-          <span className="font-[number:var(--subheading-semi-bold-font-weight)] leading-[var(--subheading-semi-bold-line-height)] font-subheading-semi-bold [font-style:var(--subheading-semi-bold-font-style)] tracking-[var(--subheading-semi-bold-letter-spacing)] text-[length:var(--subheading-semi-bold-font-size)]">
+          <span className="font-semibold leading-6">
             a dedicated CRO team
           </span>
           <span className="leading-6"> that works month after month to:</span>
@@ -138,10 +138,10 @@ export const WhatWeDoSection = (): JSX.Element => {
                   '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
                 } as React.CSSProperties & { '--bg-image': string }}
               >
-                <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
+                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-center">
                   {card.title}
                 </h3>
-                <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+                <p className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-center">
                   {card.description}
                 </p>
                 <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Mask group" src={card.topMask} />
@@ -181,10 +181,10 @@ export const WhatWeDoSection = (): JSX.Element => {
                   '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
                 } as React.CSSProperties & { '--bg-image': string }}
               >
-                <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
+                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-center">
                   {card.title}
                 </h3>
-                <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+                <p className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-center">
                   {card.description}
                 </p>
                 <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Mask group" src={card.topMask} />
@@ -198,7 +198,7 @@ export const WhatWeDoSection = (): JSX.Element => {
       <div id="what-we-do-cta-section" className="flex justify-center">
         <Button 
           id="what-we-do-cta-button" 
-          className="px-5 py-3.5 bg-secondary-500 text-neutral-900 font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] rounded h-auto hover:bg-secondary-500"
+          className="px-5 py-3.5 bg-secondary-500 text-neutral-900 font-semibold text-[18px] tracking-[0px] leading-[21.6px] rounded h-auto hover:bg-secondary-500"
           onClick={() => {
             document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }}

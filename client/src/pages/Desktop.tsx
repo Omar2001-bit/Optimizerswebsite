@@ -79,7 +79,7 @@ export const Desktop = (): JSX.Element => {
             <div
               key={index}
               id={`nav-item-${item.toLowerCase().replace(/\s+/g, '-')}`}
-              className="relative w-fit mt-[-1.00px] font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] whitespace-nowrap [font-style:var(--paragraph-p1-regular-font-style)] cursor-pointer hover:opacity-80"
+              className="relative w-fit mt-[-1.00px] font-normal text-shadeswhite text-[14px] tracking-[0px] leading-[17px] whitespace-nowrap cursor-pointer hover:opacity-80"
             >
               {item}
             </div>
@@ -110,7 +110,7 @@ export const Desktop = (): JSX.Element => {
               document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
           >
-            <div className="font-[number:var(--paragraph-p1-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p1-semi-bold-font-size)] leading-[var(--paragraph-p1-semi-bold-line-height)] whitespace-nowrap relative w-fit mt-[-1.00px] font-paragraph-p1-semi-bold tracking-[var(--paragraph-p1-semi-bold-letter-spacing)] [font-style:var(--paragraph-p1-semi-bold-font-style)]">
+            <div className="font-semibold text-neutral-900 text-[14px] leading-[17px] whitespace-nowrap relative w-fit mt-[-1.00px] tracking-[0px]">
               Get Free Audit
             </div>
           </Button>
@@ -123,7 +123,7 @@ export const Desktop = (): JSX.Element => {
 
       <section id="section-brand-logos" className="flex flex-col w-[1144px] items-start justify-center p-[9px] relative mx-auto mt-[157px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#6ae49933] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
         <div id="brand-logos-container" className="flex flex-col items-center justify-center gap-6 px-5 py-6 relative self-stretch w-full flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.5)_100%)]">
-          <h2 id="brand-logos-title" className="relative self-stretch mt-[-1.00px] font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] text-center tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
+          <h2 id="brand-logos-title" className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-[23px] text-center tracking-[-0.46px] leading-[28px]">
             Trusted by Leading GCC &amp; MENA Brands
           </h2>
 

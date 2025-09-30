@@ -21,10 +21,10 @@ export const WhyChooseUsSection = (): JSX.Element => {
       title: "Proven Track Record",
       description: (
         <>
-          <span className="text-white leading-[0.1px]">
+          <span className="text-white font-normal text-[16px] leading-[19px]">
             8+ years helping brands achieve an average{" "}
           </span>
-          <span className="font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-white leading-[var(--paragraph-p2-semi-bold-line-height)] font-paragraph-p2-semi-bold [font-style:var(--paragraph-p2-semi-bold-font-style)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] text-[length:var(--paragraph-p2-semi-bold-font-size)]">
+          <span className="font-semibold text-white text-[16px] leading-[19px] tracking-[0px]">
             35% lift in conversion rates.
           </span>
         </>
@@ -41,10 +41,10 @@ export const WhyChooseUsSection = (): JSX.Element => {
       title: "Specialized Expertise",
       description: (
         <>
-          <span className="text-white leading-[0.1px]">
+          <span className="text-white font-normal text-[16px] leading-[19px]">
             Certified CRO specialists with deep understanding of{" "}
           </span>
-          <span className="font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-white leading-[var(--paragraph-p2-semi-bold-line-height)] font-paragraph-p2-semi-bold [font-style:var(--paragraph-p2-semi-bold-font-style)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] text-[length:var(--paragraph-p2-semi-bold-font-size)]">
+          <span className="font-semibold text-white text-[16px] leading-[19px] tracking-[0px]">
             Arabic users, cultural nuances, and GCC market behavior.
           </span>
         </>
@@ -61,10 +61,10 @@ export const WhyChooseUsSection = (): JSX.Element => {
       title: "100% Guarantee",
       description: (
         <>
-          <span className="text-white leading-[0.1px]">
+          <span className="text-white font-normal text-[16px] leading-[19px]">
             If we don&apos;t improve your conversions,{" "}
           </span>
-          <span className="font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-white leading-[var(--paragraph-p2-semi-bold-line-height)] font-paragraph-p2-semi-bold [font-style:var(--paragraph-p2-semi-bold-font-style)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] text-[length:var(--paragraph-p2-semi-bold-font-size)]">
+          <span className="font-semibold text-white text-[16px] leading-[19px] tracking-[0px]">
             you don&apos;t <br />
             pay.
           </span>
@@ -82,18 +82,18 @@ export const WhyChooseUsSection = (): JSX.Element => {
       title: "Fastest Setup, Continuous Growth",
       description: (
         <>
-          <span className="text-white leading-[0.1px]">
+          <span className="text-white font-normal text-[16px] leading-[19px]">
             Your first experiments live in just{" "}
           </span>
-          <span className="font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-white leading-[var(--paragraph-p2-semi-bold-line-height)] font-paragraph-p2-semi-bold [font-style:var(--paragraph-p2-semi-bold-font-style)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] text-[length:var(--paragraph-p2-semi-bold-font-size)]">
+          <span className="font-semibold text-white text-[16px] leading-[19px] tracking-[0px]">
             14 days
           </span>
-          <span className="text-white leading-[0.1px]">
+          <span className="text-white font-normal text-[16px] leading-[19px]">
             , <br />
             with ongoing <br />
             testing cycles for sustained impact
           </span>
-          <span className="text-white leading-[19px]">.</span>
+          <span className="text-white font-normal text-[16px] leading-[19px]">.</span>
         </>
       ),
       height: "h-[340px]",
@@ -111,11 +111,11 @@ export const WhyChooseUsSection = (): JSX.Element => {
     <section id="section-why-choose-us" className="w-full bg-dark-mode900 py-[100px] px-4 overflow-hidden">
       <div id="why-choose-us-container" className="max-w-7xl mx-auto">
         <div id="why-choose-us-header" className="flex flex-col items-center justify-center gap-6 mb-16">
-          <h2 id="why-choose-us-title" className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+          <h2 id="why-choose-us-title" className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
             Why Choose Our CRO Agency?
           </h2>
 
-          <p id="why-choose-us-description" className="max-w-2xl font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] text-center tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+          <p id="why-choose-us-description" className="max-w-2xl font-normal text-shadeswhite text-[20px] text-center tracking-[0px] leading-[24px]">
             We don&apos;t just run tests — we deliver measurable business
             growth.
           </p>
@@ -152,12 +152,12 @@ export const WhyChooseUsSection = (): JSX.Element => {
               >
                 <CardContent id={`why-choose-us-feature-card-content-${index}`} className="p-0 h-full relative">
                   <div id={`why-choose-us-feature-content-${index}`} className="flex flex-col w-[266px] items-start gap-3 absolute top-6 left-6">
-                    <h3 id={`why-choose-us-feature-title-${index}`} className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
+                    <h3 id={`why-choose-us-feature-title-${index}`} className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]">
                       {card.title}
                     </h3>
                     <div
                       id={`why-choose-us-feature-description-${index}`}
-                      className={`relative ${card.descriptionWidth} [font-family:'Sora',Helvetica] font-normal text-shadeswhite text-base tracking-[0] leading-4`}
+                      className={`relative ${card.descriptionWidth} [font-family:'Sora',Helvetica] font-normal text-shadeswhite text-[16px] tracking-[0] leading-4`}
                     >
                       {card.description}
                     </div>
@@ -198,7 +198,7 @@ export const WhyChooseUsSection = (): JSX.Element => {
               document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
           >
-            <span id="why-choose-us-cta-button-text" className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+            <span id="why-choose-us-cta-button-text" className="font-semibold text-neutral-900 text-[18px] tracking-[0px] leading-[21.6px]">
               Get Your Free CRO Audit
             </span>
           </Button>

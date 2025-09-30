@@ -83,10 +83,10 @@ export const ServicesSection = (): JSX.Element => {
             >
               <Card id={`service-card-${index}`} className="flex flex-col w-[430px] items-start justify-center p-[9px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
                 <CardContent id={`service-card-content-${index}`} className="flex flex-col items-center justify-center gap-4 p-6 relative self-stretch w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] bg-[radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
-                    <h3 id={`service-title-${index}`} className={`relative ${service.titleWidth || "self-stretch"} mt-[-1.00px] font-heading-h5-semi-bold text-shadeswhite`}>
+                    <h3 id={`service-title-${index}`} className={`relative ${service.titleWidth || "self-stretch"} mt-[-1.00px] font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]`}>
                         {service.title}
                     </h3>
-                    <p id={`service-description-${index}`} className="relative self-stretch font-paragraph-p2-regular text-shadeswhite">
+                    <p id={`service-description-${index}`} className="relative self-stretch font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px]">
                         {service.description}
                     </p>
                     <img id={`service-top-mask-${index}`} className="absolute top-0 right-[57px] w-[180px] h-2" alt="Mask group" src={service.topMask}/>
@@ -104,13 +104,13 @@ export const ServicesSection = (): JSX.Element => {
           document.getElementById('section-feature-process')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }}
       >
-        <span id="services-cta-button-text" className="font-paragraph-p3-semi-bold text-secondary-500">
+        <span id="services-cta-button-text" className="font-semibold text-[18px] text-secondary-500 tracking-[0px] leading-[21.6px]">
           See How Our Process Works
         </span>
       </Button>
 
       <header id="services-header" className="flex w-[870px] items-center absolute top-[100px] left-[calc(50.00%_-_434px)] flex-col gap-6">
-        <h1 id="services-title" className="relative self-stretch mt-[-1.00px] font-heading-h1-semi-bold text-shadeswhite text-center">
+        <h1 id="services-title" className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-center text-[48px] tracking-[-1.92px] leading-[56px]">
           Our Services
         </h1>
       </header>

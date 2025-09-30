@@ -48,13 +48,13 @@ export const HeroSection = (): JSX.Element => {
       <Card id="hero-card" className="relative z-20 w-[493px] bg-[#ffffff33] border border-solid border-[#6ae49933] rounded-xl backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
         <CardContent id="hero-card-content" className="flex flex-col items-start gap-12 p-8">
           <div id="hero-main-content" className="flex flex-col items-start gap-6 w-full">
-            <h1 id="hero-title" className="font-heading-h1-small-semi-bold font-[number:var(--heading-h1-small-semi-bold-font-weight)] text-white text-[length:var(--heading-h1-small-semi-bold-font-size)] tracking-[var(--heading-h1-small-semi-bold-letter-spacing)] leading-[var(--heading-h1-small-semi-bold-line-height)] [font-style:var(--heading-h1-small-semi-bold-font-style)]">
+            <h1 id="hero-title" className="font-semibold text-white text-[34px] tracking-[-1.36px] leading-[40px]">
               Your ads bring visitors,
               <br />
               we turn them into buyers.
             </h1>
 
-            <p id="hero-description" className="font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-white text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+            <p id="hero-description" className="font-normal text-white text-[20px] tracking-[0px] leading-[24px]">
               If you&apos;re investing in ads but not seeing enough sales,
               we&apos;ll find the leaks in your funnel, fix them, and maximize
               your returns.
@@ -67,14 +67,14 @@ export const HeroSection = (): JSX.Element => {
                 document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}
             >
-              <span id="hero-cta-button-text" className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+              <span id="hero-cta-button-text" className="font-semibold text-neutral-900 text-[18px] tracking-[0px] leading-[21.6px] whitespace-nowrap">
                 Start Your Journey Now
               </span>
             </Button>
           </div>
 
           <div id="hero-platforms-section" className="flex flex-col items-start gap-4 w-full">
-            <h2 id="hero-platforms-title" className="font-heading-h6-small-semi-bold font-[number:var(--heading-h6-small-semi-bold-font-weight)] text-white text-[length:var(--heading-h6-small-semi-bold-font-size)] tracking-[var(--heading-h6-small-semi-bold-letter-spacing)] leading-[var(--heading-h6-small-semi-bold-line-height)] [font-style:var(--heading-h6-small-semi-bold-font-style)]">
+            <h2 id="hero-platforms-title" className="font-semibold text-white text-[16px] tracking-[-0.32px] leading-[19px]">
               Built for leading platforms:
             </h2>
 
