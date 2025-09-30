@@ -85,8 +85,8 @@ export const WhatWeDoSection = (): JSX.Element => {
   });
 
   return (
-    <section ref={ref} id="section-what-we-do" className="w-full bg-dark-mode900 py-[100px] px-8">
-      <div id="what-we-do-header" className="max-w-[870px] mx-auto flex flex-col items-center gap-6 mb-[76px]">
+    <section ref={ref} id="section-what-we-do" className="w-full bg-dark-mode900 pt-[200px] pb-[200px] px-8">
+      <div id="what-we-do-header" className="max-w-[870px] mx-auto flex flex-col items-center gap-[60px] mb-[60px]">
         <h1 id="what-we-do-title" className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
           What We Do
         </h1>
@@ -109,7 +109,7 @@ export const WhatWeDoSection = (): JSX.Element => {
         </p>
       </div>
 
-      <div id="what-we-do-services-grid-1" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[16px]">
+      <div id="what-we-do-services-grid-1" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         {serviceCards.slice(0, 4).map((card, index) => {
           const start = index * 0.1;
           const end = start + 0.25;
@@ -152,7 +152,7 @@ export const WhatWeDoSection = (): JSX.Element => {
         })}
       </div>
 
-      <div id="what-we-do-services-grid-2" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[70px]">
+      <div id="what-we-do-services-grid-2" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[60px]">
         {serviceCards.slice(4, 8).map((card, index) => {
           const i = index + 4;
           const start = i * 0.1;

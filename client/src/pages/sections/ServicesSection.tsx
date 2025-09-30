@@ -68,7 +68,7 @@ export const ServicesSection = (): JSX.Element => {
   });
 
   return (
-    <section id="section-services" ref={ref} className="relative w-full min-h-[950px] bg-dark-mode900">
+    <section id="section-services" ref={ref} className="relative w-full min-h-[950px] bg-dark-mode900 pb-[200px]">
       {servicesData.map((service, index) => {
         const x = useTransform(scrollYProgress, [0, 1], [service.animateFrom.x, 0]);
         const y = useTransform(scrollYProgress, [0, 1], [service.animateFrom.y, 0]);
@@ -99,7 +99,7 @@ export const ServicesSection = (): JSX.Element => {
 
       <Button 
         id="services-cta-button" 
-        className="px-5 py-3.5 absolute top-[800px] left-[calc(50.00%_-_149px)] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded h-auto bg-transparent hover:bg-transparent hover:text-secondary-500"
+        className="px-5 py-3.5 absolute top-[760px] left-[calc(50.00%_-_149px)] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded h-auto bg-transparent hover:bg-transparent hover:text-secondary-500"
         onClick={() => {
           document.getElementById('section-feature-process')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }}
@@ -109,7 +109,7 @@ export const ServicesSection = (): JSX.Element => {
         </span>
       </Button>
 
-      <header id="services-header" className="flex w-[870px] items-center absolute top-[100px] left-[calc(50.00%_-_434px)] flex-col gap-6">
+      <header id="services-header" className="flex w-[870px] items-center absolute top-[60px] left-[calc(50.00%_-_434px)] flex-col gap-6">
         <h1 id="services-title" className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-center text-[48px] tracking-[-1.92px] leading-[56px]">
           Our Services
         </h1>

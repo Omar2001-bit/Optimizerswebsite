@@ -181,8 +181,8 @@ export const ClientsResultsSection: React.FC = () => {
   };
 
   return (
-    <section id="section-clients-results" className="w-full bg-dark-mode900 overflow-hidden py-24">
-      <div id="clients-results-header" className="flex flex-col items-center gap-6 mb-16 px-4">
+    <section id="section-clients-results" className="w-full bg-dark-mode900 overflow-hidden pt-0 pb-[200px]">
+      <div id="clients-results-header" className="flex flex-col items-center gap-[60px] mb-[60px] px-4">
         <h1 id="clients-results-title" className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
           TOP CLIENTS & RESULTS
         </h1>
@@ -192,7 +192,7 @@ export const ClientsResultsSection: React.FC = () => {
         </p>
       </div>
 
-      <div id="carousel-container" className="relative px-4 mb-16 max-w-7xl mx-auto">
+      <div id="carousel-container" className="relative px-4 mb-[60px] max-w-7xl mx-auto">
         {/* Stacked Carousel Content */}
         <div id="carousel-wrapper" className="relative h-[600px] flex items-center justify-center">
           {/* Render cards around current index for infinite effect */}
