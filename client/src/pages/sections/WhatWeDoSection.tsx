@@ -198,7 +198,7 @@ export const WhatWeDoSection = (): JSX.Element => {
       <div id="what-we-do-cta-section" className="flex justify-center">
         <Button 
           id="what-we-do-cta-button" 
-          className="px-5 py-3.5 bg-secondary-500 text-neutral-900 font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] rounded h-auto hover:bg-secondary-400"
+          className="px-5 py-3.5 bg-secondary-500 text-neutral-900 font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)] rounded h-auto"
           onClick={() => {
             document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }}

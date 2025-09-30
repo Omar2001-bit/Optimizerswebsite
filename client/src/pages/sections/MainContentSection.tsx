@@ -4,7 +4,7 @@ export const MainContentSection = (): JSX.Element => {
   return (
     <section className="relative w-full h-[800px] bg-dark-mode900">
       <img
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1158px] h-[800px]"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1400px] h-[900px]"
         alt="Frame"
         src="/figmaAssets/frame-2131328359.svg"
       />

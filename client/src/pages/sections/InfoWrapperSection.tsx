@@ -137,7 +137,7 @@ export const InfoWrapperSection = (): JSX.Element => {
             <h2 className="w-full font-heading-h5-semi-bold text-shadeswhite">2. Now Calculate Your ROI Projection</h2>
             <div className="flex items-center justify-between w-full gap-6 flex-wrap lg:flex-nowrap">
               {/* CURRENT Card */}
-              <Card id="card-current-projection" className="w-full lg:w-[500px] p-8 rounded-2xl border border-solid border-white/20 bg-[#1c1c1c] relative bottom-[111px]">
+              <Card id="card-current-projection" className="w-full lg:w-[500px] p-8 rounded-2xl border border-solid border-white/20 bg-[#1c1c1c]">
                 <CardContent className="p-0 flex flex-col gap-12">
                   <h3 className="w-full font-heading-h5-semi-bold text-center text-shadeswhite">CURRENT</h3>
                   <div className="flex flex-col items-center gap-5 w-full">

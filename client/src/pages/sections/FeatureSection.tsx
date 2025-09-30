@@ -75,43 +75,45 @@ export const FeatureSection = (): JSX.Element => {
           align-items: center;
           position: absolute;
           width: 100%;
-          opacity: 0;
+          opacity: 1;
           will-change: transform, opacity;
           animation: carousel-animate-vertical ${ANIMATION_DURATION}s linear infinite;
         }
         @keyframes carousel-animate-vertical {
           0% {
-            transform: translateY(100%) scale(0.6);
-            opacity: 0;
-            visibility: hidden;
-          }
-          ${SLIDE_CHANGE_TIMING}%,
-          ${STEP_INTERVAL_PERCENTAGE}% {
-            transform: translateY(100%) scale(0.7);
-            opacity: 0.4;
-            visibility: visible;
-          }
-          ${STEP_INTERVAL_PERCENTAGE + SLIDE_CHANGE_TIMING}%,
-          ${STEP_INTERVAL_PERCENTAGE * 2}% {
-            transform: translateY(0) scale(1);
+            transform: translateY(100%);
             opacity: 1;
             visibility: visible;
           }
-          ${STEP_INTERVAL_PERCENTAGE * 2 + SLIDE_CHANGE_TIMING}%,
-          ${STEP_INTERVAL_PERCENTAGE * 3}% {
-            transform: translateY(-100%) scale(0.7);
-            opacity: 0.4;
+          ${STEP_INTERVAL_PERCENTAGE}% {
+            transform: translateY(0%);
+            opacity: 1;
             visibility: visible;
           }
-          ${STEP_INTERVAL_PERCENTAGE * 3 + SLIDE_CHANGE_TIMING}% {
-            transform: translateY(-100%) scale(0.6);
-            opacity: 0;
+          ${STEP_INTERVAL_PERCENTAGE * 2}% {
+            transform: translateY(-100%);
+            opacity: 1;
+            visibility: visible;
+          }
+          ${STEP_INTERVAL_PERCENTAGE * 3}% {
+            transform: translateY(-200%);
+            opacity: 1;
+            visibility: visible;
+          }
+          ${STEP_INTERVAL_PERCENTAGE * 4}% {
+            transform: translateY(-300%);
+            opacity: 1;
+            visibility: visible;
+          }
+          ${STEP_INTERVAL_PERCENTAGE * 5}% {
+            transform: translateY(-400%);
+            opacity: 1;
             visibility: visible;
           }
           100% {
-            transform: translateY(-100%) scale(0.6);
-            opacity: 0;
-            visibility: hidden;
+            transform: translateY(-500%);
+            opacity: 1;
+            visibility: visible;
           }
         }
       `}</style>

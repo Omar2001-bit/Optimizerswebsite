@@ -143,7 +143,7 @@ export const OverviewSection = (): JSX.Element => {
                     <Card className="rounded-xl border-none backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(176,241,201,0.3)_0%,rgba(6,35,17,1)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-xl before:[background:linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(59,126,85,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none relative">
                       <CardContent className="p-6">
                         <div className="flex items-center gap-3">
-                          <img className="w-10 h-16 object-cover" alt="Profile photo" src={study.profileImage} />
+                          <img className="w-16 h-16 object-contain" alt="Profile photo" src={study.profileImage} />
                           <div className="flex-1 flex flex-col gap-2.5">
                             <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
                               {study.company}
@@ -227,8 +227,8 @@ export const OverviewSection = (): JSX.Element => {
                     <h3 className="font-heading-h6-semi-bold font-[number:var(--heading-h6-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h6-semi-bold-font-size)] tracking-[var(--heading-h6-semi-bold-letter-spacing)] leading-[var(--heading-h6-semi-bold-line-height)] [font-style:var(--heading-h6-semi-bold-font-style)] text-center writing-mode-vertical-rl text-orientation-mixed">
                       {study.company}
                     </h3>
-                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                      <img className="w-8 h-8 object-cover rounded-full" alt="Company logo" src={study.profileImage} />
+                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
+                      <img className="w-14 h-14 object-contain rounded-full" alt="Company logo" src={study.profileImage} />
                     </div>
                   </CardContent>
                 </div>

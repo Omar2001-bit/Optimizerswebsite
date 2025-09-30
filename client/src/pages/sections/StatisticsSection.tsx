@@ -12,7 +12,7 @@ export const StatisticsSection = (): JSX.Element => {
           src="/figmaAssets/sicky-bar.png"
         />
 
-        <div className="flex flex-col w-[665px] items-start justify-center gap-8 absolute top-20 left-[60px] rounded-xl backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
+        <div className="flex flex-col w-[665px] items-start justify-center gap-8 absolute top-20 left-[60px] rounded-xl">
           <h2 className="relative self-stretch mt-[-1.00px] font-display-02-semi-bold font-[number:var(--display-02-semi-bold-font-weight)] text-white text-[length:var(--display-02-semi-bold-font-size)] tracking-[var(--display-02-semi-bold-letter-spacing)] leading-[var(--display-02-semi-bold-line-height)] [font-style:var(--display-02-semi-bold-font-style)]">
             Let&apos;s Turn More Visitors Into Buyers
           </h2>
