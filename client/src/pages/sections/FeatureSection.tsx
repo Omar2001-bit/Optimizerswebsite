@@ -82,21 +82,21 @@ export const FeatureSection = (): JSX.Element => {
         }
         @keyframes carousel-animate-vertical {
           0% {
-            transform: translateY(300%) scale(0.5);
+            transform: translateY(180%) scale(0.5);
             opacity: 0.3;
             z-index: 1;
             visibility: visible;
           }
           ${SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE}% {
-            transform: translateY(200%) scale(0.6);
+            transform: translateY(120%) scale(0.6);
             opacity: 0.4;
             z-index: 2;
             visibility: visible;
           }
           ${STEP_INTERVAL_PERCENTAGE + SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE * 2}% {
-            transform: translateY(100%) scale(0.7);
+            transform: translateY(60%) scale(0.7);
             opacity: 0.5;
             z-index: 3;
             visibility: visible;
@@ -110,21 +110,21 @@ export const FeatureSection = (): JSX.Element => {
           }
           ${(STEP_INTERVAL_PERCENTAGE * 3) + SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE * 4}% {
-            transform: translateY(-100%) scale(0.7);
+            transform: translateY(-60%) scale(0.7);
             opacity: 0.5;
             z-index: 3;
             visibility: visible;
           }
           ${(STEP_INTERVAL_PERCENTAGE * 4) + SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE * 5}% {
-            transform: translateY(-200%) scale(0.6);
+            transform: translateY(-120%) scale(0.6);
             opacity: 0.4;
             z-index: 2;
             visibility: visible;
           }
           ${(STEP_INTERVAL_PERCENTAGE * 5) + SLIDE_CHANGE_TIMING}%,
           100% {
-            transform: translateY(-300%) scale(0.5);
+            transform: translateY(-180%) scale(0.5);
             opacity: 0.3;
             z-index: 1;
             visibility: visible;
