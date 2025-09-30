@@ -130,7 +130,7 @@ export const WhatWeDoSection = (): JSX.Element => {
               }}
             >
               <CardContent
-                className={`flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
+                className={`flex flex-col items-start justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
                 style={{
                   background: card.backgroundImage
                     ? "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)"
@@ -138,10 +138,10 @@ export const WhatWeDoSection = (): JSX.Element => {
                   '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
                 } as React.CSSProperties & { '--bg-image': string }}
               >
-                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-center">
+                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-left">
                   {card.title}
                 </h3>
-                <p className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-center">
+                <p className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-left">
                   {card.description}
                 </p>
                 <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Mask group" src={card.topMask} />
@@ -173,7 +173,7 @@ export const WhatWeDoSection = (): JSX.Element => {
               }}
             >
               <CardContent
-                className={`flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
+                className={`flex flex-col items-start justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
                 style={{
                   background: card.backgroundImage
                     ? "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)"
@@ -181,10 +181,10 @@ export const WhatWeDoSection = (): JSX.Element => {
                   '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
                 } as React.CSSProperties & { '--bg-image': string }}
               >
-                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-center">
+                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-left">
                   {card.title}
                 </h3>
-                <p className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-center">
+                <p className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-left">
                   {card.description}
                 </p>
                 <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Mask group" src={card.topMask} />

@@ -99,21 +99,21 @@ export const InfoWrapperSection = (): JSX.Element => {
     <section id="roi-calculator-section" className="w-full bg-dark-mode900 py-[100px]">
       <div className="flex flex-col max-w-[1144px] mx-auto items-center gap-[60px] px-4">
         <header id="roi-calculator-header" className="flex flex-col items-start gap-6 w-full">
-            <h1 className="w-full font-heading-h1-semi-bold text-shadeswhite">ROI Calculator</h1>
-            <p className="max-w-[980px] font-subheading-regular text-shadeswhite">
+            <h1 className="w-full font-semibold text-shadeswhite text-[48px] tracking-[-1.92px] leading-[56px]">ROI Calculator</h1>
+            <p className="max-w-[980px] font-normal text-shadeswhite text-[20px] tracking-[0px] leading-6">
                 See the real impact CRO can have on your business. Enter just a few numbers and instantly discover what a 10–40% lift in conversions could mean for your monthly revenue.
             </p>
         </header>
 
         <div id="roi-calculator-body" className="flex flex-col items-start gap-10 w-full">
           <div id="roi-inputs-container" className="flex flex-col items-center gap-6 w-full">
-            <h2 className="w-full font-heading-h5-semi-bold text-shadeswhite">1. Start Entering Your Data</h2>
+            <h2 className="w-full font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]">1. Start Entering Your Data</h2>
             <div className="flex items-end gap-6 w-full flex-wrap">
               <div className="inline-flex flex-col items-start gap-3">
-                <label id="label-currency" htmlFor="select-currency-trigger" className="font-paragraph-p3-regular text-shadeswhite">Currency</label>
+                <label id="label-currency" htmlFor="select-currency-trigger" className="font-normal text-shadeswhite text-[18px] tracking-[0px] leading-[21.6px]">Currency</label>
                 <Select value={currency} onValueChange={setCurrency}>
-                    <SelectTrigger id="select-currency-trigger" className="w-[300px] h-12 text-shadeswhite bg-[#2d2d2d] border-neutral-700"><SelectValue /></SelectTrigger>
-                    <SelectContent><SelectItem value="SAR">SAR</SelectItem><SelectItem value="USD">USD</SelectItem><SelectItem value="EGP">EGP</SelectItem></SelectContent>
+                    <SelectTrigger id="select-currency-trigger" className="w-[300px] h-12 text-shadeswhite bg-[#2d2d2d] border-neutral-700 font-semibold text-[18px]"><SelectValue /></SelectTrigger>
+                    <SelectContent><SelectItem value="SAR" className="font-semibold text-[18px]">SAR</SelectItem><SelectItem value="USD" className="font-semibold text-[18px]">USD</SelectItem><SelectItem value="EGP" className="font-semibold text-[18px]">EGP</SelectItem></SelectContent>
                 </Select>
               </div>
               <div className="inline-flex flex-col items-start gap-3">
@@ -127,19 +127,19 @@ export const InfoWrapperSection = (): JSX.Element => {
                 />
               </div>
               <Button id="btn-reset-calculator" onClick={handleReset} variant="outline" className="h-12 px-[18px] py-3 bg-transparent border-[#66d992] text-[#66d992] hover:bg-[#66d992]/10 hover:text-[#66d992]">
-                  <span>Reset</span>
+                  <span className="font-semibold text-[16px] tracking-[0px] leading-[19px]">Reset</span>
                   <RotateCcwIcon className="w-4 h-4 ml-2" />
               </Button>
             </div>
           </div>
 
           <div id="roi-projections-container" className="flex flex-col items-center gap-6 w-full">
-            <h2 className="w-full font-heading-h5-semi-bold text-shadeswhite">2. Now Calculate Your ROI Projection</h2>
+            <h2 className="w-full font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]">2. Now Calculate Your ROI Projection</h2>
             <div className="flex items-center justify-between w-full gap-6 flex-wrap lg:flex-nowrap">
               {/* CURRENT Card */}
               <Card id="card-current-projection" className="w-full lg:w-[500px] p-8 rounded-2xl border border-solid border-white/20 bg-[#1c1c1c]">
                 <CardContent className="p-0 flex flex-col gap-12">
-                  <h3 className="w-full font-heading-h5-semi-bold text-center text-shadeswhite">CURRENT</h3>
+                  <h3 className="w-full font-semibold text-center text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]">CURRENT</h3>
                   <div className="flex flex-col items-center gap-5 w-full">
                       <label id="label-current-cr" htmlFor="slider-current-cr" className="font-paragraph-p2-regular text-white text-center">Your CURRENT conversion rate</label>
                       <Slider id="slider-current-cr" value={[currentCR]} onValueChange={([val]) => setCurrentCR(val)} max={20} step={0.1} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
@@ -164,7 +164,7 @@ export const InfoWrapperSection = (): JSX.Element => {
               {/* NEW Card */}
               <Card id="card-new-projection" className="w-full lg:w-[500px] p-8 rounded-2xl border border-solid border-white/20 bg-[#1c1c1c]">
                 <CardContent className="p-0 flex flex-col gap-12">
-                  <h3 className="w-full font-heading-h5-semi-bold text-center text-shadeswhite">NEW</h3>
+                  <h3 className="w-full font-semibold text-center text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]">NEW</h3>
                   <div className="flex flex-col items-center gap-5 w-full">
                       <label id="label-new-cr" htmlFor="slider-new-cr" className="font-paragraph-p2-regular text-white text-center">Your NEW conversion rate</label>
                       <Slider id="slider-new-cr" value={[newCR]} onValueChange={([val]) => setNewCR(val)} max={20} step={0.1} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />

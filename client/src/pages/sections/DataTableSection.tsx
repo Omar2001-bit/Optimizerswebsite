@@ -72,7 +72,7 @@ export const DataTableSection = (): JSX.Element => {
       </div>
 
       <div className="flex w-full max-w-[969px] items-center absolute top-[100px] left-1/2 transform -translate-x-1/2 flex-col gap-6">
-        <h1 className="relative self-stretch mt-[-1.00px] font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+        <h1 className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
           What Makes CRO the Smarter Investment
         </h1>
       </div>
@@ -85,22 +85,22 @@ export const DataTableSection = (): JSX.Element => {
               <TableHeader>
                 <TableRow className="border-b border-[#0a381c]">
                   <TableHead className="w-[366px] h-[72px] p-4 bg-[#0b130e] text-left">
-                    <div className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-400 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+                    <div className="font-semibold text-secondary-400 text-[18px] tracking-[0px] leading-[21.6px]">
                       Feature / Pain Point
                     </div>
                   </TableHead>
                   <TableHead className="w-[270px] h-[72px] p-4 bg-[#0b130e] text-center">
-                    <div className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-400 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+                    <div className="font-semibold text-secondary-400 text-[18px] tracking-[0px] leading-[21.6px]">
                       Running Ads
                     </div>
                   </TableHead>
                   <TableHead className="w-[270px] h-[72px] p-4 bg-[#0b130e] text-center">
-                    <div className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-400 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+                    <div className="font-semibold text-secondary-400 text-[18px] tracking-[0px] leading-[21.6px]">
                       Website Redesign
                     </div>
                   </TableHead>
                   <TableHead className="w-[270px] h-[72px] p-4 bg-[#0b130e] text-center">
-                    <div className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-400 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+                    <div className="font-semibold text-secondary-400 text-[18px] tracking-[0px] leading-[21.6px]">
                       Conversion Optimization
                     </div>
                   </TableHead>
@@ -121,7 +121,7 @@ export const DataTableSection = (): JSX.Element => {
                       style={{ x, opacity }}
                     >
                     <TableCell className="w-[366px] h-14 p-4 bg-[#0b130e] align-top">
-                      <div className="mt-[-1.00px] font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] whitespace-nowrap [font-style:var(--paragraph-p2-regular-font-style)]">
+                      <div className="mt-[-1.00px] font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] whitespace-nowrap">
                         {row.feature}
                       </div>
                     </TableCell>

@@ -121,10 +121,10 @@ export const FeatureSection = (): JSX.Element => {
       <section id="section-feature-process" className="relative w-full h-[1040px] bg-dark-mode900 overflow-hidden">
         {/* Left side content */}
         <div className="inline-flex flex-col items-start gap-6 absolute top-[calc(50.00%_-_209px)] left-8 z-10">
-            <h1 className="relative self-stretch mt-[-1.00px] font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)] whitespace-pre-wrap">
+            <h1 className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-[48px] tracking-[-1.92px] leading-[56px] whitespace-pre-wrap">
                 {`Our Proven\nConversion\nOptimization\nProcess`}
             </h1>
-            <p className="relative w-[389px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+            <p className="relative w-[389px] font-normal text-shadeswhite text-[20px] tracking-[0px] leading-6">
                 We follow a systematic 6-step approach that has generated millions in additional revenue for e-commerce brands across the GCC.
             </p>
             <Button 
@@ -133,7 +133,7 @@ export const FeatureSection = (): JSX.Element => {
                 document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}
             >
-                <span className="relative w-fit mt-[-1.00px] font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+                <span className="relative w-fit mt-[-1.00px] font-semibold text-neutral-900 text-[18px] tracking-[0px] leading-[21.6px] whitespace-nowrap">
                     Book a Free CRO Audit
                 </span>
             </Button>
