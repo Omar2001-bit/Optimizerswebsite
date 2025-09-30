@@ -149,7 +149,7 @@ export const TestimonialsSection = (): JSX.Element => {
 
         {showThankYouMessage ? (
           <Card className="w-full max-w-[1176px] bg-[#ffffff0a] rounded-3xl border border-solid border-[#ffffff1a] shadow-[0px_0px_16px_10px_#6ae4991a] p-3">
-            <CardContent className="flex flex-col items-center gap-8 px-6 py-16 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] min-h-[950px]">
+            <CardContent className="flex flex-col items-center gap-8 px-6 py-16 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] h-[650px]">
               <h2 className="text-shadeswhite text-[34px] font-semibold text-center tracking-[-1.36px] leading-[40px]">
                 Thank you
               </h2>
