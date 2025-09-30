@@ -130,7 +130,7 @@ export const WhatWeDoSection = (): JSX.Element => {
               }}
             >
               <CardContent
-                className={`flex flex-col items-start justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
+                className={`flex flex-col items-start justify-center gap-4 p-6 relative w-full h-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
                 style={{
                   background: card.backgroundImage
                     ? "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)"
@@ -173,7 +173,7 @@ export const WhatWeDoSection = (): JSX.Element => {
               }}
             >
               <CardContent
-                className={`flex flex-col items-start justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
+                className={`flex flex-col items-start justify-center gap-4 p-6 relative w-full h-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
                 style={{
                   background: card.backgroundImage
                     ? "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)"
