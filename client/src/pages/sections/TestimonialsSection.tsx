@@ -6,6 +6,38 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { InlineWidget } from "react-calendly";
 
+// Validation functions
+const validateWebsite = (url: string): string => {
+  if (!url.trim()) return "";
+  
+  // Try to add protocol if missing
+  let urlToValidate = url.trim();
+  if (!urlToValidate.startsWith('http://') && !urlToValidate.startsWith('https://')) {
+    urlToValidate = 'https://' + urlToValidate;
+  }
+  
+  try {
+    const urlObj = new URL(urlToValidate);
+    // Check if it has a valid domain
+    if (!urlObj.hostname.includes('.')) {
+      return "Please enter a valid website URL";
+    }
+    return "";
+  } catch {
+    return "Please enter a valid website URL";
+  }
+};
+
+const validateEmail = (email: string): string => {
+  if (!email.trim()) return "";
+  
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return "Please enter a valid email address";
+  }
+  return "";
+};
+
 // Main Component
 export const TestimonialsSection = (): JSX.Element => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -16,6 +48,11 @@ export const TestimonialsSection = (): JSX.Element => {
     firstName: "",
     email: "",
     scheduleDate: null as Date | null,
+  });
+  
+  const [validationErrors, setValidationErrors] = useState({
+    website: "",
+    email: "",
   });
 
   const handleNext = () => {
@@ -43,6 +80,13 @@ export const TestimonialsSection = (): JSX.Element => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Validate on change
+    if (name === "website") {
+      setValidationErrors((prev) => ({ ...prev, website: validateWebsite(value) }));
+    } else if (name === "email") {
+      setValidationErrors((prev) => ({ ...prev, email: validateEmail(value) }));
+    }
   };
   
   const stepperData = useMemo(() => [
@@ -61,8 +105,8 @@ export const TestimonialsSection = (): JSX.Element => {
     switch (currentStep) {
       case 1: return !formData.conversionVolume;
       case 2: return !formData.primaryObjective;
-      case 3: return !formData.website;
-      case 4: return !formData.firstName || !formData.email;
+      case 3: return !formData.website || !!validationErrors.website;
+      case 4: return !formData.firstName || !formData.email || !!validationErrors.email;
       default: return false; // Always enabled on final step
     }
   };
@@ -74,9 +118,9 @@ export const TestimonialsSection = (): JSX.Element => {
       case 2:
         return <Step2_Objective selectedOption={formData.primaryObjective} onSelect={(value) => handleSelect("primaryObjective", value)} />;
       case 3:
-        return <Step3_Website value={formData.website} onChange={handleInputChange} />;
+        return <Step3_Website value={formData.website} onChange={handleInputChange} error={validationErrors.website} />;
       case 4:
-        return <Step4_Contact values={formData} onChange={handleInputChange} />;
+        return <Step4_Contact values={formData} onChange={handleInputChange} emailError={validationErrors.email} />;
       case 5:
         return <Step5_Schedule prefill={{ email: formData.email, name: formData.firstName }} />;
       default:
@@ -174,20 +218,30 @@ const Step2_Objective = ({ selectedOption, onSelect }: { selectedOption: string;
   );
 };
 
-const Step3_Website = ({ value, onChange }: { value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; }) => {
+const Step3_Website = ({ value, onChange, error }: { value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; error: string; }) => {
   return (
     <div className="flex flex-col items-center gap-10 w-full max-w-md">
       <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">What is your website?</h2>
       <div className="w-full text-left">
           <label className="text-sm text-neutral-300 mb-2 block">Your Website URL</label>
-          <Input name="website" value={value} onChange={onChange} placeholder="https://yourwebsite.com" className="bg-neutral-800 border-neutral-600 text-white placeholder:text-neutral-500 rounded-lg"/>
-          <p className="text-xs text-neutral-400 mt-2">Please enter a valid URL with or without http/https.</p>
+          <Input 
+            name="website" 
+            value={value} 
+            onChange={onChange} 
+            placeholder="https://yourwebsite.com" 
+            className={`bg-neutral-800 text-white placeholder:text-neutral-500 rounded-lg ${error ? 'border-red-500' : 'border-neutral-600'}`}
+          />
+          {error ? (
+            <p className="text-xs text-red-500 mt-2">{error}</p>
+          ) : (
+            <p className="text-xs text-neutral-400 mt-2">Please enter a valid URL with or without http/https.</p>
+          )}
       </div>
     </div>
   );
 };
 
-const Step4_Contact = ({ values, onChange }: { values: { firstName: string, email: string }; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; }) => {
+const Step4_Contact = ({ values, onChange, emailError }: { values: { firstName: string, email: string }; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; emailError: string; }) => {
   return (
     <div className="flex flex-col items-center gap-10 w-full max-w-md">
         <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">Contact Information</h2>
@@ -198,7 +252,17 @@ const Step4_Contact = ({ values, onChange }: { values: { firstName: string, emai
             </div>
             <div className="w-full text-left">
                 <label className="text-sm text-neutral-300 mb-2 block">Email</label>
-                <Input name="email" value={values.email} onChange={onChange} type="email" placeholder="Email" className="bg-neutral-800 border-neutral-600 text-white placeholder:text-neutral-500 rounded-lg"/>
+                <Input 
+                  name="email" 
+                  value={values.email} 
+                  onChange={onChange} 
+                  type="email" 
+                  placeholder="Email" 
+                  className={`bg-neutral-800 text-white placeholder:text-neutral-500 rounded-lg ${emailError ? 'border-red-500' : 'border-neutral-600'}`}
+                />
+                {emailError && (
+                  <p className="text-xs text-red-500 mt-2">{emailError}</p>
+                )}
             </div>
         </div>
     </div>
