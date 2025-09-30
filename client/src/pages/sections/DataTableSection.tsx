@@ -83,7 +83,7 @@ export const DataTableSection = (): JSX.Element => {
           <CardContent className="relative w-full max-w-[1176px] flex-[0_0_auto] rounded-lg overflow-hidden p-0">
             <Table className="w-full overflow-hidden">
               <TableHeader>
-                <TableRow className="shadow-[inset_0px_-1px_0px_#0a391c] border-0">
+                <TableRow className="shadow-[inset_0px_-1px_0px_#0a381c] border-0">
                   <TableHead className="w-[366px] h-[72px] p-4 bg-[#0b130e] text-left">
                     <div className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-secondary-400 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
                       Feature / Pain Point
@@ -117,7 +117,7 @@ export const DataTableSection = (): JSX.Element => {
                   return (
                     <motion.tr
                       key={index}
-                      className={`shadow-[inset_0px_-1px_0px_#0a391c] border-0 ${index === tableData.length - 1 ? "shadow-none" : ""}`}
+                      className={`shadow-[inset_0px_-1px_0px_#0a381c] border-0 ${index === tableData.length - 1 ? "shadow-none" : ""}`}
                       style={{ x, opacity }}
                     >
                     <TableCell className="w-[366px] h-14 p-4 bg-[#0b130e] align-top">
@@ -129,21 +129,27 @@ export const DataTableSection = (): JSX.Element => {
                       {row.runningAds ? (
                         <CheckIcon className="w-6 h-6 mx-auto text-green-500" />
                       ) : (
-                        <XIcon className="w-6 h-6 mx-auto text-red-500" />
+                        <div className="w-6 h-6 mx-auto rounded-full bg-[#4a1c1c] border border-[#8b2c2c] flex items-center justify-center">
+                          <XIcon className="w-4 h-4 text-[#d64545]" />
+                        </div>
                       )}
                     </TableCell>
                     <TableCell className="w-[270px] h-14 p-4 bg-[#0b130e] text-center">
                       {row.websiteRedesign ? (
                         <CheckIcon className="w-6 h-6 mx-auto text-green-500" />
                       ) : (
-                        <XIcon className="w-6 h-6 mx-auto text-red-500" />
+                        <div className="w-6 h-6 mx-auto rounded-full bg-[#4a1c1c] border border-[#8b2c2c] flex items-center justify-center">
+                          <XIcon className="w-4 h-4 text-[#d64545]" />
+                        </div>
                       )}
                     </TableCell>
                     <TableCell className="w-[270px] h-14 p-4 bg-[#0b130e] text-center">
                       {row.conversionOptimization ? (
                         <CheckIcon className="w-6 h-6 mx-auto text-green-500" />
                       ) : (
-                        <XIcon className="w-6 h-6 mx-auto text-red-500" />
+                        <div className="w-6 h-6 mx-auto rounded-full bg-[#4a1c1c] border border-[#8b2c2c] flex items-center justify-center">
+                          <XIcon className="w-4 h-4 text-[#d64545]" />
+                        </div>
                       )}
                     </TableCell>
                   </motion.tr>

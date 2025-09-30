@@ -25,7 +25,7 @@ export const StatisticsSection = (): JSX.Element => {
           </p>
 
           <Button 
-            className="inline-flex items-center justify-center gap-2 px-5 py-3.5 relative flex-[0_0_auto] bg-secondary-500 rounded h-auto hover:bg-secondary-400"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3.5 relative flex-[0_0_auto] bg-secondary-500 rounded h-auto"
             onClick={() => {
               document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -118,6 +118,17 @@ export const ClientsResultsSection: React.FC = () => {
   const [dragStart, setDragStart] = useState(0);
   const [dragDistance, setDragDistance] = useState(0);
 
+  // Auto-advance carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isDragging) {
+        setCurrentIndex((prev) => prev + 1);
+      }
+    }, 4000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [isDragging]);
+
   const nextSlide = () => {
     setCurrentIndex((prev) => prev + 1);
   };
@@ -204,12 +215,12 @@ export const ClientsResultsSection: React.FC = () => {
                 onMouseMove={(e) => handleMouseMove(e, cardIndex)}
                 onMouseUp={() => handleMouseUp(cardIndex)}
                 onMouseLeave={() => handleMouseLeave(cardIndex)}
-                className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-500 ease-in-out select-none ${
+                className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-700 ease-in-out select-none ${
                   isCenter 
                     ? 'scale-100 opacity-100 cursor-grab active:cursor-grabbing' 
                     : Math.abs(position) === 1 
-                      ? 'scale-90 opacity-60 hover:opacity-75 cursor-pointer' 
-                      : 'scale-80 opacity-30 hover:opacity-50 cursor-pointer'
+                      ? 'scale-90 opacity-60 cursor-pointer' 
+                      : 'scale-80 opacity-30 cursor-pointer'
                 } ${isDragging ? 'transition-none' : ''}`}
                 style={{
                   transform: `translateX(${(position * 280) + (isDragging ? dragDistance : 0)}px) scale(${
@@ -336,7 +347,7 @@ export const ClientsResultsSection: React.FC = () => {
         </h2>
         <Button 
           id="clients-results-cta-button" 
-          className="h-auto bg-secondary-500 text-neutral-900 px-5 py-3.5 rounded hover:bg-secondary-400 transition-colors"
+          className="h-auto bg-secondary-500 text-neutral-900 px-5 py-3.5 rounded"
           onClick={() => {
             document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }}

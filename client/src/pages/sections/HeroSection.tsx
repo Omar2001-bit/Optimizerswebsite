@@ -37,7 +37,7 @@ export const HeroSection = (): JSX.Element => {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="https://core.optimizers.agency/wp-content/uploads/2025/09/Full-Quality_1.mp4"
+        src="https://core.optimizers.agency/wp-content/uploads/2025/09/Optimizers-Header_1.mp4"
       >
         Your browser does not support the video tag.
       </video>
@@ -62,7 +62,7 @@ export const HeroSection = (): JSX.Element => {
 
             <Button 
               id="hero-cta-button" 
-              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-secondary-500 rounded h-auto hover:bg-secondary-400"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-secondary-500 rounded h-auto"
               onClick={() => {
                 document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}

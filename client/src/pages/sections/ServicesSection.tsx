@@ -99,7 +99,7 @@ export const ServicesSection = (): JSX.Element => {
 
       <Button 
         id="services-cta-button" 
-        className="px-5 py-3.5 absolute top-[800px] left-[calc(50.00%_-_149px)] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded h-auto bg-transparent hover:bg-[#6ae49910]"
+        className="px-5 py-3.5 absolute top-[800px] left-[calc(50.00%_-_149px)] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded h-auto bg-transparent"
         onClick={() => {
           document.getElementById('section-feature-process')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }}

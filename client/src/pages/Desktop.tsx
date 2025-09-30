@@ -132,7 +132,7 @@ export const Desktop = (): JSX.Element => {
               <div
                 key={index}
                 id={`brand-logo-${index + 1}`}
-                className={`relative ${logo.width} ${logo.height} ${logo.backgroundImage} bg-cover bg-[50%_50%]`}
+                className={`relative ${logo.width} ${logo.height} ${logo.backgroundImage} bg-cover bg-[50%_50%] grayscale hover:grayscale-0 transition-all duration-300`}
               />
             ))}
           </div>
