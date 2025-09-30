@@ -347,7 +347,7 @@ export const ClientsResultsSection: React.FC = () => {
         </h2>
         <Button 
           id="clients-results-cta-button" 
-          className="h-auto bg-secondary-500 text-neutral-900 px-5 py-3.5 rounded"
+          className="h-auto bg-secondary-500 text-neutral-900 px-5 py-3.5 rounded hover:bg-secondary-500"
           onClick={() => {
             document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }}

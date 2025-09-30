@@ -34,7 +34,7 @@ export const ContentSection = (): JSX.Element => {
 
           <Button
             variant="outline"
-            className="px-5 py-3.5 relative flex-[0_0_auto] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded bg-transparent h-auto"
+            className="px-5 py-3.5 relative flex-[0_0_auto] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded bg-transparent h-auto hover:bg-transparent hover:text-secondary-500"
             asChild
           >
             <a

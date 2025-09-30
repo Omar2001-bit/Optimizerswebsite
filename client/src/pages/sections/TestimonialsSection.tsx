@@ -41,6 +41,7 @@ const validateEmail = (email: string): string => {
 // Main Component
 export const TestimonialsSection = (): JSX.Element => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [showThankYouMessage, setShowThankYouMessage] = useState(false);
   const [formData, setFormData] = useState({
     conversionVolume: "",
     primaryObjective: "",
@@ -69,6 +70,15 @@ export const TestimonialsSection = (): JSX.Element => {
 
   const handleSelect = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    
+    // Check if user selected "Fewer Than 100" in step 1
+    if (currentStep === 1 && value === "Fewer Than 100") {
+      setTimeout(() => {
+        setShowThankYouMessage(true);
+      }, 300);
+      return;
+    }
+    
     // Auto-advance for steps 1 and 2
     if (currentStep === 1 || currentStep === 2) {
       setTimeout(() => {
@@ -137,48 +147,64 @@ export const TestimonialsSection = (): JSX.Element => {
           </h1>
         </header>
 
-        <Card className="w-full max-w-[1176px] bg-[#ffffff0a] rounded-3xl border border-solid border-[#ffffff1a] shadow-[0px_0px_16px_10px_#6ae4991a] p-3">
-          <CardContent className="flex flex-col items-center gap-[60px] px-6 py-8 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
-            <nav className="flex items-start w-full rounded-md relative">
-               {stepperData.map((step) => (
+        {showThankYouMessage ? (
+          <Card className="w-full max-w-[1176px] bg-[#ffffff0a] rounded-3xl border border-solid border-[#ffffff1a] shadow-[0px_0px_16px_10px_#6ae4991a] p-3">
+            <CardContent className="flex flex-col items-center gap-8 px-6 py-16 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
+              <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">
+                Thank you
+              </h2>
+              <p className="text-shadeswhite text-center max-w-[700px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+                Thank you for your interest in Optimizers. Unfortunately, given the current low conversion volume of your business, our services might not be the optimal fit at this time. We sincerely wish you all the best in your endeavors.
+              </p>
+              <p className="text-shadeswhite text-center max-w-[700px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+                Please don't hesitate to reach out again in the future should your situation change. We would be more than happy to reassess how we can assist you then.
+              </p>
+            </CardContent>
+          </Card>
+        ) : (
+          <Card className="w-full max-w-[1176px] bg-[#ffffff0a] rounded-3xl border border-solid border-[#ffffff1a] shadow-[0px_0px_16px_10px_#6ae4991a] p-3">
+            <CardContent className="flex flex-col items-center gap-[60px] px-6 py-8 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
+              <nav className="flex items-start w-full rounded-md relative">
+                {stepperData.map((step) => (
                   <div key={step.number} className="flex flex-col items-center justify-center gap-2.5 px-6 py-4 flex-1">
                     <div className="flex items-center gap-4 w-full">
-                       <div className={`flex w-5 h-5 items-center justify-center rounded-full border border-solid ${step.isCurrent ? 'border-[#6ae499]' : step.isActive ? 'border-neutral-400' : 'border-neutral-600'}`}>
+                      <div className={`flex w-5 h-5 items-center justify-center rounded-full border border-solid ${step.isCurrent ? 'border-[#6ae499]' : step.isActive ? 'border-neutral-400' : 'border-neutral-600'}`}>
                         <span className={`text-xs ${step.isCurrent ? 'text-secondary-500' : step.isActive ? 'text-neutral-400' : 'text-neutral-600'}`}>
-                           {step.number}
-                         </span>
-                       </div>
-                       <div className="flex flex-col">
+                          {step.number}
+                        </span>
+                      </div>
+                      <div className="flex flex-col">
                         <span className={`font-semibold ${step.isCurrent ? 'text-secondary-500' : step.isActive ? 'text-neutral-400' : 'text-neutral-600'}`}>
-                           {step.title}
-                         </span>
+                          {step.title}
+                        </span>
                         <span className={`text-xs ${step.isCurrent ? 'text-secondary-500' : step.isActive ? 'text-neutral-400' : 'text-neutral-600'}`}>
-                           {step.subtitle}
-                         </span>
-                       </div>
-                     </div>
-                   </div>
-               ))}
-             </nav>
+                          {step.subtitle}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </nav>
 
-            {renderStepContent()}
+              {renderStepContent()}
 
-            <div className="flex items-center gap-4 min-h-[44px]"> {/* Added min-height to prevent layout shift */}
-              {currentStep > 1 && (
-                <Button onClick={handleBack} variant="outline" className="px-5 py-3.5 border-[#a0abbb] text-[#a0abbb] hover:bg-neutral-700 hover:text-white">
-                  Back
-                </Button>
-              )}
-              {currentStep >= 3 && currentStep < 5 && (
-                <Button onClick={handleNext} disabled={isNextDisabled()} className="px-5 py-3.5 border border-solid border-[#6ae499] bg-transparent hover:bg-[#6ae499]/10 disabled:border-neutral-600 disabled:text-neutral-600 disabled:cursor-not-allowed">
-                  <span className="font-semibold text-secondary-500">
-                    Next
-                  </span>
-                </Button>
-              )}
-            </div>
-          </CardContent>
-        </Card>
+              <div className="flex items-center gap-4 min-h-[44px]">
+                {currentStep > 1 && (
+                  <Button onClick={handleBack} variant="outline" className="px-5 py-3.5 border-[#a0abbb] text-[#a0abbb] hover:bg-neutral-700 hover:text-white">
+                    Back
+                  </Button>
+                )}
+                {currentStep >= 3 && currentStep < 5 && (
+                  <Button onClick={handleNext} disabled={isNextDisabled()} className="px-5 py-3.5 border border-solid border-[#6ae499] bg-transparent hover:bg-[#6ae499]/10 disabled:border-neutral-600 disabled:text-neutral-600 disabled:cursor-not-allowed">
+                    <span className="font-semibold text-secondary-500">
+                      Next
+                    </span>
+                  </Button>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </section>
   );

@@ -62,7 +62,7 @@ export const HeroSection = (): JSX.Element => {
 
             <Button 
               id="hero-cta-button" 
-              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-secondary-500 rounded h-auto"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-secondary-500 rounded h-auto hover:bg-secondary-500"
               onClick={() => {
                 document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}

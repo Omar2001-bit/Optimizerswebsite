@@ -193,7 +193,7 @@ export const WhyChooseUsSection = (): JSX.Element => {
         <div id="why-choose-us-cta-section" className="flex justify-center">
           <Button 
             id="why-choose-us-cta-button" 
-            className="px-5 py-3.5 bg-secondary-500 h-auto rounded"
+            className="px-5 py-3.5 bg-secondary-500 h-auto rounded hover:bg-secondary-500"
             onClick={() => {
               document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
