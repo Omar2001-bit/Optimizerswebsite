@@ -19,11 +19,11 @@ import { WhatWeDoSection } from "./sections/WhatWeDoSection";
 import { WhyChooseUsSection } from "./sections/WhyChooseUsSection";
 
 const navigationItems = [
-  "Services",
-  "ROI Calculator",
-  "Case Studies",
-  "Team",
-  "Contact",
+  { label: "Services", sectionId: "section-services" },
+  { label: "ROI Calculator", sectionId: "roi-calculator-section" },
+  { label: "Case Studies", sectionId: "section-case-studies" },
+  { label: "Team", sectionId: "section-team" },
+  { label: "Contact", sectionId: "section-contact" },
 ];
 
 const brandLogos = [
@@ -78,10 +78,13 @@ export const Desktop = (): JSX.Element => {
           {navigationItems.map((item, index) => (
             <div
               key={index}
-              id={`nav-item-${item.toLowerCase().replace(/\s+/g, '-')}`}
+              id={`nav-item-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
               className="relative w-fit mt-[-1.00px] font-normal text-shadeswhite text-[14px] tracking-[0px] leading-[17px] whitespace-nowrap cursor-pointer hover:opacity-80"
+              onClick={() => {
+                document.getElementById(item.sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
             >
-              {item}
+              {item.label}
             </div>
           ))}
         </nav>

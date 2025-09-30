@@ -4,7 +4,12 @@ import { Separator } from "@/components/ui/separator";
 export const FooterSection = (): JSX.Element => {
   const backgroundStripes = Array.from({ length: 36 }, (_, index) => index);
 
-  const quickLinks = ["About", "Services", "ROI Calculator", "Contact"];
+  const quickLinks = [
+    { label: "About", sectionId: "section-learn-cro" },
+    { label: "Services", sectionId: "section-services" },
+    { label: "ROI Calculator", sectionId: "roi-calculator-section" },
+    { label: "Contact", sectionId: "section-contact" },
+  ];
 
   const services = [
     "Conversion Rate Optimization",
@@ -78,8 +83,11 @@ export const FooterSection = (): JSX.Element => {
                 <div
                   key={`quick-link-${index}`}
                   className={`relative text-left self-stretch ${index === 0 ? "mt-[-1.00px]" : ""} text-shadeswhite text-[14px] font-normal tracking-[0px] leading-[1.5] cursor-pointer hover:text-secondary-500 transition-colors`}
+                  onClick={() => {
+                    document.getElementById(link.sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
                 >
-                  {link}
+                  {link.label}
                 </div>
               ))}
             </div>
@@ -95,6 +103,9 @@ export const FooterSection = (): JSX.Element => {
                 <div
                   key={`service-${index}`}
                   className={`${index === 0 ? "text-left w-fit mt-[-1.00px] text-shadeswhite text-[14px] font-normal tracking-[0px] leading-[1.5] whitespace-nowrap relative" : "relative text-left self-stretch text-shadeswhite text-[14px] font-normal tracking-[0px] leading-[1.5]"} cursor-pointer hover:text-secondary-500 transition-colors`}
+                  onClick={() => {
+                    document.getElementById('section-services')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
                 >
                   {service}
                 </div>

@@ -108,7 +108,7 @@ export const OverviewSection = (): JSX.Element => {
   }, [selectedStudyId]);
 
   return (
-    <section className="w-full bg-dark-mode900 py-24 overflow-hidden">
+    <section id="section-case-studies" className="w-full bg-dark-mode900 py-24 overflow-hidden">
       <div className="flex flex-col items-center gap-6 mb-16 px-4">
         <h1 className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
           Case Studies
