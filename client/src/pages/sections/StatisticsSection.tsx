@@ -36,7 +36,16 @@ export const StatisticsSection = (): JSX.Element => {
         </div>
 
         <Card className="flex flex-col w-[515px] h-[458px] items-start justify-center p-3 absolute top-[calc(50.00%_-_229px)] left-[825px] bg-[#6ae49926] rounded-3xl overflow-hidden border border-solid border-[#b0f1c980] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
-          <CardContent className="relative flex-1 self-stretch w-full grow rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%),url(..//figmaAssets/background-overlay-border-overlayblur-4.png)_50%_50%_/_cover] p-0" />
+          <CardContent className="relative flex-1 self-stretch w-full grow rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%),url(..//figmaAssets/background-overlay-border-overlayblur-4.png)_50%_50%_/_cover] p-0">
+            <video 
+              className="w-full h-full object-cover rounded-2xl"
+              autoPlay 
+              muted 
+              loop
+              playsInline
+              src="https://core.optimizers.agency/wp-content/uploads/2025/09/video-4.mp4"
+            />
+          </CardContent>
         </Card>
       </div>
     </section>
