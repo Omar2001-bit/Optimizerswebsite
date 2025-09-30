@@ -116,7 +116,7 @@ export const FeatureSection = (): JSX.Element => {
         }
       `}</style>
 
-      <section className="relative w-full h-[1040px] bg-dark-mode900 overflow-hidden">
+      <section id="section-feature-process" className="relative w-full h-[1040px] bg-dark-mode900 overflow-hidden">
         {/* Left side content */}
         <div className="inline-flex flex-col items-start gap-6 absolute top-[calc(50.00%_-_209px)] left-8 z-10">
             <h1 className="relative self-stretch mt-[-1.00px] font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)] whitespace-pre-wrap">

@@ -32,6 +32,12 @@ export const TestimonialsSection = (): JSX.Element => {
 
   const handleSelect = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    // Auto-advance for steps 1 and 2
+    if (currentStep === 1 || currentStep === 2) {
+      setTimeout(() => {
+        handleNext();
+      }, 300);
+    }
   };
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -119,7 +125,7 @@ export const TestimonialsSection = (): JSX.Element => {
                   Back
                 </Button>
               )}
-              {currentStep < 5 && (
+              {currentStep >= 3 && currentStep < 5 && (
                 <Button onClick={handleNext} disabled={isNextDisabled()} className="px-5 py-3.5 border border-solid border-[#6ae499] bg-transparent hover:bg-[#6ae499]/10 disabled:border-neutral-600 disabled:text-neutral-600 disabled:cursor-not-allowed">
                   <span className="font-semibold text-secondary-500">
                     Next
