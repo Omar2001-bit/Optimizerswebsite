@@ -175,16 +175,17 @@ export const InfoWrapperSection = (): JSX.Element => {
                       <Slider id="slider-new-aov" value={[newAOV]} onValueChange={([val]) => setNewAOV(val)} max={2000} step={10} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
                       <NumberInputWithControls id="input-new-aov" value={newAOV} onChange={e => setNewAOV(parseInt(e.target.value) || 0)} onDecrement={() => setNewAOV(p => Math.max(0, p - 10))} onIncrement={() => setNewAOV(p => p + 10)} prefix={getCurrencySymbol()} />
                   </div>
-                  <div className="flex flex-col gap-3 w-full pt-6 relative right-[20px]">
-                      <div className="flex gap-3 w-full">
+                  {/* --- MODIFIED LAYOUT FOR "NEW" CARD RESULTS --- */}
+                  <div className="flex flex-col items-center gap-3 w-full pt-6">
+                      <div className="grid grid-cols-2 gap-3 w-full max-w-md">
                           <InfoCard id="card-new-monthly-revenue" title="New Monthly Revenue" value={formatCurrency(calculatedValues.newMonthlyRevenue)} currencySymbol={getCurrencySymbol()} textColor="text-[#66d992]"/>
                           <InfoCard id="card-new-annual-revenue" title="New Annual Revenue" value={formatCurrency(calculatedValues.newAnnualRevenue)} currencySymbol={getCurrencySymbol()} textColor="text-[#66d992]"/>
-                      </div>
-                      <div className="flex gap-3 w-full">
                           <InfoCard id="card-additional-monthly-revenue" title="Additional Revenue / Month" value={`+${formatCurrency(calculatedValues.additionalMonthlyRevenue)}`} currencySymbol={getCurrencySymbol()} textColor="text-[#66d992]" />
                           <InfoCard id="card-percentage-increase" title="% Increase in Revenue" value={`${calculatedValues.percentageIncrease.toFixed(1)}%`} textColor="text-[#66d992]" />
                       </div>
-                      <InfoCard id="card-new-conversions" title="New number of conversions / Month" value={calculatedValues.newConversions.toLocaleString()} textColor="text-[#66d992]" />
+                      <div className="w-full max-w-md">
+                          <InfoCard id="card-new-conversions" title="New number of conversions / Month" value={calculatedValues.newConversions.toLocaleString()} textColor="text-[#66d992]" />
+                      </div>
                   </div>
                 </CardContent>
               </Card>

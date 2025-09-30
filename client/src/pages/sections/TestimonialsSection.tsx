@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input"; // Assuming you have a basic Input component
+import { Input } from "@/components/ui/input";
+import { InlineWidget } from "react-calendly";
 
 // Main Component
 export const TestimonialsSection = (): JSX.Element => {
@@ -14,17 +15,12 @@ export const TestimonialsSection = (): JSX.Element => {
     website: "",
     firstName: "",
     email: "",
-    // Changed to handle a full Date object
     scheduleDate: null as Date | null,
   });
 
   const handleNext = () => {
     if (currentStep < 5) {
       setCurrentStep((prev) => prev + 1);
-    } else {
-      // Handle final submission logic here
-      alert(`Your strategy call has been scheduled for: ${formData.scheduleDate?.toLocaleString()}`);
-      console.log("Final Form Data:", formData);
     }
   };
 
@@ -34,14 +30,8 @@ export const TestimonialsSection = (): JSX.Element => {
     }
   };
 
-  // Generic handler for simple fields
   const handleSelect = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  // Specific handler for the schedule date
-  const handleScheduleSelect = (date: Date | null) => {
-    setFormData(prev => ({ ...prev, scheduleDate: date }));
   };
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,9 +57,7 @@ export const TestimonialsSection = (): JSX.Element => {
       case 2: return !formData.primaryObjective;
       case 3: return !formData.website;
       case 4: return !formData.firstName || !formData.email;
-      // Now checks for the scheduleDate object
-      case 5: return !formData.scheduleDate;
-      default: return true;
+      default: return false; // Always enabled on final step
     }
   };
 
@@ -84,8 +72,7 @@ export const TestimonialsSection = (): JSX.Element => {
       case 4:
         return <Step4_Contact values={formData} onChange={handleInputChange} />;
       case 5:
-        // Pass the date object and the handler function
-        return <Step5_Schedule selectedSchedule={formData.scheduleDate} onScheduleSelect={handleScheduleSelect} />;
+        return <Step5_Schedule prefill={{ email: formData.email, name: formData.firstName }} />;
       default:
         return null;
     }
@@ -126,17 +113,19 @@ export const TestimonialsSection = (): JSX.Element => {
 
             {renderStepContent()}
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 min-h-[44px]"> {/* Added min-height to prevent layout shift */}
               {currentStep > 1 && (
                 <Button onClick={handleBack} variant="outline" className="px-5 py-3.5 border-[#a0abbb] text-[#a0abbb] hover:bg-neutral-700 hover:text-white">
                   Back
                 </Button>
               )}
-              <Button onClick={handleNext} disabled={isNextDisabled()} className="px-5 py-3.5 border border-solid border-[#6ae499] bg-transparent hover:bg-[#6ae499]/10 disabled:border-neutral-600 disabled:text-neutral-600 disabled:cursor-not-allowed">
-                <span className="font-semibold text-secondary-500">
-                  {currentStep === 5 ? "Schedule Call" : "Next"}
-                </span>
-              </Button>
+              {currentStep < 5 && (
+                <Button onClick={handleNext} disabled={isNextDisabled()} className="px-5 py-3.5 border border-solid border-[#6ae499] bg-transparent hover:bg-[#6ae499]/10 disabled:border-neutral-600 disabled:text-neutral-600 disabled:cursor-not-allowed">
+                  <span className="font-semibold text-secondary-500">
+                    Next
+                  </span>
+                </Button>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -210,151 +199,30 @@ const Step4_Contact = ({ values, onChange }: { values: { firstName: string, emai
   );
 };
 
-
-// --- REVAMPED Step 5 Component ---
-
-const Step5_Schedule = ({ selectedSchedule, onScheduleSelect }: { selectedSchedule: Date | null; onScheduleSelect: (date: Date | null) => void }) => {
-  const [viewDate, setViewDate] = useState(new Date());
-  const [selectedDay, setSelectedDay] = useState<Date | null>(selectedSchedule ? new Date(selectedSchedule.toDateString()) : null);
-  const [selectedTime, setSelectedTime] = useState<string | null>(selectedSchedule ? selectedSchedule.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }) : null);
-  const [duration, setDuration] = useState(30);
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0); // Normalize today to the start of the day for accurate comparison
-
-  const handleMonthChange = (offset: number) => {
-    setViewDate(prev => {
-      const newDate = new Date(prev);
-      newDate.setMonth(newDate.getMonth() + offset);
-      return newDate;
-    });
-  };
-
-  const handleDaySelect = (day: Date) => {
-    if (day < today) return; // Prevent selecting past dates
-    setSelectedDay(day);
-    setSelectedTime(null); // Reset time when date changes
-    onScheduleSelect(null); // Reset final selection
-  };
-  
-  const handleTimeSelect = (time: string) => {
-    if (!selectedDay) return;
-  
-    // Parse the time string (e.g., "03:30 PM")
-    const [timePart, ampm] = time.split(' ');
-    let [hours, minutes] = timePart.split(':').map(Number);
-  
-    if (ampm.toLowerCase() === 'pm' && hours < 12) {
-      hours += 12;
-    }
-    if (ampm.toLowerCase() === 'am' && hours === 12) {
-      hours = 0;
-    }
-  
-    const finalDate = new Date(selectedDay);
-    finalDate.setHours(hours, minutes);
-    
-    setSelectedTime(time);
-    onScheduleSelect(finalDate); // Update the parent component
-  };
-
-  const timeSlots = ["03:30 PM", "04:00 PM", "04:30 PM", "10:00 PM", "10:30 PM"];
-  
-  // Create calendar grid
-  const getCalendarGrid = () => {
-    const year = viewDate.getFullYear();
-    const month = viewDate.getMonth();
-    const firstDayOfMonth = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const grid: (Date | null)[] = Array(firstDayOfMonth).fill(null);
-    for (let i = 1; i <= daysInMonth; i++) {
-      grid.push(new Date(year, month, i));
-    }
-    return grid;
-  };
-  const calendarGrid = getCalendarGrid();
-
+// --- REVAMPED Step 5 with YOUR Calendly Link ---
+const Step5_Schedule = ({ prefill }: { prefill: { name: string, email: string } }) => {
   return (
-    <div className="flex flex-col items-center gap-10 w-full">
+    <div className="flex flex-col items-center gap-6 w-full">
       <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">Schedule Your Strategy Call</h2>
-      <div className="flex flex-col md:flex-row gap-8 w-full justify-center">
-        {/* Interactive Calendar */}
-        <div className="w-full max-w-xs bg-neutral-800/50 p-4 rounded-lg">
-          <div className="flex justify-between items-center mb-4">
-            <button onClick={() => handleMonthChange(-1)} className="text-white p-2 rounded-full hover:bg-neutral-700">&lt;</button>
-            <span className="font-semibold text-white">{viewDate.toLocaleString('default', { month: 'long', year: 'numeric' })}</span>
-            <button onClick={() => handleMonthChange(1)} className="text-white p-2 rounded-full hover:bg-neutral-700">&gt;</button>
-          </div>
-          <div className="grid grid-cols-7 text-center text-sm text-neutral-400 mb-2">
-            {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => <div key={day}>{day}</div>)}
-          </div>
-          <div className="grid grid-cols-7 text-center text-sm">
-            {calendarGrid.map((day, i) => (
-              <div key={i} className="py-1">
-                {day && (
-                  <button
-                    onClick={() => handleDaySelect(day)}
-                    disabled={day < today}
-                    className={`w-8 h-8 rounded-full transition-colors 
-                      ${day < today ? 'text-neutral-600 cursor-not-allowed' : 'text-white hover:bg-neutral-700'} 
-                      ${selectedDay?.getTime() === day.getTime() ? 'bg-secondary-500 text-black font-semibold' : ''}`}
-                  >
-                    {day.getDate()}
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Time Selection */}
-        <div className="flex flex-col gap-4 w-full max-w-xs">
-          <div>
-            <h3 className="text-neutral-300 text-sm mb-2">Meeting Duration</h3>
-            <div className="flex gap-2">
-              {[15, 30, 60].map(d => (
-                <button
-                  key={d}
-                  onClick={() => setDuration(d)}
-                  className={`px-3 py-2 rounded-lg border text-sm transition-colors ${duration === d ? 'bg-secondary-500 border-secondary-500 text-black font-semibold' : 'text-white bg-neutral-800 border-neutral-600 hover:border-neutral-400'}`}
-                >
-                  {d} mins
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="text-neutral-300 text-sm">What time works best? <span className="text-neutral-400">UTC+02:00</span></h3>
-            <div className={`grid grid-cols-2 gap-3 mt-2 ${!selectedDay ? 'opacity-50' : ''}`}>
-              {timeSlots.map(time => {
-                // Time validation logic
-                const now = new Date();
-                const [timePart, ampm] = time.split(' ');
-                let [hours] = timePart.split(':').map(Number);
-                if (ampm.toLowerCase() === 'pm' && hours < 12) hours += 12;
-                const isPast = selectedDay?.toDateString() === now.toDateString() && hours < now.getHours();
-
-                return (
-                  <button
-                    key={time}
-                    onClick={() => handleTimeSelect(time)}
-                    disabled={!selectedDay || isPast}
-                    className={`p-3 rounded-lg border text-white transition-colors disabled:bg-neutral-800/50 disabled:border-neutral-700 disabled:text-neutral-600 disabled:cursor-not-allowed ${selectedTime === time ? 'bg-secondary-500 border-secondary-500 text-black font-semibold' : 'bg-neutral-800 border-neutral-600 hover:border-neutral-400'}`}
-                  >
-                    {time}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+      <div className="w-full min-h-[700px]">
+        <InlineWidget
+          url="https://calendly.com/neamatalla/60min"
+          styles={{ height: '700px', width: '100%' }}
+          prefill={prefill}
+          pageSettings={{
+            backgroundColor: '1a1a1a',
+            hideEventTypeDetails: false,
+            hideLandingPageDetails: false,
+            primaryColor: '6ae499',
+            textColor: 'ffffff',
+          }}
+        />
       </div>
     </div>
   );
 };
 
 // --- Reusable Helper Component ---
-
 const SelectableCard = ({ text, subtitle, isSelected, onSelect }: { text: string; subtitle?: string; isSelected: boolean; onSelect: () => void; }) => (
   <Card
     onClick={onSelect}

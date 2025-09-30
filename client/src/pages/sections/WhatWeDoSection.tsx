@@ -1,8 +1,10 @@
+"use client";
+
 import React from "react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const serviceCards = [
   {
@@ -76,7 +78,11 @@ const serviceCards = [
 
 export const WhatWeDoSection = (): JSX.Element => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    // CORRECTED: The animation is now spread over a longer scroll duration, making it feel later.
+    offset: ["start end", "end end"],
+  });
 
   return (
     <section ref={ref} id="section-what-we-do" className="w-full bg-dark-mode900 py-[100px] px-8">
@@ -84,11 +90,9 @@ export const WhatWeDoSection = (): JSX.Element => {
         <h1 id="what-we-do-title" className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
           What We Do
         </h1>
-
         <h2 id="what-we-do-subtitle" className="font-heading-h1-small-semi-bold font-[number:var(--heading-h1-small-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-small-semi-bold-font-size)] text-center tracking-[var(--heading-h1-small-semi-bold-letter-spacing)] leading-[var(--heading-h1-small-semi-bold-line-height)] [font-style:var(--heading-h1-small-semi-bold-font-style)]">
           Ongoing CRO Programs — The Engine of Growth
         </h2>
-
         <p id="what-we-do-description" className="[font-family:'Sora',Helvetica] font-normal text-shadeswhite text-xl text-center tracking-[0] leading-5">
           <span className="leading-6">The biggest wins come from </span>
           <span className="font-[number:var(--subheading-semi-bold-font-weight)] leading-[var(--subheading-semi-bold-line-height)] font-subheading-semi-bold [font-style:var(--subheading-semi-bold-font-style)] tracking-[var(--subheading-semi-bold-letter-spacing)] text-[length:var(--subheading-semi-bold-font-size)]">
@@ -106,105 +110,89 @@ export const WhatWeDoSection = (): JSX.Element => {
       </div>
 
       <div id="what-we-do-services-grid-1" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[16px]">
-        {serviceCards.slice(0, 4).map((card, index) => (
-          <motion.div
-            key={index}
-            id={`what-we-do-card-${index}`}
-            className="w-full bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
-            initial={{ rotateY: 90, opacity: 0 }}
-            animate={isInView ? { rotateY: 0, opacity: 1 } : { rotateY: 90, opacity: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: index * 0.15,
-              ease: [0.25, 0.4, 0.25, 1],
-            }}
-            style={{
-              perspective: 1000,
-              transformStyle: "preserve-3d",
-            }}
-          >
-            <CardContent
-              className={`flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
+        {serviceCards.slice(0, 4).map((card, index) => {
+          const start = index * 0.1;
+          const end = start + 0.25;
+
+          const rotateY = useTransform(scrollYProgress, [start, end], [90, 0]);
+          const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+
+          return (
+            <motion.div
+              key={index}
+              id={`what-we-do-card-${index}`}
+              className="w-full bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
               style={{
-                background: card.backgroundImage
-                  ? "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)"
-                  : "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
-                '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
-              } as React.CSSProperties & { '--bg-image': string }}
+                rotateY,
+                opacity,
+                perspective: 1000,
+                transformStyle: "preserve-3d",
+              }}
             >
-              <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
-                {card.title}
-              </h3>
-
-              <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
-                {card.description}
-              </p>
-
-              <img
-                className="absolute top-0 right-[57px] w-[180px] h-2"
-                alt="Mask group"
-                src={card.topMask}
-              />
-
-              <img
-                className="absolute left-[57px] bottom-[-7px] w-[180px] h-2"
-                alt="Mask group"
-                src={card.bottomMask}
-              />
-            </CardContent>
-          </motion.div>
-        ))}
+              <CardContent
+                className={`flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
+                style={{
+                  background: card.backgroundImage
+                    ? "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)"
+                    : "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
+                  '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
+                } as React.CSSProperties & { '--bg-image': string }}
+              >
+                <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
+                  {card.title}
+                </h3>
+                <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+                  {card.description}
+                </p>
+                <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Mask group" src={card.topMask} />
+                <img className="absolute left-[57px] bottom-[-7px] w-[180px] h-2" alt="Mask group" src={card.bottomMask} />
+              </CardContent>
+            </motion.div>
+          );
+        })}
       </div>
 
       <div id="what-we-do-services-grid-2" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[70px]">
-        {serviceCards.slice(4, 8).map((card, index) => (
-          <motion.div
-            key={index + 4}
-            id={`what-we-do-card-${index + 4}`}
-            className="w-full bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
-            initial={{ rotateY: 90, opacity: 0 }}
-            animate={isInView ? { rotateY: 0, opacity: 1 } : { rotateY: 90, opacity: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: (index + 4) * 0.15, // Bottom row continues the staggered timing
-              ease: [0.25, 0.4, 0.25, 1],
-            }}
-            style={{
-              perspective: 1000,
-              transformStyle: "preserve-3d",
-            }}
-          >
-            <CardContent
-              className={`flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
+        {serviceCards.slice(4, 8).map((card, index) => {
+          const i = index + 4;
+          const start = i * 0.1;
+          const end = start + 0.25;
+
+          const rotateY = useTransform(scrollYProgress, [start, end], [90, 0]);
+          const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+          return (
+            <motion.div
+              key={i}
+              id={`what-we-do-card-${i}`}
+              className="w-full bg-[#6ae4990a] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] p-[9px]"
               style={{
-                background: card.backgroundImage
-                  ? "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)"
-                  : "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
-                '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
-              } as React.CSSProperties & { '--bg-image': string }}
+                rotateY,
+                opacity,
+                perspective: 1000,
+                transformStyle: "preserve-3d",
+              }}
             >
-              <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
-                {card.title}
-              </h3>
-
-              <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
-                {card.description}
-              </p>
-
-              <img
-                className="absolute top-0 right-[57px] w-[180px] h-2"
-                alt="Mask group"
-                src={card.topMask}
-              />
-
-              <img
-                className="absolute left-[57px] bottom-[-7px] w-[180px] h-2"
-                alt="Mask group"
-                src={card.bottomMask}
-              />
-            </CardContent>
-          </motion.div>
-        ))}
+              <CardContent
+                className={`flex flex-col items-center justify-center gap-4 p-6 relative w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] ${card.backgroundImage ? 'has-background-image' : ''}`}
+                style={{
+                  background: card.backgroundImage
+                    ? "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)"
+                    : "radial-gradient(50% 50% at 50% 0%, rgba(168,127,255,0.04) 0%, rgba(168,127,255,0) 100%), linear-gradient(0deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 100%)",
+                  '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
+                } as React.CSSProperties & { '--bg-image': string }}
+              >
+                <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] text-center">
+                  {card.title}
+                </h3>
+                <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)] text-center">
+                  {card.description}
+                </p>
+                <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Mask group" src={card.topMask} />
+                <img className="absolute left-[57px] bottom-[-7px] w-[180px] h-2" alt="Mask group" src={card.bottomMask} />
+              </CardContent>
+            </motion.div>
+          );
+        })}
       </div>
 
       <div id="what-we-do-cta-section" className="flex justify-center">

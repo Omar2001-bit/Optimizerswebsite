@@ -8,7 +8,7 @@ const teamMembers = [
     image: "..//figmaAssets/frame-37644.png",
   },
   {
-    name: "Alia Mahra",
+    name: "Alia Mahran",
     role: "Operation Manager",
     image: "..//figmaAssets/frame-37641.png",
   },

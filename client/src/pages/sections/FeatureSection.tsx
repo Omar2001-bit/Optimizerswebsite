@@ -117,10 +117,10 @@ export const FeatureSection = (): JSX.Element => {
       `}</style>
 
       <section className="relative w-full h-[1040px] bg-dark-mode900 overflow-hidden">
-        {/* Left side content remains the same */}
+        {/* Left side content */}
         <div className="inline-flex flex-col items-start gap-6 absolute top-[calc(50.00%_-_209px)] left-8 z-10">
-            <h1 className="relative self-stretch mt-[-1.00px] font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
-                Our Proven Conversion Optimization Process
+            <h1 className="relative self-stretch mt-[-1.00px] font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)] whitespace-pre-wrap">
+                {`Our Proven\nConversion\nOptimization\nProcess`}
             </h1>
             <p className="relative w-[389px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
                 We follow a systematic 6-step approach that has generated millions in additional revenue for e-commerce brands across the GCC.

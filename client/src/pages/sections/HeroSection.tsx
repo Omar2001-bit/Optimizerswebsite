@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,7 +29,23 @@ const platformLogos = [
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <section id="section-hero" className="flex w-full h-[676px] items-end pt-0 pb-[60px] px-10 relative rounded-2xl overflow-hidden shadow-[0px_15px_61.7px_#93939340] bg-[linear-gradient(0deg,rgba(0,0,0,0.4)_0%,rgba(0,0,0,0.4)_100%),url(../figmaAssets/hero.png)_50%_50%_/_cover]">
+    <section id="section-hero" className="flex w-full h-[676px] items-end pt-0 pb-[60px] px-10 relative rounded-2xl overflow-hidden shadow-[0px_15px_61.7px_#93939340]">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-[-2]"
+        // --- THIS IS THE CORRECT PATH FOR YOUR LOCAL VIDEO ---
+        src="/Full-Quality_1.mp4"
+      >
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 w-full h-full bg-black/40 z-[-1]"></div>
+
       <Card id="hero-card" className="w-[493px] bg-[#ffffff33] border border-solid border-[#6ae49933] rounded-xl backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
         <CardContent id="hero-card-content" className="flex flex-col items-start gap-12 p-8">
           <div id="hero-main-content" className="flex flex-col items-start gap-6 w-full">

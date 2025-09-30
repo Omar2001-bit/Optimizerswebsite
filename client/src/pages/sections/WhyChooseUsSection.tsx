@@ -1,12 +1,20 @@
+"use client";
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { CardContent } from "@/components/ui/card";
-import { motion, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export const WhyChooseUsSection = (): JSX.Element => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "start start"],
+  });
+
+  // This new motion value completes when the original scrollYProgress is at 95%
+  const adjustedProgress = useTransform(scrollYProgress, [0, 0.65], [0, 1]);
 
   const featureCards = [
     {
@@ -114,79 +122,72 @@ export const WhyChooseUsSection = (): JSX.Element => {
         </div>
 
         <div ref={ref} id="why-choose-us-features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {featureCards.map((card, index) => (
-            <motion.div
-              key={index}
-              id={`why-choose-us-feature-card-${index}`}
-              className={`${card.height} rounded-2xl overflow-hidden border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(27,140,70,0.2)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative`}
-              initial={{
-                opacity: 0,
-                x: (1.5 - index) * 300, 
-                y: 100, 
-                scale: 0.5,
-                rotate: 20 - index * 20,
-              }}
-              animate={
-                isInView
-                  ? {
-                      opacity: 1,
-                      x: 0,
-                      y: 0,
-                      scale: 1,
-                      rotate: 0,
-                    }
-                  : {}
-              }
-              transition={{
-                type: "spring",
-                stiffness: 60, // Reduced from 120 for a slower, softer spring
-                damping: 25, // Increased from 20 for less bounce
-                delay: index * 0.15, // Increased from 0.1 for a longer stagger
-              }}
-              style={{
-                transformOrigin: "center center",
-                perspective: 1000,
-                transformStyle: "preserve-3d",
-                zIndex: 20 - index,
-              }}
-            >
-              <CardContent id={`why-choose-us-feature-card-content-${index}`} className="p-0 h-full relative">
-                <div id={`why-choose-us-feature-content-${index}`} className="flex flex-col w-[266px] items-start gap-3 absolute top-6 left-6">
-                  <h3 id={`why-choose-us-feature-title-${index}`} className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
-                    {card.title}
-                  </h3>
-                  <div
-                    id={`why-choose-us-feature-description-${index}`}
-                    className={`relative ${card.descriptionWidth} [font-family:'Sora',Helvetica] font-normal text-shadeswhite text-base tracking-[0] leading-4`}
-                  >
-                    {card.description}
+          {featureCards.map((card, index) => {
+            const start = index * 0.1;
+            const end = 0.5 + index * 0.15;
+
+            // Use the adjustedProgress for all animations
+            const opacity = useTransform(adjustedProgress, [start, end], [0, 1]);
+            const x = useTransform(adjustedProgress, [start, end], [(1.5 - index) * 300, 0]);
+            const y = useTransform(adjustedProgress, [start, end], [100, 0]);
+            const scale = useTransform(adjustedProgress, [start, end], [0.5, 1]);
+            const rotate = useTransform(adjustedProgress, [start, end], [20 - index * 20, 0]);
+
+            return (
+              <motion.div
+                key={index}
+                id={`why-choose-us-feature-card-${index}`}
+                className={`${card.height} rounded-2xl overflow-hidden border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(27,140,70,0.2)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative`}
+                style={{
+                  opacity,
+                  x,
+                  y,
+                  scale,
+                  rotate,
+                  transformOrigin: "center center",
+                  perspective: 1000,
+                  transformStyle: "preserve-3d",
+                  zIndex: 20 - index,
+                }}
+              >
+                <CardContent id={`why-choose-us-feature-card-content-${index}`} className="p-0 h-full relative">
+                  <div id={`why-choose-us-feature-content-${index}`} className="flex flex-col w-[266px] items-start gap-3 absolute top-6 left-6">
+                    <h3 id={`why-choose-us-feature-title-${index}`} className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
+                      {card.title}
+                    </h3>
+                    <div
+                      id={`why-choose-us-feature-description-${index}`}
+                      className={`relative ${card.descriptionWidth} [font-family:'Sora',Helvetica] font-normal text-shadeswhite text-base tracking-[0] leading-4`}
+                    >
+                      {card.description}
+                    </div>
                   </div>
-                </div>
-                <img
-                  id={`why-choose-us-feature-top-mask-${index}`}
-                  className="absolute top-0 right-[57px] w-[180px] h-2"
-                  alt="Mask group"
-                  src={card.topMask}
-                />
-                <div
-                  id={`why-choose-us-feature-blur-element-${index}`}
-                  className={`absolute ${card.blurElement} w-[90px] h-[312px] -rotate-90 backdrop-blur-[17.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(17.5px)_brightness(100%)] bg-[linear-gradient(270deg,rgba(255,255,255,0.03)_0%,rgba(255,255,255,0.1)_100%)]`}
-                />
-                <img
-                  id={`why-choose-us-feature-icon-${index}`}
-                  className={`absolute ${card.iconClasses}`}
-                  alt="Feature icon"
-                  src={card.icon}
-                />
-                <img
-                  id={`why-choose-us-feature-bottom-mask-${index}`}
-                  className="absolute left-9 bottom-[-7px] w-[180px] h-px"
-                  alt="Mask group"
-                  src={card.bottomMask}
-                />
-              </CardContent>
-            </motion.div>
-          ))}
+                  <img
+                    id={`why-choose-us-feature-top-mask-${index}`}
+                    className="absolute top-0 right-[57px] w-[180px] h-2"
+                    alt="Mask group"
+                    src={card.topMask}
+                  />
+                  <div
+                    id={`why-choose-us-feature-blur-element-${index}`}
+                    className={`absolute ${card.blurElement} w-[90px] h-[312px] -rotate-90 backdrop-blur-[17.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(17.5px)_brightness(100%)] bg-[linear-gradient(270deg,rgba(255,255,255,0.03)_0%,rgba(255,255,255,0.1)_100%)]`}
+                  />
+                  <img
+                    id={`why-choose-us-feature-icon-${index}`}
+                    className={`absolute ${card.iconClasses}`}
+                    alt="Feature icon"
+                    src={card.icon}
+                  />
+                  <img
+                    id={`why-choose-us-feature-bottom-mask-${index}`}
+                    className="absolute left-9 bottom-[-7px] w-[180px] h-px"
+                    alt="Mask group"
+                    src={card.bottomMask}
+                  />
+                </CardContent>
+              </motion.div>
+            );
+          })}
         </div>
 
         <div id="why-choose-us-cta-section" className="flex justify-center">

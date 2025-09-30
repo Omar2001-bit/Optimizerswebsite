@@ -1,6 +1,8 @@
+"use client";
+
 import { CheckIcon, XIcon } from "lucide-react";
 import React from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -14,8 +16,13 @@ import {
 
 export const DataTableSection = (): JSX.Element => {
   const gridItems = Array.from({ length: 234 }, (_, index) => index);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  // This ref is now specifically for the table container
+  const tableContainerRef = useRef(null); 
+  const { scrollYProgress } = useScroll({
+    target: tableContainerRef,
+    // This offset directly maps scroll progress to the element's visibility percentage
+    offset: ["start end", "end end"], 
+  });
 
   const tableData = [
     {
@@ -57,7 +64,7 @@ export const DataTableSection = (): JSX.Element => {
   ];
 
   return (
-    <section ref={ref} className="relative w-full min-h-[790px] bg-dark-mode900 overflow-hidden">
+    <section className="relative w-full min-h-[790px] bg-dark-mode900 overflow-hidden">
       <div className="flex flex-wrap w-full items-center gap-0 absolute top-0 left-0">
         {gridItems.map((index) => (
           <div key={index} className="relative w-20 h-20" />
@@ -70,7 +77,8 @@ export const DataTableSection = (): JSX.Element => {
         </h1>
       </div>
 
-      <div className="flex flex-col w-full max-w-[1246px] items-start justify-center p-[9px] absolute top-[214px] left-1/2 transform -translate-x-1/2 bg-[#6ae49914] rounded-3xl overflow-hidden border-2 border-solid border-[#6ae4994c] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
+      {/* The ref is now attached to this specific container */}
+      <div ref={tableContainerRef} className="flex flex-col w-full max-w-[1246px] items-start justify-center p-[9px] absolute top-[214px] left-1/2 transform -translate-x-1/2 bg-[#6ae49914] rounded-3xl overflow-hidden border-2 border-solid border-[#6ae4994c] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
         <Card className="inline-flex flex-col items-center justify-center p-6 relative flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(2,6,1,0.4)_0%,rgba(2,6,1,0.4)_100%)] overflow-hidden">
           <CardContent className="relative w-full max-w-[1176px] flex-[0_0_auto] rounded-lg overflow-hidden p-0">
             <Table className="w-full overflow-hidden">
@@ -100,21 +108,17 @@ export const DataTableSection = (): JSX.Element => {
               </TableHeader>
               <TableBody>
                 {tableData.map((row, index) => {
-                  // Alternating animation: even rows from left, odd rows from right
-                  const animateFrom = index % 2 === 0 ? { x: -300, opacity: 0 } : { x: 300, opacity: 0 };
-                  const animateTo = { x: 0, opacity: 1 };
-                  
+                  const start = index * 0.1;
+                  const end = start + 0.5; // Give each animation a bit of duration
+
+                  const x = useTransform(scrollYProgress, [start, end], [index % 2 === 0 ? -300 : 300, 0]);
+                  const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+
                   return (
                     <motion.tr
                       key={index}
                       className={`shadow-[inset_0px_-1px_0px_#0a391c] border-0 ${index === tableData.length - 1 ? "shadow-none" : ""}`}
-                      initial={animateFrom}
-                      animate={isInView ? animateTo : animateFrom}
-                      transition={{
-                        duration: 0.8,
-                        delay: index * 0.15,
-                        ease: [0.25, 0.4, 0.25, 1],
-                      }}
+                      style={{ x, opacity }}
                     >
                     <TableCell className="w-[366px] h-14 p-4 bg-[#0b130e] align-top">
                       <div className="mt-[-1.00px] font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] whitespace-nowrap [font-style:var(--paragraph-p2-regular-font-style)]">
