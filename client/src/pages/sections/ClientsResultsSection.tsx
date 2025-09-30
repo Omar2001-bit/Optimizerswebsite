@@ -145,14 +145,14 @@ export const ClientsResultsSection: React.FC = () => {
     // Only allow dragging on the center card
     if (cardIndex !== currentIndex) return;
     setIsDragging(true);
-    setDragStart(e.clientY);
+    setDragStart(e.clientX);
     setDragDistance(0);
   };
 
   const handleMouseMove = (e: React.MouseEvent, cardIndex: number) => {
     // Only allow dragging on the center card
     if (!isDragging || cardIndex !== currentIndex) return;
-    const distance = e.clientY - dragStart;
+    const distance = e.clientX - dragStart;
     setDragDistance(distance);
   };
 
@@ -194,52 +194,39 @@ export const ClientsResultsSection: React.FC = () => {
 
       <div id="carousel-container" className="relative px-4 mb-[60px] max-w-7xl mx-auto">
         {/* Stacked Carousel Content */}
-        <div id="carousel-wrapper" className="relative h-[700px] flex items-center justify-center">
-          {/* Render cards around current index for infinite effect - vertical stacking */}
-          {[-3, -2, -1, 0, 1, 2, 3].map((offset) => {
+        <div id="carousel-wrapper" className="relative h-[600px] flex items-center justify-center">
+          {/* Render cards around current index for infinite effect */}
+          {[-2, -1, 0, 1, 2].map((offset) => {
             const cardIndex = currentIndex + offset;
             const clientIndex = ((cardIndex % clientsData.length) + clientsData.length) % clientsData.length;
             const client = clientsData[clientIndex];
             const position = offset;
             const isCenter = position === 0;
+            const isVisible = Math.abs(position) <= 2;
             
-            // Calculate scale based on position
-            let scale = 1;
-            if (Math.abs(position) === 1) scale = 0.85;
-            else if (Math.abs(position) === 2) scale = 0.7;
-            else if (Math.abs(position) >= 3) scale = 0.6;
-            
-            // Calculate opacity based on position
-            let opacity = 1;
-            if (Math.abs(position) === 1) opacity = 0.7;
-            else if (Math.abs(position) === 2) opacity = 0.5;
-            else if (Math.abs(position) >= 3) opacity = 0.3;
-            
-            // Z-index: center card highest, further cards lower
-            const zIndex = 50 - Math.abs(position) * 5;
-            
-            // Vertical translation with slight overlap for stacking effect
-            const baseTranslateY = position * 120;
-            const dragOffset = isDragging ? dragDistance : 0;
+            if (!isVisible) return null;
             
             return (
               <Card
-                key={`${cardIndex}-${client.id}`}
+                key={client.id}
                 id={`client-card-${client.id}`}
                 onClick={() => !isCenter && !isDragging && goToSlide(cardIndex)}
                 onMouseDown={(e) => handleMouseDown(e, cardIndex)}
                 onMouseMove={(e) => handleMouseMove(e, cardIndex)}
                 onMouseUp={() => handleMouseUp(cardIndex)}
                 onMouseLeave={() => handleMouseLeave(cardIndex)}
-                className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden select-none ${
+                className={`absolute w-[400px] bg-[#6ae4990f] rounded-3xl border border-solid border-[#ffffff1a] overflow-hidden transition-all duration-700 ease-in-out select-none ${
                   isCenter 
-                    ? 'cursor-grab active:cursor-grabbing' 
-                    : 'cursor-pointer'
-                } ${isDragging ? '' : 'transition-all duration-700 ease-in-out'}`}
+                    ? 'scale-100 opacity-100 cursor-grab active:cursor-grabbing' 
+                    : Math.abs(position) === 1 
+                      ? 'scale-90 opacity-60 cursor-pointer' 
+                      : 'scale-80 opacity-30 cursor-pointer'
+                } ${isDragging ? 'transition-none' : ''}`}
                 style={{
-                  transform: `translateY(${baseTranslateY + dragOffset}px) scale(${scale})`,
-                  opacity: opacity,
-                  zIndex: zIndex
+                  transform: `translateX(${(position * 280) + (isDragging ? dragDistance : 0)}px) scale(${
+                    isCenter ? 1 : Math.abs(position) === 1 ? 0.9 : 0.8
+                  })`,
+                  zIndex: isCenter ? 50 : Math.abs(position) === 1 ? 40 : 30
                 }}
                 data-testid={`card-client-${client.id}`}
               >
