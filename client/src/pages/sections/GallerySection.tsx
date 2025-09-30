@@ -87,7 +87,7 @@ export const GallerySection = (): JSX.Element => {
               className="flex flex-col w-[900px] items-start justify-center p-[9px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] data-[state=open]:h-auto data-[state=closed]:h-auto"
             >
               <div className="flex flex-col items-center gap-5 p-6 w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative">
-                <AccordionTrigger className="flex items-center justify-center gap-2 w-full p-0 hover:no-underline [&[data-state=open]>svg]:rotate-180">
+                <AccordionTrigger className="flex items-center justify-center gap-2 w-full p-0 hover:no-underline [&[data-state=open]>svg]:rotate-180 [&[data-state=open]>div]:text-[#6ae499]">
                   <div className="flex-1 mt-[-1.00px] text-shadeswhite text-[20px] font-semibold tracking-[0px] leading-6 text-left">
                     {faq.question}
                   </div>
