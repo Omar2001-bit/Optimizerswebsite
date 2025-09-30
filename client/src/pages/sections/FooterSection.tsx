@@ -47,8 +47,8 @@ export const FooterSection = (): JSX.Element => {
         ))}
       </div>
 
-      <div className="absolute top-[calc(50.00%_-_190px)] left-[calc(50.00%_-_672px)] w-[1344px] h-[381px] flex flex-col gap-[72px] bg-dark-mode900 rounded-2xl">
-        <div className="flex h-[164px] w-[1176px] self-center relative mt-14 items-start gap-[100px]">
+      <div className="absolute top-[calc(50.00%_-_190px)] left-[calc(50.00%_-_672px)] w-[1344px] h-[381px] flex flex-col gap-[72px] bg-dark-mode900 rounded-2xl px-[84px]">
+        <div className="flex h-[164px] w-full relative mt-14 items-start gap-[100px]">
           <div className="flex flex-col items-start gap-[18px] px-0 py-px relative flex-[0_0_auto]">
             <img
               className="relative flex-[0_0_auto]"
@@ -56,7 +56,7 @@ export const FooterSection = (): JSX.Element => {
               src="/figmaAssets/frame-2131328446.svg"
             />
 
-            <div className="relative flex items-center justify-center w-[250px] font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
+            <div className="relative text-left w-[250px] text-shadeswhite text-[14px] font-normal tracking-[0px] leading-[1.5]">
               Leading CRO agency specializing in GCC e-commerce optimization.
               Boost your conversions without extra ad spend.
             </div>
@@ -69,7 +69,7 @@ export const FooterSection = (): JSX.Element => {
           </div>
 
           <div className="flex flex-col w-[109px] items-start gap-6 relative">
-            <div className="relative flex items-center justify-center self-stretch mt-[-1.00px] font-paragraph-p2-semi-bold font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-secondary-500 text-[length:var(--paragraph-p2-semi-bold-font-size)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] leading-[var(--paragraph-p2-semi-bold-line-height)] [font-style:var(--paragraph-p2-semi-bold-font-style)]">
+            <div className="relative text-left self-stretch mt-[-1.00px] text-secondary-500 text-[16px] font-semibold tracking-[0px] leading-[1.5]">
               Quick Links
             </div>
 
@@ -77,7 +77,7 @@ export const FooterSection = (): JSX.Element => {
               {quickLinks.map((link, index) => (
                 <div
                   key={`quick-link-${index}`}
-                  className={`relative flex items-center justify-center self-stretch ${index === 0 ? "mt-[-1.00px]" : ""} font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)] cursor-pointer hover:text-secondary-500 transition-colors`}
+                  className={`relative text-left self-stretch ${index === 0 ? "mt-[-1.00px]" : ""} text-shadeswhite text-[14px] font-normal tracking-[0px] leading-[1.5] cursor-pointer hover:text-secondary-500 transition-colors`}
                 >
                   {link}
                 </div>
@@ -86,7 +86,7 @@ export const FooterSection = (): JSX.Element => {
           </div>
 
           <div className="flex flex-col gap-6 items-start relative flex-[0_0_auto]">
-            <div className="relative flex items-center justify-center self-stretch mt-[-1.00px] font-paragraph-p2-semi-bold font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-secondary-500 text-[length:var(--paragraph-p2-semi-bold-font-size)] tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] leading-[var(--paragraph-p2-semi-bold-line-height)] [font-style:var(--paragraph-p2-semi-bold-font-style)]">
+            <div className="relative text-left self-stretch mt-[-1.00px] text-secondary-500 text-[16px] font-semibold tracking-[0px] leading-[1.5]">
               Services
             </div>
 
@@ -94,7 +94,7 @@ export const FooterSection = (): JSX.Element => {
               {services.map((service, index) => (
                 <div
                   key={`service-${index}`}
-                  className={`${index === 0 ? "flex items-center justify-center w-fit mt-[-1.00px] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] leading-[var(--paragraph-p1-regular-line-height)] whitespace-nowrap relative font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] tracking-[var(--paragraph-p1-regular-letter-spacing)] [font-style:var(--paragraph-p1-regular-font-style)]" : "relative flex items-center justify-center self-stretch font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]"} cursor-pointer hover:text-secondary-500 transition-colors`}
+                  className={`${index === 0 ? "text-left w-fit mt-[-1.00px] text-shadeswhite text-[14px] font-normal tracking-[0px] leading-[1.5] whitespace-nowrap relative" : "relative text-left self-stretch text-shadeswhite text-[14px] font-normal tracking-[0px] leading-[1.5]"} cursor-pointer hover:text-secondary-500 transition-colors`}
                 >
                   {service}
                 </div>
@@ -103,7 +103,7 @@ export const FooterSection = (): JSX.Element => {
           </div>
 
           <div className="flex flex-col gap-6 items-start relative flex-[0_0_auto]">
-            <div className="self-stretch mt-[-1.00px] font-[number:var(--paragraph-p2-semi-bold-font-weight)] text-secondary-500 text-[length:var(--paragraph-p2-semi-bold-font-size)] leading-[var(--paragraph-p2-semi-bold-line-height)] relative flex items-center justify-center font-paragraph-p2-semi-bold tracking-[var(--paragraph-p2-semi-bold-letter-spacing)] [font-style:var(--paragraph-p2-semi-bold-font-style)]">
+            <div className="self-stretch mt-[-1.00px] text-secondary-500 text-[16px] font-semibold leading-[1.5] relative text-left tracking-[0px]">
               Contact Us
             </div>
 
@@ -120,7 +120,7 @@ export const FooterSection = (): JSX.Element => {
                   />
 
                   <div
-                    className={`relative flex items-center justify-center ${index < 2 ? "self-stretch" : "self-stretch"} ${contact.width} mt-[-1.00px] font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]`}
+                    className={`relative text-left ${index < 2 ? "self-stretch" : "self-stretch"} ${contact.width} mt-[-1.00px] text-shadeswhite text-[14px] font-normal tracking-[0px] leading-[1.5]`}
                   >
                     {contact.text}
                   </div>
@@ -130,10 +130,10 @@ export const FooterSection = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="flex ml-[84px] w-[1176px] h-[41px] relative flex-col items-start gap-6">
+        <div className="flex w-full h-[41px] relative flex-col items-start gap-6">
           <Separator className="mt-[-1.00px] self-stretch w-full h-px bg-[url('/figmaAssets/line-266.svg')] bg-cover" />
 
-          <div className="relative flex items-center justify-center self-stretch font-paragraph-p1-regular font-[number:var(--paragraph-p1-regular-font-weight)] text-[#6a6d6a] text-[length:var(--paragraph-p1-regular-font-size)] tracking-[var(--paragraph-p1-regular-letter-spacing)] leading-[var(--paragraph-p1-regular-line-height)] [font-style:var(--paragraph-p1-regular-font-style)]">
+          <div className="relative text-left self-stretch text-[#6a6d6a] text-[14px] font-normal tracking-[0px] leading-[1.5]">
             © 2025 Optimizers. All rights reserved.
           </div>
         </div>

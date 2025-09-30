@@ -16,12 +16,12 @@ export const ContactSection = (): JSX.Element => {
         ))}
       </div>
 
-      <div id="contact-content" className="flex flex-col items-center justify-center gap-8 absolute top-[72px] left-1/2 transform -translate-x-1/2 rounded-xl backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
-        <h2 id="contact-title" className="w-fit mt-[-1.00px] font-display-02-semi-bold font-[number:var(--display-02-semi-bold-font-weight)] text-white text-[length:var(--display-02-semi-bold-font-size)] text-center tracking-[var(--display-02-semi-bold-letter-spacing)] leading-[var(--display-02-semi-bold-line-height)] whitespace-nowrap [font-style:var(--display-02-semi-bold-font-style)]">
+      <div id="contact-content" className="flex flex-col items-center justify-center gap-8 absolute top-[72px] left-1/2 transform -translate-x-1/2 rounded-xl">
+        <h2 id="contact-title" className="w-fit mt-[-1.00px] text-white text-[60px] font-semibold text-center tracking-[0px] leading-[1.2] whitespace-nowrap">
           Be Our Next Success Story
         </h2>
 
-        <p id="contact-description" className="w-[806px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-white text-[length:var(--subheading-regular-font-size)] text-center tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+        <p id="contact-description" className="w-[806px] text-white text-[20px] font-normal text-center tracking-[0px] leading-[1.5]">
           Real GCC brands. Real results.
           <br /> See how we&apos;ve helped e-commerce stores like yours boost
           conversions, lower costs, and unlock hidden revenue.
@@ -34,7 +34,7 @@ export const ContactSection = (): JSX.Element => {
             document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }}
         >
-          <span id="contact-cta-button-text" className="w-fit mt-[-1.00px] font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+          <span id="contact-cta-button-text" className="w-fit mt-[-1.00px] text-neutral-900 text-[18px] font-semibold tracking-[0px] leading-[1.2] whitespace-nowrap">
             Let&apos;s Write Your Success Story
           </span>
         </Button>
