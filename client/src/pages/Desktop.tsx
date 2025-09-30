@@ -105,7 +105,7 @@ export const Desktop = (): JSX.Element => {
 
           <Button 
             id="button-free-audit" 
-            className="px-4 py-2 relative flex-[0_0_auto] bg-secondary-500 inline-flex items-center justify-center gap-2 rounded h-auto"
+            className="px-4 py-2 relative flex-[0_0_auto] bg-secondary-500 inline-flex items-center justify-center gap-2 rounded h-auto hover:bg-secondary-500"
             onClick={() => {
               document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
