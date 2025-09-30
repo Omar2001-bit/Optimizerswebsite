@@ -97,6 +97,15 @@ export const InfoWrapperSection = (): JSX.Element => {
 
   return (
     <section id="roi-calculator-section" className="w-full bg-dark-mode900 py-[100px]">
+      <style>{`
+        div#card-current-projection {
+          height: 818px;
+        }
+        .flex.gap-3.w-full.pt-6.relative.right-\\[20px\\] {
+          position: relative;
+          left: 1px;
+        }
+      `}</style>
       <div className="flex flex-col max-w-[1144px] mx-auto items-center gap-[60px] px-4">
         <header id="roi-calculator-header" className="flex flex-col items-start gap-6 w-full">
             <h1 className="w-full font-semibold text-shadeswhite text-[48px] tracking-[-1.92px] leading-[56px]">ROI Calculator</h1>
