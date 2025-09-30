@@ -37,7 +37,7 @@ export const HeroSection = (): JSX.Element => {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="/figmaAssets/Full-Quality_1.mp4"
+        src="https://core.optimizers.agency/wp-content/uploads/2025/09/Full-Quality_1.mp4"
       >
         Your browser does not support the video tag.
       </video>
