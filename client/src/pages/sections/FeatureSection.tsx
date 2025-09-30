@@ -57,7 +57,7 @@ const processSteps = [
 ];
 
 // Animation constants
-const ANIMATION_DURATION = 24; // Total duration in seconds for one cycle
+const ANIMATION_DURATION = 27; // Total duration in seconds for one cycle
 const TOTAL_STEPS = processSteps.length;
 const STEP_INTERVAL_PERCENTAGE = 100 / TOTAL_STEPS;
 const SLIDE_CHANGE_TIMING = 3; // The percentage of the animation cycle for a slide to transition
@@ -75,45 +75,45 @@ export const FeatureSection = (): JSX.Element => {
           align-items: center;
           position: absolute;
           width: 100%;
-          opacity: 1;
+          padding: 0 12px;
+          opacity: 0;
+          filter: drop-shadow(0 2px 2px #555);
           will-change: transform, opacity;
           animation: carousel-animate-vertical ${ANIMATION_DURATION}s linear infinite;
         }
         @keyframes carousel-animate-vertical {
           0% {
-            transform: translateY(100%);
-            opacity: 1;
-            visibility: visible;
+            transform: translateY(100%) scale(0.5);
+            opacity: 0;
+            visibility: hidden;
           }
+          ${SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE}% {
-            transform: translateY(0%);
-            opacity: 1;
+            transform: translateY(100%) scale(0.7);
+            opacity: 0.4;
             visibility: visible;
           }
+          ${STEP_INTERVAL_PERCENTAGE + SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE * 2}% {
-            transform: translateY(-100%);
+            transform: translateY(0) scale(1);
             opacity: 1;
             visibility: visible;
           }
+          ${(STEP_INTERVAL_PERCENTAGE * 2) + SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE * 3}% {
-            transform: translateY(-200%);
-            opacity: 1;
+            transform: translateY(-100%) scale(0.7);
+            opacity: 0.4;
             visibility: visible;
           }
-          ${STEP_INTERVAL_PERCENTAGE * 4}% {
-            transform: translateY(-300%);
-            opacity: 1;
-            visibility: visible;
-          }
-          ${STEP_INTERVAL_PERCENTAGE * 5}% {
-            transform: translateY(-400%);
-            opacity: 1;
+          ${(STEP_INTERVAL_PERCENTAGE * 3) + SLIDE_CHANGE_TIMING}% {
+            transform: translateY(-100%) scale(0.5);
+            opacity: 0;
             visibility: visible;
           }
           100% {
-            transform: translateY(-500%);
-            opacity: 1;
-            visibility: visible;
+            transform: translateY(-100%) scale(0.5);
+            opacity: 0;
+            visibility: hidden;
           }
         }
       `}</style>
