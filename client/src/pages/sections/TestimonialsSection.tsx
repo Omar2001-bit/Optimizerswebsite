@@ -157,7 +157,7 @@ export const TestimonialsSection = (): JSX.Element => {
                 Thank you for your interest in Optimizers. Unfortunately, given the current low conversion volume of your business, our services might not be the optimal fit at this time. We sincerely wish you all the best in your endeavors.
               </p>
               <p className="text-shadeswhite text-center max-w-[700px] text-[20px] font-normal tracking-[0px] leading-6">
-                Please don't hesitate to reach out again in the future should your situation change. We would be more than happy to reassess how we can assist you then.
+                Feel free to reach out if your situation changes. We'd be happy to help you then.
               </p>
             </CardContent>
           </Card>
