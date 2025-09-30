@@ -96,7 +96,7 @@ export const FeatureSection = (): JSX.Element => {
           }
           ${STEP_INTERVAL_PERCENTAGE + SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE * 2}% {
-            transform: translateY(60%) scale(0.7);
+            transform: translateY(80%) scale(0.7);
             opacity: 0.5;
             z-index: 3;
             visibility: visible;
@@ -110,7 +110,7 @@ export const FeatureSection = (): JSX.Element => {
           }
           ${(STEP_INTERVAL_PERCENTAGE * 3) + SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE * 4}% {
-            transform: translateY(-60%) scale(0.7);
+            transform: translateY(-80%) scale(0.7);
             opacity: 0.5;
             z-index: 3;
             visibility: visible;
