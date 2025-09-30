@@ -44,9 +44,9 @@ export const StatisticsSection = (): JSX.Element => {
           </div>
 
           {/* Video container */}
-          <div className="absolute top-[calc(50.00%_-_229px)] left-[825px] w-[515px] h-[458px] flex justify-center items-center overflow-hidden">
+          <div className="absolute top-[calc(50.00%_-_229px)] left-[825px] w-[515px] h-[458px] flex justify-center items-center overflow-hidden rounded-[24px] border-[3px] border-[#2d5f3e]">
             <video
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-[20px]"
               autoPlay
               muted
               loop
