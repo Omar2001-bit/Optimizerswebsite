@@ -69,7 +69,7 @@ export const FeatureSection = (): JSX.Element => {
         This style block contains the CSS animation logic. 
         For best practice, this should be moved to a global CSS file.
       */}
-      <style jsx global>{`
+      <style>{`
         .carousel-item {
           display: flex;
           align-items: center;
@@ -125,7 +125,12 @@ export const FeatureSection = (): JSX.Element => {
             <p className="relative w-[389px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
                 We follow a systematic 6-step approach that has generated millions in additional revenue for e-commerce brands across the GCC.
             </p>
-            <Button className="inline-flex items-center justify-center gap-2 px-5 py-3.5 relative flex-[0_0_auto] bg-secondary-500 rounded h-auto">
+            <Button 
+              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 relative flex-[0_0_auto] bg-secondary-500 rounded h-auto"
+              onClick={() => {
+                document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+            >
                 <span className="relative w-fit mt-[-1.00px] font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-semi-bold-font-style)]">
                     Book a Free CRO Audit
                 </span>

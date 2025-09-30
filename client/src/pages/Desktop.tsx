@@ -103,7 +103,13 @@ export const Desktop = (): JSX.Element => {
             />
           </div>
 
-          <Button id="button-free-audit" className="px-4 py-2 relative flex-[0_0_auto] bg-secondary-500 inline-flex items-center justify-center gap-2 rounded h-auto">
+          <Button 
+            id="button-free-audit" 
+            className="px-4 py-2 relative flex-[0_0_auto] bg-secondary-500 inline-flex items-center justify-center gap-2 rounded h-auto"
+            onClick={() => {
+              document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+          >
             <div className="font-[number:var(--paragraph-p1-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p1-semi-bold-font-size)] leading-[var(--paragraph-p1-semi-bold-line-height)] whitespace-nowrap relative w-fit mt-[-1.00px] font-paragraph-p1-semi-bold tracking-[var(--paragraph-p1-semi-bold-letter-spacing)] [font-style:var(--paragraph-p1-semi-bold-font-style)]">
               Get Free Audit
             </div>

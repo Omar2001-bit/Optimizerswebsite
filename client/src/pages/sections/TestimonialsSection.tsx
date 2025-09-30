@@ -79,7 +79,7 @@ export const TestimonialsSection = (): JSX.Element => {
   };
 
   return (
-    <section className="relative w-full bg-dark-mode900 py-[100px]">
+    <section id="testimonials-booking-section" className="relative w-full bg-dark-mode900 py-[100px]">
       <div className="flex flex-col items-center gap-[60px] max-w-[1176px] mx-auto px-4">
         <header className="flex flex-col items-center gap-6">
           <h1 className="font-heading-h1-semi-bold text-shadeswhite text-center">

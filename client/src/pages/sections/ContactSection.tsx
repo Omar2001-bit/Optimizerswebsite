@@ -27,7 +27,13 @@ export const ContactSection = (): JSX.Element => {
           conversions, lower costs, and unlock hidden revenue.
         </p>
 
-        <Button id="contact-cta-button" className="flex items-center justify-center gap-2 px-5 py-3.5 bg-secondary-500 rounded h-auto hover:bg-secondary-400">
+        <Button 
+          id="contact-cta-button" 
+          className="flex items-center justify-center gap-2 px-5 py-3.5 bg-secondary-500 rounded h-auto hover:bg-secondary-400"
+          onClick={() => {
+            document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
+        >
           <span id="contact-cta-button-text" className="w-fit mt-[-1.00px] font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-semi-bold-font-style)]">
             Let&apos;s Write Your Success Story
           </span>

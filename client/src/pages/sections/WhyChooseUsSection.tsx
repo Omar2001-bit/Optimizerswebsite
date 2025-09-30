@@ -191,7 +191,13 @@ export const WhyChooseUsSection = (): JSX.Element => {
         </div>
 
         <div id="why-choose-us-cta-section" className="flex justify-center">
-          <Button id="why-choose-us-cta-button" className="px-5 py-3.5 bg-secondary-500 h-auto rounded">
+          <Button 
+            id="why-choose-us-cta-button" 
+            className="px-5 py-3.5 bg-secondary-500 h-auto rounded"
+            onClick={() => {
+              document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+          >
             <span id="why-choose-us-cta-button-text" className="font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] [font-style:var(--paragraph-p3-semi-bold-font-style)]">
               Get Your Free CRO Audit
             </span>
