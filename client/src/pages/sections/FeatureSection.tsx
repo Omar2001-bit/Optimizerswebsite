@@ -167,7 +167,8 @@ export const FeatureSection = (): JSX.Element => {
                 style={{ animationDelay: `${animationDelay}s` }}
               >
                 <div
-                  className="w-full p-[9px] rounded-3xl border border-solid border-[#ffffff1a] bg-[#6ae4990a] shadow-[inset_0px_0px_0px_9px_#ffffff08,0px_8px_50px_#000000,0px_-8px_50px_#000000]"
+                  className="w-full p-[9px] rounded-3xl border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08,0px_8px_50px_#000000,0px_-8px_50px_#000000]"
+                  style={{ backgroundColor: '#0a0a0a' }}
                 >
                   <Card className="flex items-center justify-center relative w-full border-solid border-[#6ae49933] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] gap-4 p-6 rounded-2xl border">
                     <CardContent className="flex items-center justify-center w-full p-0">
