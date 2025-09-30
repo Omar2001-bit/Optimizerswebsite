@@ -121,7 +121,7 @@ export const GallerySection = (): JSX.Element => {
             document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }}
         >
-          <span className="w-fit mt-[-1.00px] font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+          <span className="w-fit mt-[-1.00px] text-neutral-900 text-[18px] font-semibold tracking-[0px] leading-[21.6px] whitespace-nowrap">
             Still have questions? Book a Call
           </span>
         </Button>
