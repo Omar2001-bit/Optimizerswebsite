@@ -105,6 +105,18 @@ export const InfoWrapperSection = (): JSX.Element => {
           position: relative;
           left: 1px;
         }
+        /* Slider track (unfilled part - the background) */
+        #roi-calculator-section [role="slider"] {
+          /* This targets the thumb/cursor itself if needed */
+        }
+        /* The slider container has the track as a span child */
+        #roi-calculator-section .relative.flex.w-full.touch-none > span.relative {
+          background-color: black !important;
+        }
+        /* Slider range (filled part - before cursor) - the absolute positioned span inside track */
+        #roi-calculator-section .relative.flex.w-full.touch-none > span.relative > span.absolute {
+          background-color: #68e397 !important;
+        }
       `}</style>
       <div className="flex flex-col max-w-[1144px] mx-auto items-center gap-[60px] px-4">
         <header id="roi-calculator-header" className="flex flex-col items-start gap-6 w-full">
