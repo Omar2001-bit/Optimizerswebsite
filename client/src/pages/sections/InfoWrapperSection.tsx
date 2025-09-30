@@ -117,6 +117,17 @@ export const InfoWrapperSection = (): JSX.Element => {
         #roi-calculator-section .relative.flex.w-full.touch-none > span.relative > span.absolute {
           background-color: #68e397 !important;
         }
+        /* Remove default number input spinners/arrows (Chrome, Safari, Edge, Opera) */
+        #roi-calculator-section input[type=number]::-webkit-inner-spin-button,
+        #roi-calculator-section input[type=number]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        /* Remove default number input spinners/arrows (Firefox) */
+        #roi-calculator-section input[type=number] {
+          -moz-appearance: textfield;
+          appearance: textfield;
+        }
       `}</style>
       <div className="flex flex-col max-w-[1144px] mx-auto items-center gap-[60px] px-4">
         <header id="roi-calculator-header" className="flex flex-col items-start gap-6 w-full">
