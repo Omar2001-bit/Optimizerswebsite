@@ -36,16 +36,16 @@ export const HeroSection = (): JSX.Element => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-[-2]"
+        className="absolute inset-0 w-full h-full object-cover z-0"
         src="/figmaAssets/Full-Quality_1.mp4"
       >
         Your browser does not support the video tag.
       </video>
       
       {/* Overlay for text readability */}
-      <div className="absolute inset-0 w-full h-full bg-black/40 z-[-1]"></div>
+      <div className="absolute inset-0 w-full h-full bg-black/40 z-10 pointer-events-none"></div>
 
-      <Card id="hero-card" className="w-[493px] bg-[#ffffff33] border border-solid border-[#6ae49933] rounded-xl backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
+      <Card id="hero-card" className="relative z-20 w-[493px] bg-[#ffffff33] border border-solid border-[#6ae49933] rounded-xl backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
         <CardContent id="hero-card-content" className="flex flex-col items-start gap-12 p-8">
           <div id="hero-main-content" className="flex flex-col items-start gap-6 w-full">
             <h1 id="hero-title" className="font-heading-h1-small-semi-bold font-[number:var(--heading-h1-small-semi-bold-font-weight)] text-white text-[length:var(--heading-h1-small-semi-bold-font-size)] tracking-[var(--heading-h1-small-semi-bold-letter-spacing)] leading-[var(--heading-h1-small-semi-bold-line-height)] [font-style:var(--heading-h1-small-semi-bold-font-style)]">
