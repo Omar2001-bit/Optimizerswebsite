@@ -69,7 +69,7 @@ export const GallerySection = (): JSX.Element => {
     <section className="flex flex-col items-start gap-2 pt-[100px] pb-[200px] px-[270px] w-full bg-dark-mode900">
       <div className="flex flex-col w-[900px] items-center gap-[60px] mx-auto">
         <header className="flex w-[767px] items-start flex-col gap-6">
-          <h1 className="self-stretch mt-[-1.00px] font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+          <h1 className="self-stretch mt-[-1.00px] text-shadeswhite text-[48px] font-semibold text-center tracking-[-1.92px] leading-[56px]">
             Frequently Asked Questions
           </h1>
         </header>
@@ -88,13 +88,13 @@ export const GallerySection = (): JSX.Element => {
             >
               <div className="flex flex-col items-center gap-5 p-6 w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative">
                 <AccordionTrigger className="flex items-center justify-center gap-2 w-full p-0 hover:no-underline [&[data-state=open]>svg]:rotate-180">
-                  <div className="flex-1 mt-[-1.00px] font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-shadeswhite text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)] text-left">
+                  <div className="flex-1 mt-[-1.00px] text-shadeswhite text-[20px] font-semibold tracking-[0px] leading-6 text-left">
                     {faq.question}
                   </div>
                 </AccordionTrigger>
 
                 <AccordionContent className="w-full pb-0">
-                  <div className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-neutral-100 text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
+                  <div className="text-neutral-100 text-[16px] font-normal tracking-[0px] leading-[19px] text-left">
                     {faq.answer}
                   </div>
                 </AccordionContent>

@@ -1,0 +1,28 @@
+the following will be eidts on the text of the website in terms of allignment font weight and size
+1.Your CURRENT conversion rate, Your NEW conversion rate:16 mixed weight
+2.conversion rate numbers percentages in current and new card are the same:18 semibold
+3.the aov numbers are also 18 semibold
+4.Current Monthly Revenue:14 regular
+5.output numbers whether in the new or current cards: 19 semibold
+6.Our Partners & Tools: 34 semibold
+7.Powered by Industry-Leading Platforms.
+We work with the most trusted tools and platforms in the GCC and globally to ensure accurate tracking, effective testing, and scalable growth.: 18 regular
+8.Learn CRO From Our CEO:48 semibold
+9.Get insider insights into the strategies that have generated millions in additional revenue for Gulf-based e-commerce brands.: 20 semibold
+10.Watch Now: 18 semibold
+11.Meet The Team:48 semibold
+
+We’re a hands-on team of CRO specialists with deep GCC market knowledge and a proven track record. When you work with us, you work directly with the experts driving your growth.:20 regular
+in the team section the names of the professionals will be in:23 semibold
+titles:16 regular
+13.Let’s Turn More Visitors Into Buyers: 48 semibold
+14.Book your free strategy session today.  We’ll audit your store, uncover where revenue is leaking, and create a custom conversion plan designed for your growth.:20 regular
+15.Book My Free Strategy Session:18 semibold
+16.100% free. No obligation. Actionable insights guaranteed.:20 semibold
+17.Book Your Free Strategy Session:48 semibold
+18.titles in the form are Conversions,Objective,Website,Contact,Schedule: 14 regular
+subheading:12 regular
+19.Number of conversions per MONTH on average?(for all the steps ):34 semibold
+20.for all the choices texts in the clickable 4 buttons in each step :18 regular
+21.Frequently Asked Questions:48 semibold
+22.left allignment for all texts in the faq accordions, in the faq section questions are in 20 semibold answers in:16 regular

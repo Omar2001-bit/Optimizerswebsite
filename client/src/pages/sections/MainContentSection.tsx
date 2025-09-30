@@ -10,11 +10,11 @@ export const MainContentSection = (): JSX.Element => {
       />
 
       <div className="flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-6">
-        <h1 className="font-heading-h1-small-semi-bold font-[number:var(--heading-h1-small-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-small-semi-bold-font-size)] text-center tracking-[var(--heading-h1-small-semi-bold-letter-spacing)] leading-[var(--heading-h1-small-semi-bold-line-height)] [font-style:var(--heading-h1-small-semi-bold-font-style)]">
+        <h1 className="text-shadeswhite text-[34px] font-semibold text-center tracking-[-1.36px] leading-[40px]">
           Our Partners &amp; Tools
         </h1>
 
-        <p className="w-[526px] font-paragraph-p3-regular font-[number:var(--paragraph-p3-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p3-regular-font-size)] text-center tracking-[var(--paragraph-p3-regular-letter-spacing)] leading-[var(--paragraph-p3-regular-line-height)] [font-style:var(--paragraph-p3-regular-font-style)]">
+        <p className="w-[526px] text-shadeswhite text-[18px] font-normal text-center tracking-[0px] leading-[21.6px]">
           Powered by Industry-Leading Platforms.
           <br />
           We work with the most trusted tools and platforms in the GCC and

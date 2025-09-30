@@ -39,10 +39,10 @@ const NumberInputWithControls = ({ id, value, onChange, onDecrement, onIncrement
                 type="number"
                 value={value}
                 onChange={onChange}
-                className="w-full h-full p-0 text-center font-paragraph-p3-semi-bold text-shadeswhite bg-transparent border-x border-neutral-700 rounded-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="w-full h-full p-0 text-center text-[18px] font-semibold text-shadeswhite bg-transparent border-x border-neutral-700 rounded-none focus-visible:ring-0 focus-visible:ring-offset-0"
             />
-             {suffix && <span className="absolute right-4 font-paragraph-p3-semi-bold text-shadeswhite pointer-events-none">{suffix}</span>}
-             {prefix && <span className="absolute left-4 font-paragraph-p3-semi-bold text-shadeswhite pointer-events-none">{prefix}</span>}
+             {suffix && <span className="absolute right-4 text-[18px] font-semibold text-shadeswhite pointer-events-none">{suffix}</span>}
+             {prefix && <span className="absolute left-4 text-[18px] font-semibold text-shadeswhite pointer-events-none">{prefix}</span>}
         </div>
         <Button id={`btn-increment-${id}`} onClick={onIncrement} variant="ghost" size="icon" className="w-12 h-full rounded-l-none hover:bg-white/10">
             <PlusIcon className="w-4 h-4 text-white" />
@@ -117,7 +117,7 @@ export const InfoWrapperSection = (): JSX.Element => {
                 </Select>
               </div>
               <div className="inline-flex flex-col items-start gap-3">
-                <label id="label-monthly-users" htmlFor="input-monthly-users" className="font-paragraph-p3-regular text-shadeswhite">Monthly Website Users</label>
+                <label id="label-monthly-users" htmlFor="input-monthly-users" className="text-[18px] font-normal text-shadeswhite">Monthly Website Users</label>
                 <NumberInputWithControls
                     id="input-monthly-users"
                     value={monthlyUsers}
@@ -141,14 +141,14 @@ export const InfoWrapperSection = (): JSX.Element => {
                 <CardContent className="p-0 flex flex-col gap-12">
                   <h3 className="w-full font-semibold text-center text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]">CURRENT</h3>
                   <div className="flex flex-col items-center gap-5 w-full">
-                      <label id="label-current-cr" htmlFor="slider-current-cr" className="font-paragraph-p2-regular text-white text-center">Your CURRENT conversion rate</label>
+                      <label id="label-current-cr" htmlFor="slider-current-cr" className="text-white text-center text-[16px] font-normal">Your CURRENT conversion rate</label>
                       <Slider id="slider-current-cr" value={[currentCR]} onValueChange={([val]) => setCurrentCR(val)} max={20} step={0.1} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
-                      <NumberInputWithControls id="input-current-cr" value={currentCR.toFixed(1)} onChange={e => setCurrentCR(parseFloat(e.target.value) || 0)} onDecrement={() => setCurrentCR(p => Math.max(0.1, p - 0.1))} onIncrement={() => setCurrentCR(p => p + 0.1)} suffix="%" />
+                      <NumberInputWithControls id="input-current-cr" value={currentCR.toFixed(1)} onChange={e => setCurrentCR(parseFloat(e.target.value) || 0)} onDecrement={() => setCurrentCR(p => Math.max(0.1, p - 0.1))} onIncrement={() => setCurrentCR(p => p + 0.1)} suffix="%" className="[&_input]:text-[18px] [&_input]:font-semibold [&_span]:text-[18px] [&_span]:font-semibold" />
                   </div>
                   <div className="flex flex-col items-center gap-5 w-full">
-                      <label id="label-current-aov" htmlFor="slider-current-aov" className="font-paragraph-p2-regular text-white text-center">Your CURRENT average order value</label>
+                      <label id="label-current-aov" htmlFor="slider-current-aov" className="text-white text-center text-[16px] font-normal">Your CURRENT average order value</label>
                       <Slider id="slider-current-aov" value={[currentAOV]} onValueChange={([val]) => setCurrentAOV(val)} max={2000} step={10} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
-                      <NumberInputWithControls id="input-current-aov" value={currentAOV} onChange={e => setCurrentAOV(parseInt(e.target.value) || 0)} onDecrement={() => setCurrentAOV(p => Math.max(0, p - 10))} onIncrement={() => setCurrentAOV(p => p + 10)} prefix={getCurrencySymbol()} />
+                      <NumberInputWithControls id="input-current-aov" value={currentAOV} onChange={e => setCurrentAOV(parseInt(e.target.value) || 0)} onDecrement={() => setCurrentAOV(p => Math.max(0, p - 10))} onIncrement={() => setCurrentAOV(p => p + 10)} prefix={getCurrencySymbol()} className="[&_input]:text-[18px] [&_input]:font-semibold [&_span]:text-[18px] [&_span]:font-semibold" />
                   </div>
                   <div className="flex gap-3 w-full pt-6 relative right-[20px]">
                       <InfoCard id="card-current-monthly-revenue" title="Current Monthly Revenue" value={formatCurrency(calculatedValues.currentMonthlyRevenue)} currencySymbol={getCurrencySymbol()} />
@@ -166,14 +166,14 @@ export const InfoWrapperSection = (): JSX.Element => {
                 <CardContent className="p-0 flex flex-col gap-12">
                   <h3 className="w-full font-semibold text-center text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]">NEW</h3>
                   <div className="flex flex-col items-center gap-5 w-full">
-                      <label id="label-new-cr" htmlFor="slider-new-cr" className="font-paragraph-p2-regular text-white text-center">Your NEW conversion rate</label>
+                      <label id="label-new-cr" htmlFor="slider-new-cr" className="text-white text-center text-[16px] font-normal">Your NEW conversion rate</label>
                       <Slider id="slider-new-cr" value={[newCR]} onValueChange={([val]) => setNewCR(val)} max={20} step={0.1} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
-                      <NumberInputWithControls id="input-new-cr" value={newCR.toFixed(1)} onChange={e => setNewCR(parseFloat(e.target.value) || 0)} onDecrement={() => setNewCR(p => Math.max(0.1, p - 0.1))} onIncrement={() => setNewCR(p => p + 0.1)} suffix="%" />
+                      <NumberInputWithControls id="input-new-cr" value={newCR.toFixed(1)} onChange={e => setNewCR(parseFloat(e.target.value) || 0)} onDecrement={() => setNewCR(p => Math.max(0.1, p - 0.1))} onIncrement={() => setNewCR(p => p + 0.1)} suffix="%" className="[&_input]:text-[18px] [&_input]:font-semibold [&_span]:text-[18px] [&_span]:font-semibold" />
                   </div>
                   <div className="flex flex-col items-center gap-5 w-full">
-                      <label id="label-new-aov" htmlFor="slider-new-aov" className="font-paragraph-p2-regular text-white text-center">Your NEW average order value</label>
+                      <label id="label-new-aov" htmlFor="slider-new-aov" className="text-white text-center text-[16px] font-normal">Your NEW average order value</label>
                       <Slider id="slider-new-aov" value={[newAOV]} onValueChange={([val]) => setNewAOV(val)} max={2000} step={10} className="bg-neutral-700 [&>span:first-child]:bg-[#66d992]" />
-                      <NumberInputWithControls id="input-new-aov" value={newAOV} onChange={e => setNewAOV(parseInt(e.target.value) || 0)} onDecrement={() => setNewAOV(p => Math.max(0, p - 10))} onIncrement={() => setNewAOV(p => p + 10)} prefix={getCurrencySymbol()} />
+                      <NumberInputWithControls id="input-new-aov" value={newAOV} onChange={e => setNewAOV(parseInt(e.target.value) || 0)} onDecrement={() => setNewAOV(p => Math.max(0, p - 10))} onIncrement={() => setNewAOV(p => p + 10)} prefix={getCurrencySymbol()} className="[&_input]:text-[18px] [&_input]:font-semibold [&_span]:text-[18px] [&_span]:font-semibold" />
                   </div>
                   {/* --- MODIFIED LAYOUT FOR "NEW" CARD RESULTS --- */}
                   <div className="flex flex-col items-center gap-3 w-full pt-6">
@@ -201,10 +201,10 @@ export const InfoWrapperSection = (): JSX.Element => {
 const InfoCard = ({ id, title, value, textColor = "text-neutral-200", currencySymbol }: { id: string, title: string, value: string, textColor?: string, currencySymbol?: string }) => (
     <Card id={id} className="flex-1 p-5 rounded-2xl border border-solid border-white/10 bg-[#2d2d2d]">
         <CardContent className="p-0 flex flex-col items-center justify-center gap-2">
-            <p className="font-paragraph-p1-regular text-shadeswhite text-center whitespace-nowrap">{title}</p>
+            <p className="text-shadeswhite text-center whitespace-nowrap text-[14px] font-normal">{title}</p>
             <div className="flex items-center justify-center gap-1.5 w-full">
-                <span id={`value-${id}`} className={`font-heading-h6-semi-bold ${textColor}`}>{value}</span>
-                {currencySymbol && <span id={`currency-${id}`} className={`font-heading-h6-semi-bold ${textColor}`}>{currencySymbol}</span>}
+                <span id={`value-${id}`} className={`text-[19px] font-semibold ${textColor}`}>{value}</span>
+                {currencySymbol && <span id={`currency-${id}`} className={`text-[19px] font-semibold ${textColor}`}>{currencySymbol}</span>}
             </div>
         </CardContent>
     </Card>

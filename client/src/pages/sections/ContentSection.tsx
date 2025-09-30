@@ -23,11 +23,11 @@ export const ContentSection = (): JSX.Element => {
         />
 
         <div className="flex w-96 items-start absolute top-20 left-[calc(50.00%_-_688px)] flex-col gap-6">
-          <h1 className="relative self-stretch mt-[-1.00px] font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+          <h1 className="relative self-stretch mt-[-1.00px] text-shadeswhite text-[48px] font-semibold tracking-[-1.92px] leading-[56px]">
             Learn CRO From Our CEO
           </h1>
 
-          <p className="relative self-stretch font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+          <p className="relative self-stretch text-shadeswhite text-[20px] font-semibold tracking-[0px] leading-6">
             Get insider insights into the strategies that have generated
             millions in additional revenue for Gulf-based e-commerce brands.
           </p>
@@ -43,7 +43,7 @@ export const ContentSection = (): JSX.Element => {
               target="_blank"
               className="font-normal text-secondary-500 text-lg leading-[18px] relative w-fit mt-[-1.00px] [font-family:'Sora',Helvetica] tracking-[0]"
             >
-              <span className="font-[number:var(--paragraph-p3-semi-bold-font-weight)] leading-[var(--paragraph-p3-semi-bold-line-height)] underline font-paragraph-p3-semi-bold [font-style:var(--paragraph-p3-semi-bold-font-style)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] text-[length:var(--paragraph-p3-semi-bold-font-size)]">
+              <span className="text-[18px] font-semibold leading-[21.6px] underline tracking-[0px]">
                 Watch Now
               </span>
             </a>

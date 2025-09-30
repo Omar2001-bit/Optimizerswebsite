@@ -29,11 +29,11 @@ export const NodeSection = (): JSX.Element => {
     <section className="w-full bg-dark-mode900 py-[100px] px-8">
       <div className="flex flex-col max-w-[1376px] mx-auto items-center gap-[60px]">
         <header className="flex flex-col items-center gap-6">
-          <h1 className="font-heading-h1-semi-bold font-[number:var(--heading-h1-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h1-semi-bold-font-size)] text-center tracking-[var(--heading-h1-semi-bold-letter-spacing)] leading-[var(--heading-h1-semi-bold-line-height)] [font-style:var(--heading-h1-semi-bold-font-style)]">
+          <h1 className="text-shadeswhite text-[48px] font-semibold text-center tracking-[-1.92px] leading-[56px]">
             Meet The Team
           </h1>
 
-          <p className="max-w-[986px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-shadeswhite text-[length:var(--subheading-regular-font-size)] text-center tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+          <p className="max-w-[986px] text-shadeswhite text-[20px] font-normal text-center tracking-[0px] leading-6">
             We&apos;re a hands-on team of CRO specialists with deep GCC market
             knowledge and a proven track record. When you work with us, you work
             directly with the experts driving your growth.
@@ -50,11 +50,11 @@ export const NodeSection = (): JSX.Element => {
               }}
             >
               <CardContent className="flex flex-col w-[308px] items-center justify-center gap-3 p-6 absolute bottom-6 left-1/2 transform -translate-x-1/2 rounded-xl border-none backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(180deg,rgba(176,241,201,0.3)_0%,rgba(6,35,17,1)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-xl before:[background:linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(59,126,85,0)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none">
-                <h3 className="font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h5-semi-bold-font-size)] text-center tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)]">
+                <h3 className="text-shadeswhite text-[23px] font-semibold text-center tracking-[-0.46px] leading-[28px]">
                   {member.name}
                 </h3>
 
-                <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] text-center tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
+                <p className="text-shadeswhite text-[16px] font-normal text-center tracking-[0px] leading-[19px]">
                   {member.role}
                 </p>
               </CardContent>

@@ -102,11 +102,11 @@ export const StatisticsSection = (): JSX.Element => {
           />
 
           <div className="flex flex-col w-[665px] items-start justify-center gap-8 absolute top-20 left-[60px] rounded-xl">
-            <h2 className="relative self-stretch mt-[-1.00px] font-display-02-semi-bold font-[number:var(--display-02-semi-bold-font-weight)] text-white text-[length:var(--display-02-semi-bold-font-size)] tracking-[var(--display-02-semi-bold-letter-spacing)] leading-[var(--display-02-semi-bold-line-height)] [font-style:var(--display-02-semi-bold-font-style)]">
+            <h2 className="relative self-stretch mt-[-1.00px] text-white text-[48px] font-semibold tracking-[-1.92px] leading-[56px]">
               Let&apos;s Turn More Visitors Into Buyers
             </h2>
 
-            <p className="relative self-stretch font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-white text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+            <p className="relative self-stretch text-white text-[20px] font-normal tracking-[0px] leading-6">
               Book your free strategy session today.
               <br /> We&apos;ll audit your store, uncover where revenue is
               leaking, and create a custom conversion plan designed for your
@@ -119,12 +119,12 @@ export const StatisticsSection = (): JSX.Element => {
                 document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}
             >
-              <span className="relative w-fit mt-[-1.00px] font-paragraph-p3-semi-bold font-[number:var(--paragraph-p3-semi-bold-font-weight)] text-neutral-900 text-[length:var(--paragraph-p3-semi-bold-font-size)] tracking-[var(--paragraph-p3-semi-bold-letter-spacing)] leading-[var(--paragraph-p3-semi-bold-line-height)] whitespace-nowrap [font-style:var(--paragraph-p3-semi-bold-font-style)]">
+              <span className="relative w-fit mt-[-1.00px] text-neutral-900 text-[18px] font-semibold tracking-[0px] leading-[21.6px] whitespace-nowrap">
                 Book My Free Strategy Session
               </span>
             </Button>
 
-            <p className="relative self-stretch font-subheading-semi-bold font-[number:var(--subheading-semi-bold-font-weight)] text-white text-[length:var(--subheading-semi-bold-font-size)] tracking-[var(--subheading-semi-bold-letter-spacing)] leading-[var(--subheading-semi-bold-line-height)] [font-style:var(--subheading-semi-bold-font-style)]">
+            <p className="relative self-stretch text-white text-[20px] font-semibold tracking-[0px] leading-6">
               100% free. No obligation. Actionable insights guaranteed.
             </p>
           </div>
@@ -144,15 +144,15 @@ export const StatisticsSection = (): JSX.Element => {
                 >
                   <Card className="flex flex-col w-full h-[458px] items-start justify-center p-3 bg-[#6ae49926] rounded-3xl overflow-hidden border border-solid border-[#b0f1c980] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
                     <CardContent className="relative flex flex-col flex-1 self-stretch w-full grow rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] p-8 gap-6">
-                      <div className="text-[80px] font-display-01-semi-bold font-[number:var(--display-01-semi-bold-font-weight)] text-secondary-200 opacity-15 leading-none">
+                      <div className="text-[80px] font-semibold text-secondary-200 opacity-15 leading-none">
                         {stat.number}
                       </div>
                       <div className="flex flex-col gap-4">
-                        <h3 className="font-heading-h4-semi-bold font-[number:var(--heading-h4-semi-bold-font-weight)] text-secondary-200 text-[length:var(--heading-h4-semi-bold-font-size)] tracking-[var(--heading-h4-semi-bold-letter-spacing)] leading-[var(--heading-h4-semi-bold-line-height)] [font-style:var(--heading-h4-semi-bold-font-style)]">
+                        <h3 className="text-secondary-200 text-[24px] font-semibold tracking-[-0.48px] leading-[28px]">
                           {stat.title}
                         </h3>
                         <div className="w-full h-px bg-gradient-to-r from-transparent via-[#6ae499] to-transparent"></div>
-                        <p className="font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-shadeswhite text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
+                        <p className="text-shadeswhite text-[16px] font-normal tracking-[0px] leading-[19px]">
                           {stat.description}
                         </p>
                       </div>

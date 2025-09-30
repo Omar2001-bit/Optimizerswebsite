@@ -142,7 +142,7 @@ export const TestimonialsSection = (): JSX.Element => {
     <section id="testimonials-booking-section" className="relative w-full bg-dark-mode900 py-[100px]">
       <div className="flex flex-col items-center gap-[60px] max-w-[1176px] mx-auto px-4">
         <header className="flex flex-col items-center gap-6">
-          <h1 className="font-heading-h1-semi-bold text-shadeswhite text-center">
+          <h1 className="text-shadeswhite text-[48px] font-semibold text-center tracking-[-1.92px] leading-[56px]">
             Book Your Free Strategy Session
           </h1>
         </header>
@@ -150,13 +150,13 @@ export const TestimonialsSection = (): JSX.Element => {
         {showThankYouMessage ? (
           <Card className="w-full max-w-[1176px] bg-[#ffffff0a] rounded-3xl border border-solid border-[#ffffff1a] shadow-[0px_0px_16px_10px_#6ae4991a] p-3">
             <CardContent className="flex flex-col items-center gap-8 px-6 py-16 rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] bg-[linear-gradient(0deg,rgba(0,0,0,0.3)_0%,rgba(0,0,0,0.3)_100%),radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
-              <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">
+              <h2 className="text-shadeswhite text-[34px] font-semibold text-center tracking-[-1.36px] leading-[40px]">
                 Thank you
               </h2>
-              <p className="text-shadeswhite text-center max-w-[700px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+              <p className="text-shadeswhite text-center max-w-[700px] text-[20px] font-normal tracking-[0px] leading-6">
                 Thank you for your interest in Optimizers. Unfortunately, given the current low conversion volume of your business, our services might not be the optimal fit at this time. We sincerely wish you all the best in your endeavors.
               </p>
-              <p className="text-shadeswhite text-center max-w-[700px] font-subheading-regular font-[number:var(--subheading-regular-font-weight)] text-[length:var(--subheading-regular-font-size)] tracking-[var(--subheading-regular-letter-spacing)] leading-[var(--subheading-regular-line-height)] [font-style:var(--subheading-regular-font-style)]">
+              <p className="text-shadeswhite text-center max-w-[700px] text-[20px] font-normal tracking-[0px] leading-6">
                 Please don't hesitate to reach out again in the future should your situation change. We would be more than happy to reassess how we can assist you then.
               </p>
             </CardContent>
@@ -174,10 +174,10 @@ export const TestimonialsSection = (): JSX.Element => {
                         </span>
                       </div>
                       <div className="flex flex-col">
-                        <span className={`font-semibold ${step.isCurrent ? 'text-secondary-500' : step.isActive ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                        <span className={`text-[14px] font-normal ${step.isCurrent ? 'text-secondary-500' : step.isActive ? 'text-neutral-400' : 'text-neutral-600'}`}>
                           {step.title}
                         </span>
-                        <span className={`text-xs ${step.isCurrent ? 'text-secondary-500' : step.isActive ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                        <span className={`text-[12px] font-normal ${step.isCurrent ? 'text-secondary-500' : step.isActive ? 'text-neutral-400' : 'text-neutral-600'}`}>
                           {step.subtitle}
                         </span>
                       </div>
@@ -215,7 +215,7 @@ const Step1_Conversions = ({ selectedOption, onSelect }: { selectedOption: strin
   const options = ["Fewer Than 100", "From 100 to 1K", "From 100 to 10K", "10K+"];
   return (
     <div className="flex flex-col items-center gap-10 w-full">
-      <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">Number of conversions per MONTH on average?</h2>
+      <h2 className="text-shadeswhite text-[34px] font-semibold text-center tracking-[-1.36px] leading-[40px]">Number of conversions per MONTH on average?</h2>
       <div className="grid grid-cols-2 gap-6">
         {options.map((text) => (
           <SelectableCard key={text} text={text} isSelected={selectedOption === text} onSelect={() => onSelect(text)} />
@@ -234,7 +234,7 @@ const Step2_Objective = ({ selectedOption, onSelect }: { selectedOption: string;
   ];
   return (
     <div className="flex flex-col items-center gap-10 w-full">
-      <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">What is your primary conversion objective?</h2>
+      <h2 className="text-shadeswhite text-[34px] font-semibold text-center tracking-[-1.36px] leading-[40px]">What is your primary conversion objective?</h2>
       <div className="grid grid-cols-2 gap-6">
         {options.map((opt) => (
           <SelectableCard key={opt.title} text={opt.title} subtitle={opt.subtitle} isSelected={selectedOption === opt.title} onSelect={() => onSelect(opt.title)} />
@@ -247,9 +247,9 @@ const Step2_Objective = ({ selectedOption, onSelect }: { selectedOption: string;
 const Step3_Website = ({ value, onChange, error }: { value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; error: string; }) => {
   return (
     <div className="flex flex-col items-center gap-10 w-full max-w-md">
-      <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">What is your website?</h2>
+      <h2 className="text-shadeswhite text-[34px] font-semibold text-center tracking-[-1.36px] leading-[40px]">What is your website?</h2>
       <div className="w-full text-left">
-          <label className="text-sm text-neutral-300 mb-2 block">Your Website URL</label>
+          <label className="text-[12px] font-normal text-neutral-300 mb-2 block">Your Website URL</label>
           <Input 
             name="website" 
             value={value} 
@@ -270,14 +270,14 @@ const Step3_Website = ({ value, onChange, error }: { value: string; onChange: (e
 const Step4_Contact = ({ values, onChange, emailError }: { values: { firstName: string, email: string }; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; emailError: string; }) => {
   return (
     <div className="flex flex-col items-center gap-10 w-full max-w-md">
-        <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">Contact Information</h2>
+        <h2 className="text-shadeswhite text-[34px] font-semibold text-center tracking-[-1.36px] leading-[40px]">Contact Information</h2>
         <div className="w-full flex flex-col gap-6">
             <div className="w-full text-left">
-                <label className="text-sm text-neutral-300 mb-2 block">First Name</label>
+                <label className="text-[12px] font-normal text-neutral-300 mb-2 block">First Name</label>
                 <Input name="firstName" value={values.firstName} onChange={onChange} placeholder="First Name" className="bg-neutral-800 border-neutral-600 text-white placeholder:text-neutral-500 rounded-lg"/>
             </div>
             <div className="w-full text-left">
-                <label className="text-sm text-neutral-300 mb-2 block">Email</label>
+                <label className="text-[12px] font-normal text-neutral-300 mb-2 block">Email</label>
                 <Input 
                   name="email" 
                   value={values.email} 
@@ -299,7 +299,7 @@ const Step4_Contact = ({ values, onChange, emailError }: { values: { firstName: 
 const Step5_Schedule = ({ prefill }: { prefill: { name: string, email: string } }) => {
   return (
     <div className="flex flex-col items-center gap-6 w-full">
-      <h2 className="font-heading-h1-small-semi-bold text-shadeswhite text-center">Schedule Your Strategy Call</h2>
+      <h2 className="text-shadeswhite text-[34px] font-semibold text-center tracking-[-1.36px] leading-[40px]">Schedule Your Strategy Call</h2>
       <div className="w-full min-h-[700px]">
         <InlineWidget
           url="https://calendly.com/neamatalla/60min"
@@ -327,7 +327,7 @@ const SelectableCard = ({ text, subtitle, isSelected, onSelect }: { text: string
     [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.08)_100%)]`}
   >
     <div className="flex flex-col">
-      <span className="font-semibold text-shadeswhite text-lg">{text}</span>
+      <span className="text-shadeswhite text-[18px] font-normal">{text}</span>
       {subtitle && <span className="text-neutral-400 text-sm">{subtitle}</span>}
     </div>
   </Card>
