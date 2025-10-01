@@ -193,6 +193,25 @@ export const ClientsResultsSection: React.FC = () => {
       </div>
 
       <div id="carousel-container" className="relative px-4 mb-[60px] max-w-7xl mx-auto">
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 flex items-center justify-center rounded-full bg-[#ffffff1a] backdrop-blur-sm hover:bg-[#ffffff2a] transition-all duration-300 border border-solid border-[#ffffff33]"
+          aria-label="Previous slide"
+          data-testid="button-prev-slide"
+        >
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </button>
+        
+        <button
+          onClick={nextSlide}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 flex items-center justify-center rounded-full bg-[#ffffff1a] backdrop-blur-sm hover:bg-[#ffffff2a] transition-all duration-300 border border-solid border-[#ffffff33]"
+          aria-label="Next slide"
+          data-testid="button-next-slide"
+        >
+          <ChevronRight className="w-6 h-6 text-white" />
+        </button>
+
         {/* Stacked Carousel Content */}
         <div id="carousel-wrapper" className="relative h-[600px] flex items-center justify-center">
           {/* Render cards around current index for infinite effect */}
