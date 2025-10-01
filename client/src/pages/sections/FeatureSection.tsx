@@ -81,11 +81,11 @@ export const FeatureSection = (): JSX.Element => {
           animation: carousel-animate-vertical ${ANIMATION_DURATION}s linear infinite;
         }
         .carousel-item .step-number {
-          animation: carousel-color-animate ${ANIMATION_DURATION}s linear infinite;
+          animation: carousel-color-animate ${ANIMATION_DURATION}s step-end infinite;
           animation-delay: var(--animation-delay, 0s);
         }
         .carousel-item .step-title {
-          animation: carousel-color-animate ${ANIMATION_DURATION}s linear infinite;
+          animation: carousel-color-animate ${ANIMATION_DURATION}s step-end infinite;
           animation-delay: var(--animation-delay, 0s);
         }
         @keyframes carousel-animate-vertical {
@@ -139,31 +139,13 @@ export const FeatureSection = (): JSX.Element => {
           }
         }
         @keyframes carousel-color-animate {
-          0% {
+          0%, ${(STEP_INTERVAL_PERCENTAGE * 2) + SLIDE_CHANGE_TIMING - 0.01}% {
             color: rgb(176, 241, 201);
           }
-          ${SLIDE_CHANGE_TIMING}%,
-          ${STEP_INTERVAL_PERCENTAGE}% {
-            color: rgb(176, 241, 201);
-          }
-          ${STEP_INTERVAL_PERCENTAGE + SLIDE_CHANGE_TIMING}%,
-          ${STEP_INTERVAL_PERCENTAGE * 2}% {
-            color: rgb(176, 241, 201);
-          }
-          ${(STEP_INTERVAL_PERCENTAGE * 2) + SLIDE_CHANGE_TIMING}%,
-          ${STEP_INTERVAL_PERCENTAGE * 3}% {
+          ${(STEP_INTERVAL_PERCENTAGE * 2) + SLIDE_CHANGE_TIMING}%, ${STEP_INTERVAL_PERCENTAGE * 3}% {
             color: #6ae499;
           }
-          ${(STEP_INTERVAL_PERCENTAGE * 3) + SLIDE_CHANGE_TIMING}%,
-          ${STEP_INTERVAL_PERCENTAGE * 4}% {
-            color: rgb(176, 241, 201);
-          }
-          ${(STEP_INTERVAL_PERCENTAGE * 4) + SLIDE_CHANGE_TIMING}%,
-          ${STEP_INTERVAL_PERCENTAGE * 5}% {
-            color: rgb(176, 241, 201);
-          }
-          ${(STEP_INTERVAL_PERCENTAGE * 5) + SLIDE_CHANGE_TIMING}%,
-          100% {
+          ${STEP_INTERVAL_PERCENTAGE * 3 + 0.01}%, 100% {
             color: rgb(176, 241, 201);
           }
         }
