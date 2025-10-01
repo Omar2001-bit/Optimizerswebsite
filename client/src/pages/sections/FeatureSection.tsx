@@ -166,67 +166,69 @@ export const FeatureSection = (): JSX.Element => {
       `}</style>
 
       <section id="section-feature-process" className="relative w-full h-[1040px] bg-dark-mode900 overflow-hidden">
-        {/* Left side content */}
-        <div className="inline-flex flex-col items-start gap-6 absolute top-[calc(50.00%_-_209px)] left-8 z-10">
-            <h1 className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-[48px] tracking-[-1.92px] leading-[56px] whitespace-pre-wrap">
-                {`Our Proven\nConversion\nOptimization\nProcess`}
-            </h1>
-            <p className="relative w-[389px] font-normal text-shadeswhite text-[20px] tracking-[0px] leading-6">
-                We follow a systematic 6-step approach that has generated millions in additional revenue for e-commerce brands across the GCC.
-            </p>
-            <Button 
-              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 relative flex-[0_0_auto] bg-secondary-500 rounded h-auto hover:bg-secondary-500"
-              onClick={() => {
-                document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-            >
-                <span className="relative w-fit mt-[-1.00px] font-semibold text-neutral-900 text-[18px] tracking-[0px] leading-[21.6px] whitespace-nowrap">
-                    Book a Free CRO Audit
-                </span>
-            </Button>
-        </div>
-
-        {/* Right side carousel viewport */}
-        <div className="absolute top-[100px] left-[516px] w-[892px] h-[840px] flex justify-center items-center">
-          {processSteps.map((step, index) => {
-            // Calculate the delay for each item to create the carousel effect
-            const animationDelayFraction = ANIMATION_DURATION / TOTAL_STEPS;
-            const animationDelay = animationDelayFraction * (index - 2);
-
-            return (
-              <div
-                key={`step-${step.number}`}
-                className="carousel-item"
-                style={{ 
-                  animationDelay: `${animationDelay}s`,
-                  '--animation-delay': `${animationDelay}s`
-                } as React.CSSProperties}
+        <div className="max-w-[1440px] mx-auto relative h-full">
+          {/* Left side content */}
+          <div className="inline-flex flex-col items-start gap-6 absolute top-[calc(50.00%_-_209px)] left-8 z-10">
+              <h1 className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-[48px] tracking-[-1.92px] leading-[56px] whitespace-pre-wrap">
+                  {`Our Proven\nConversion\nOptimization\nProcess`}
+              </h1>
+              <p className="relative w-[389px] font-normal text-shadeswhite text-[20px] tracking-[0px] leading-6">
+                  We follow a systematic 6-step approach that has generated millions in additional revenue for e-commerce brands across the GCC.
+              </p>
+              <Button 
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 relative flex-[0_0_auto] bg-secondary-500 rounded h-auto hover:bg-secondary-500"
+                onClick={() => {
+                  document.getElementById('testimonials-booking-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
               >
+                  <span className="relative w-fit mt-[-1.00px] font-semibold text-neutral-900 text-[18px] tracking-[0px] leading-[21.6px] whitespace-nowrap">
+                      Book a Free CRO Audit
+                  </span>
+              </Button>
+          </div>
+
+          {/* Right side carousel viewport */}
+          <div className="absolute top-[100px] left-[516px] w-[892px] h-[840px] flex justify-center items-center">
+            {processSteps.map((step, index) => {
+              // Calculate the delay for each item to create the carousel effect
+              const animationDelayFraction = ANIMATION_DURATION / TOTAL_STEPS;
+              const animationDelay = animationDelayFraction * (index - 2);
+
+              return (
                 <div
-                  className="w-full p-[9px] rounded-3xl border border-solid border-[#ffffff1a] bg-[#6ae4990a] shadow-[inset_0px_0px_0px_9px_#ffffff08,0px_8px_50px_#000000,0px_-8px_50px_#000000]"
+                  key={`step-${step.number}`}
+                  className="carousel-item"
+                  style={{ 
+                    animationDelay: `${animationDelay}s`,
+                    '--animation-delay': `${animationDelay}s`
+                  } as React.CSSProperties}
                 >
-                  <Card className="flex items-center justify-center relative w-full border-solid border-[#6ae49933] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] gap-4 p-6 rounded-2xl border">
-                    <CardContent className="flex items-center justify-center w-full p-0">
-                      <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Top mask" src={step.topMaskSrc} />
-                      <div className="step-number relative w-[101px] font-semibold font-display-01-semi-bold font-[number:var(--display-01-semi-bold-font-weight)] text-[length:var(--display-01-semi-bold-font-size)] tracking-[var(--display-01-semi-bold-letter-spacing)] leading-[var(--display-01-semi-bold-line-height)] [font-style:var(--display-01-semi-bold-font-style)]">
-                        {step.number}
-                      </div>
-                      <div className="flex flex-col items-start relative flex-1 grow gap-4">
-                        <div className="step-title relative self-stretch font-semibold font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] mt-[-1.00px]">
-                          {step.title}
+                  <div
+                    className="w-full p-[9px] rounded-3xl border border-solid border-[#ffffff1a] bg-[#6ae4990a] shadow-[inset_0px_0px_0px_9px_#ffffff08,0px_8px_50px_#000000,0px_-8px_50px_#000000]"
+                  >
+                    <Card className="flex items-center justify-center relative w-full border-solid border-[#6ae49933] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] gap-4 p-6 rounded-2xl border">
+                      <CardContent className="flex items-center justify-center w-full p-0">
+                        <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Top mask" src={step.topMaskSrc} />
+                        <div className="step-number relative w-[101px] font-semibold font-display-01-semi-bold font-[number:var(--display-01-semi-bold-font-weight)] text-[length:var(--display-01-semi-bold-font-size)] tracking-[var(--display-01-semi-bold-letter-spacing)] leading-[var(--display-01-semi-bold-line-height)] [font-style:var(--display-01-semi-bold-font-style)]">
+                          {step.number}
                         </div>
-                        <img className="relative self-stretch w-full h-px" alt="Line" src={step.lineSrc} />
-                        <div className="relative self-stretch font-normal text-shadeswhite font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
-                          {step.description}
+                        <div className="flex flex-col items-start relative flex-1 grow gap-4">
+                          <div className="step-title relative self-stretch font-semibold font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] mt-[-1.00px]">
+                            {step.title}
+                          </div>
+                          <img className="relative self-stretch w-full h-px" alt="Line" src={step.lineSrc} />
+                          <div className="relative self-stretch font-normal text-shadeswhite font-paragraph-p2-regular font-[number:var(--paragraph-p2-regular-font-weight)] text-[length:var(--paragraph-p2-regular-font-size)] tracking-[var(--paragraph-p2-regular-letter-spacing)] leading-[var(--paragraph-p2-regular-line-height)] [font-style:var(--paragraph-p2-regular-font-style)]">
+                            {step.description}
+                          </div>
                         </div>
-                      </div>
-                      <img className="absolute left-[57px] bottom-[-7px] w-[180px] h-2" alt="Bottom mask" src={step.bottomMaskSrc} />
-                    </CardContent>
-                  </Card>
+                        <img className="absolute left-[57px] bottom-[-7px] w-[180px] h-2" alt="Bottom mask" src={step.bottomMaskSrc} />
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
     </>

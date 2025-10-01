@@ -69,67 +69,69 @@ export const ServicesSection = (): JSX.Element => {
 
   return (
     <section id="section-services" ref={ref} className="relative w-full min-h-[950px] bg-dark-mode900 pb-[200px]">
-      {servicesData.map((service, index) => {
-        const x = useTransform(scrollYProgress, [0, 1], [service.animateFrom.x, 0]);
-        const y = useTransform(scrollYProgress, [0, 1], [service.animateFrom.y, 0]);
-        const opacity = useTransform(scrollYProgress, [0, 0.8], [0, 1]); // Fade in a little faster than the movement
+      <div className="max-w-[1440px] mx-auto relative h-full">
+        {servicesData.map((service, index) => {
+          const x = useTransform(scrollYProgress, [0, 1], [service.animateFrom.x, 0]);
+          const y = useTransform(scrollYProgress, [0, 1], [service.animateFrom.y, 0]);
+          const opacity = useTransform(scrollYProgress, [0, 0.8], [0, 1]); // Fade in a little faster than the movement
 
-        return (
-            <motion.div
-              key={index}
-              id={`service-card-wrapper-${index}`}
-              style={{ x, y, opacity }}
-              className={`absolute ${service.position}`}
-            >
-              <Card id={`service-card-${index}`} className="flex flex-col w-[430px] items-start justify-center p-[9px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
-                <CardContent id={`service-card-content-${index}`} className="flex flex-col items-center justify-center gap-4 p-6 relative self-stretch w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] bg-[radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
-                    <h3 id={`service-title-${index}`} className={`relative ${service.titleWidth || "self-stretch"} mt-[-1.00px] font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]`}>
-                        {service.title}
-                    </h3>
-                    <p id={`service-description-${index}`} className="relative self-stretch font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px]">
-                        {service.description}
-                    </p>
-                    <img id={`service-top-mask-${index}`} className="absolute top-0 right-[57px] w-[180px] h-2" alt="Mask group" src={service.topMask}/>
-                    <img id={`service-bottom-mask-${index}`} className="absolute left-[57px] bottom-[-7px] w-[180px] h-2" alt="Mask group" src={service.bottomMask}/>
-                </CardContent>
-              </Card>
-            </motion.div>
-        );
-      })}
+          return (
+              <motion.div
+                key={index}
+                id={`service-card-wrapper-${index}`}
+                style={{ x, y, opacity }}
+                className={`absolute ${service.position}`}
+              >
+                <Card id={`service-card-${index}`} className="flex flex-col w-[430px] items-start justify-center p-[9px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
+                  <CardContent id={`service-card-content-${index}`} className="flex flex-col items-center justify-center gap-4 p-6 relative self-stretch w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] bg-[radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)]">
+                      <h3 id={`service-title-${index}`} className={`relative ${service.titleWidth || "self-stretch"} mt-[-1.00px] font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]`}>
+                          {service.title}
+                      </h3>
+                      <p id={`service-description-${index}`} className="relative self-stretch font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px]">
+                          {service.description}
+                      </p>
+                      <img id={`service-top-mask-${index}`} className="absolute top-0 right-[57px] w-[180px] h-2" alt="Mask group" src={service.topMask}/>
+                      <img id={`service-bottom-mask-${index}`} className="absolute left-[57px] bottom-[-7px] w-[180px] h-2" alt="Mask group" src={service.bottomMask}/>
+                  </CardContent>
+                </Card>
+              </motion.div>
+          );
+        })}
 
-      <Button 
-        id="services-cta-button" 
-        className="px-5 py-3.5 absolute top-[760px] left-[calc(50.00%_-_149px)] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded h-auto bg-transparent hover:bg-transparent hover:text-secondary-500"
-        onClick={() => {
-          document.getElementById('section-feature-process')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }}
-      >
-        <span id="services-cta-button-text" className="font-semibold text-[18px] text-secondary-500 tracking-[0px] leading-[21.6px]">
-          See How Our Process Works
-        </span>
-      </Button>
+        <Button 
+          id="services-cta-button" 
+          className="px-5 py-3.5 absolute top-[760px] left-[calc(50.00%_-_149px)] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded h-auto bg-transparent hover:bg-transparent hover:text-secondary-500"
+          onClick={() => {
+            document.getElementById('section-feature-process')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
+        >
+          <span id="services-cta-button-text" className="font-semibold text-[18px] text-secondary-500 tracking-[0px] leading-[21.6px]">
+            See How Our Process Works
+          </span>
+        </Button>
 
-      <header id="services-header" className="flex w-[870px] items-center absolute top-[60px] left-[calc(50.00%_-_434px)] flex-col gap-6">
-        <h1 id="services-title" className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-center text-[48px] tracking-[-1.92px] leading-[56px]">
-          Our Services
-        </h1>
-      </header>
+        <header id="services-header" className="flex w-[870px] items-center absolute top-[60px] left-[calc(50.00%_-_434px)] flex-col gap-6">
+          <h1 id="services-title" className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-center text-[48px] tracking-[-1.92px] leading-[56px]">
+            Our Services
+          </h1>
+        </header>
 
-      {backgroundFrames.map((frame, index) => {
-        const x = useTransform(scrollYProgress, [0, 1], [frame.animateFrom.x, 0]);
-        const y = useTransform(scrollYProgress, [0, 1], [frame.animateFrom.y, 0]);
-        const scale = useTransform(scrollYProgress, [0, 1], [frame.animateFrom.scale, 1]);
-        const opacity = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
+        {backgroundFrames.map((frame, index) => {
+          const x = useTransform(scrollYProgress, [0, 1], [frame.animateFrom.x, 0]);
+          const y = useTransform(scrollYProgress, [0, 1], [frame.animateFrom.y, 0]);
+          const scale = useTransform(scrollYProgress, [0, 1], [frame.animateFrom.scale, 1]);
+          const opacity = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
 
-        return (
-            <motion.div
-              key={index}
-              id={`services-bg-frame-${index}`}
-              style={{ x, y, scale, opacity }}
-              className={`absolute ${frame.className}`}
-            />
-        );
-      })}
+          return (
+              <motion.div
+                key={index}
+                id={`services-bg-frame-${index}`}
+                style={{ x, y, scale, opacity }}
+                className={`absolute ${frame.className}`}
+              />
+          );
+        })}
+      </div>
     </section>
   );
 };
