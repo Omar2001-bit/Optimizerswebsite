@@ -76,7 +76,6 @@ export const FeatureSection = (): JSX.Element => {
           position: absolute;
           width: 100%;
           padding: 0 12px;
-          filter: drop-shadow(0 2px 2px #555);
           will-change: transform, opacity, z-index;
           animation: carousel-animate-vertical ${ANIMATION_DURATION}s linear infinite;
         }
@@ -206,7 +205,7 @@ export const FeatureSection = (): JSX.Element => {
                   <div
                     className="w-full p-[9px] rounded-3xl border border-solid border-[#ffffff1a] bg-[#6ae4990a] shadow-[inset_0px_0px_0px_9px_#ffffff08,0px_8px_50px_#000000,0px_-8px_50px_#000000]"
                   >
-                    <Card className="flex items-center justify-center relative w-full border-solid border-[#6ae49933] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] gap-4 p-6 rounded-2xl border">
+                    <Card className="flex items-center justify-center relative w-full border-solid border-[#6ae49933] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] gap-4 p-6 rounded-2xl border">
                       <CardContent className="flex items-center justify-center w-full p-0">
                         <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Top mask" src={step.topMaskSrc} />
                         <div className="step-number relative w-[101px] font-semibold font-display-01-semi-bold font-[number:var(--display-01-semi-bold-font-weight)] text-[length:var(--display-01-semi-bold-font-size)] tracking-[var(--display-01-semi-bold-letter-spacing)] leading-[var(--display-01-semi-bold-line-height)] [font-style:var(--display-01-semi-bold-font-style)]">

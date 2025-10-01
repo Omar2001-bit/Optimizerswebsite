@@ -188,9 +188,9 @@ export const TestimonialsSection = (): JSX.Element => {
 
               {renderStepContent()}
 
-              <div className="flex items-center gap-4 min-h-[44px]">
+              <div className="flex items-center gap-4 min-h-[44px] relative bottom-[30px]">
                 {currentStep > 1 && (
-                  <Button onClick={handleBack} variant="outline" className="px-5 py-3.5 border-[#6ae499] text-[#6ae499] hover:bg-[#6ae499]/10 hover:text-[#6ae499]">
+                  <Button onClick={handleBack} variant="outline" className="px-5 py-3.5 border-[#6ae499] text-[#6ae499] bg-black hover:bg-black hover:text-[#6ae499] hover:border-[#6ae499]">
                     Back
                   </Button>
                 )}
