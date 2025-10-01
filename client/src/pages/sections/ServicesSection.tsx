@@ -68,7 +68,7 @@ export const ServicesSection = (): JSX.Element => {
   });
 
   return (
-    <section id="section-services" ref={ref} className="relative w-full min-h-[950px] bg-dark-mode900 pb-[200px]">
+    <section id="section-services" ref={ref} className="relative w-full min-h-[950px] bg-dark-mode900 py-[200px]">
       <div className="max-w-[1440px] mx-auto relative h-full">
         {servicesData.map((service, index) => {
           const x = useTransform(scrollYProgress, [0, 1], [service.animateFrom.x, 0]);

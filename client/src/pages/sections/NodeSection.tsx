@@ -26,7 +26,7 @@ const teamMembers = [
 
 export const NodeSection = (): JSX.Element => {
   return (
-    <section id="section-team" className="w-full bg-dark-mode900 py-[100px] px-8">
+    <section id="section-team" className="w-full bg-dark-mode900 py-[200px] px-8">
       <div className="flex flex-col max-w-[1376px] mx-auto items-center gap-[60px]">
         <header className="flex flex-col items-center gap-6">
           <h1 className="text-shadeswhite text-[48px] font-semibold text-center tracking-[-1.92px] leading-[56px]">

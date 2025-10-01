@@ -66,7 +66,7 @@ const faqData = [
 
 export const GallerySection = (): JSX.Element => {
   return (
-    <section className="flex flex-col items-start gap-2 pt-[100px] pb-[200px] px-[270px] w-full bg-dark-mode900">
+    <section className="flex flex-col items-start gap-2 py-[200px] px-[270px] w-full bg-dark-mode900">
       <div className="flex flex-col w-[900px] items-center gap-[60px] mx-auto">
         <header className="flex w-[767px] items-start flex-col gap-6">
           <h1 className="self-stretch mt-[-1.00px] text-shadeswhite text-[48px] font-semibold text-center tracking-[-1.92px] leading-[56px]">

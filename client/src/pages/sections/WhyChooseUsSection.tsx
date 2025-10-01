@@ -110,7 +110,7 @@ export const WhyChooseUsSection = (): JSX.Element => {
   return (
     <section id="section-why-choose-us" className="w-full bg-dark-mode900 pt-[200px] pb-[200px] px-4 overflow-hidden">
       <div id="why-choose-us-container" className="max-w-7xl mx-auto">
-        <div id="why-choose-us-header" className="flex flex-col items-center justify-center gap-[60px] mb-20">
+        <div id="why-choose-us-header" className="flex flex-col items-center justify-center gap-[60px] mb-[60px]">
           <h2 id="why-choose-us-title" className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
             Why Choose Our CRO Agency?
           </h2>
@@ -121,7 +121,7 @@ export const WhyChooseUsSection = (): JSX.Element => {
           </p>
         </div>
 
-        <div ref={ref} id="why-choose-us-features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div ref={ref} id="why-choose-us-features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-[60px]">
           {featureCards.map((card, index) => {
             const start = index * 0.1;
             const end = 0.5 + index * 0.15;

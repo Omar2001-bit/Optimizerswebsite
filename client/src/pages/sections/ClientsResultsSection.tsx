@@ -195,7 +195,7 @@ export const ClientsResultsSection: React.FC = () => {
   };
 
   return (
-    <section id="section-clients-results" className="w-full bg-dark-mode900 overflow-hidden pt-0 pb-[200px]">
+    <section id="section-clients-results" className="w-full bg-dark-mode900 overflow-hidden py-[200px]">
       <div id="clients-results-header" className="flex flex-col items-center gap-[60px] mb-[60px] px-4">
         <h1 id="clients-results-title" className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
           TOP CLIENTS & RESULTS

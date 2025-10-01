@@ -7,7 +7,7 @@ export const StatisticsSection = (): JSX.Element => {
   return (
     <>
 
-      <section className="flex flex-col items-start gap-2 px-0 py-[100px] relative self-stretch w-full flex-[0_0_auto]">
+      <section className="flex flex-col items-start gap-2 px-0 py-[200px] relative self-stretch w-full flex-[0_0_auto]">
         <div className="relative w-full h-[546px] bg-[#131612]">
           <div className="max-w-[1440px] mx-auto relative h-full">
             <img

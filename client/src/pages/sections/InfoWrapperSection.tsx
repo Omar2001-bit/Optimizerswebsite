@@ -96,7 +96,7 @@ export const InfoWrapperSection = (): JSX.Element => {
   };
 
   return (
-    <section id="roi-calculator-section" className="w-full bg-dark-mode900 py-[100px]">
+    <section id="roi-calculator-section" className="w-full bg-dark-mode900 py-[200px]">
       <style>{`
         div#card-current-projection {
           height: 818px;

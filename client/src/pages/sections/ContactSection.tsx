@@ -5,7 +5,7 @@ export const ContactSection = (): JSX.Element => {
   const stripeElements = Array.from({ length: 36 }, (_, index) => index);
 
   return (
-    <section id="section-contact" className="relative w-full h-[390px] bg-dark-mode700">
+    <section id="section-contact" className="relative w-full h-[390px] bg-dark-mode700 py-[200px]">
       <div id="contact-background-stripes" className="flex h-[390px] items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-dark-mode700">
         {stripeElements.map((index) => (
           <div

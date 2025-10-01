@@ -5,7 +5,7 @@ export const ContentSection = (): JSX.Element => {
   const gradientBars = Array.from({ length: 12 }, (_, index) => index);
 
   return (
-    <section id="section-learn-cro" className="flex flex-col items-start gap-2 px-0 py-[100px] relative self-stretch w-full flex-[0_0_auto]">
+    <section id="section-learn-cro" className="flex flex-col items-start gap-2 px-0 py-[200px] relative self-stretch w-full flex-[0_0_auto]">
       <div className="flex items-center gap-[13px] relative self-stretch w-full flex-[0_0_auto] bg-dark-mode700">
         <div className="max-w-[1440px] mx-auto relative w-full h-[681px] flex items-center gap-[13px]">
           <div className="inline-flex h-[681px] items-center relative flex-[0_0_auto] bg-dark-mode700">
