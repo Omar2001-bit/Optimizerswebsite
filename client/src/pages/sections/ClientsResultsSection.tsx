@@ -117,24 +117,38 @@ export const ClientsResultsSection: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
   const [dragDistance, setDragDistance] = useState(0);
+  const [isManualControl, setIsManualControl] = useState(false);
 
   // Auto-advance carousel
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isDragging) {
+      if (!isDragging && !isManualControl) {
         setCurrentIndex((prev) => prev + 1);
       }
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [isDragging]);
+  }, [isDragging, isManualControl]);
+
+  // Reset manual control after 5 seconds of inactivity
+  useEffect(() => {
+    if (isManualControl) {
+      const timeout = setTimeout(() => {
+        setIsManualControl(false);
+      }, 5000); // Resume auto-advance after 5 seconds
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isManualControl, currentIndex]);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => prev + 1);
+    setIsManualControl(true);
   };
 
   const prevSlide = () => {
     setCurrentIndex((prev) => prev - 1);
+    setIsManualControl(true);
   };
 
   const goToSlide = (index: number) => {
