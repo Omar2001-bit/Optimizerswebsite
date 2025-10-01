@@ -80,6 +80,14 @@ export const FeatureSection = (): JSX.Element => {
           will-change: transform, opacity, z-index;
           animation: carousel-animate-vertical ${ANIMATION_DURATION}s linear infinite;
         }
+        .carousel-item .step-number {
+          animation: carousel-color-animate ${ANIMATION_DURATION}s linear infinite;
+          animation-delay: var(--animation-delay, 0s);
+        }
+        .carousel-item .step-title {
+          animation: carousel-color-animate ${ANIMATION_DURATION}s linear infinite;
+          animation-delay: var(--animation-delay, 0s);
+        }
         @keyframes carousel-animate-vertical {
           0% {
             transform: translateY(180%) scale(0.5);
@@ -130,6 +138,35 @@ export const FeatureSection = (): JSX.Element => {
             visibility: visible;
           }
         }
+        @keyframes carousel-color-animate {
+          0% {
+            color: rgb(176, 241, 201);
+          }
+          ${SLIDE_CHANGE_TIMING}%,
+          ${STEP_INTERVAL_PERCENTAGE}% {
+            color: rgb(176, 241, 201);
+          }
+          ${STEP_INTERVAL_PERCENTAGE + SLIDE_CHANGE_TIMING}%,
+          ${STEP_INTERVAL_PERCENTAGE * 2}% {
+            color: rgb(176, 241, 201);
+          }
+          ${(STEP_INTERVAL_PERCENTAGE * 2) + SLIDE_CHANGE_TIMING}%,
+          ${STEP_INTERVAL_PERCENTAGE * 3}% {
+            color: #6ae499;
+          }
+          ${(STEP_INTERVAL_PERCENTAGE * 3) + SLIDE_CHANGE_TIMING}%,
+          ${STEP_INTERVAL_PERCENTAGE * 4}% {
+            color: rgb(176, 241, 201);
+          }
+          ${(STEP_INTERVAL_PERCENTAGE * 4) + SLIDE_CHANGE_TIMING}%,
+          ${STEP_INTERVAL_PERCENTAGE * 5}% {
+            color: rgb(176, 241, 201);
+          }
+          ${(STEP_INTERVAL_PERCENTAGE * 5) + SLIDE_CHANGE_TIMING}%,
+          100% {
+            color: rgb(176, 241, 201);
+          }
+        }
       `}</style>
 
       <section id="section-feature-process" className="relative w-full h-[1040px] bg-dark-mode900 overflow-hidden">
@@ -164,7 +201,10 @@ export const FeatureSection = (): JSX.Element => {
               <div
                 key={`step-${step.number}`}
                 className="carousel-item"
-                style={{ animationDelay: `${animationDelay}s` }}
+                style={{ 
+                  animationDelay: `${animationDelay}s`,
+                  '--animation-delay': `${animationDelay}s`
+                } as React.CSSProperties}
               >
                 <div
                   className="w-full p-[9px] rounded-3xl border border-solid border-[#ffffff1a] bg-[#6ae4990a] shadow-[inset_0px_0px_0px_9px_#ffffff08,0px_8px_50px_#000000,0px_-8px_50px_#000000]"
@@ -172,11 +212,11 @@ export const FeatureSection = (): JSX.Element => {
                   <Card className="flex items-center justify-center relative w-full border-solid border-[#6ae49933] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] gap-4 p-6 rounded-2xl border">
                     <CardContent className="flex items-center justify-center w-full p-0">
                       <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Top mask" src={step.topMaskSrc} />
-                      <div className="relative w-[101px] opacity-15 font-semibold text-secondary-200 font-display-01-semi-bold font-[number:var(--display-01-semi-bold-font-weight)] text-[length:var(--display-01-semi-bold-font-size)] tracking-[var(--display-01-semi-bold-letter-spacing)] leading-[var(--display-01-semi-bold-line-height)] [font-style:var(--display-01-semi-bold-font-style)]">
+                      <div className="step-number relative w-[101px] opacity-15 font-semibold text-secondary-200 font-display-01-semi-bold font-[number:var(--display-01-semi-bold-font-weight)] text-[length:var(--display-01-semi-bold-font-size)] tracking-[var(--display-01-semi-bold-letter-spacing)] leading-[var(--display-01-semi-bold-line-height)] [font-style:var(--display-01-semi-bold-font-style)]">
                         {step.number}
                       </div>
                       <div className="flex flex-col items-start relative flex-1 grow gap-4">
-                        <div className="relative self-stretch font-semibold text-secondary-200 font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] mt-[-1.00px]">
+                        <div className="step-title relative self-stretch font-semibold text-secondary-200 font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] mt-[-1.00px]">
                           {step.title}
                         </div>
                         <img className="relative self-stretch w-full h-px" alt="Line" src={step.lineSrc} />
