@@ -52,6 +52,8 @@ export const StatisticsSection = (): JSX.Element => {
                 muted
                 loop
                 playsInline
+                webkit-playsinline="true"
+                preload="auto"
               >
                 <source src="https://core.optimizers.agency/wp-content/uploads/2025/09/video-4.mp4" type="video/mp4" />
                 Your browser does not support the video tag.

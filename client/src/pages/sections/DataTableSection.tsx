@@ -127,7 +127,9 @@ export const DataTableSection = (): JSX.Element => {
                     </TableCell>
                     <TableCell className="w-[270px] h-14 p-4 bg-[#0b130e] text-center">
                       {row.runningAds ? (
-                        <CheckIcon className="w-6 h-6 mx-auto text-green-500" />
+                        <div className="w-6 h-6 mx-auto rounded-full bg-[#1c4a2c] border border-[#2c8b4a] flex items-center justify-center">
+                          <CheckIcon className="w-4 h-4 text-[#6ae499]" />
+                        </div>
                       ) : (
                         <div className="w-6 h-6 mx-auto rounded-full bg-[#4a1c1c] border border-[#8b2c2c] flex items-center justify-center">
                           <XIcon className="w-4 h-4 text-[#d64545]" />
@@ -136,7 +138,9 @@ export const DataTableSection = (): JSX.Element => {
                     </TableCell>
                     <TableCell className="w-[270px] h-14 p-4 bg-[#0b130e] text-center">
                       {row.websiteRedesign ? (
-                        <CheckIcon className="w-6 h-6 mx-auto text-green-500" />
+                        <div className="w-6 h-6 mx-auto rounded-full bg-[#1c4a2c] border border-[#2c8b4a] flex items-center justify-center">
+                          <CheckIcon className="w-4 h-4 text-[#6ae499]" />
+                        </div>
                       ) : (
                         <div className="w-6 h-6 mx-auto rounded-full bg-[#4a1c1c] border border-[#8b2c2c] flex items-center justify-center">
                           <XIcon className="w-4 h-4 text-[#d64545]" />
@@ -145,7 +149,9 @@ export const DataTableSection = (): JSX.Element => {
                     </TableCell>
                     <TableCell className="w-[270px] h-14 p-4 bg-[#0b130e] text-center">
                       {row.conversionOptimization ? (
-                        <CheckIcon className="w-6 h-6 mx-auto text-green-500" />
+                        <div className="w-6 h-6 mx-auto rounded-full bg-[#1c4a2c] border border-[#2c8b4a] flex items-center justify-center">
+                          <CheckIcon className="w-4 h-4 text-[#6ae499]" />
+                        </div>
                       ) : (
                         <div className="w-6 h-6 mx-auto rounded-full bg-[#4a1c1c] border border-[#8b2c2c] flex items-center justify-center">
                           <XIcon className="w-4 h-4 text-[#d64545]" />

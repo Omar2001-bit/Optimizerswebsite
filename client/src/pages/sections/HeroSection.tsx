@@ -36,6 +36,8 @@ export const HeroSection = (): JSX.Element => {
         loop
         muted
         playsInline
+        webkit-playsinline="true"
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover z-0"
         src="https://core.optimizers.agency/wp-content/uploads/2025/09/Optimizers-Header_1.mp4"
       >

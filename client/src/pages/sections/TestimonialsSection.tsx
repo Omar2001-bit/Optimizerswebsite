@@ -190,7 +190,7 @@ export const TestimonialsSection = (): JSX.Element => {
 
               <div className="flex items-center gap-4 min-h-[44px]">
                 {currentStep > 1 && (
-                  <Button onClick={handleBack} variant="outline" className="px-5 py-3.5 border-[#a0abbb] text-[#a0abbb] hover:bg-neutral-700 hover:text-white">
+                  <Button onClick={handleBack} variant="outline" className="px-5 py-3.5 border-[#6ae499] text-[#6ae499] hover:bg-[#6ae499]/10 hover:text-[#6ae499]">
                     Back
                   </Button>
                 )}
