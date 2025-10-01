@@ -277,7 +277,7 @@ export const ClientsResultsSection: React.FC = () => {
                       <h3 id={`client-name-${client.id}`} className="font-semibold text-shadeswhite text-[28px] tracking-[-0.56px] leading-[34px]">
                         {client.name}
                       </h3>
-                      <Badge id={`client-industry-badge-${client.id}`} className="bg-[#6ae49926] text-secondary-300 border-none px-3 py-1.5 rounded-[100px]">
+                      <Badge id={`client-industry-badge-${client.id}`} className="bg-[#6ae49926] text-secondary-300 border-none px-3 py-1.5 rounded-[100px] hover:bg-[#6ae49926] hover:text-secondary-300">
                         <span id={`client-industry-text-${client.id}`} className="font-normal text-[14px] tracking-[0px] leading-[17px]">
                           {client.industry}
                         </span>

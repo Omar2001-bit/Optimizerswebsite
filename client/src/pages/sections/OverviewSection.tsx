@@ -148,7 +148,7 @@ export const OverviewSection = (): JSX.Element => {
                             <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px]">
                               {study.company}
                             </h3>
-                            <Badge className="gap-2 px-3 py-1.5 rounded-[100px] bg-[#6ae49926] text-secondary-300 font-normal text-[14px] tracking-[0px] leading-[17px] w-fit">
+                            <Badge className="gap-2 px-3 py-1.5 rounded-[100px] bg-[#6ae49926] text-secondary-300 font-normal text-[14px] tracking-[0px] leading-[17px] w-fit hover:bg-[#6ae49926] hover:text-secondary-300">
                               {study.industry}
                             </Badge>
                           </div>
