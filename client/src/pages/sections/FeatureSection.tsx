@@ -194,11 +194,11 @@ export const FeatureSection = (): JSX.Element => {
                   <Card className="flex items-center justify-center relative w-full border-solid border-[#6ae49933] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] gap-4 p-6 rounded-2xl border">
                     <CardContent className="flex items-center justify-center w-full p-0">
                       <img className="absolute top-0 right-[57px] w-[180px] h-2" alt="Top mask" src={step.topMaskSrc} />
-                      <div className="step-number relative w-[101px] opacity-15 font-semibold text-secondary-200 font-display-01-semi-bold font-[number:var(--display-01-semi-bold-font-weight)] text-[length:var(--display-01-semi-bold-font-size)] tracking-[var(--display-01-semi-bold-letter-spacing)] leading-[var(--display-01-semi-bold-line-height)] [font-style:var(--display-01-semi-bold-font-style)]">
+                      <div className="step-number relative w-[101px] opacity-15 font-semibold font-display-01-semi-bold font-[number:var(--display-01-semi-bold-font-weight)] text-[length:var(--display-01-semi-bold-font-size)] tracking-[var(--display-01-semi-bold-letter-spacing)] leading-[var(--display-01-semi-bold-line-height)] [font-style:var(--display-01-semi-bold-font-style)]">
                         {step.number}
                       </div>
                       <div className="flex flex-col items-start relative flex-1 grow gap-4">
-                        <div className="step-title relative self-stretch font-semibold text-secondary-200 font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] mt-[-1.00px]">
+                        <div className="step-title relative self-stretch font-semibold font-heading-h5-semi-bold font-[number:var(--heading-h5-semi-bold-font-weight)] text-[length:var(--heading-h5-semi-bold-font-size)] tracking-[var(--heading-h5-semi-bold-letter-spacing)] leading-[var(--heading-h5-semi-bold-line-height)] [font-style:var(--heading-h5-semi-bold-font-style)] mt-[-1.00px]">
                           {step.title}
                         </div>
                         <img className="relative self-stretch w-full h-px" alt="Line" src={step.lineSrc} />
