@@ -2,7 +2,7 @@ import React from "react";
 
 export const MainContentSection = (): JSX.Element => {
   return (
-    <section className="relative w-full h-[1200px] bg-dark-mode900 py-[100px]">
+    <section className="relative w-full min-h-[800px] md:h-[1200px] bg-dark-mode900 py-[100px]">
       <img
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1820px] h-[1170px]"
         alt="Frame"

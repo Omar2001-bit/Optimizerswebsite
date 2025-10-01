@@ -139,10 +139,10 @@ export const TestimonialsSection = (): JSX.Element => {
   };
 
   return (
-    <section id="testimonials-booking-section" className="relative w-full bg-dark-mode900 py-[200px]">
-      <div className="flex flex-col items-center gap-[60px] max-w-[1176px] mx-auto px-4">
+    <section id="testimonials-booking-section" className="relative w-full bg-dark-mode900 py-[100px] md:py-[200px]">
+      <div className="flex flex-col items-center gap-[40px] md:gap-[60px] max-w-[1176px] mx-auto px-4">
         <header className="flex flex-col items-center gap-6">
-          <h1 className="text-shadeswhite text-[48px] font-semibold text-center tracking-[-1.92px] leading-[56px]">
+          <h1 className="text-shadeswhite text-[32px] md:text-[48px] font-semibold text-center tracking-[-1.92px] leading-[40px] md:leading-[56px]">
             Book Your Free Strategy Session
           </h1>
         </header>

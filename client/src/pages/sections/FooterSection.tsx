@@ -42,8 +42,8 @@ export const FooterSection = (): JSX.Element => {
   ];
 
   return (
-    <footer className="relative w-full h-[477px] bg-dark-mode300">
-      <div className="flex h-[477px] items-center absolute top-[calc(50.00%_-_238px)] left-[calc(50.00%_-_720px)] bg-dark-mode700">
+    <footer className="relative w-full min-h-[477px] bg-dark-mode300">
+      <div className="hidden md:flex h-[477px] items-center absolute top-[calc(50.00%_-_238px)] left-[calc(50.00%_-_720px)] bg-dark-mode700">
         {backgroundStripes.map((index) => (
           <div
             key={`stripe-${index}`}
@@ -52,8 +52,8 @@ export const FooterSection = (): JSX.Element => {
         ))}
       </div>
 
-      <div className="absolute top-[calc(50.00%_-_190px)] left-[calc(50.00%_-_672px)] w-[1344px] h-[381px] flex flex-col gap-[72px] bg-dark-mode900 rounded-2xl px-[84px]">
-        <div className="flex h-[164px] w-full relative mt-14 items-start gap-[100px]">
+      <div className="relative md:absolute md:top-[calc(50.00%_-_190px)] md:left-[calc(50.00%_-_672px)] w-full max-w-[1344px] mx-auto min-h-[381px] flex flex-col gap-[40px] md:gap-[72px] bg-dark-mode900 rounded-2xl px-4 md:px-[84px] py-8 md:py-0">
+        <div className="flex flex-col md:flex-row md:h-[164px] w-full relative mt-0 md:mt-14 items-start gap-8 md:gap-[100px]">
           <div className="flex flex-col items-start gap-[18px] px-0 py-px relative flex-[0_0_auto]">
             <img
               className="relative flex-[0_0_auto]"
@@ -141,7 +141,7 @@ export const FooterSection = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="flex w-full h-[41px] relative flex-col items-start gap-6">
+        <div className="flex w-full min-h-[41px] relative flex-col items-start gap-4 md:gap-6">
           <Separator className="mt-[-1.00px] self-stretch w-full h-px bg-[url('/figmaAssets/line-266.svg')] bg-cover" />
 
           <div className="relative text-left self-stretch text-[#6a6d6a] text-[14px] font-normal tracking-[0px] leading-[1.5]">

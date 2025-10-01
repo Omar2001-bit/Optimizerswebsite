@@ -85,12 +85,12 @@ export const WhatWeDoSection = (): JSX.Element => {
   });
 
   return (
-    <section ref={ref} id="section-what-we-do" className="w-full bg-dark-mode900 pt-[200px] pb-[200px] px-8">
-      <div id="what-we-do-header" className="max-w-[870px] mx-auto flex flex-col items-center gap-[60px] mb-[60px]">
-        <h1 id="what-we-do-title" className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
+    <section ref={ref} id="section-what-we-do" className="w-full bg-dark-mode900 pt-[100px] md:pt-[200px] pb-[100px] md:pb-[200px] px-4 md:px-8">
+      <div id="what-we-do-header" className="max-w-[870px] mx-auto flex flex-col items-center gap-[40px] md:gap-[60px] mb-[40px] md:mb-[60px]">
+        <h1 id="what-we-do-title" className="font-semibold text-shadeswhite text-[32px] md:text-[48px] text-center tracking-[-1.92px] leading-[40px] md:leading-[56px]">
           What We Do
         </h1>
-        <h2 id="what-we-do-subtitle" className="font-semibold text-shadeswhite text-[34px] text-center tracking-[-1.36px] leading-[40px]">
+        <h2 id="what-we-do-subtitle" className="font-semibold text-shadeswhite text-[24px] md:text-[34px] text-center tracking-[-1.36px] leading-[30px] md:leading-[40px]">
           Ongoing CRO Programs — The Engine of Growth
         </h2>
         <p id="what-we-do-description" className="[font-family:'Sora',Helvetica] font-normal text-shadeswhite text-[20px] text-center tracking-[0] leading-6">

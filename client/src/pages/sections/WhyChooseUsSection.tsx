@@ -108,10 +108,10 @@ export const WhyChooseUsSection = (): JSX.Element => {
   ];
 
   return (
-    <section id="section-why-choose-us" className="w-full bg-dark-mode900 pt-[200px] pb-[200px] px-4 overflow-hidden">
+    <section id="section-why-choose-us" className="w-full bg-dark-mode900 pt-[100px] md:pt-[200px] pb-[100px] md:pb-[200px] px-4 overflow-hidden">
       <div id="why-choose-us-container" className="max-w-7xl mx-auto">
-        <div id="why-choose-us-header" className="flex flex-col items-center justify-center gap-[60px] mb-[60px]">
-          <h2 id="why-choose-us-title" className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
+        <div id="why-choose-us-header" className="flex flex-col items-center justify-center gap-[40px] md:gap-[60px] mb-[40px] md:mb-[60px]">
+          <h2 id="why-choose-us-title" className="font-semibold text-shadeswhite text-[32px] md:text-[48px] text-center tracking-[-1.92px] leading-[40px] md:leading-[56px]">
             Why Choose Our CRO Agency?
           </h2>
 

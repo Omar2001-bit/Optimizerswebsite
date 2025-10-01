@@ -96,7 +96,7 @@ export const InfoWrapperSection = (): JSX.Element => {
   };
 
   return (
-    <section id="roi-calculator-section" className="w-full bg-dark-mode900 py-[200px]">
+    <section id="roi-calculator-section" className="w-full bg-dark-mode900 py-[100px] md:py-[200px]">
       <style>{`
         div#card-current-projection {
           height: 818px;
@@ -129,9 +129,9 @@ export const InfoWrapperSection = (): JSX.Element => {
           appearance: textfield;
         }
       `}</style>
-      <div className="flex flex-col max-w-[1144px] mx-auto items-center gap-[60px] px-4">
+      <div className="flex flex-col max-w-[1144px] mx-auto items-center gap-[40px] md:gap-[60px] px-4">
         <header id="roi-calculator-header" className="flex flex-col items-start gap-6 w-full">
-            <h1 className="w-full font-semibold text-shadeswhite text-[48px] tracking-[-1.92px] leading-[56px]">ROI Calculator</h1>
+            <h1 className="w-full font-semibold text-shadeswhite text-[32px] md:text-[48px] tracking-[-1.92px] leading-[40px] md:leading-[56px]">ROI Calculator</h1>
             <p className="max-w-[980px] font-normal text-shadeswhite text-[20px] tracking-[0px] leading-6">
                 See the real impact CRO can have on your business. Enter just a few numbers and instantly discover what a 10–40% lift in conversions could mean for your monthly revenue.
             </p>

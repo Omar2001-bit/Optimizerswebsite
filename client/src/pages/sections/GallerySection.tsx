@@ -66,10 +66,10 @@ const faqData = [
 
 export const GallerySection = (): JSX.Element => {
   return (
-    <section className="flex flex-col items-start gap-2 py-[200px] px-[270px] w-full bg-dark-mode900">
-      <div className="flex flex-col w-[900px] items-center gap-[60px] mx-auto">
-        <header className="flex w-[767px] items-start flex-col gap-6">
-          <h1 className="self-stretch mt-[-1.00px] text-shadeswhite text-[48px] font-semibold text-center tracking-[-1.92px] leading-[56px]">
+    <section className="flex flex-col items-start gap-2 py-[100px] md:py-[200px] px-4 md:px-[270px] w-full bg-dark-mode900">
+      <div className="flex flex-col w-full max-w-[900px] items-center gap-[40px] md:gap-[60px] mx-auto">
+        <header className="flex w-full max-w-[767px] items-start flex-col gap-6">
+          <h1 className="self-stretch mt-[-1.00px] text-shadeswhite text-[32px] md:text-[48px] font-semibold text-center tracking-[-1.92px] leading-[40px] md:leading-[56px]">
             Frequently Asked Questions
           </h1>
         </header>
@@ -84,7 +84,7 @@ export const GallerySection = (): JSX.Element => {
             <AccordionItem
               key={faq.id}
               value={faq.id}
-              className="flex flex-col w-[900px] items-start justify-center p-[9px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] data-[state=open]:h-auto data-[state=closed]:h-auto"
+              className="flex flex-col w-full max-w-[900px] items-start justify-center p-[9px] bg-[#ffffff03] rounded-3xl overflow-hidden border border-solid border-[#ffffff1a] shadow-[inset_0px_0px_0px_9px_#ffffff08] data-[state=open]:h-auto data-[state=closed]:h-auto"
             >
               <div className="flex flex-col items-start w-full rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.05)_100%)] relative">
                 <AccordionTrigger className="flex items-center justify-start gap-2 w-full p-6 hover:no-underline [&[data-state=open]>svg]:rotate-180 [&[data-state=open]_.question-text]:text-[#6ae499]">

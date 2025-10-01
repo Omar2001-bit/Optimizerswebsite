@@ -64,24 +64,24 @@ export const DataTableSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="relative w-full min-h-[790px] bg-dark-mode900 overflow-hidden py-[200px]">
+    <section className="relative w-full min-h-[790px] bg-dark-mode900 overflow-hidden py-[100px] md:py-[200px]">
       <div className="flex flex-wrap w-full items-center gap-0 absolute top-0 left-0">
         {gridItems.map((index) => (
           <div key={index} className="relative w-20 h-20" />
         ))}
       </div>
 
-      <div className="flex w-full max-w-[969px] items-center absolute top-[200px] left-1/2 transform -translate-x-1/2 flex-col gap-[60px]">
-        <h1 className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
+      <div className="flex w-full max-w-[969px] items-center absolute top-[100px] md:top-[200px] left-1/2 transform -translate-x-1/2 flex-col gap-[40px] md:gap-[60px] px-4">
+        <h1 className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-[32px] md:text-[48px] text-center tracking-[-1.92px] leading-[40px] md:leading-[56px]">
           What Makes CRO the Smarter Investment
         </h1>
       </div>
 
       {/* The ref is now attached to this specific container */}
-      <div ref={tableContainerRef} className="flex flex-col w-full max-w-[1246px] items-start justify-center p-[9px] absolute top-[320px] left-1/2 transform -translate-x-1/2 bg-[#6ae49914] rounded-3xl overflow-hidden border-2 border-solid border-[#6ae4994c] shadow-[inset_0px_0px_0px_9px_#ffffff08]">
+      <div ref={tableContainerRef} className="flex flex-col w-full max-w-[1246px] items-start justify-center p-[9px] absolute top-[220px] md:top-[320px] left-1/2 transform -translate-x-1/2 bg-[#6ae49914] rounded-3xl overflow-hidden border-2 border-solid border-[#6ae4994c] shadow-[inset_0px_0px_0px_9px_#ffffff08] mx-4">
         <Card className="inline-flex flex-col items-center justify-center p-6 relative flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(2,6,1,0.4)_0%,rgba(2,6,1,0.4)_100%)] overflow-hidden">
-          <CardContent className="relative w-full max-w-[1176px] flex-[0_0_auto] rounded-lg overflow-hidden p-0">
-            <Table className="w-full overflow-hidden">
+          <CardContent className="relative w-full max-w-[1176px] flex-[0_0_auto] rounded-lg overflow-x-auto p-0">
+            <Table className="w-full min-w-[800px] overflow-hidden">
               <TableHeader>
                 <TableRow className="border-b border-[#0a381c]">
                   <TableHead className="w-[366px] h-[72px] p-4 bg-[#0b130e] text-left">

@@ -164,7 +164,7 @@ export const FeatureSection = (): JSX.Element => {
         }
       `}</style>
 
-      <section id="section-feature-process" className="relative w-full h-[1040px] bg-dark-mode900 overflow-hidden py-[200px]">
+      <section id="section-feature-process" className="relative w-full min-h-[800px] md:h-[1040px] bg-dark-mode900 overflow-hidden py-[100px] md:py-[200px]">
         <div className="max-w-[1440px] mx-auto relative h-full">
           {/* Left side content */}
           <div className="inline-flex flex-col items-start gap-6 absolute top-[calc(50.00%_-_209px)] left-8 z-10">

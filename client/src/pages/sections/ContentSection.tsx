@@ -5,7 +5,7 @@ export const ContentSection = (): JSX.Element => {
   const gradientBars = Array.from({ length: 12 }, (_, index) => index);
 
   return (
-    <section id="section-learn-cro" className="flex flex-col items-start gap-2 px-0 py-[200px] relative self-stretch w-full flex-[0_0_auto]">
+    <section id="section-learn-cro" className="flex flex-col items-start gap-2 px-0 py-[100px] md:py-[200px] relative self-stretch w-full flex-[0_0_auto]">
       <div className="flex items-center gap-[13px] relative self-stretch w-full flex-[0_0_auto] bg-dark-mode700">
         <div className="max-w-[1440px] mx-auto relative w-full h-[681px] flex items-center gap-[13px]">
           <div className="inline-flex h-[681px] items-center relative flex-[0_0_auto] bg-dark-mode700">
@@ -24,11 +24,11 @@ export const ContentSection = (): JSX.Element => {
           />
 
           <div className="flex w-96 items-start absolute top-20 left-[calc(50.00%_-_688px)] flex-col gap-6">
-            <h1 className="relative self-stretch mt-[-1.00px] text-shadeswhite text-[48px] font-semibold tracking-[-1.92px] leading-[56px]">
+            <h1 className="relative self-stretch mt-[-1.00px] text-shadeswhite text-[32px] md:text-[48px] font-semibold tracking-[-1.92px] leading-[40px] md:leading-[56px]">
               Learn CRO From Our CEO
             </h1>
 
-            <p className="relative self-stretch text-shadeswhite text-[20px] font-semibold tracking-[0px] leading-6">
+            <p className="relative self-stretch text-shadeswhite text-[16px] md:text-[20px] font-semibold tracking-[0px] leading-5 md:leading-6">
               Get insider insights into the strategies that have generated
               millions in additional revenue for Gulf-based e-commerce brands.
             </p>

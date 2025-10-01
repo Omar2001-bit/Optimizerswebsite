@@ -29,7 +29,7 @@ const platformLogos = [
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <section id="section-hero" className="flex w-full h-[676px] items-end pt-0 pb-[60px] px-10 relative rounded-2xl overflow-hidden shadow-[0px_15px_61.7px_#93939340]">
+    <section id="section-hero" className="flex w-full h-[500px] md:h-[676px] items-end pt-0 pb-[40px] md:pb-[60px] px-4 md:px-10 relative rounded-2xl overflow-hidden shadow-[0px_15px_61.7px_#93939340]">
       {/* Background Video */}
       <video
         autoPlay
@@ -47,16 +47,16 @@ export const HeroSection = (): JSX.Element => {
       {/* Overlay for text readability */}
       <div className="absolute inset-0 w-full h-full bg-black/40 z-10 pointer-events-none"></div>
 
-      <Card id="hero-card" className="relative z-20 w-[493px] bg-[#ffffff33] border border-solid border-[#6ae49933] rounded-xl backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
-        <CardContent id="hero-card-content" className="flex flex-col items-start gap-12 p-8">
+      <Card id="hero-card" className="relative z-20 w-full md:w-[493px] bg-[#ffffff33] border border-solid border-[#6ae49933] rounded-xl backdrop-blur-[20px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(20px)_brightness(100%)]">
+        <CardContent id="hero-card-content" className="flex flex-col items-start gap-8 md:gap-12 p-4 md:p-8">
           <div id="hero-main-content" className="flex flex-col items-start gap-6 w-full">
-            <h1 id="hero-title" className="font-semibold text-white text-[34px] tracking-[-1.36px] leading-[40px]">
+            <h1 id="hero-title" className="font-semibold text-white text-[24px] md:text-[34px] tracking-[-1.36px] leading-[30px] md:leading-[40px]">
               Your ads bring visitors,
               <br />
               we turn them into buyers.
             </h1>
 
-            <p id="hero-description" className="font-normal text-white text-[20px] tracking-[0px] leading-[24px]">
+            <p id="hero-description" className="font-normal text-white text-[16px] md:text-[20px] tracking-[0px] leading-[20px] md:leading-[24px]">
               If you&apos;re investing in ads but not seeing enough sales,
               we&apos;ll find the leaks in your funnel, fix them, and maximize
               your returns.
@@ -80,7 +80,7 @@ export const HeroSection = (): JSX.Element => {
               Built for leading platforms:
             </h2>
 
-            <div id="hero-platforms-logos" className="inline-flex items-start gap-4">
+            <div id="hero-platforms-logos" className="flex flex-wrap items-start gap-3 md:gap-4">
               {platformLogos.map((logo, index) => (
                 <img
                   key={index}

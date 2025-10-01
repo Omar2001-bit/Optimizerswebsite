@@ -108,12 +108,12 @@ export const OverviewSection = (): JSX.Element => {
   }, [selectedStudyId]);
 
   return (
-    <section id="section-case-studies" className="w-full bg-dark-mode900 py-[200px] overflow-hidden">
-      <div className="flex flex-col items-center gap-6 mb-[60px] px-4">
-        <h1 className="font-semibold text-shadeswhite text-[48px] text-center tracking-[-1.92px] leading-[56px]">
+    <section id="section-case-studies" className="w-full bg-dark-mode900 py-[100px] md:py-[200px] overflow-hidden">
+      <div className="flex flex-col items-center gap-4 md:gap-6 mb-[40px] md:mb-[60px] px-4">
+        <h1 className="font-semibold text-shadeswhite text-[32px] md:text-[48px] text-center tracking-[-1.92px] leading-[40px] md:leading-[56px]">
           Case Studies
         </h1>
-        <h2 className="font-semibold text-shadeswhite text-[34px] text-center tracking-[-1.36px] leading-[40px]">
+        <h2 className="font-semibold text-shadeswhite text-[24px] md:text-[34px] text-center tracking-[-1.36px] leading-[30px] md:leading-[40px]">
           We Don&apos;t Guess. We Deliver.
         </h2>
         <p className="max-w-4xl font-normal text-shadeswhite text-[20px] text-center tracking-[0px] leading-6">
