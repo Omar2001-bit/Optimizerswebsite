@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import thumbnailImage from "@assets/image_1759421317159.png";
+import thumbnailImage from "@assets/image_1759422899595.png";
 
 export const ContentSection = (): JSX.Element => {
   const gradientBars = Array.from({ length: 12 }, (_, index) => index);
