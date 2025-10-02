@@ -78,6 +78,8 @@ export const FeatureSection = (): JSX.Element => {
           padding: 0 12px;
           will-change: transform, opacity, z-index;
           animation: carousel-animate-vertical ${ANIMATION_DURATION}s linear infinite;
+          opacity: 0;
+          visibility: hidden;
         }
         .carousel-item .step-number {
           animation: carousel-number-animate ${ANIMATION_DURATION}s step-end infinite;
@@ -94,7 +96,13 @@ export const FeatureSection = (): JSX.Element => {
             z-index: 1;
             visibility: hidden;
           }
-          ${SLIDE_CHANGE_TIMING}%,
+          ${SLIDE_CHANGE_TIMING}% {
+            transform: translateY(120%) scale(0.6);
+            opacity: 0;
+            z-index: 2;
+            visibility: hidden;
+          }
+          ${SLIDE_CHANGE_TIMING + 0.1}%,
           ${STEP_INTERVAL_PERCENTAGE}% {
             transform: translateY(120%) scale(0.6);
             opacity: 0.4;
@@ -191,7 +199,7 @@ export const FeatureSection = (): JSX.Element => {
             {processSteps.map((step, index) => {
               // Calculate the delay for each item to create the carousel effect
               const animationDelayFraction = ANIMATION_DURATION / TOTAL_STEPS;
-              const animationDelay = animationDelayFraction * (index - 2);
+              const animationDelay = animationDelayFraction * index;
 
               return (
                 <div
