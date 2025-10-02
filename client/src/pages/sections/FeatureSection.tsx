@@ -78,17 +78,14 @@ export const FeatureSection = (): JSX.Element => {
           padding: 0 12px;
           will-change: transform, opacity, z-index;
           animation: carousel-animate-vertical ${ANIMATION_DURATION}s linear infinite;
-          animation-fill-mode: both;
         }
         .carousel-item .step-number {
           animation: carousel-number-animate ${ANIMATION_DURATION}s step-end infinite;
           animation-delay: var(--animation-delay, 0s);
-          animation-fill-mode: both;
         }
         .carousel-item .step-title {
           animation: carousel-color-animate ${ANIMATION_DURATION}s step-end infinite;
           animation-delay: var(--animation-delay, 0s);
-          animation-fill-mode: both;
         }
         @keyframes carousel-animate-vertical {
           0% {
@@ -193,9 +190,8 @@ export const FeatureSection = (): JSX.Element => {
           <div className="relative top-[100px] left-[516px] w-[892px] h-[840px] flex justify-center items-center">
             {processSteps.map((step, index) => {
               // Calculate the delay for each item to create the carousel effect
-              // Using positive modulo to prevent negative delays that break after first cycle
               const animationDelayFraction = ANIMATION_DURATION / TOTAL_STEPS;
-              const animationDelay = ((index - 2 + TOTAL_STEPS) % TOTAL_STEPS) * animationDelayFraction;
+              const animationDelay = animationDelayFraction * (index - 2);
 
               return (
                 <div
@@ -203,8 +199,7 @@ export const FeatureSection = (): JSX.Element => {
                   className="carousel-item"
                   style={{ 
                     animationDelay: `${animationDelay}s`,
-                    '--animation-delay': `${animationDelay}s`,
-                    animationFillMode: 'both'
+                    '--animation-delay': `${animationDelay}s`
                   } as React.CSSProperties}
                 >
                   <div
