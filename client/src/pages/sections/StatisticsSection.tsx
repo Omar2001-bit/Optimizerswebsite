@@ -54,6 +54,12 @@ export const StatisticsSection = (): JSX.Element => {
                 playsInline
                 webkit-playsinline="true"
                 preload="auto"
+                disablePictureInPicture
+                controlsList="nodownload nofullscreen noremoteplayback"
+                onLoadedMetadata={(e) => {
+                  const video = e.target as HTMLVideoElement;
+                  video.play().catch(() => {});
+                }}
               >
                 <source src="https://core.optimizers.agency/wp-content/uploads/2025/09/video-4.mp4" type="video/mp4" />
                 Your browser does not support the video tag.

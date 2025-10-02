@@ -38,8 +38,14 @@ export const HeroSection = (): JSX.Element => {
         playsInline
         webkit-playsinline="true"
         preload="auto"
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noremoteplayback"
         className="absolute inset-0 w-full h-full object-cover z-0"
         src="https://core.optimizers.agency/wp-content/uploads/2025/09/Optimizers-Header_1.mp4"
+        onLoadedMetadata={(e) => {
+          const video = e.target as HTMLVideoElement;
+          video.play().catch(() => {});
+        }}
       >
         Your browser does not support the video tag.
       </video>
