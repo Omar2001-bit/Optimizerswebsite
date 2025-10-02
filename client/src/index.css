@@ -375,3 +375,60 @@ div#service-card-2 {
     top: 50px;
 }
 
+/* Custom spacing and positioning adjustments */
+p#clients-results-description {
+    margin-bottom: 60px;
+}
+
+h2#clients-results-cta-title {
+    margin-top: 60px;
+}
+
+section#section-services {
+    margin-top: 100px;
+}
+
+button#services-cta-button {
+    margin-top: 60px;
+}
+
+div#why-choose-us-header {
+    margin-top: 100px;
+}
+
+p#why-choose-us-description {
+    margin-bottom: 40px;
+}
+
+button#why-choose-us-cta-button {
+    margin-top: 30px;
+    margin-bottom: -80px;
+}
+
+button#what-we-do-cta-button {
+    margin-top: 40px;
+    margin-bottom: -80px;
+}
+
+section#section-case-studies {
+    position: relative;
+    bottom: 500px;
+}
+
+section#section-feature-process {
+    margin-top: -600px;
+    margin-bottom: -70px;
+}
+
+h2.text-shadeswhite.text-\[34px\].font-semibold.text-center.tracking-\[-1\.36px\].leading-\[40px\] {
+    margin-bottom: 20px;
+}
+
+.p-6.flex.flex-col.items-center.gap-\[60px\].px-6.py-8.rounded-2xl.border.border-solid.border-\[\#6ae49933\].backdrop-blur-\[7\.5px\].bg-\[linear-gradient\(0deg\,rgba\(0\,0\,0\,0\.3\)_0\%\,rgba\(0\,0\,0\,0\.3\)_100\%\)\,radial-gradient\(50\%_50\%_at_50\%_0\%\,rgba\(168\,127\,255\,0\.04\)_0\%\,rgba\(168\,127\,255\,0\)_100\%\)\,linear-gradient\(0deg\,rgba\(255\,255\,255\,0\.05\)_0\%\,rgba\(255\,255\,255\,0\.05\)_100\%\)\].h-\[650px\] {
+    height: 700px;
+}
+
+button.inline-flex.items-center.justify-center.gap-2.whitespace-nowrap.rounded-md.text-sm.font-medium.transition-colors.focus-visible\:outline-none.focus-visible\:ring-1.focus-visible\:ring-ring.disabled\:pointer-events-none.disabled\:opacity-50.\[\&_svg\]\:pointer-events-none.\[\&_svg\]\:size-4.\[\&_svg\]\:shrink-0.border.shadow-sm.h-9.px-5.py-3\.5.border-\[\#6ae499\].text-\[\#6ae499\].bg-black.hover\:bg-black.hover\:text-\[\#6ae499\].hover\:border-\[\#6ae499\] {
+    margin-top: 20px;
+}
+
