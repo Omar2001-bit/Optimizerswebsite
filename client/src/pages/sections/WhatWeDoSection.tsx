@@ -111,8 +111,8 @@ export const WhatWeDoSection = (): JSX.Element => {
 
       <div id="what-we-do-services-grid-1" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         {serviceCards.slice(0, 4).map((card, index) => {
-          const start = index * 0.1;
-          const end = start + 0.25;
+          const start = 0.15 + (index * 0.1);
+          const end = start + 0.28;
 
           const rotateY = useTransform(scrollYProgress, [start, end], [90, 0]);
           const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
@@ -155,8 +155,8 @@ export const WhatWeDoSection = (): JSX.Element => {
       <div id="what-we-do-services-grid-2" className="max-w-[1376px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-[60px]">
         {serviceCards.slice(4, 8).map((card, index) => {
           const i = index + 4;
-          const start = i * 0.1;
-          const end = start + 0.25;
+          const start = 0.15 + (i * 0.1);
+          const end = start + 0.28;
 
           const rotateY = useTransform(scrollYProgress, [start, end], [90, 0]);
           const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
