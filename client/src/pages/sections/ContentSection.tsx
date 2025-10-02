@@ -19,22 +19,16 @@ export const ContentSection = (): JSX.Element => {
             ))}
           </div>
 
-          <img
-            className="relative flex-[0_0_auto]"
-            alt="Overlay border"
-            src="/figmaAssets/overlay-border-shadow.svg"
-          />
-
-          <div className="hidden lg:block absolute top-[calc(50%_-_198px)] right-[60px] w-[560px] h-[396px] rounded-2xl overflow-hidden">
+          <div className="hidden lg:block absolute inset-0 w-full h-full overflow-hidden">
             {!isPlaying ? (
-              <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPlaying(true)}>
+              <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPlaying(true)} data-testid="video-thumbnail">
                 <img 
                   src={thumbnailImage} 
                   alt="Video thumbnail" 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors" data-testid="button-play-video">
                     <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z"/>
                     </svg>
@@ -43,15 +37,16 @@ export const ContentSection = (): JSX.Element => {
               </div>
             ) : (
               <iframe 
-                width="560" 
-                height="396" 
-                src="https://www.youtube.com/embed/8zECN_jyCG4?si=xzQ0dnm87zr0_Cp9&autoplay=1" 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/8zECN_jyCG4?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playsinline=1" 
                 title="YouTube video player" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
                 allowFullScreen
                 className="w-full h-full"
+                data-testid="video-iframe"
               />
             )}
           </div>
