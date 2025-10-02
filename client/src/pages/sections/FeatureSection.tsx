@@ -202,7 +202,9 @@ export const FeatureSection = (): JSX.Element => {
                   className="carousel-item"
                   style={{ 
                     animationDelay: `${animationDelay}s`,
-                    '--animation-delay': `${animationDelay}s`
+                    '--animation-delay': `${animationDelay}s`,
+                    opacity: animationDelay < 0 ? 0 : undefined,
+                    visibility: animationDelay < 0 ? 'hidden' : undefined
                   } as React.CSSProperties}
                 >
                   <div

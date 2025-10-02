@@ -387,3 +387,8 @@ div#service-card-2 {
     }
 }
 
+section#section-contact {
+    position: relative;
+    top: 5px;
+}
+
