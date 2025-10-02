@@ -19,17 +19,22 @@ export const ContentSection = (): JSX.Element => {
             ))}
           </div>
 
-          <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden">
+          <img
+            className="relative flex-[0_0_auto]"
+            alt="Overlay border"
+            src="/figmaAssets/overlay-border-shadow.svg"
+          />
+
+          <div className="hidden lg:block absolute top-[calc(50%_-_198px)] right-[60px] w-[560px] h-[396px] rounded-2xl overflow-hidden">
             {!isPlaying ? (
-              <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPlaying(true)} data-testid="video-thumbnail">
+              <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPlaying(true)}>
                 <img 
                   src={thumbnailImage} 
                   alt="Video thumbnail" 
                   className="w-full h-full object-cover"
-                  data-testid="img-thumbnail"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors cursor-pointer" data-testid="button-play">
+                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
                     <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z"/>
                     </svg>
@@ -38,21 +43,20 @@ export const ContentSection = (): JSX.Element => {
               </div>
             ) : (
               <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/8zECN_jyCG4?si=xzQ0dnm87zr0_Cp9&autoplay=1&controls=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0" 
+                width="560" 
+                height="396" 
+                src="https://www.youtube.com/embed/8zECN_jyCG4?si=xzQ0dnm87zr0_Cp9&autoplay=1" 
                 title="YouTube video player" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
                 allowFullScreen
                 className="w-full h-full"
-                data-testid="iframe-video"
               />
             )}
           </div>
 
-          <div className="flex w-96 items-start absolute top-20 left-[calc(50.00%_-_688px)] flex-col gap-6 z-10">
+          <div className="flex w-96 items-start absolute top-20 left-[calc(50.00%_-_688px)] flex-col gap-6">
             <h1 className="relative self-stretch mt-[-1.00px] text-shadeswhite text-[32px] md:text-[48px] font-semibold tracking-[-1.92px] leading-[40px] md:leading-[56px]">
               Learn CRO From Our CEO
             </h1>
