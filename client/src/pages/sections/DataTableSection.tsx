@@ -71,7 +71,7 @@ export const DataTableSection = (): JSX.Element => {
         ))}
       </div>
 
-      <div className="flex w-full max-w-[969px] items-center absolute top-[100px] md:top-[200px] left-1/2 transform -translate-x-1/2 flex-col gap-[40px] md:gap-[60px] px-4">
+      <div className="flex w-full max-w-[969px] items-center absolute top-[60px] md:top-[160px] left-1/2 transform -translate-x-1/2 flex-col gap-[40px] md:gap-[60px] px-4">
         <h1 className="relative self-stretch mt-[-1.00px] font-semibold text-shadeswhite text-[32px] md:text-[48px] text-center tracking-[-1.92px] leading-[40px] md:leading-[56px]">
           What Makes CRO the Smarter Investment
         </h1>
