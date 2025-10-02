@@ -78,8 +78,6 @@ export const FeatureSection = (): JSX.Element => {
           padding: 0 12px;
           will-change: transform, opacity, z-index;
           animation: carousel-animate-vertical ${ANIMATION_DURATION}s linear infinite;
-          opacity: 0;
-          visibility: hidden;
         }
         .carousel-item .step-number {
           animation: carousel-number-animate ${ANIMATION_DURATION}s step-end infinite;
@@ -92,17 +90,11 @@ export const FeatureSection = (): JSX.Element => {
         @keyframes carousel-animate-vertical {
           0% {
             transform: translateY(180%) scale(0.5);
-            opacity: 0;
+            opacity: 0.3;
             z-index: 1;
-            visibility: hidden;
+            visibility: visible;
           }
-          ${SLIDE_CHANGE_TIMING}% {
-            transform: translateY(120%) scale(0.6);
-            opacity: 0;
-            z-index: 2;
-            visibility: hidden;
-          }
-          ${SLIDE_CHANGE_TIMING + 0.1}%,
+          ${SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE}% {
             transform: translateY(120%) scale(0.6);
             opacity: 0.4;
@@ -140,9 +132,9 @@ export const FeatureSection = (): JSX.Element => {
           ${(STEP_INTERVAL_PERCENTAGE * 5) + SLIDE_CHANGE_TIMING}%,
           100% {
             transform: translateY(-180%) scale(0.5);
-            opacity: 0;
+            opacity: 0.3;
             z-index: 1;
-            visibility: hidden;
+            visibility: visible;
           }
         }
         @keyframes carousel-color-animate {
@@ -198,8 +190,11 @@ export const FeatureSection = (): JSX.Element => {
           <div className="relative top-[100px] left-[516px] w-[892px] h-[840px] flex justify-center items-center">
             {processSteps.map((step, index) => {
               // Calculate the delay for each item to create the carousel effect
+              // Card 1 (index 0) should start at center position
               const animationDelayFraction = ANIMATION_DURATION / TOTAL_STEPS;
-              const animationDelay = animationDelayFraction * index;
+              const centerPositionPercentage = (STEP_INTERVAL_PERCENTAGE * 2.5); // Middle of center keyframe
+              const centerPositionTime = (centerPositionPercentage / 100) * ANIMATION_DURATION;
+              const animationDelay = (animationDelayFraction * index) - centerPositionTime;
 
               return (
                 <div
