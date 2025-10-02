@@ -138,7 +138,7 @@ export const WhatWeDoSection = (): JSX.Element => {
                   '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
                 } as React.CSSProperties & { '--bg-image': string }}
               >
-                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-left">
+                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-left min-h-[56px]">
                   {card.title}
                 </h3>
                 <p className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-left">
@@ -181,7 +181,7 @@ export const WhatWeDoSection = (): JSX.Element => {
                   '--bg-image': card.backgroundImage ? `${card.backgroundImage}` : 'none'
                 } as React.CSSProperties & { '--bg-image': string }}
               >
-                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-left">
+                <h3 className="font-semibold text-shadeswhite text-[23px] tracking-[-0.46px] leading-[28px] text-left min-h-[56px]">
                   {card.title}
                 </h3>
                 <p className="font-normal text-shadeswhite text-[16px] tracking-[0px] leading-[19px] text-left">
