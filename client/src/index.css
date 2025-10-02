@@ -375,3 +375,8 @@ div#service-card-2 {
     top: 50px;
 }
 
+.sticky.top-\[100px\].left-\[516px\].w-\[892px\].h-\[840px\].flex.justify-center.items-center {
+    top: -100px;
+    position: relative;
+}
+
