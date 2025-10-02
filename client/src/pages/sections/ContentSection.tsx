@@ -19,7 +19,7 @@ export const ContentSection = (): JSX.Element => {
             ))}
           </div>
 
-          <div className="hidden lg:block absolute top-[calc(50%_-_230px)] right-[60px] w-[800px] h-[460px] rounded-2xl overflow-hidden">
+          <div className="hidden lg:block absolute top-[calc(50%_-_230px)] right-[60px] w-[800px] h-[460px] rounded-2xl overflow-hidden border border-solid border-[#6ae49966] shadow-[0_0_20px_rgba(106,228,153,0.3)]">
             {!isPlaying ? (
               <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPlaying(true)}>
                 <img 
