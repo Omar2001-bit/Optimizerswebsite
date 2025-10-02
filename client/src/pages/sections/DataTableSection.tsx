@@ -78,7 +78,7 @@ export const DataTableSection = (): JSX.Element => {
       </div>
 
       {/* The ref is now attached to this specific container */}
-      <div ref={tableContainerRef} className="flex flex-col w-full max-w-[1246px] items-start justify-center p-[9px] absolute top-[220px] md:top-[320px] left-1/2 transform -translate-x-1/2 bg-[#6ae49914] rounded-3xl overflow-hidden border-2 border-solid border-[#6ae4994c] shadow-[inset_0px_0px_0px_9px_#ffffff08] mx-4">
+      <div ref={tableContainerRef} className="flex flex-col w-full max-w-[1246px] items-start justify-center p-[9px] absolute top-[170px] md:top-[270px] left-1/2 transform -translate-x-1/2 bg-[#6ae49914] rounded-3xl overflow-hidden border-2 border-solid border-[#6ae4994c] shadow-[inset_0px_0px_0px_9px_#ffffff08] mx-4">
         <Card className="inline-flex flex-col items-center justify-center p-6 relative flex-[0_0_auto] rounded-2xl border border-solid border-[#6ae49933] backdrop-blur-[7.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(7.5px)_brightness(100%)] [background:radial-gradient(50%_50%_at_50%_0%,rgba(168,127,255,0.04)_0%,rgba(168,127,255,0)_100%),linear-gradient(0deg,rgba(2,6,1,0.4)_0%,rgba(2,6,1,0.4)_100%)] overflow-hidden">
           <CardContent className="relative w-full max-w-[1176px] flex-[0_0_auto] rounded-lg overflow-x-auto p-0">
             <Table className="w-full min-w-[800px] overflow-hidden">
