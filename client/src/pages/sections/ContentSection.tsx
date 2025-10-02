@@ -19,12 +19,6 @@ export const ContentSection = (): JSX.Element => {
             ))}
           </div>
 
-          <img
-            className="relative flex-[0_0_auto]"
-            alt="Overlay border"
-            src="/figmaAssets/overlay-border-shadow.svg"
-          />
-
           <div className="hidden lg:block absolute top-[calc(50%_-_198px)] right-[60px] w-[560px] h-[396px] rounded-2xl overflow-hidden">
             {!isPlaying ? (
               <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPlaying(true)}>
