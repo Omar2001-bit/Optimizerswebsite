@@ -360,10 +360,7 @@ div#clients-results-cta-section {
     z-index: -1;
 }
 
-/* Services section - z-index and positioning */
-div#services-bg-frame-0 {
-    z-index: 1;
-}
+/* Services section - positioning */
 
 div#service-card-3 {
     position: relative;
@@ -390,5 +387,50 @@ div#service-card-2 {
 section#section-contact {
     position: relative;
     top: 5px;
+}
+
+section#section-brand-logos {
+    margin-bottom: 10px;
+}
+
+div#clients-results-header {
+    margin-bottom: 100px;
+}
+
+h1#clients-results-title {
+    margin-bottom: -30px;
+}
+
+section#section-why-choose-us {
+    margin-bottom: -100px;
+    margin-top: 100px;
+}
+
+section#section-what-we-do {
+    margin-bottom: -100px;
+}
+
+section#roi-calculator-section {
+    margin-top: -200px;
+}
+
+section#section-learn-cro {
+    margin-top: -150px;
+}
+
+section#section-team {
+    margin-top: -150px;
+}
+
+section.flex.flex-col.items-start.gap-2.px-0.py-\[100px\].md\:py-\[200px\].relative.self-stretch.w-full.flex-\[0_0_auto\] {
+    margin-top: -130px;
+}
+
+section#testimonials-booking-section {
+    margin-top: -150px;
+}
+
+section.flex.flex-col.items-start.gap-2.py-\[100px\].md\:py-\[200px\].px-4.md\:px-\[270px\].w-full.bg-dark-mode900 {
+    margin-top: -150px;
 }
 

@@ -195,7 +195,7 @@ export const ClientsResultsSection: React.FC = () => {
   };
 
   return (
-    <section id="section-clients-results" className="w-full bg-dark-mode900 overflow-hidden py-[100px] md:py-[200px]">
+    <section id="section-clients-results" className="w-full bg-dark-mode900 overflow-hidden py-[100px] md:py-[100px]">
       <div id="clients-results-header" className="flex flex-col items-center gap-[40px] md:gap-[60px] mb-[40px] md:mb-[60px] px-4">
         <h1 id="clients-results-title" className="font-semibold text-shadeswhite text-[32px] md:text-[48px] text-center tracking-[-1.92px] leading-[40px] md:leading-[56px]">
           TOP CLIENTS & RESULTS
