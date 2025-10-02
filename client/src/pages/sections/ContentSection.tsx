@@ -19,7 +19,7 @@ export const ContentSection = (): JSX.Element => {
             ))}
           </div>
 
-          <div className="hidden lg:block absolute top-[calc(50%_-_198px)] right-[60px] w-[560px] h-[396px] rounded-2xl overflow-hidden">
+          <div className="hidden lg:block absolute top-[calc(50%_-_230px)] right-[60px] w-[800px] h-[460px] rounded-2xl overflow-hidden">
             {!isPlaying ? (
               <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPlaying(true)}>
                 <img 
@@ -27,9 +27,9 @@ export const ContentSection = (): JSX.Element => {
                   alt="Video thumbnail" 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
-                    <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-24 h-24 bg-[#6ae499] rounded-full flex items-center justify-center hover:bg-[#5cd389] transition-colors shadow-lg">
+                    <svg className="w-12 h-12 text-dark-mode900 ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z"/>
                     </svg>
                   </div>
@@ -37,8 +37,8 @@ export const ContentSection = (): JSX.Element => {
               </div>
             ) : (
               <iframe 
-                width="560" 
-                height="396" 
+                width="800" 
+                height="460" 
                 src="https://www.youtube.com/embed/8zECN_jyCG4?si=xzQ0dnm87zr0_Cp9&autoplay=1" 
                 title="YouTube video player" 
                 frameBorder="0" 
