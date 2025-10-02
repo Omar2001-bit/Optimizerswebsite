@@ -274,7 +274,7 @@ export const ClientsResultsSection: React.FC = () => {
                       src={client.profileImage}
                     />
                     <div id={`client-info-${client.id}`} className="flex flex-col items-start gap-3 flex-1">
-                      <h3 id={`client-name-${client.id}`} className="font-semibold text-shadeswhite text-[28px] tracking-[-0.56px] leading-[34px]">
+                      <h3 id={`client-name-${client.id}`} className="font-semibold text-shadeswhite text-[28px] tracking-[-0.56px] leading-[34px] whitespace-nowrap">
                         {client.name}
                       </h3>
                       <Badge id={`client-industry-badge-${client.id}`} className="bg-[#6ae49926] text-secondary-300 border-none px-3 py-1.5 rounded-[100px] hover:bg-[#6ae49926] hover:text-secondary-300">
