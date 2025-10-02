@@ -164,7 +164,7 @@ export const FeatureSection = (): JSX.Element => {
         }
       `}</style>
 
-      <section id="section-feature-process" className="relative w-full min-h-[800px] md:h-[1040px] bg-dark-mode900 overflow-hidden py-[100px] md:py-[200px]">
+      <section id="section-feature-process" className="relative w-full min-h-[800px] md:h-[1040px] bg-dark-mode900 overflow-hidden py-[100px] md:py-[200px] mt-[-200px]">
         <div className="max-w-[1440px] mx-auto relative h-full">
           {/* Left side content */}
           <div className="inline-flex flex-col items-start gap-6 absolute top-[calc(50.00%_-_209px)] left-8 z-10">
@@ -187,7 +187,7 @@ export const FeatureSection = (): JSX.Element => {
           </div>
 
           {/* Right side carousel viewport */}
-          <div className="absolute top-[100px] left-[516px] w-[892px] h-[840px] flex justify-center items-center">
+          <div className="sticky top-[100px] left-[516px] w-[892px] h-[840px] flex justify-center items-center">
             {processSteps.map((step, index) => {
               // Calculate the delay for each item to create the carousel effect
               const animationDelayFraction = ANIMATION_DURATION / TOTAL_STEPS;

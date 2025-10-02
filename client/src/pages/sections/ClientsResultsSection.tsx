@@ -375,7 +375,7 @@ export const ClientsResultsSection: React.FC = () => {
       </div>
 
       <div id="clients-results-cta-section" className="flex flex-col items-center justify-center gap-8 px-4">
-        <h2 id="clients-results-cta-title" className="font-semibold text-white text-[20px] text-center tracking-[0px] leading-[24px]">
+        <h2 id="clients-results-cta-title" className="font-semibold text-white text-[20px] text-center tracking-[0px] leading-[24px] mt-[50px]">
           Ready to be our next success story?
         </h2>
         <Button 
