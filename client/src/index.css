@@ -375,8 +375,15 @@ div#service-card-2 {
     top: 50px;
 }
 
-.sticky.top-\[100px\].left-\[516px\].w-\[892px\].h-\[840px\].flex.justify-center.items-center {
+.relative.top-\[100px\].left-\[516px\].w-\[892px\].h-\[840px\].flex.justify-center.items-center {
     top: -100px;
     position: relative;
+}
+
+/* Prevent carousel from moving left on screens larger than 1440px */
+@media (min-width: 1441px) {
+    .relative.top-\[100px\].left-\[516px\].w-\[892px\].h-\[840px\].flex.justify-center.items-center {
+        left: 516px;
+    }
 }
 

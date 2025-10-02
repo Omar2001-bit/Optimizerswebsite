@@ -187,7 +187,7 @@ export const FeatureSection = (): JSX.Element => {
           </div>
 
           {/* Right side carousel viewport */}
-          <div className="sticky top-[100px] left-[516px] w-[892px] h-[840px] flex justify-center items-center">
+          <div className="relative top-[100px] left-[516px] w-[892px] h-[840px] flex justify-center items-center">
             {processSteps.map((step, index) => {
               // Calculate the delay for each item to create the carousel effect
               const animationDelayFraction = ANIMATION_DURATION / TOTAL_STEPS;
