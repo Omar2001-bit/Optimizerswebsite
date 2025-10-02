@@ -90,9 +90,9 @@ export const FeatureSection = (): JSX.Element => {
         @keyframes carousel-animate-vertical {
           0% {
             transform: translateY(180%) scale(0.5);
-            opacity: 0.3;
+            opacity: 0;
             z-index: 1;
-            visibility: visible;
+            visibility: hidden;
           }
           ${SLIDE_CHANGE_TIMING}%,
           ${STEP_INTERVAL_PERCENTAGE}% {
@@ -132,9 +132,9 @@ export const FeatureSection = (): JSX.Element => {
           ${(STEP_INTERVAL_PERCENTAGE * 5) + SLIDE_CHANGE_TIMING}%,
           100% {
             transform: translateY(-180%) scale(0.5);
-            opacity: 0.3;
+            opacity: 0;
             z-index: 1;
-            visibility: visible;
+            visibility: hidden;
           }
         }
         @keyframes carousel-color-animate {
