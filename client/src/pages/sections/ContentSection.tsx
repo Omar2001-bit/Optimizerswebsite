@@ -63,18 +63,11 @@ export const ContentSection = (): JSX.Element => {
             <Button
               variant="outline"
               className="px-5 py-3.5 relative flex-[0_0_auto] border border-solid border-[#6ae499] inline-flex items-center justify-center gap-2 rounded bg-transparent h-auto hover:bg-transparent hover:text-secondary-500"
-              asChild
+              onClick={() => setIsPlaying(true)}
             >
-              <a
-                href="https://www.youtube.com/watch?v=8zECN_jyCG4"
-                rel="noopener noreferrer"
-                target="_blank"
-                className="font-normal text-secondary-500 text-lg leading-[18px] relative w-fit mt-[-1.00px] [font-family:'Sora',Helvetica] tracking-[0]"
-              >
-                <span className="text-[18px] font-semibold leading-[21.6px] underline tracking-[0px]">
-                  Watch Now
-                </span>
-              </a>
+              <span className="font-semibold text-secondary-500 text-[18px] leading-[21.6px] underline tracking-[0px]">
+                Watch Now
+              </span>
             </Button>
           </div>
         </div>
