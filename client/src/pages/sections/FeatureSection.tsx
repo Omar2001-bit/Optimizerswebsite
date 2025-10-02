@@ -203,8 +203,8 @@ export const FeatureSection = (): JSX.Element => {
                   style={{ 
                     animationDelay: `${animationDelay}s`,
                     '--animation-delay': `${animationDelay}s`,
-                    opacity: animationDelay < 0 ? 0 : undefined,
-                    visibility: animationDelay < 0 ? 'hidden' : undefined
+                    opacity: 0,
+                    visibility: 'hidden'
                   } as React.CSSProperties}
                 >
                   <div
