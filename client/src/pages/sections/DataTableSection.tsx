@@ -108,8 +108,8 @@ export const DataTableSection = (): JSX.Element => {
               </TableHeader>
               <TableBody>
                 {tableData.map((row, index) => {
-                  const start = index * 0.1;
-                  const end = start + 0.5; // Give each animation a bit of duration
+                  const start = 0.12 + (index * 0.07);
+                  const end = start + 0.26;
 
                   const x = useTransform(scrollYProgress, [start, end], [index % 2 === 0 ? -300 : 300, 0]);
                   const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
