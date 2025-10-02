@@ -200,7 +200,7 @@ export const ClientsResultsSection: React.FC = () => {
         <h1 id="clients-results-title" className="font-semibold text-shadeswhite text-[32px] md:text-[48px] text-center tracking-[-1.92px] leading-[40px] md:leading-[56px]">
           TOP CLIENTS & RESULTS
         </h1>
-        <p id="clients-results-description" className="max-w-[770px] font-semibold text-shadeswhite text-[20px] text-center tracking-[0px] leading-[24px]">
+        <p id="clients-results-description" className="max-w-[770px] font-normal text-shadeswhite text-[20px] text-center tracking-[0px] leading-[24px]">
           See how we&apos;ve helped leading e-commerce brands increase
           conversions, revenue, and customer loyalty through CRO.
         </p>
