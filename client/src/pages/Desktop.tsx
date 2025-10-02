@@ -66,7 +66,7 @@ const brandLogos = [
 export const Desktop = (): JSX.Element => {
   return (
     <div id="main-container" className="bg-dark-mode900 overflow-hidden w-full relative">
-      <header id="header-navigation" className="flex w-full max-w-[1371px] h-[76px] items-center justify-between px-4 md:px-8 py-4 flex-wrap md:flex-nowrap fixed top-3 left-1/2 transform -translate-x-1/2 bg-[#ffffff1a] rounded overflow-hidden border-[none] backdrop-blur-[23.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(23.5px)_brightness(100%)] z-[100] mx-4 before:content-[''] before:absolute before:inset-0 before:p-px before:rounded before:[background:linear-gradient(180deg,rgba(255,255,255,0.03)_0%,rgba(10,57,28,0.3)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none">
+      <header id="header-navigation" className="flex w-full max-w-[1371px] h-[76px] items-center justify-between px-4 md:px-8 py-4 flex-wrap md:flex-nowrap fixed top-3 left-1/2 transform -translate-x-1/2 bg-[#ffffff1a] rounded overflow-hidden border-[none] backdrop-blur-[23.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(23.5px)_brightness(100%)] z-[100] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded before:[background:linear-gradient(180deg,rgba(255,255,255,0.03)_0%,rgba(10,57,28,0.3)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none">
         <img
           id="logo-main"
           className="relative w-[119px] h-[22px]"
