@@ -226,7 +226,7 @@ export const OverviewSection = (): JSX.Element => {
                     <div className="absolute inset-0 bg-[#4d6655] opacity-80"></div>
                   </div>
                   <CardContent className="relative z-20 p-4 h-full flex flex-col items-center justify-end gap-4">
-                    <h3 className="font-heading-h6-semi-bold font-[number:var(--heading-h6-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h6-semi-bold-font-size)] tracking-[var(--heading-h6-semi-bold-letter-spacing)] leading-[var(--heading-h6-semi-bold-line-height)] [font-style:var(--heading-h6-semi-bold-font-style)] text-center">
+                    <h3 className="closed-card-name font-heading-h6-semi-bold font-[number:var(--heading-h6-semi-bold-font-weight)] text-shadeswhite text-[length:var(--heading-h6-semi-bold-font-size)] tracking-[var(--heading-h6-semi-bold-letter-spacing)] leading-[var(--heading-h6-semi-bold-line-height)] [font-style:var(--heading-h6-semi-bold-font-style)] text-center">
                       {study.company}
                     </h3>
                     <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">

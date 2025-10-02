@@ -434,3 +434,29 @@ section.flex.flex-col.items-start.gap-2.py-\[100px\].md\:py-\[200px\].px-4.md\:p
     margin-top: -150px;
 }
 
+h2#why-choose-us-title {
+    margin-bottom: -30px;
+}
+
+h1#what-we-do-title {
+    margin-bottom: -30px;
+}
+
+h2#what-we-do-subtitle {
+    margin-bottom: -30px;
+}
+
+.closed-card-name {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+section.relative.w-full.min-h-\[800px\].md\:h-\[1200px\].bg-dark-mode900.py-\[100px\] {
+    position: relative;
+    bottom: 40px;
+}
+
+header#header-navigation {
+    max-width: 1371px;
+}
+
