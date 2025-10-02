@@ -28,8 +28,8 @@ export const ContentSection = (): JSX.Element => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-24 h-24 bg-[#6ae499] rounded-full flex items-center justify-center hover:bg-[#5cd389] transition-colors shadow-lg">
-                    <svg className="w-12 h-12 text-dark-mode900 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="w-24 h-24 bg-black rounded-full flex items-center justify-center hover:bg-gray-900 transition-colors shadow-lg border-2 border-[#6ae499]">
+                    <svg className="w-12 h-12 text-[#6ae499] ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z"/>
                     </svg>
                   </div>
