@@ -34,14 +34,15 @@ body {
     position: sticky;
     top: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: clip;
+    -webkit-overflow-scrolling: touch;
 }
 
 .header-content-box {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: visible;
     background: #020601;
     display: flex;
     justify-content: center;

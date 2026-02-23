@@ -38,8 +38,8 @@ export default function AnimatedCaseStudies() {
     });
 
     const roundedScroll = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
+        stiffness: 80,
+        damping: 25,
         restDelta: 0.001,
     });
 
@@ -66,15 +66,15 @@ export default function AnimatedCaseStudies() {
         ['#ffffff', '#ff8979', '#6ae499', '#fcd34d', '#5a8cd6']
     );
 
-    const slide1Y = useTransform(roundedScroll, [0.10, 0.15, 0.28, 0.32], ['30%', '0%', '0%', '-30%']);
-    const slide2Y = useTransform(roundedScroll, [0.30, 0.35, 0.52, 0.56], ['30%', '0%', '0%', '-30%']);
-    const slide3Y = useTransform(roundedScroll, [0.54, 0.59, 0.76, 0.80], ['30%', '0%', '0%', '-30%']);
-    const slide4Y = useTransform(roundedScroll, [0.78, 0.83, 1, 1], ['30%', '0%', '0%', '0%']);
+    const slide1Y = useTransform(roundedScroll, [0.08, 0.12, 0.23, 0.26], ['30%', '0%', '0%', '-30%']);
+    const slide2Y = useTransform(roundedScroll, [0.25, 0.29, 0.44, 0.47], ['30%', '0%', '0%', '-30%']);
+    const slide3Y = useTransform(roundedScroll, [0.46, 0.50, 0.65, 0.68], ['30%', '0%', '0%', '-30%']);
+    const slide4Y = useTransform(roundedScroll, [0.67, 0.71, 1, 1], ['30%', '0%', '0%', '0%']);
 
-    const slide1Opacity = useTransform(roundedScroll, [0.10, 0.13, 0.29, 0.32], [0, 1, 1, 0]);
-    const slide2Opacity = useTransform(roundedScroll, [0.30, 0.33, 0.53, 0.56], [0, 1, 1, 0]);
-    const slide3Opacity = useTransform(roundedScroll, [0.54, 0.57, 0.77, 0.80], [0, 1, 1, 0]);
-    const slide4Opacity = useTransform(roundedScroll, [0.78, 0.81, 1, 1], [0, 1, 1, 1]);
+    const slide1Opacity = useTransform(roundedScroll, [0.08, 0.10, 0.24, 0.26], [0, 1, 1, 0]);
+    const slide2Opacity = useTransform(roundedScroll, [0.25, 0.27, 0.45, 0.47], [0, 1, 1, 0]);
+    const slide3Opacity = useTransform(roundedScroll, [0.46, 0.48, 0.66, 0.68], [0, 1, 1, 0]);
+    const slide4Opacity = useTransform(roundedScroll, [0.67, 0.69, 1, 1], [0, 1, 1, 1]);
 
     return (
         <div ref={containerRef} className="cs-scroll-container">
