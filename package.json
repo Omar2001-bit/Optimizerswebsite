@@ -7,7 +7,6 @@
     "build": "vite build",
     "dev": "vite",
     "start": "vite",
-    "backend": "node server.js",
     "share": "ngrok http 9000",
     "compress-images": "node scripts/compress-images.js"
   },
@@ -47,11 +46,8 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "cmdk": "1.1.1",
-    "cors": "^2.8.6",
     "date-fns": "3.6.0",
-    "dotenv": "^17.3.1",
     "embla-carousel-react": "8.6.0",
-    "express": "^5.2.1",
     "input-otp": "1.4.2",
     "lucide-react": "0.487.0",
     "matter-js": "^0.20.0",
@@ -77,8 +73,6 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.1.12",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
     "@types/matter-js": "^0.20.2",
     "@vitejs/plugin-react": "4.7.0",
     "ngrok": "^5.0.0-beta.2",
