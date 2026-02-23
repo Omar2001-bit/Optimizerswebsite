@@ -1,19 +1,27 @@
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export default async function handler(req, res) {
+    // Only allow POST
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const { firstName, email, website, monthlyConversions, challenge } = req.body;
-
-    if (!firstName || !email) {
-        return res.status(400).json({ error: "First name and email are required." });
+    // Check for API key
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+        console.error("RESEND_API_KEY environment variable is not set");
+        return res.status(500).json({ error: "Email service is not configured." });
     }
 
     try {
+        // Dynamic import to avoid top-level crash if package has issues
+        const { Resend } = await import("resend");
+        const resend = new Resend(apiKey);
+
+        const { firstName, email, website, monthlyConversions, challenge } = req.body || {};
+
+        if (!firstName || !email) {
+            return res.status(400).json({ error: "First name and email are required." });
+        }
+
         const { data, error } = await resend.emails.send({
             from: "Optimizers <onboarding@resend.dev>",
             to: ["team@optimizers.agency"],
@@ -53,7 +61,7 @@ export default async function handler(req, res) {
         });
 
         if (error) {
-            console.error("Resend Error:", error);
+            console.error("Resend API Error:", JSON.stringify(error));
             return res.status(500).json({ success: false, error: error.message });
         }
 
@@ -63,7 +71,10 @@ export default async function handler(req, res) {
             data,
         });
     } catch (err) {
-        console.error("Server Error:", err);
-        return res.status(500).json({ success: false, error: err.message });
+        console.error("Serverless function error:", err);
+        return res.status(500).json({
+            success: false,
+            error: err.message || "An unexpected error occurred.",
+        });
     }
 }
