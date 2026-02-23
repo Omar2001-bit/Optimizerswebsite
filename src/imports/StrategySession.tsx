@@ -6,7 +6,7 @@ import { InlineWidget } from "react-calendly";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import imgBookYourFreeStrategySession from "../assets/4885e8a0678713d22d734d0a41f2f71f1b85c0ab.png";
+import imgBookYourFreeStrategySession from "../assets/4885e8a0678713d22d734d0a41f2f71f1b85c0ab.webp";
 
 // --- Validation & Helpers ---
 const validateWebsite = (url: string): string => {

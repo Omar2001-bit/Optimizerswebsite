@@ -107,6 +107,9 @@ export function AnimatedBeforeCard() {
 
     World.add(world, mouseConstraint);
 
+    // Remove Matter.js wheel listener so page scrolling isn't blocked
+    mouse.element.removeEventListener('wheel', (mouse as any).mousewheel);
+
     // Animation Loop
     const run = () => {
       Engine.update(engine);

@@ -1,6 +1,6 @@
 import svgPaths from "./svg-gpil48nekb";
 import clsx from "clsx";
-import imgOurProvenConversionOptimizationProcess from "../assets/f107a7f40e4d7ea19ffc42c38dbf8e17414a5f3b.png";
+import imgOurProvenConversionOptimizationProcess from "../assets/f107a7f40e4d7ea19ffc42c38dbf8e17414a5f3b.webp";
 import { AnimatedProcessCard } from "./AnimatedProcessCard";
 import { AnimatedBeforeCard } from "./AnimatedBeforeCard";
 

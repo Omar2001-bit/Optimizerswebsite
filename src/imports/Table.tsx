@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import svgPaths from "./svg-8x44mv6a2l";
-import imgWhatMakesCroTheSmarterInvestment from "@/assets/1495296c1372cb62f4b13afc83f9acb3d1d29faf.png";
+import imgWhatMakesCroTheSmarterInvestment from "@/assets/1495296c1372cb62f4b13afc83f9acb3d1d29faf.webp";
 import { imgAnimatedBeam } from "./svg-cfo9w";
 
 const CANVAS_WIDTH = 1440;

@@ -1,5 +1,5 @@
 import svgPaths from "./svg-qeyjw9p68s";
-import imgWhyChooseOurCroAgency from "../assets/b17a09a1da837a217fffce56dd8a2a3ec3e8dbd7.png";
+import imgWhyChooseOurCroAgency from "../assets/b17a09a1da837a217fffce56dd8a2a3ec3e8dbd7.webp";
 import WaveConnector from "./WaveConnector";
 
 function MaskBase() {

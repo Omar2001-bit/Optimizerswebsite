@@ -1,14 +1,14 @@
 import { motion } from 'motion/react';
-import img6687D1Be6301F78Fecf93Bc763Bd507De1Ccf48089402Fa4UOYhhM4ZWeg3AkxNwMMdc44TbzMuFvnANywZtcyIzg from "../assets/5c2837e232462b4d4fbcb5d03a7b4d3d04ae2294.png";
-import imgB9B3C47F590C9Afc97BcB866Bad86A72 from "../assets/45fdc402ef0fb2fb47ced0eabff3aed75e3aa444.png";
-import imgImages1 from "../assets/6e44e207c6307c14576d2461f4b45a5b34636399.png";
-import imgGtmLogo from "../assets/26004c4ca0aa9217e8b10d13d1a00858a5377a40.png";
-import imgWoocommerceLogo1 from "../assets/fee97dace625b60b3ce9e2c4d99e573dd08b546b.png";
-import imgGoogleAnalyticsLogo1 from "../assets/f25f918cb55d279ab2ebd206088482f5d51252f4.png";
-import img3583589718ShopifyLogoWhiteTransparent from "../assets/b87711c4af26e07d30baf9f568caa5f7620b97a4.png";
-import imgHotjarIcon from "../assets/539bc2eb95b4f05acea0b086987528846d075244.png";
-import imgMicrosoftClarityIcon from "../assets/7812f405b5a3033730572bd6dae6c5acebab4ea4.png";
-import imgOurPartnersTools from "../assets/e527242af51a4a3d5a76a9787b060a26b6da4a95.png";
+import img6687D1Be6301F78Fecf93Bc763Bd507De1Ccf48089402Fa4UOYhhM4ZWeg3AkxNwMMdc44TbzMuFvnANywZtcyIzg from "../assets/5c2837e232462b4d4fbcb5d03a7b4d3d04ae2294.webp";
+import imgB9B3C47F590C9Afc97BcB866Bad86A72 from "../assets/45fdc402ef0fb2fb47ced0eabff3aed75e3aa444.webp";
+import imgImages1 from "../assets/6e44e207c6307c14576d2461f4b45a5b34636399.webp";
+import imgGtmLogo from "../assets/26004c4ca0aa9217e8b10d13d1a00858a5377a40.webp";
+import imgWoocommerceLogo1 from "../assets/fee97dace625b60b3ce9e2c4d99e573dd08b546b.webp";
+import imgGoogleAnalyticsLogo1 from "../assets/f25f918cb55d279ab2ebd206088482f5d51252f4.webp";
+import img3583589718ShopifyLogoWhiteTransparent from "../assets/b87711c4af26e07d30baf9f568caa5f7620b97a4.webp";
+import imgHotjarIcon from "../assets/539bc2eb95b4f05acea0b086987528846d075244.webp";
+import imgMicrosoftClarityIcon from "../assets/7812f405b5a3033730572bd6dae6c5acebab4ea4.webp";
+import imgOurPartnersTools from "../assets/e527242af51a4a3d5a76a9787b060a26b6da4a95.webp";
 
 // Define all icons with their fixed positions and properties
 const icons = [

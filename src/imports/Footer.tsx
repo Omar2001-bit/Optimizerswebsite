@@ -1,5 +1,5 @@
 import svgPaths from "./svg-8wsjqhowl2";
-import imgBeOurNextSuccessStory from "../assets/835347f279bfb9f2ab07e91b8dc25069bcb6dcb2.png";
+import imgBeOurNextSuccessStory from "../assets/835347f279bfb9f2ab07e91b8dc25069bcb6dcb2.webp";
 
 function DivBtnLabel() {
   return (

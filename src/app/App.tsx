@@ -1,4 +1,4 @@
-import imgOurServices from "../assets/462979b8a94cb599bf6cf91c5d11489a30eeae28.png";
+import imgOurServices from "../assets/462979b8a94cb599bf6cf91c5d11489a30eeae28.webp";
 import Component333 from "@/imports/Component333";
 import ROICalculator from "@/imports/ROICalculator";
 import ProcessWithAnimation from "@/imports/ProcessWithAnimation";

@@ -1,16 +1,16 @@
 import { motion } from 'motion/react';
-import imgRectangle14 from "../assets/d8b337a511649b176cd435e218aaa7b2a33d3cb6.png";
+import imgRectangle14 from "../assets/d8b337a511649b176cd435e218aaa7b2a33d3cb6.webp";
 import imgRectangle12 from "../assets/1e2bc48a17b1656347bb46caabfa6e2bd1c24845.png";
 import imgRectangle9 from "../assets/046c40b816efa7bf2571f96406a150d0f81ede99.png";
-import imgRectangle10 from "../assets/7ad949482f63f44db04299f5bf254873f728d7ff.png";
-import imgRectangle4 from "../assets/6a25f990938672a3e0fa2a719fc1700b87c73068.png";
+import imgRectangle10 from "../assets/7ad949482f63f44db04299f5bf254873f728d7ff.webp";
+import imgRectangle4 from "../assets/6a25f990938672a3e0fa2a719fc1700b87c73068.webp";
 import imgRectangle11 from "../assets/79e7969f09efccab8e047c24086054abb50ee7e2.png";
-import imgRectangle13 from "../assets/a8a44a44a12d34e1d02ae948d49a3667ae53eb82.png";
+import imgRectangle13 from "../assets/a8a44a44a12d34e1d02ae948d49a3667ae53eb82.webp";
 import imgRectangle15 from "../assets/7a88678bdda77cc2cf07f6b07429257ff47b65de.png";
-import imgRectangle16 from "../assets/5950a3ddf2a6ec9b701c5efd3ec463328161175a.png";
-import imgRectangle17 from "../assets/0f2c3f5ca49e9394bfe08c7f7dd7175f5ef586bd.png";
-import imgRectangle18 from "../assets/eb353270e89d942c0cb7aca6776f63e80f7bbe5e.png";
-import imgRectangle19 from "../assets/212c2c3f9e91b0f640a3c4744397715ee2bd1eb1.png";
+import imgRectangle16 from "../assets/5950a3ddf2a6ec9b701c5efd3ec463328161175a.webp";
+import imgRectangle17 from "../assets/0f2c3f5ca49e9394bfe08c7f7dd7175f5ef586bd.webp";
+import imgRectangle18 from "../assets/eb353270e89d942c0cb7aca6776f63e80f7bbe5e.webp";
+import imgRectangle19 from "../assets/212c2c3f9e91b0f640a3c4744397715ee2bd1eb1.webp";
 
 const ALL_IMAGES = [
     imgRectangle14, imgRectangle12, imgRectangle9, imgRectangle10,

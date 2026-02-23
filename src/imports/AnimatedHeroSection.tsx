@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
@@ -8,43 +7,87 @@ import Section5 from "./Section5";
 import svgPaths from "./svg-26ylxxv0ig";
 
 const sections = [Section1, Section2, Section3, Section4, Section5];
+const AUTO_SCROLL_INTERVAL = 6000;
+const PAUSE_AFTER_CLICK = 15000;
+const TRANSITION_MS = 800;
 
 export default function AnimatedHeroSection() {
-    const [index, setIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0);
+    // Track which sections should be visible (for CSS transition purposes)
+    const [visibleSet, setVisibleSet] = useState<Set<number>>(new Set([0]));
+    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const transitionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    const nextSection = useCallback(
-        () => setIndex((prev) => (prev + 1) % sections.length),
-        []
-    );
+    const goTo = useCallback((getNext: (prev: number) => number) => {
+        setActiveIndex((prev) => {
+            const next = getNext(prev);
+            // Make both sections visible during transition
+            setVisibleSet(new Set([prev, next]));
 
-    const prevSection = useCallback(
-        () => setIndex((prev) => (prev - 1 + sections.length) % sections.length),
-        []
-    );
+            // After transition, hide the old section
+            if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
+            transitionTimerRef.current = setTimeout(() => {
+                setVisibleSet(new Set([next]));
+            }, TRANSITION_MS + 50);
+
+            return next;
+        });
+    }, []);
+
+    const nextSection = useCallback(() => {
+        goTo((prev) => (prev + 1) % sections.length);
+        if (timerRef.current) clearTimeout(timerRef.current);
+        timerRef.current = setTimeout(() => startAutoScroll(), PAUSE_AFTER_CLICK);
+    }, [goTo]);
+
+    const prevSection = useCallback(() => {
+        goTo((prev) => (prev - 1 + sections.length) % sections.length);
+        if (timerRef.current) clearTimeout(timerRef.current);
+        timerRef.current = setTimeout(() => startAutoScroll(), PAUSE_AFTER_CLICK);
+    }, [goTo]);
+
+    const startAutoScroll = useCallback(() => {
+        if (timerRef.current) clearTimeout(timerRef.current);
+        const tick = () => {
+            goTo((prev) => (prev + 1) % sections.length);
+            timerRef.current = setTimeout(tick, AUTO_SCROLL_INTERVAL);
+        };
+        timerRef.current = setTimeout(tick, AUTO_SCROLL_INTERVAL);
+    }, [goTo]);
 
     useEffect(() => {
-        const timer = setInterval(nextSection, 6000);
-        return () => clearInterval(timer);
-    }, [nextSection]);
+        startAutoScroll();
+        return () => {
+            if (timerRef.current) clearTimeout(timerRef.current);
+            if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
+        };
+    }, [startAutoScroll]);
 
     return (
         <div className="relative w-full h-screen overflow-hidden bg-[#020601]">
-            {/* Stacked Sections – crossfade via AnimatePresence */}
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
-                    className="absolute inset-0"
-                >
-                    {(() => {
-                        const Section = sections[index];
-                        return <Section isActive={true} />;
-                    })()}
-                </motion.div>
-            </AnimatePresence>
+            {/* All sections pre-mounted, inactive ones hidden via visibility */}
+            {sections.map((Section, i) => {
+                const isActive = i === activeIndex;
+                const isVisible = visibleSet.has(i);
+                return (
+                    <div
+                        key={i}
+                        style={{
+                            position: 'absolute',
+                            inset: 0,
+                            opacity: isActive ? 1 : 0,
+                            visibility: isVisible ? 'visible' : 'hidden',
+                            zIndex: isActive ? 1 : 0,
+                            transition: `opacity ${TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
+                            willChange: isVisible ? 'opacity' : 'auto',
+                            transform: 'translate3d(0,0,0)',
+                            pointerEvents: isActive ? 'auto' : 'none',
+                        }}
+                    >
+                        <Section isActive={isActive} />
+                    </div>
+                );
+            })}
 
             {/* Persistent UI – always on top */}
 
@@ -97,7 +140,7 @@ export default function AnimatedHeroSection() {
                 {sections.map((_, i) => (
                     <div
                         key={i}
-                        className={`w-[4px] transition-all duration-500 rounded-full ${i === index ? 'h-[24px] bg-[#6ae499]' : 'h-[8px] bg-white/20'}`}
+                        className={`w-[4px] transition-all duration-500 rounded-full ${i === activeIndex ? 'h-[24px] bg-[#6ae499]' : 'h-[8px] bg-white/20'}`}
                     />
                 ))}
             </div>

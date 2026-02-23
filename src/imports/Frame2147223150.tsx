@@ -1,8 +1,8 @@
 import svgPaths from "./svg-19nlbs0dc8";
-import imgScreenshot20250924At120529Am1 from "@/assets/8a7a6e8497a40fb655644c168414324ab7ecaa93.png";
+import imgScreenshot20250924At120529Am1 from "@/assets/8a7a6e8497a40fb655644c168414324ab7ecaa93.webp";
 import videoThumbnail from "@/assets/video_thumbnail.png";
 import { useState, useRef, useEffect } from "react";
-import imgLearnCroFromOurCeo from "@/assets/48c0908a5973996950b53feb47622625902ab2fe.png";
+import imgLearnCroFromOurCeo from "@/assets/48c0908a5973996950b53feb47622625902ab2fe.webp";
 import { imgGroup, imgGroup1 } from "./svg-s0pg2";
 
 function Group() {

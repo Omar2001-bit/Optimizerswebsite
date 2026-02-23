@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import svgPaths from "./svg-67sjau8p5h";
-import imgRectangle2 from "../assets/8beafb71ac0e56f696268857cdb1244ee06d2dcc.png";
-import imgRectangle3 from "../assets/4f11d4feb717671a4fc30f59979ff4c1bbb1eeb2.png";
-import imgRectangle4 from "../assets/2360b5bdc64c7364378a5a9d57d3b75bc52915d7.png";
-import imgRectangle5 from "../assets/74dadc14d70527de322c8a12cd44546b63f3fcd5.png";
-import imgLiftapp from "../assets/3ea05da11c2980d6a66b2e7e7d24667e55eea21a.png";
+import imgRectangle2 from "../assets/8beafb71ac0e56f696268857cdb1244ee06d2dcc.webp";
+import imgRectangle3 from "../assets/4f11d4feb717671a4fc30f59979ff4c1bbb1eeb2.webp";
+import imgRectangle4 from "../assets/2360b5bdc64c7364378a5a9d57d3b75bc52915d7.webp";
+import imgRectangle5 from "../assets/74dadc14d70527de322c8a12cd44546b63f3fcd5.webp";
+import imgLiftapp from "../assets/3ea05da11c2980d6a66b2e7e7d24667e55eea21a.webp";
 
 function Lights() {
     return (

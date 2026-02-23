@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import svgPaths from "./svg-tq22mvqhgg";
-import imgRoiCalculator from "../assets/5522a305e991d2984d5522a9865ed717796014a0.png";
+import imgRoiCalculator from "../assets/5522a305e991d2984d5522a9865ed717796014a0.webp";
 
 const defaultValues = {
   currency: "SAR",
@@ -994,7 +994,7 @@ function Frame34() {
 
 function Card() {
   return (
-    <div className="content-stretch flex flex-col items-center justify-center px-4 py-10 lg:px-[36px] lg:py-[60px] relative rounded-[24px] w-full max-w-[1240px] animate-wave-fast" data-name="Card" style={{ backgroundImage: "linear-gradient(140.657deg, rgba(255, 255, 255, 0.12) 2.6545%, rgba(255, 255, 255, 0) 44.796%), url('data:image/svg+xml;utf8,<svg viewBox=\\\"0 0 1240 1296\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\" preserveAspectRatio=\\\"none\\\"><rect x=\\\"0\\\" y=\\\"0\\\" height=\\\"100%\\\" width=\\\"100%\\\" fill=\\\"url(%23grad)\\\" opacity=\\\"1\\\"/><defs><radialGradient id=\\\"grad\\\" gradientUnits=\\\"userSpaceOnUse\\\" cx=\\\"0\\\" cy=\\\"0\\\" r=\\\"10\\\" gradientTransform=\\\"matrix(196.13 72.108 -59.815 125.23 573.8 180.72)\\\"><stop stop-color=\\\"rgba(0,0,0,1)\\\" offset=\\\"0\\\"/><stop stop-color=\\\"rgba(0,0,0,1)\\\" offset=\\\"0.55823\\\"/><stop stop-color=\\\"rgba(0,0,0,0.3)\\\" offset=\\\"0.73997\\\"/><stop stop-color=\\\"rgba(0,0,0,0)\\\" offset=\\\"1\\\"/></radialGradient></defs></svg>'), linear-gradient(88.4102deg, rgb(66, 102, 164) 0%, rgb(146, 235, 180) 25%, rgb(66, 102, 164) 50%, rgb(146, 235, 180) 75%, rgb(66, 102, 164) 100%)", backgroundSize: "100% 100%, 100% 100%, 400% 400%" }}>
+    <div className="content-stretch flex flex-col items-center justify-center px-4 py-10 lg:px-[36px] lg:py-[60px] relative rounded-[24px] w-full max-w-[1240px] animate-wave-fast" data-name="Card" style={{ backgroundImage: "linear-gradient(140.657deg, rgba(255, 255, 255, 0.12) 2.6545%, rgba(255, 255, 255, 0) 44.796%), url('data:image/svg+xml;utf8,<svg viewBox=\\\"0 0 1240 1296\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\" preserveAspectRatio=\\\"none\\\"><rect x=\\\"0\\\" y=\\\"0\\\" height=\\\"100%\\\" width=\\\"100%\\\" fill=\\\"url(%23grad)\\\" opacity=\\\"1\\\"/><defs><radialGradient id=\\\"grad\\\" gradientUnits=\\\"userSpaceOnUse\\\" cx=\\\"0\\\" cy=\\\"0\\\" r=\\\"10\\\" gradientTransform=\\\"matrix(196.13 -72.108 59.815 125.23 573.8 1115)\\\"><stop stop-color=\\\"rgba(0,0,0,1)\\\" offset=\\\"0\\\"/><stop stop-color=\\\"rgba(0,0,0,1)\\\" offset=\\\"0.55823\\\"/><stop stop-color=\\\"rgba(0,0,0,0.3)\\\" offset=\\\"0.73997\\\"/><stop stop-color=\\\"rgba(0,0,0,0)\\\" offset=\\\"1\\\"/></radialGradient></defs></svg>'), linear-gradient(88.4102deg, rgb(66, 102, 164) 0%, rgb(146, 235, 180) 25%, rgb(66, 102, 164) 50%, rgb(146, 235, 180) 75%, rgb(66, 102, 164) 100%)", backgroundSize: "100% 100%, 100% 100%, 400% 400%" }}>
       <style>{`
         @keyframes wave-gradient {
           0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
@@ -1011,7 +1011,7 @@ function Card() {
           <Frame34 />
         </div>
       </div>
-      <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-16.5px_36.9px_0px_rgba(255,255,255,0.4)]" />
+      <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_16.5px_36.9px_0px_rgba(255,255,255,0.4)]" />
     </div>
   );
 }

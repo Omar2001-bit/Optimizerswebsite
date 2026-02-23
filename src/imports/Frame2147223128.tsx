@@ -1,16 +1,16 @@
 import { useRef, useEffect } from "react";
 import svgPaths from "./svg-ahyjsadytk";
-import img6687D1Be6301F78Fecf93Bc763Bd507De1Ccf48089402Fa4UOYhhM4ZWeg3AkxNwMMdc44TbzMuFvnANywZtcyIzg from "../assets/5c2837e232462b4d4fbcb5d03a7b4d3d04ae2294.png";
-import imgB9B3C47F590C9Afc97BcB866Bad86A72 from "../assets/45fdc402ef0fb2fb47ced0eabff3aed75e3aa444.png";
-import img3583589718ShopifyLogoWhiteTransparent1 from "../assets/b87711c4af26e07d30baf9f568caa5f7620b97a4.png";
-import imgWoocommerceLogo1 from "../assets/fee97dace625b60b3ce9e2c4d99e573dd08b546b.png";
-import imgYourAdsBringVisitorsWeTurnThemIntoBuyers from "../assets/dd6b82f7e2b40730bbc256a499af3b659557dfd2.png";
-import img2Fe3278ACe584000B160A7415574Aac1 from "../assets/17325329b10a44134a79734b0884ffad14ddbed7.png";
-import imgSquadioLogo1 from "../assets/58277737f726fa8271cdd9407612159994b21186.png";
-import imgVitrineFurniture09082019Ee834Ce7E8Ea4E00878D60378A796Ff0410X from "../assets/e5232ce0528b3c3ea47f6567306e5e7795bbb57a.png";
-import imgElKalbEl4A2YWhiteAndNoBackground from "../assets/a33025d56680114484fa0589302841737d1bfd66.png";
-import imgRegalEnLogo01 from "../assets/4387b7cb5576eedd1c2dfa9e01243b9e1225824a.png";
-import imgHeaderVideo from "../assets/75f3f92d20cabf7495b10a5e660b8ee7c2ca5654.png";
+import img6687D1Be6301F78Fecf93Bc763Bd507De1Ccf48089402Fa4UOYhhM4ZWeg3AkxNwMMdc44TbzMuFvnANywZtcyIzg from "../assets/5c2837e232462b4d4fbcb5d03a7b4d3d04ae2294.webp";
+import imgB9B3C47F590C9Afc97BcB866Bad86A72 from "../assets/45fdc402ef0fb2fb47ced0eabff3aed75e3aa444.webp";
+import img3583589718ShopifyLogoWhiteTransparent1 from "../assets/b87711c4af26e07d30baf9f568caa5f7620b97a4.webp";
+import imgWoocommerceLogo1 from "../assets/fee97dace625b60b3ce9e2c4d99e573dd08b546b.webp";
+import imgYourAdsBringVisitorsWeTurnThemIntoBuyers from "../assets/dd6b82f7e2b40730bbc256a499af3b659557dfd2.webp";
+import img2Fe3278ACe584000B160A7415574Aac1 from "../assets/17325329b10a44134a79734b0884ffad14ddbed7.webp";
+import imgSquadioLogo1 from "../assets/58277737f726fa8271cdd9407612159994b21186.webp";
+import imgVitrineFurniture09082019Ee834Ce7E8Ea4E00878D60378A796Ff0410X from "../assets/e5232ce0528b3c3ea47f6567306e5e7795bbb57a.webp";
+import imgElKalbEl4A2YWhiteAndNoBackground from "../assets/a33025d56680114484fa0589302841737d1bfd66.webp";
+import imgRegalEnLogo01 from "../assets/4387b7cb5576eedd1c2dfa9e01243b9e1225824a.webp";
+import imgHeaderVideo from "../assets/75f3f92d20cabf7495b10a5e660b8ee7c2ca5654.webp";
 import headerVideoMp4 from "../assets/Optimizers-Header_1.mp4";
 import { imgGroup } from "./svg-0tz7a";
 
@@ -829,7 +829,7 @@ function Frame6() {
 
 function Frame7() {
   return (
-    <div className="content-stretch flex flex-col h-[316px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col h-[316px] items-center relative shrink-0 w-full hero-frame7">
       <Frame6 />
     </div>
   );
@@ -837,7 +837,7 @@ function Frame7() {
 
 function Frame9() {
   return (
-    <div className="content-stretch flex flex-col gap-[64px] h-[428.042px] items-center relative shrink-0 w-[867px]">
+    <div className="content-stretch flex flex-col gap-[64px] h-[428.042px] items-center relative shrink-0 w-[867px] hero-frame9">
       <Frame1 />
       <Frame7 />
     </div>
@@ -846,9 +846,9 @@ function Frame9() {
 
 function Component() {
   return (
-    <div className="h-[60px] relative shrink-0 w-[289.128px]" data-name="Component 2">
-      <div className="absolute h-[60px] left-0 mix-blend-luminosity top-0 w-[289.128px]" data-name="2fe3278a-ce58-4000-b160-a7415574aac1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full mix-blend-luminosity grayscale" src={img2Fe3278ACe584000B160A7415574Aac1} />
+    <div className="h-[60px] relative shrink-0 w-[289.128px] client-logo" data-name="Component 2">
+      <div className="absolute h-[60px] left-0 top-0 w-[289.128px]" data-name="2fe3278a-ce58-4000-b160-a7415574aac1">
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img2Fe3278ACe584000B160A7415574Aac1} />
       </div>
     </div>
   );
@@ -856,10 +856,10 @@ function Component() {
 
 function Component1() {
   return (
-    <div className="h-[60px] relative shrink-0 w-[168px]" data-name="Component 3">
-      <div className="absolute h-[60px] left-0 mix-blend-luminosity top-0 w-[168px]" data-name="Squadio Logo 1">
+    <div className="h-[60px] relative shrink-0 w-[168px] client-logo" data-name="Component 3">
+      <div className="absolute h-[60px] left-0 top-0 w-[168px]" data-name="Squadio Logo 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[332.31%] left-[-9.57%] max-w-none top-[-115.69%] w-[118.81%] grayscale" src={imgSquadioLogo1} />
+          <img alt="" className="absolute h-[332.31%] left-[-9.57%] max-w-none top-[-115.69%] w-[118.81%]" src={imgSquadioLogo1} />
         </div>
       </div>
     </div>
@@ -962,7 +962,7 @@ function Layer() {
 
 function B6B891804D954361Ac5A0A68E0Db06C() {
   return (
-    <div className="absolute h-[60.057px] left-0 mix-blend-luminosity overflow-clip top-0 w-[124px]" data-name="b6b89180-4d95-4361-ac5a-0a68e0db06c0">
+    <div className="absolute h-[60.057px] left-0 overflow-clip top-0 w-[124px]" data-name="b6b89180-4d95-4361-ac5a-0a68e0db06c0">
       <Layer />
     </div>
   );
@@ -970,7 +970,7 @@ function B6B891804D954361Ac5A0A68E0Db06C() {
 
 function Component2() {
   return (
-    <div className="h-[60.057px] relative shrink-0 w-[124px]" data-name="Component 4">
+    <div className="h-[60.057px] relative shrink-0 w-[124px] client-logo" data-name="Component 4">
       <B6B891804D954361Ac5A0A68E0Db06C />
     </div>
   );
@@ -978,10 +978,10 @@ function Component2() {
 
 function Component3() {
   return (
-    <div className="h-[60.228px] relative shrink-0 w-[72px]" data-name="Component 5">
-      <div className="absolute h-[60.228px] left-0 mix-blend-luminosity top-0 w-[72px]" data-name="Vitrine-Furniture-09082019_ee834ce7-e8ea-4e00-878d-60378a796ff0_410x">
+    <div className="h-[60.228px] relative shrink-0 w-[72px] client-logo" data-name="Component 5">
+      <div className="absolute h-[60.228px] left-0 top-0 w-[72px]" data-name="Vitrine-Furniture-09082019_ee834ce7-e8ea-4e00-878d-60378a796ff0_410x">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[167.73%] left-[-25.86%] max-w-none top-[-25.91%] w-[155.89%] grayscale" src={imgVitrineFurniture09082019Ee834Ce7E8Ea4E00878D60378A796Ff0410X} />
+          <img alt="" className="absolute h-[167.73%] left-[-25.86%] max-w-none top-[-25.91%] w-[155.89%]" src={imgVitrineFurniture09082019Ee834Ce7E8Ea4E00878D60378A796Ff0410X} />
         </div>
       </div>
     </div>
@@ -990,10 +990,10 @@ function Component3() {
 
 function Component4() {
   return (
-    <div className="h-[72px] relative shrink-0 w-[90px]" data-name="Component 6">
-      <div className="absolute h-[72px] left-0 mix-blend-luminosity top-0 w-[90px]" data-name="el kalb el 4a2y - white and no background">
-        <div className="absolute inset-0 opacity-40 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[106.4%] left-[-25.73%] max-w-none top-[-2.86%] w-[151.54%] grayscale" src={imgElKalbEl4A2YWhiteAndNoBackground} />
+    <div className="h-[72px] relative shrink-0 w-[90px] client-logo" data-name="Component 6">
+      <div className="absolute h-[72px] left-0 top-0 w-[90px]" data-name="el kalb el 4a2y - white and no background">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <img alt="" className="absolute h-[106.4%] left-[-25.73%] max-w-none top-[-2.86%] w-[151.54%]" src={imgElKalbEl4A2YWhiteAndNoBackground} />
         </div>
       </div>
     </div>
@@ -1002,10 +1002,10 @@ function Component4() {
 
 function Component5() {
   return (
-    <div className="h-[72.259px] relative shrink-0 w-[83.436px]" data-name="Component 7">
-      <div className="absolute h-[72.259px] left-0 mix-blend-luminosity top-0 w-[83.436px]" data-name="Regal EN logo-01">
+    <div className="h-[72.259px] relative shrink-0 w-[83.436px] client-logo" data-name="Component 7">
+      <div className="absolute h-[72.259px] left-0 top-0 w-[83.436px]" data-name="Regal EN logo-01">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[182.04%] left-[-28.83%] max-w-none top-[-41.42%] w-[157.66%] grayscale" src={imgRegalEnLogo01} />
+          <img alt="" className="absolute h-[182.04%] left-[-28.83%] max-w-none top-[-41.42%] w-[157.66%]" src={imgRegalEnLogo01} />
         </div>
       </div>
     </div>
@@ -1014,7 +1014,7 @@ function Component5() {
 
 function Frame4() {
   return (
-    <div className="content-stretch flex gap-[40px] items-center opacity-90 relative shrink-0 grayscale">
+    <div className="content-stretch flex gap-[40px] items-center opacity-90 relative shrink-0 pointer-events-auto">
       <Component />
       <Component1 />
       <Component2 />
@@ -1027,7 +1027,7 @@ function Frame4() {
 
 function Frame8() {
   return (
-    <div className="content-stretch flex flex-col gap-[36px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[36px] items-center relative shrink-0 w-full pointer-events-auto hero-frame8" style={{ position: 'relative', zIndex: 50 }}>
       <p className="font-['Sora:Regular',sans-serif] font-normal leading-[21.6px] min-w-full relative shrink-0 text-[18px] text-[rgba(255,255,255,0.6)] text-center w-[min-content] whitespace-pre-wrap">{`Trusted by Leading GCC & MENA Brands`}</p>
       <Frame4 />
     </div>
@@ -1036,7 +1036,7 @@ function Frame8() {
 
 function Frame10() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[60px] h-[658.301px] items-center left-1/2 top-[188px] w-[1086px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[60px] h-[658.301px] items-center left-1/2 top-[188px] w-[1086px] hero-frame10">
       <Frame9 />
       <Frame8 />
     </div>

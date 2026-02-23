@@ -1,16 +1,16 @@
 import svgPaths from "./svg-yvqhjwzsk1";
-import imgIPhone13Pro from "../assets/01caa01f59a90a1fc47fc99cb9de81dd712f6cf9.png";
-import imgIPhone13Pro1 from "../assets/47cf6c1f5f2938f229d8dfb3795b681538560092.png";
-import imgIPhone13Pro2 from "../assets/5592982274dc95d9f9a319f77baec6de1ddb7dac.png";
-import imgIPhone13Pro3 from "../assets/2744e7254681062ad5aef881815ded1daadf2761.png";
-import imgIPhone13Pro4 from "../assets/646fba8b898d0b1155ecabad66c5b62f214b799f.png";
-import imgIPhone13Pro5 from "../assets/e919f3c3afb3fa0342ff0394dddf46579843c953.png";
-import imgIPhone13Pro6 from "../assets/9701f38329e5e3fd931ce1bd530585dc502069f8.png";
-import imgIPhone13Pro7 from "../assets/5b43528708aa63e636438807039dc7517d6382be.png";
-import imgProfilePhoto from "../assets/1fb7a1bc395f06ecca7c56a97e4c19f322f1f606.png";
-import imgProfilePhoto1 from "../assets/bea2fb523d6f14c71d06c08b5857b1e8c2afdc71.png";
-import imgProfilePhoto2 from "../assets/bde38689905fa705ea1cd171fd5425c46f8945de.png";
-import imgProfilePhoto3 from "../assets/8e66717815099dcf56c5ab45c85dd101fbc09713.png";
+import imgIPhone13Pro from "../assets/01caa01f59a90a1fc47fc99cb9de81dd712f6cf9.webp";
+import imgIPhone13Pro1 from "../assets/47cf6c1f5f2938f229d8dfb3795b681538560092.webp";
+import imgIPhone13Pro2 from "../assets/5592982274dc95d9f9a319f77baec6de1ddb7dac.webp";
+import imgIPhone13Pro3 from "../assets/2744e7254681062ad5aef881815ded1daadf2761.webp";
+import imgIPhone13Pro4 from "../assets/646fba8b898d0b1155ecabad66c5b62f214b799f.webp";
+import imgIPhone13Pro5 from "../assets/e919f3c3afb3fa0342ff0394dddf46579843c953.webp";
+import imgIPhone13Pro6 from "../assets/9701f38329e5e3fd931ce1bd530585dc502069f8.webp";
+import imgIPhone13Pro7 from "../assets/5b43528708aa63e636438807039dc7517d6382be.webp";
+import imgProfilePhoto from "../assets/1fb7a1bc395f06ecca7c56a97e4c19f322f1f606.webp";
+import imgProfilePhoto1 from "../assets/bea2fb523d6f14c71d06c08b5857b1e8c2afdc71.webp";
+import imgProfilePhoto2 from "../assets/bde38689905fa705ea1cd171fd5425c46f8945de.webp";
+import imgProfilePhoto3 from "../assets/8e66717815099dcf56c5ab45c85dd101fbc09713.webp";
 
 function Frame25() {
   return (
@@ -326,7 +326,7 @@ function Frame28() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <p className="font-['Sora:SemiBold',sans-serif] font-semibold leading-[21.6px] min-w-full relative shrink-0 text-[#afc1df] text-[18px] w-[min-content]">Challenge</p>
-      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[19px] relative shrink-0 text-[16px] text-white w-[311px]">Users who skipped PLPs converted better, while the homepage buried products too deeply, limiting visibility and missing opportunities to guide users toward conversion</p>
+      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[26px] relative shrink-0 text-[20px] text-white w-[311px]">Users who skipped PLPs converted better, while the homepage buried products too deeply, limiting visibility and missing opportunities to guide users toward conversion</p>
     </div>
   );
 }
@@ -335,7 +335,7 @@ function Frame30() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <p className="font-['Sora:SemiBold',sans-serif] font-semibold leading-[21.6px] min-w-full relative shrink-0 text-[#fef3c7] text-[18px] w-[min-content]">Challenge</p>
-      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[19px] relative shrink-0 text-[16px] text-white w-[311px]">Customers enjoyed browsing but hesitated to buy; unclear product info and low brand trust left questions about honey’s quality, source, and benefits</p>
+      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[26px] relative shrink-0 text-[20px] text-white w-[311px]">Customers enjoyed browsing but hesitated to buy; unclear product info and low brand trust left questions about honey’s quality, source, and benefits</p>
     </div>
   );
 }
@@ -344,7 +344,7 @@ function Frame31() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <p className="font-['Sora:SemiBold',sans-serif] font-semibold leading-[21.6px] min-w-full relative shrink-0 text-[#cdf6dd] text-[18px] w-[min-content]">Challenge</p>
-      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[19px] relative shrink-0 text-[16px] text-white w-[311px]">PDPs lacked visual clarity and structure, failed to create urgency, and weak CTAs caused users to bounce before fully exploring products or converting</p>
+      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[26px] relative shrink-0 text-[20px] text-white w-[311px]">PDPs lacked visual clarity and structure, failed to create urgency, and weak CTAs caused users to bounce before fully exploring products or converting</p>
     </div>
   );
 }
@@ -353,14 +353,14 @@ function Frame22() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <p className="font-['Sora:SemiBold',sans-serif] font-semibold leading-[21.6px] min-w-full relative shrink-0 text-[#ffc4bc] text-[18px] w-[min-content]">Challenge</p>
-      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[19px] relative shrink-0 text-[16px] text-white w-[311px]">The homepage had low conversions due to unclear value proposition, distracting navigation, weak CTAs, and missing trust signals that caused drop-offs</p>
+      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[26px] relative shrink-0 text-[20px] text-white w-[311px]">The homepage had low conversions due to unclear value proposition, distracting navigation, weak CTAs, and missing trust signals that caused drop-offs</p>
     </div>
   );
 }
 
 function Frame29() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[40px] h-[129px] items-end left-[64px] overflow-clip text-center top-[288px] w-[311px] whitespace-pre-wrap">
+    <div className="absolute content-stretch flex flex-col gap-[40px] h-[190px] items-end left-[64px] overflow-clip text-center top-[288px] w-[311px] whitespace-pre-wrap">
       <Frame28 />
       <Frame30 />
       <Frame31 />
@@ -496,7 +496,7 @@ function Frame32() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <p className="font-['Sora:SemiBold',sans-serif] font-semibold leading-[21.6px] min-w-full relative shrink-0 text-[#afc1df] text-[18px] w-[min-content]">Hypothesis</p>
-      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[19px] relative shrink-0 text-[16px] text-white w-[311px]">Surfacing products on the homepage with ratings, CTAs, best sellers, and banners would speed journeys, boost engagement, and increase conversions and revenue</p>
+      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[26px] relative shrink-0 text-[20px] text-white w-[311px]">Surfacing products on the homepage with ratings, CTAs, best sellers, and banners would speed journeys, boost engagement, and increase conversions and revenue</p>
     </div>
   );
 }
@@ -505,7 +505,7 @@ function Frame41() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <p className="font-['Sora:SemiBold',sans-serif] font-semibold leading-[21.6px] min-w-full relative shrink-0 text-[#fef3c7] text-[18px] w-[min-content]">Hypothesis</p>
-      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[19px] relative shrink-0 text-[16px] text-white w-[311px]">Using transparent, authentic videos and clear explanations of ingredients, benefits, and production would build trust, boost confidence, and drive purchases</p>
+      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[26px] relative shrink-0 text-[20px] text-white w-[311px]">Using transparent, authentic videos and clear explanations of ingredients, benefits, and production would build trust, boost confidence, and drive purchases</p>
     </div>
   );
 }
@@ -514,7 +514,7 @@ function Frame23() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <p className="font-['Sora:SemiBold',sans-serif] font-semibold leading-[21.6px] min-w-full relative shrink-0 text-[#cdf6dd] text-[18px] w-[min-content]">Hypothesis</p>
-      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[19px] relative shrink-0 text-[16px] text-white w-[311px]">Improving PDP clarity with better imagery, structured info, reviews, urgency cues, and stronger CTAs would increase engagement and drive conversions</p>
+      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[26px] relative shrink-0 text-[20px] text-white w-[311px]">Improving PDP clarity with better imagery, structured info, reviews, urgency cues, and stronger CTAs would increase engagement and drive conversions</p>
     </div>
   );
 }
@@ -523,14 +523,14 @@ function Frame42() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
       <p className="font-['Sora:SemiBold',sans-serif] font-semibold leading-[21.6px] min-w-full relative shrink-0 text-[#ffc4bc] text-[18px] w-[min-content]">Hypothesis</p>
-      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[19px] relative shrink-0 text-[16px] text-white w-[311px]">Clarifying the value proposition, simplifying navigation, enhancing CTAs, and showcasing client credibility early would improve engagement and conversions</p>
+      <p className="font-['Sora:Regular',sans-serif] font-normal leading-[26px] relative shrink-0 text-[20px] text-white w-[311px]">Clarifying the value proposition, simplifying navigation, enhancing CTAs, and showcasing client credibility early would improve engagement and conversions</p>
     </div>
   );
 }
 
 function Frame33() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[40px] h-[129px] items-start left-[1065px] overflow-clip text-center top-[288px] w-[311px] whitespace-pre-wrap">
+    <div className="absolute content-stretch flex flex-col gap-[40px] h-[190px] items-start left-[1065px] overflow-clip text-center top-[288px] w-[311px] whitespace-pre-wrap">
       <Frame32 />
       <Frame41 />
       <Frame23 />

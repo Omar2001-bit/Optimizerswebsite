@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import svgPaths from "@/imports/svg-sec2";
-import imgIPhone17 from "../assets/d2910da25aaf2e477099caca0265707a5d96d1ef.png";
-import imgProfilePhoto3 from "../assets/bde38689905fa705ea1cd171fd5425c46f8945de.png";
-import imgTopclientsResults4 from "../assets/f6cb95ddf6fbcaa6d79196a0ac804e1747a8b1c4.png";
+import imgIPhone17 from "../assets/d2910da25aaf2e477099caca0265707a5d96d1ef.webp";
+import imgProfilePhoto3 from "../assets/bde38689905fa705ea1cd171fd5425c46f8945de.webp";
+import imgTopclientsResults4 from "../assets/f6cb95ddf6fbcaa6d79196a0ac804e1747a8b1c4.webp";
 
 // Animation variants for content elements
 const contentVariants = {
