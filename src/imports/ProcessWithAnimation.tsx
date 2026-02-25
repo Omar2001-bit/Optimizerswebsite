@@ -104,19 +104,23 @@ export default function ProcessWithAnimation() {
             {/* Cards Section */}
             <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20 w-full px-4 relative mt-10">
                 {/* Before Card */}
-                <div className="flex flex-col items-center gap-4">
-                    <p className="font-['Sora:SemiBold',sans-serif] font-semibold text-[40px] lg:text-[88px] text-[rgba(255,255,255,0.2)] text-center tracking-[3.5px]">Before</p>
-                    <ProcessBackgroundImage additionalClassNames="" noRotation={true}>
-                        <AnimatedBeforeCard />
-                    </ProcessBackgroundImage>
+                <div className="flex flex-col items-center relative">
+                    <p className="font-['Sora:SemiBold',sans-serif] font-semibold text-[40px] lg:text-[88px] text-[rgba(255,255,255,0.2)] text-center tracking-[3.5px] -mb-[26px] lg:-mb-[50px] relative z-0">Before</p>
+                    <div className="relative z-10">
+                        <ProcessBackgroundImage additionalClassNames="" noRotation={true}>
+                            <AnimatedBeforeCard />
+                        </ProcessBackgroundImage>
+                    </div>
                 </div>
 
                 {/* After Card */}
-                <div className="flex flex-col items-center gap-4">
-                    <p className="font-['Sora:SemiBold',sans-serif] font-semibold text-[40px] lg:text-[88px] text-[rgba(255,255,255,0.2)] text-center tracking-[3.5px]">After</p>
-                    <ProcessBackgroundImage additionalClassNames="" noRotation={true}>
-                        <AnimatedProcessCard />
-                    </ProcessBackgroundImage>
+                <div className="flex flex-col items-center relative">
+                    <p className="font-['Sora:SemiBold',sans-serif] font-semibold text-[40px] lg:text-[88px] text-[rgba(255,255,255,0.2)] text-center tracking-[3.5px] -mb-[26px] lg:-mb-[50px] relative z-0">After</p>
+                    <div className="relative z-10">
+                        <ProcessBackgroundImage additionalClassNames="" noRotation={true}>
+                            <AnimatedProcessCard />
+                        </ProcessBackgroundImage>
+                    </div>
                 </div>
             </div>
         </div>

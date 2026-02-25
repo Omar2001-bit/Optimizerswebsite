@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 import imgRectangle14 from "../assets/d8b337a511649b176cd435e218aaa7b2a33d3cb6.webp";
-import imgRectangle12 from "../assets/1e2bc48a17b1656347bb46caabfa6e2bd1c24845.png";
-import imgRectangle9 from "../assets/046c40b816efa7bf2571f96406a150d0f81ede99.png";
+import imgRectangle12 from "../assets/1e2bc48a17b1656347bb46caabfa6e2bd1c24845.webp";
+import imgRectangle9 from "../assets/046c40b816efa7bf2571f96406a150d0f81ede99.webp";
 import imgRectangle10 from "../assets/7ad949482f63f44db04299f5bf254873f728d7ff.webp";
 import imgRectangle4 from "../assets/6a25f990938672a3e0fa2a719fc1700b87c73068.webp";
-import imgRectangle11 from "../assets/79e7969f09efccab8e047c24086054abb50ee7e2.png";
+import imgRectangle11 from "../assets/79e7969f09efccab8e047c24086054abb50ee7e2.webp";
 import imgRectangle13 from "../assets/a8a44a44a12d34e1d02ae948d49a3667ae53eb82.webp";
-import imgRectangle15 from "../assets/7a88678bdda77cc2cf07f6b07429257ff47b65de.png";
+import imgRectangle15 from "../assets/7a88678bdda77cc2cf07f6b07429257ff47b65de.webp";
 import imgRectangle16 from "../assets/5950a3ddf2a6ec9b701c5efd3ec463328161175a.webp";
 import imgRectangle17 from "../assets/0f2c3f5ca49e9394bfe08c7f7dd7175f5ef586bd.webp";
 import imgRectangle18 from "../assets/eb353270e89d942c0cb7aca6776f63e80f7bbe5e.webp";
@@ -88,7 +88,7 @@ export default function GallerySection() {
                                 >
                                     <motion.div
                                         className="w-full h-full overflow-hidden rounded-[4px] border border-white/[0.03] bg-neutral-900/40"
-                                        whileHover={{ scale: 2, borderColor: 'rgba(255,255,255,0.4)', zIndex: 50 }}
+                                        whileHover={{ borderColor: 'rgba(255,255,255,0.4)', zIndex: 50 }}
                                         style={{
                                             backfaceVisibility: 'hidden',
                                             boxShadow: '0 4px 15px rgba(0,0,0,0.9)',
@@ -99,6 +99,7 @@ export default function GallerySection() {
                                             src={image}
                                             alt={`Gallery item ${imageIndex}`}
                                             className="w-full h-full object-cover pointer-events-none grayscale-[20%] hover:grayscale-0 transition-all duration-300"
+                                            decoding="async"
                                         />
                                     </motion.div>
                                 </motion.div>
@@ -110,8 +111,8 @@ export default function GallerySection() {
 
             {/* atmosphere & depth fades - made responsive */}
             <div className="absolute inset-0 pointer-events-none bg-radial-gradient from-transparent to-black opacity-50 lg:opacity-60 z-10" />
-            <div className="absolute bottom-0 left-0 w-full h-[180px] lg:h-[250px] z-25 pointer-events-none bg-gradient-to-t from-[#000000] to-transparent via-[#000000]/80" />
-            <div className="absolute top-0 left-0 w-full h-[180px] lg:h-[250px] z-25 pointer-events-none bg-gradient-to-b from-[#000000] to-transparent via-[#000000]/80" />
+            <div className="absolute bottom-0 left-0 w-full h-[12.5vw] lg:h-[17.3vw] z-25 pointer-events-none bg-gradient-to-t from-[#000000] to-transparent via-[#000000]/80" />
+            <div className="absolute top-0 left-0 w-full h-[12.5vw] lg:h-[17.3vw] z-25 pointer-events-none bg-gradient-to-b from-[#000000] to-transparent via-[#000000]/80" />
 
             {/* Wide Varded Vignette - Narrower on mobile and desktop */}
             <div className="absolute inset-y-0 left-0 w-[15%] lg:w-[20%] z-25 bg-gradient-to-r from-black to-transparent pointer-events-none" />

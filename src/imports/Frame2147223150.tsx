@@ -1,8 +1,8 @@
 import svgPaths from "./svg-19nlbs0dc8";
-import imgScreenshot20250924At120529Am1 from "@/assets/8a7a6e8497a40fb655644c168414324ab7ecaa93.webp";
-import videoThumbnail from "@/assets/video_thumbnail.png";
+import imgScreenshot20250924At120529Am1 from "../assets/8a7a6e8497a40fb655644c168414324ab7ecaa93.webp";
+import videoThumbnail from "../assets/video_thumbnail.webp";
 import { useState, useRef, useEffect } from "react";
-import imgLearnCroFromOurCeo from "@/assets/48c0908a5973996950b53feb47622625902ab2fe.webp";
+import imgLearnCroFromOurCeo from "../assets/48c0908a5973996950b53feb47622625902ab2fe.webp";
 import { imgGroup, imgGroup1 } from "./svg-s0pg2";
 
 function Group() {
@@ -11,7 +11,7 @@ function Group() {
       <div className="absolute contents inset-[37.24%_72.41%_14.4%_-5.52%]" data-name="Group">
         <div className="absolute contents inset-[37.24%_72.41%_14.4%_-5.52%]" data-name="Clip path group">
           <div className="absolute flex inset-[32.06%_65.68%_12.01%_-9.24%] items-center justify-center">
-          <div className="flex-none h-[526.246px] rotate-[180deg] w-[627.345px]">
+            <div className="flex-none h-[526.246px] rotate-[180deg] w-[627.345px]">
               <div className="css-tw8p29 mask-position-[23.589px_25.558px,_53.609px_48.75px] mask-size-[532.26px_518.975px,_476.783px_455px] relative size-full" data-name="Group" style={{ maskImage: `url('${imgGroup}'), url('${imgGroup1}')` }}>
                 <div className="absolute inset-[-0.09%_-0.08%]">
                   <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 628.294 527.195">
@@ -546,6 +546,7 @@ function Background() {
               src={videoThumbnail}
               alt="Video thumbnail"
               className="w-full h-full object-cover"
+              decoding="async"
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-24 h-24 bg-black rounded-full flex items-center justify-center hover:bg-gray-900 transition-colors shadow-lg border-2 border-[#6ae499]">

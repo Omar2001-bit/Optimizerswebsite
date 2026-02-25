@@ -20,16 +20,27 @@ export default function AnimatedCaseStudies() {
     // ── Compute scale so the 1440px content fits the viewport exactly ──
     // We scale both width AND height to ensure nothing is clipped.
     const [scale, setScale] = useState(1);
+    const [isInView, setIsInView] = useState(false);
+
     useEffect(() => {
         const update = () => {
             const scaleX = window.innerWidth / CONTENT_WIDTH;
             const scaleY = window.innerHeight / CONTENT_HEIGHT;
-            // Use the smaller of the two to ensure content fits both dimensions
             setScale(Math.min(scaleX, scaleY, 1));
         };
         update();
+
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsInView(entry.isIntersecting),
+            { threshold: 0.01 }
+        );
+        if (containerRef.current) observer.observe(containerRef.current);
+
         window.addEventListener('resize', update);
-        return () => window.removeEventListener('resize', update);
+        return () => {
+            window.removeEventListener('resize', update);
+            observer.disconnect();
+        };
     }, []);
 
     const { scrollYProgress } = useScroll({
@@ -90,73 +101,75 @@ export default function AnimatedCaseStudies() {
                   box stays viewport-sized — no overflow, no clipping.
                 */}
                 <div className="cs-content-box">
-                    <div
-                        className="cs-content-scaler"
-                        style={{
-                            transform: `scale(${scale})`,
-                            transformOrigin: 'center center',
-                        }}
-                    >
-                        {/* Slides */}
-                        <div className="cs-slides-clip">
-                            <motion.div className="cs-slide-wrapper" style={{ opacity: slide1Opacity, y: slide1Y }}>
-                                <CaseStudy3 />
+                    {isInView && (
+                        <div
+                            className="cs-content-scaler"
+                            style={{
+                                transform: `scale(${scale})`,
+                                transformOrigin: 'center center',
+                            }}
+                        >
+                            {/* Slides */}
+                            <div className="cs-slides-clip">
+                                <motion.div className="cs-slide-wrapper" style={{ opacity: slide1Opacity, y: slide1Y }}>
+                                    <CaseStudy3 />
+                                </motion.div>
+                                <motion.div className="cs-slide-wrapper" style={{ opacity: slide2Opacity, y: slide2Y }}>
+                                    <CaseStudy4 />
+                                </motion.div>
+                                <motion.div className="cs-slide-wrapper" style={{ opacity: slide3Opacity, y: slide3Y }}>
+                                    <CaseStudy5 />
+                                </motion.div>
+                                <motion.div className="cs-slide-wrapper" style={{ opacity: slide4Opacity, y: slide4Y }}>
+                                    <CaseStudy6 />
+                                </motion.div>
+                            </div>
+
+                            {/* Ground Reflections */}
+                            <motion.div
+                                className="cs-ground-glow cs-ground-glow--left"
+                                style={{ backgroundColor: barColor, x: leftBarX, skewX: leftSkew }}
+                            />
+                            <motion.div
+                                className="cs-ground-glow cs-ground-glow--right"
+                                style={{ backgroundColor: barColor, x: rightBarX, skewX: rightSkew }}
+                            />
+
+                            {/* Center floor ellipse */}
+                            <motion.div className="cs-floor-ellipse" style={{ backgroundColor: barColor }} />
+
+                            {/* Left Gate Bar */}
+                            <motion.div
+                                className="t-gate-wrapper t-gate-wrapper--left"
+                                style={{ color: barColor, x: leftBarX }}
+                            >
+                                <div className="t-gate-blur-2" />
+                                <div className="t-gate-blur-1" />
+                                <div className="t-gate-core" />
                             </motion.div>
-                            <motion.div className="cs-slide-wrapper" style={{ opacity: slide2Opacity, y: slide2Y }}>
-                                <CaseStudy4 />
+
+                            {/* Right Gate Bar */}
+                            <motion.div
+                                className="t-gate-wrapper t-gate-wrapper--right"
+                                style={{ color: barColor, x: rightBarX }}
+                            >
+                                <div className="t-gate-blur-2" />
+                                <div className="t-gate-blur-1" />
+                                <div className="t-gate-core" />
                             </motion.div>
-                            <motion.div className="cs-slide-wrapper" style={{ opacity: slide3Opacity, y: slide3Y }}>
-                                <CaseStudy5 />
-                            </motion.div>
-                            <motion.div className="cs-slide-wrapper" style={{ opacity: slide4Opacity, y: slide4Y }}>
-                                <CaseStudy6 />
+
+                            {/* Title Text */}
+                            <motion.div
+                                className="cs-title-text-gate"
+                                style={{ opacity: titleOpacity, clipPath: titleClipPath, y: titleY }}
+                            >
+                                <div className="cs-title-inner">
+                                    <p style={{ margin: 0 }}>CASE</p>
+                                    <p style={{ margin: 0 }}>STUDIES</p>
+                                </div>
                             </motion.div>
                         </div>
-
-                        {/* Ground Reflections */}
-                        <motion.div
-                            className="cs-ground-glow cs-ground-glow--left"
-                            style={{ backgroundColor: barColor, x: leftBarX, skewX: leftSkew }}
-                        />
-                        <motion.div
-                            className="cs-ground-glow cs-ground-glow--right"
-                            style={{ backgroundColor: barColor, x: rightBarX, skewX: rightSkew }}
-                        />
-
-                        {/* Center floor ellipse */}
-                        <motion.div className="cs-floor-ellipse" style={{ backgroundColor: barColor }} />
-
-                        {/* Left Gate Bar */}
-                        <motion.div
-                            className="t-gate-wrapper t-gate-wrapper--left"
-                            style={{ color: barColor, x: leftBarX }}
-                        >
-                            <div className="t-gate-blur-2" />
-                            <div className="t-gate-blur-1" />
-                            <div className="t-gate-core" />
-                        </motion.div>
-
-                        {/* Right Gate Bar */}
-                        <motion.div
-                            className="t-gate-wrapper t-gate-wrapper--right"
-                            style={{ color: barColor, x: rightBarX }}
-                        >
-                            <div className="t-gate-blur-2" />
-                            <div className="t-gate-blur-1" />
-                            <div className="t-gate-core" />
-                        </motion.div>
-
-                        {/* Title Text */}
-                        <motion.div
-                            className="cs-title-text-gate"
-                            style={{ opacity: titleOpacity, clipPath: titleClipPath, y: titleY }}
-                        >
-                            <div className="cs-title-inner">
-                                <p style={{ margin: 0 }}>CASE</p>
-                                <p style={{ margin: 0 }}>STUDIES</p>
-                            </div>
-                        </motion.div>
-                    </div>
+                    )}
                 </div>
 
                 {/* Scroll Hint */}

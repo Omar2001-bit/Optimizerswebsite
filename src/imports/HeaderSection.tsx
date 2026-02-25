@@ -8,19 +8,34 @@ import {
 } from "./Frame2147223128";
 
 const CANVAS_WIDTH = 1440;
+const TABLET_BOTTOM = 933 + 662; // tablet top + tablet height in canvas coords
 
 export default function HeaderSection() {
     const [scale, setScale] = useState(1);
+    const [viewportH, setViewportH] = useState(800);
+    const [isInView, setIsInView] = useState(true);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const tabletLayerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const update = () => {
             const s = Math.min(window.innerWidth / CANVAS_WIDTH, 1);
             setScale(s);
+            setViewportH(window.innerHeight);
         };
         update();
+
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsInView(entry.isIntersecting),
+            { threshold: 0.01 }
+        );
+        if (scrollContainerRef.current) observer.observe(scrollContainerRef.current);
+
         window.addEventListener("resize", update);
-        return () => window.removeEventListener("resize", update);
+        return () => {
+            window.removeEventListener("resize", update);
+            observer.disconnect();
+        };
     }, []);
 
     // Scroll progress: 0 at top, 1 at bottom of scroll container
@@ -34,56 +49,88 @@ export default function HeaderSection() {
     const heroOpacity = useTransform(scrollYProgress, [0, 0.25, 0.6], [1, 0.7, 0]);
     const heroY = useTransform(scrollYProgress, [0, 0.3, 0.7], [0, -40, -120]);
 
-    // --- Tablet Animations ---
-    const tabletY = useTransform(scrollYProgress, [0, 0.3, 1], [300, 50, -750]);
+    // --- Tablet Animations (viewport-height-aware) ---
+    // Calculate the Y offset needed for the tablet bottom to reach the viewport bottom
+    // In canvas coordinates, the visible area is viewportH / scale
+    const canvasViewportH = viewportH / scale;
+    // Ensure tablet bottom reaches viewport edge: tabletY = -(TABLET_BOTTOM - canvasViewportH)
+    // Add 20px padding so the bottom rounded corners are fully visible
+    const tabletEndY = Math.min(-750, -(TABLET_BOTTOM - canvasViewportH + 20));
+    // Midpoint: tablet should be mostly visible by scrollYProgress ~0.6
+    const tabletMidY = (50 + tabletEndY) / 2;
+    const tabletY = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [300, 50, tabletMidY, tabletEndY]);
     const tabletScale = useTransform(scrollYProgress, [0, 0.4, 1], [0.85, 0.95, 1]);
 
     return (
         <div ref={scrollContainerRef} className="header-scroll-container">
-            <div className="header-sticky-viewport">
-                <div className="header-content-box">
+            {isInView && (
+                <div className="header-sticky-viewport">
+                    {/* Clipped container: background, hero text, nav (overflow:clip in CSS) */}
+                    <div className="header-content-box">
+                        <div
+                            className="header-content-scaler"
+                            style={{
+                                transform: `scale(${scale})`,
+                                transformOrigin: "top center",
+                            }}
+                        >
+                            {/* Layer 3 – Background (static, lowest z-index) */}
+                            <div className="header-scroll-layer header-bg-layer">
+                                <BackgroundLayer />
+                            </div>
+
+                            {/* Layer 1 – Hero Text (scales down + fades on scroll) */}
+                            <motion.div
+                                className="header-scroll-layer header-hero-layer"
+                                style={{
+                                    scale: heroScale,
+                                    opacity: heroOpacity,
+                                    y: heroY,
+                                }}
+                            >
+                                <HeroTextLayer />
+                            </motion.div>
+                        </div>
+                    </div>
+
+                    {/* UN-clipped container: tablet layer (NOT inside overflow:clip) */}
                     <div
-                        className="header-content-scaler"
                         style={{
-                            transform: `scale(${scale})`,
-                            transformOrigin: "top center",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                            pointerEvents: "none",
+                            zIndex: 3,
+                            display: "flex",
+                            justifyContent: "center",
                         }}
                     >
-                        {/* Layer 3 – Background (static, lowest z-index) */}
-                        <div className="header-scroll-layer header-bg-layer">
-                            <BackgroundLayer />
-                        </div>
-
-                        {/* Layer 1 – Hero Text (scales down + fades on scroll) */}
-                        <motion.div
-                            className="header-scroll-layer header-hero-layer"
+                        <div
                             style={{
-                                scale: heroScale,
-                                opacity: heroOpacity,
-                                y: heroY,
+                                width: 1440,
+                                height: 1595,
+                                flexShrink: 0,
+                                position: "relative",
+                                transform: `scale(${scale})`,
+                                transformOrigin: "top center",
                             }}
                         >
-                            <HeroTextLayer />
-                        </motion.div>
-
-                        {/* Layer 2 – Tablet (slides up from below on scroll) */}
-                        <motion.div
-                            className="header-scroll-layer header-tablet-layer"
-                            style={{
-                                y: tabletY,
-                                scale: tabletScale,
-                            }}
-                        >
-                            <TabletLayer />
-                        </motion.div>
-
-                        {/* Header Nav (stays fixed, unaffected) */}
-                        <div className="header-scroll-layer header-nav-layer">
-                            <HeaderNav />
+                            <motion.div
+                                ref={tabletLayerRef}
+                                className="header-scroll-layer header-tablet-layer"
+                                style={{
+                                    y: tabletY,
+                                    scale: tabletScale,
+                                }}
+                            >
+                                <TabletLayer />
+                            </motion.div>
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import svgPaths from "./svg-8x44mv6a2l";
-import imgWhatMakesCroTheSmarterInvestment from "@/assets/1495296c1372cb62f4b13afc83f9acb3d1d29faf.webp";
+import imgWhatMakesCroTheSmarterInvestment from "../assets/1495296c1372cb62f4b13afc83f9acb3d1d29faf.webp";
 import { imgAnimatedBeam } from "./svg-cfo9w";
 
 const CANVAS_WIDTH = 1440;
@@ -226,7 +226,7 @@ const tableData = [
 function Frame9() {
   return (
     <div className="relative lg:absolute flex flex-col items-start lg:left-0 w-full overflow-x-auto pb-8 lg:pb-0 px-4 lg:px-0 scrollbar-hide">
-      <div className="w-full">
+      <div className="w-full px-4 lg:px-10">
         <Frame1 />
         {tableData.map((row, idx) => (
           <div key={idx} className="w-full">
@@ -251,7 +251,7 @@ function Frame8() {
 
 function OverlayBorderShadow() {
   return (
-    <div className="absolute h-[640px] left-[30px] right-[30px] max-w-[1200px] mx-auto rounded-[24px] top-[246px]" data-name="Overlay+Border+Shadow" style={{ left: '30px', right: '30px' }}>
+    <div className="absolute h-[640px] left-[30px] right-[30px] max-w-[1200px] mx-auto rounded-[24px] top-[8vw]" data-name="Overlay+Border+Shadow">
       <div className="overflow-clip relative rounded-[inherit] size-full">
         <Frame8 />
       </div>
@@ -290,9 +290,9 @@ export default function Table() {
         className="hidden lg:block relative w-full overflow-hidden"
         style={{ minHeight: `${950}px` }}
       >
-        <div className="relative w-full h-full pt-[80px] pb-[100px]">
+        <div className="relative w-full h-full pt-[5.5vw] pb-[7vw]">
           <Frame />
-          <div className="relative h-[800px] mt-[30px]">
+          <div className="relative h-[55.5vw] mt-[2vw]">
             <OverlayBorderShadow />
           </div>
         </div>

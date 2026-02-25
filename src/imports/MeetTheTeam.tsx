@@ -16,7 +16,7 @@ function Lights() {
                 <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[17.139px]">
                     <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[17.139px] to-black" />
                     <div className="absolute inset-0 opacity-80 overflow-hidden rounded-[17.139px]">
-                        <img alt="" className="absolute h-full left-[-13.94%] max-w-none top-0 w-[127.88%]" src={imgRectangle2} />
+                        <img alt="" className="absolute h-full left-[-13.94%] max-w-none top-0 w-[127.88%]" src={imgRectangle2} decoding="async" />
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ function Card() {
     );
 }
 
-function Safer() {
+const Safer = React.memo(function Safer() {
     return (
         <div className="h-[305.215px] relative rounded-[25.77px] shrink-0 w-[239.984px]" data-name="Safer">
             <Lights />
@@ -105,7 +105,7 @@ function Safer() {
             </div>
         </div>
     );
-}
+});
 
 function Lights1() {
     return (
@@ -116,7 +116,7 @@ function Lights1() {
             <div className="absolute h-[368px] left-[calc(50%+0.02px)] rounded-[17.14px] top-[-9.39px] translate-x-[-50%] w-[288px]">
                 <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[17.14px]">
                     <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[17.14px] to-black" />
-                    <img alt="" className="absolute max-w-none object-cover opacity-80 rounded-[17.14px] size-full" src={imgRectangle3} />
+                    <img alt="" className="absolute max-w-none object-cover opacity-80 rounded-[17.14px] size-full" src={imgRectangle3} decoding="async" />
                 </div>
             </div>
         </div>
@@ -193,7 +193,7 @@ function Card1() {
     );
 }
 
-function Safer1() {
+const Safer1 = React.memo(function Safer1() {
     return (
         <div className="h-[305.235px] relative rounded-[27.424px] shrink-0 w-[240px]" data-name="Safer">
             <Lights1 />
@@ -204,7 +204,7 @@ function Safer1() {
             </div>
         </div>
     );
-}
+});
 
 function Lights2() {
     return (
@@ -216,7 +216,7 @@ function Lights2() {
                 <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[17.14px]">
                     <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[17.14px] to-black" />
                     <div className="absolute inset-0 opacity-80 overflow-hidden rounded-[17.14px]">
-                        <img alt="" className="absolute h-[100.47%] left-[-15.83%] max-w-none top-[-0.12%] w-[131.25%]" src={imgRectangle4} />
+                        <img alt="" className="absolute h-[100.47%] left-[-15.83%] max-w-none top-[-0.12%] w-[131.25%]" src={imgRectangle4} decoding="async" />
                     </div>
                 </div>
             </div>
@@ -294,7 +294,7 @@ function Card2() {
     );
 }
 
-function Safer2() {
+const Safer2 = React.memo(function Safer2() {
     return (
         <div className="h-[305.235px] relative rounded-[27.424px] shrink-0 w-[240px]" data-name="Safer">
             <Lights2 />
@@ -305,7 +305,7 @@ function Safer2() {
             </div>
         </div>
     );
-}
+});
 
 function Lights3() {
     return (
@@ -316,7 +316,7 @@ function Lights3() {
             <div className="absolute h-[325px] left-[calc(50%+0.02px)] rounded-[17.14px] top-[-10.4px] translate-x-[-50%] w-[254px]">
                 <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[17.14px]">
                     <div className="absolute bg-gradient-to-b from-[rgba(0,0,0,0)] inset-0 rounded-[17.14px] to-black" />
-                    <img alt="" className="absolute max-w-none object-cover opacity-80 rounded-[17.14px] size-full" src={imgRectangle5} />
+                    <img alt="" className="absolute max-w-none object-cover opacity-80 rounded-[17.14px] size-full" src={imgRectangle5} decoding="async" />
                 </div>
             </div>
         </div>
@@ -393,7 +393,7 @@ function Card3() {
     );
 }
 
-function Safer3() {
+const Safer3 = React.memo(function Safer3() {
     return (
         <div className="h-[305.235px] relative rounded-[27.424px] shrink-0 w-[240px]" data-name="Safer">
             <Lights3 />
@@ -404,7 +404,7 @@ function Safer3() {
             </div>
         </div>
     );
-}
+});
 
 function Lights4() {
     return (
@@ -416,7 +416,7 @@ function Lights4() {
                 <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
                     <div className="absolute bg-gradient-to-b from-[25.977%] from-[rgba(0,0,0,0)] inset-0 to-[106.06%] to-black" />
                     <div className="absolute inset-0 opacity-80 overflow-hidden">
-                        <img alt="" className="absolute h-[146.22%] left-[-22.56%] max-w-none top-[-24.25%] w-[144.28%]" src={imgLiftapp} />
+                        <img alt="" className="absolute h-[146.22%] left-[-22.56%] max-w-none top-[-24.25%] w-[144.28%]" src={imgLiftapp} decoding="async" />
                     </div>
                 </div>
             </div>
@@ -494,7 +494,7 @@ function Card4() {
     );
 }
 
-function Safer4() {
+const Safer4 = React.memo(function Safer4() {
     return (
         <div className="h-[305.22px] relative rounded-[27.422px] shrink-0 w-[239.988px]" data-name="Safer">
             <Lights4 />
@@ -505,7 +505,7 @@ function Safer4() {
             </div>
         </div>
     );
-}
+});
 
 function Frame1() {
     return (

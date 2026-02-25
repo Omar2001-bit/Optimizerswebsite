@@ -18,7 +18,7 @@ function Frame25() {
       <p className="-translate-x-1/2 absolute font-['Sora:SemiBold',sans-serif] font-semibold leading-[56px] left-[106.64px] text-[48px] text-[rgba(255,255,255,0.2)] text-center top-0 w-[184px] whitespace-pre-wrap">After</p>
       <div className="absolute h-[410px] left-0 top-[36px] w-[213px]" data-name="iPhone 13 Pro">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[129.23%] left-[-63.43%] max-w-none top-[-13.76%] w-[331.68%]" src={imgIPhone13Pro} />
+          <img alt="" className="absolute h-[129.23%] left-[-63.43%] max-w-none top-[-13.76%] w-[331.68%]" src={imgIPhone13Pro} decoding="async" />
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@ function Frame26() {
       <p className="-translate-x-1/2 absolute font-['Sora:SemiBold',sans-serif] font-semibold leading-[56px] left-[106.76px] text-[48px] text-[rgba(255,255,255,0.2)] text-center top-0 w-[184px] whitespace-pre-wrap">Before</p>
       <div className="absolute h-[411px] left-0 top-[36px] w-[213px]" data-name="iPhone 13 Pro">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[128.92%] left-[-63.43%] max-w-none top-[-13.59%] w-[331.68%]" src={imgIPhone13Pro1} />
+          <img alt="" className="absolute h-[128.92%] left-[-63.43%] max-w-none top-[-13.59%] w-[331.68%]" src={imgIPhone13Pro1} decoding="async" />
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@ function Frame45() {
       <p className="-translate-x-1/2 absolute font-['Sora:SemiBold',sans-serif] font-semibold leading-[56px] left-[106.64px] text-[48px] text-[rgba(255,255,255,0.2)] text-center top-0 w-[184px] whitespace-pre-wrap">After</p>
       <div className="absolute h-[410px] left-0 top-[36px] w-[213px]" data-name="iPhone 13 Pro">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[129.23%] left-[-63.43%] max-w-none top-[-13.74%] w-[331.68%]" src={imgIPhone13Pro2} />
+          <img alt="" className="absolute h-[129.23%] left-[-63.43%] max-w-none top-[-13.74%] w-[331.68%]" src={imgIPhone13Pro2} decoding="async" />
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@ function Frame44() {
       <p className="-translate-x-1/2 absolute font-['Sora:SemiBold',sans-serif] font-semibold leading-[56px] left-[106.76px] text-[48px] text-[rgba(255,255,255,0.2)] text-center top-0 w-[184px] whitespace-pre-wrap">Before</p>
       <div className="absolute h-[410px] left-0 top-[36px] w-[213px]" data-name="iPhone 13 Pro">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[129.23%] left-[-63.43%] max-w-none top-[-13.73%] w-[331.68%]" src={imgIPhone13Pro3} />
+          <img alt="" className="absolute h-[129.23%] left-[-63.43%] max-w-none top-[-13.73%] w-[331.68%]" src={imgIPhone13Pro3} decoding="async" />
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ function Frame48() {
       <p className="-translate-x-1/2 absolute font-['Sora:SemiBold',sans-serif] font-semibold leading-[56px] left-[106.64px] text-[48px] text-[rgba(255,255,255,0.2)] text-center top-0 w-[184px] whitespace-pre-wrap">After</p>
       <div className="absolute h-[411px] left-0 top-[36px] w-[213px]" data-name="iPhone 13 Pro">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[128.92%] left-[-63.43%] max-w-none top-[-13.64%] w-[331.68%]" src={imgIPhone13Pro4} />
+          <img alt="" className="absolute h-[128.92%] left-[-63.43%] max-w-none top-[-13.64%] w-[331.68%]" src={imgIPhone13Pro4} decoding="async" />
         </div>
       </div>
     </div>
@@ -101,7 +101,7 @@ function Frame47() {
       <p className="-translate-x-1/2 absolute font-['Sora:SemiBold',sans-serif] font-semibold leading-[56px] left-[106.76px] text-[48px] text-[rgba(255,255,255,0.2)] text-center top-0 w-[184px] whitespace-pre-wrap">Before</p>
       <div className="absolute h-[411px] left-0 top-[36px] w-[213px]" data-name="iPhone 13 Pro">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[128.92%] left-[-63.43%] max-w-none top-[-13.58%] w-[331.68%]" src={imgIPhone13Pro5} />
+          <img alt="" className="absolute h-[128.92%] left-[-63.43%] max-w-none top-[-13.58%] w-[331.68%]" src={imgIPhone13Pro5} decoding="async" />
         </div>
       </div>
     </div>
@@ -123,7 +123,7 @@ function Frame50() {
       <p className="-translate-x-1/2 absolute font-['Sora:SemiBold',sans-serif] font-semibold leading-[56px] left-[106.64px] text-[48px] text-[rgba(255,255,255,0.2)] text-center top-0 w-[184px] whitespace-pre-wrap">After</p>
       <div className="absolute h-[411px] left-0 top-[36px] w-[213.513px]" data-name="iPhone 13 Pro">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[129.01%] left-[-63.13%] max-w-none top-[-13.53%] w-[331.13%]" src={imgIPhone13Pro6} />
+          <img alt="" className="absolute h-[129.01%] left-[-63.13%] max-w-none top-[-13.53%] w-[331.13%]" src={imgIPhone13Pro6} decoding="async" />
         </div>
       </div>
     </div>
@@ -136,7 +136,7 @@ function Frame51() {
       <p className="-translate-x-1/2 absolute font-['Sora:SemiBold',sans-serif] font-semibold leading-[56px] left-[106.76px] text-[48px] text-[rgba(255,255,255,0.2)] text-center top-0 w-[184px] whitespace-pre-wrap">Before</p>
       <div className="absolute h-[411px] left-0 top-[36px] w-[213.513px]" data-name="iPhone 13 Pro">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[129.01%] left-[-63.13%] max-w-none top-[-13.53%] w-[331.13%]" src={imgIPhone13Pro7} />
+          <img alt="" className="absolute h-[129.01%] left-[-63.13%] max-w-none top-[-13.53%] w-[331.13%]" src={imgIPhone13Pro7} decoding="async" />
         </div>
       </div>
     </div>
@@ -390,7 +390,7 @@ function Frame35() {
   return (
     <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full">
       <div className="relative shrink-0 size-[73px]" data-name="Profile Photo">
-        <img alt="" className="block max-w-none size-full" height="73" src={imgProfilePhoto} width="73" />
+        <img alt="" className="block max-w-none size-full" height="73" src={imgProfilePhoto} width="73" decoding="async" />
       </div>
       <Frame />
     </div>
@@ -418,7 +418,7 @@ function Frame34() {
   return (
     <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full">
       <div className="relative shrink-0 size-[73px]" data-name="Profile Photo">
-        <img alt="" className="block max-w-none size-full" height="73" src={imgProfilePhoto1} width="73" />
+        <img alt="" className="block max-w-none size-full" height="73" src={imgProfilePhoto1} width="73" decoding="async" />
       </div>
       <Frame2 />
     </div>
@@ -446,7 +446,7 @@ function Frame24() {
   return (
     <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full">
       <div className="relative shrink-0 size-[73px]" data-name="Profile Photo">
-        <img alt="" className="block max-w-none size-full" height="73" src={imgProfilePhoto2} width="73" />
+        <img alt="" className="block max-w-none size-full" height="73" src={imgProfilePhoto2} width="73" decoding="async" />
       </div>
       <Frame4 />
     </div>
@@ -474,7 +474,7 @@ function Frame21() {
   return (
     <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full">
       <div className="relative shrink-0 size-[73px]" data-name="Profile Photo">
-        <img alt="" className="block max-w-none size-full" height="73" src={imgProfilePhoto3} width="73" />
+        <img alt="" className="block max-w-none size-full" height="73" src={imgProfilePhoto3} width="73" decoding="async" />
       </div>
       <Frame6 />
     </div>

@@ -412,8 +412,8 @@ function SnakeSlowest() {
 
 function Frame7() {
   return (
-    <div className="absolute hidden lg:flex h-[40px] left-[300px] top-[560px] w-[calc(25%-240px)] items-center justify-center pointer-events-none z-0">
-      <WaveConnector height={40} className="w-full h-full" />
+    <div className="absolute hidden lg:flex h-[40px] left-[300px] 2xl:left-[260px] top-[660px] w-[calc(25%-240px)] 2xl:w-[146px] items-center justify-center pointer-events-none z-0">
+      <WaveConnector height={40} className="w-full h-full opacity-50" />
     </div>
   );
 }
@@ -828,8 +828,8 @@ function SnakeSlowest1() {
 
 function Frame9() {
   return (
-    <div className="absolute hidden lg:flex h-[40px] left-[calc(25%+300px)] top-[560px] w-[calc(25%-240px)] items-center justify-center pointer-events-none z-0">
-      <WaveConnector height={40} className="w-full h-full" />
+    <div className="absolute hidden lg:flex h-[40px] left-[calc(25%+300px)] 2xl:left-[646px] top-[660px] w-[calc(25%-240px)] 2xl:w-[147px] items-center justify-center pointer-events-none z-0">
+      <WaveConnector height={40} className="w-full h-full opacity-50" />
     </div>
   );
 }
@@ -1244,8 +1244,8 @@ function SnakeSlowest2() {
 
 function Frame8() {
   return (
-    <div className="absolute hidden lg:flex h-[40px] left-[calc(50%+300px)] top-[560px] w-[calc(25%-240px)] items-center justify-center pointer-events-none z-0">
-      <WaveConnector height={40} className="w-full h-full" />
+    <div className="absolute hidden lg:flex h-[40px] left-[calc(50%+300px)] 2xl:left-[1033px] top-[660px] w-[calc(25%-240px)] 2xl:w-[147px] items-center justify-center pointer-events-none z-0">
+      <WaveConnector height={40} className="w-full h-full opacity-50" />
     </div>
   );
 }
@@ -1388,20 +1388,30 @@ function Frame3() {
 
 function Card() {
   return (
-    <div className="border-[1.143px] border-[rgba(106,228,153,0.5)] border-solid h-[240px] overflow-clip relative rounded-[24px] shadow-[0px_2px_28.8px_0px_rgba(253,230,138,0.1),0px_2px_17.6px_0px_rgba(146,235,180,0.1)] w-[284px]" data-name="Card">
-      <BgElements />
-      <div className="absolute flex h-[208px] items-center justify-center left-[78.44px] top-[14.86px] w-[168.421px]" style={{ "--transform-inner-width": "467.171875", "--transform-inner-height": "38" } as React.CSSProperties}>
-        <div className="flex-none rotate-[90deg]">
-          <Frame3 />
+    <div className="h-[240px] overflow-clip relative rounded-[24px] shadow-[0px_2px_28.8px_0px_rgba(253,230,138,0.1),0px_2px_17.6px_0px_rgba(146,235,180,0.1)] w-[284px] p-[1.143px] group" data-name="Card">
+      {/* Gradient Border Overlay */}
+      <div className="absolute inset-0 rounded-[24px] pointer-events-none p-[1.143px] bg-gradient-to-b from-[#6ae499] via-[#fde68a] to-[#ff6b57] opacity-60 group-hover:opacity-100 transition-opacity blur-[2px]" />
+      {/* Inner Black Background to create the 'border' look */}
+      <div className="absolute inset-[1.143px] bg-[#020601] rounded-[23px] z-0" />
+
+      <div className="relative z-10 size-full overflow-hidden rounded-[23px]">
+        <BgElements />
+        <div className="absolute flex h-[208px] items-center justify-center left-[78.44px] top-[14.86px] w-[168.421px]" style={{ "--transform-inner-width": "467.171875", "--transform-inner-height": "38" } as React.CSSProperties}>
+          <div className="flex-none rotate-[90deg]">
+            <Frame3 />
+          </div>
         </div>
       </div>
+
+      {/* Inner Glow/Shadow */}
+      <div className="absolute inset-0 pointer-events-none rounded-[24px] shadow-[inset_0px_0px_20px_rgba(106,228,153,0.15)]" />
     </div>
   );
 }
 
 function Safer() {
   return (
-    <div className="relative lg:absolute h-[284px] lg:left-[calc(50%+60px)] rounded-[24px] lg:top-[450px] w-[240px]" data-name="Safer">
+    <div className="relative lg:absolute h-[284px] lg:left-[calc(50%+60px)] 2xl:left-[793px] rounded-[24px] lg:top-[550px] w-[240px]" data-name="Safer">
       <Lights />
       <div className="absolute flex h-[284px] items-center justify-center left-0 top-0 w-[240px]" style={{ "--transform-inner-width": "467.171875", "--transform-inner-height": "38" } as React.CSSProperties}>
         <div className="flex-none rotate-[-90deg]">
@@ -1519,20 +1529,30 @@ function Frame5() {
 
 function Card1() {
   return (
-    <div className="border-[1.143px] border-[rgba(106,228,153,0.5)] border-solid h-[240px] overflow-clip relative rounded-[24px] shadow-[0px_2px_28.8px_0px_rgba(253,230,138,0.1),0px_2px_17.6px_0px_rgba(146,235,180,0.1)] w-[284px]" data-name="Card">
-      <BgElements1 />
-      <div className="absolute flex h-[208px] items-center justify-center left-[38.6px] top-[14.86px] w-[208.254px]" style={{ "--transform-inner-width": "647.15625", "--transform-inner-height": "38" } as React.CSSProperties}>
-        <div className="flex-none rotate-[90deg]">
-          <Frame5 />
+    <div className="h-[240px] overflow-clip relative rounded-[24px] shadow-[0px_2px_28.8px_0px_rgba(253,230,138,0.1),0px_2px_17.6px_0px_rgba(146,235,180,0.1)] w-[284px] p-[1.143px] group" data-name="Card">
+      {/* Gradient Border Overlay */}
+      <div className="absolute inset-0 rounded-[24px] pointer-events-none p-[1.143px] bg-gradient-to-b from-[#6ae499] via-[#fde68a] to-[#ff6b57] opacity-60 group-hover:opacity-100 transition-opacity blur-[2px]" />
+      {/* Inner Black Background */}
+      <div className="absolute inset-[1.143px] bg-[#020601] rounded-[23px] z-0" />
+
+      <div className="relative z-10 size-full overflow-hidden rounded-[23px]">
+        <BgElements1 />
+        <div className="absolute flex h-[208px] items-center justify-center left-[38.6px] top-[14.86px] w-[208.254px]" style={{ "--transform-inner-width": "647.15625", "--transform-inner-height": "38" } as React.CSSProperties}>
+          <div className="flex-none rotate-[90deg]">
+            <Frame5 />
+          </div>
         </div>
       </div>
+
+      {/* Inner Glow */}
+      <div className="absolute inset-0 pointer-events-none rounded-[24px] shadow-[inset_0px_0px_20px_rgba(106,228,153,0.15)]" />
     </div>
   );
 }
 
 function Safer1() {
   return (
-    <div className="relative lg:absolute h-[284px] lg:left-[calc(75%+60px)] rounded-[24px] lg:top-[450px] w-[240px]" data-name="Safer">
+    <div className="relative lg:absolute h-[284px] lg:left-[calc(75%+60px)] 2xl:left-[1180px] rounded-[24px] lg:top-[550px] w-[240px]" data-name="Safer">
       <Lights1 />
       <div className="absolute flex h-[284px] items-center justify-center left-0 top-0 w-[240px]" style={{ "--transform-inner-width": "647.15625", "--transform-inner-height": "38" } as React.CSSProperties}>
         <div className="flex-none rotate-[-90deg]">
@@ -1681,20 +1701,30 @@ function Frame1() {
 
 function Card2() {
   return (
-    <div className="border-[1.143px] border-[rgba(106,228,153,0.5)] border-solid h-[240px] overflow-clip relative rounded-[24px] shadow-[0px_2px_28.8px_0px_rgba(253,230,138,0.1),0px_2px_17.6px_0px_rgba(146,235,180,0.1)] w-[284px]" data-name="Card">
-      <BgElements2 />
-      <div className="absolute flex h-[208px] items-center justify-center left-[44.77px] top-[14.86px] w-[202.081px]" style={{ "--transform-inner-width": "954.921875", "--transform-inner-height": "19" } as React.CSSProperties}>
-        <div className="flex-none rotate-[90deg]">
-          <Frame1 />
+    <div className="h-[240px] overflow-clip relative rounded-[24px] shadow-[0px_2px_28.8px_0px_rgba(253,230,138,0.1),0px_2px_17.6px_0px_rgba(146,235,180,0.1)] w-[284px] p-[1.143px] group" data-name="Card">
+      {/* Gradient Border Overlay */}
+      <div className="absolute inset-0 rounded-[24px] pointer-events-none p-[1.143px] bg-gradient-to-b from-[#6ae499] via-[#fde68a] to-[#ff6b57] opacity-60 group-hover:opacity-100 transition-opacity blur-[2px]" />
+      {/* Inner Black Background */}
+      <div className="absolute inset-[1.143px] bg-[#020601] rounded-[23px] z-0" />
+
+      <div className="relative z-10 size-full overflow-hidden rounded-[23px]">
+        <BgElements2 />
+        <div className="absolute flex h-[208px] items-center justify-center left-[44.77px] top-[14.86px] w-[202.081px]" style={{ "--transform-inner-width": "954.921875", "--transform-inner-height": "19" } as React.CSSProperties}>
+          <div className="flex-none rotate-[90deg]">
+            <Frame1 />
+          </div>
         </div>
       </div>
+
+      {/* Inner Glow */}
+      <div className="absolute inset-0 pointer-events-none rounded-[24px] shadow-[inset_0px_0px_20px_rgba(106,228,153,0.15)]" />
     </div>
   );
 }
 
 function Safer2() {
   return (
-    <div className="relative lg:absolute h-[284px] lg:left-[calc(25%+60px)] rounded-[24px] lg:top-[450px] w-[240px]" data-name="Safer">
+    <div className="relative lg:absolute h-[284px] lg:left-[calc(25%+60px)] 2xl:left-[406px] rounded-[24px] lg:top-[550px] w-[240px]" data-name="Safer">
       <Lights2 />
       <div className="absolute flex h-[284px] items-center justify-center left-0 top-0 w-[240px]" style={{ "--transform-inner-width": "954.921875", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[-90deg]">
@@ -1971,20 +2001,30 @@ function Frame11() {
 
 function Card3() {
   return (
-    <div className="border-[1.143px] border-[rgba(106,228,153,0.5)] border-solid h-[240px] overflow-clip relative rounded-[24px] shadow-[0px_2px_28.8px_0px_rgba(253,230,138,0.1),0px_2px_17.6px_0px_rgba(146,235,180,0.1)] w-[284px]" data-name="Card">
-      <BgElements3 />
-      <div className="absolute flex h-[208px] items-center justify-center left-[78.87px] top-[14.86px] w-[167.754px]" style={{ "--transform-inner-width": "669.359375", "--transform-inner-height": "19" } as React.CSSProperties}>
-        <div className="flex-none rotate-[90deg]">
-          <Frame11 />
+    <div className="h-[240px] overflow-clip relative rounded-[24px] shadow-[0px_2px_28.8px_0px_rgba(253,230,138,0.1),0px_2px_17.6px_0px_rgba(146,235,180,0.1)] w-[284px] p-[1.143px] group" data-name="Card">
+      {/* Gradient Border Overlay */}
+      <div className="absolute inset-0 rounded-[24px] pointer-events-none p-[1.143px] bg-gradient-to-b from-[#6ae499] via-[#fde68a] to-[#ff6b57] opacity-60 group-hover:opacity-100 transition-opacity blur-[2px]" />
+      {/* Inner Black Background */}
+      <div className="absolute inset-[1.143px] bg-[#020601] rounded-[23px] z-0" />
+
+      <div className="relative z-10 size-full overflow-hidden rounded-[23px]">
+        <BgElements3 />
+        <div className="absolute flex h-[208px] items-center justify-center left-[78.87px] top-[14.86px] w-[167.754px]" style={{ "--transform-inner-width": "669.359375", "--transform-inner-height": "19" } as React.CSSProperties}>
+          <div className="flex-none rotate-[90deg]">
+            <Frame11 />
+          </div>
         </div>
       </div>
+
+      {/* Inner Glow */}
+      <div className="absolute inset-0 pointer-events-none rounded-[24px] shadow-[inset_0px_0px_20px_rgba(106,228,153,0.15)]" />
     </div>
   );
 }
 
 function Safer3() {
   return (
-    <div className="relative lg:absolute h-[284px] lg:left-[60px] rounded-[24px] lg:top-[450px] w-[240px]" data-name="Safer">
+    <div className="relative lg:absolute h-[284px] lg:left-[60px] 2xl:left-[20px] rounded-[24px] lg:top-[550px] w-[240px]" data-name="Safer">
       <Lights3 />
       <div className="absolute flex h-[284px] items-center justify-center left-0 top-0 w-[240px]" style={{ "--transform-inner-width": "669.359375", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[-90deg]">

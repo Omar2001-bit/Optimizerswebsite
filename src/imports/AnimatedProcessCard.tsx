@@ -184,22 +184,21 @@ export function AnimatedProcessCard() {
                 style={{ background: `radial-gradient(ellipse at center, ${scheme.orb} 0%, transparent 75%)` }}
               />
             </div>
+            {/* Dynamic Fading Border Overlay - Moved inside for color matching */}
+            <div
+              className="absolute inset-0 pointer-events-none rounded-[inherit] blur-[4px]"
+              style={{
+                padding: "1.5px",
+                background: `linear-gradient(to bottom, transparent 0%, transparent 40%, ${scheme.orb}1a 60%, ${scheme.orb}4d 100%)`,
+                WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "xor",
+                maskComposite: "exclude",
+                zIndex: 40,
+              }}
+            />
           </div>
         );
       })}
-
-      {/* Border Overlay with corner highlights */}
-      <div
-        className="absolute inset-0 pointer-events-none rounded-[43px]"
-        style={{
-          padding: "1px",
-          background: "linear-gradient(135deg, #4ade80 0%, transparent 20%, transparent 80%, #4ade80 100%)",
-          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          WebkitMaskComposite: "xor",
-          maskComposite: "exclude",
-          zIndex: 40,
-        }}
-      />
 
       {/* Circle outline */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[350px] rounded-full border border-white/5 pointer-events-none" />

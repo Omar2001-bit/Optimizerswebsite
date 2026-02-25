@@ -14,102 +14,102 @@ import imgOurPartnersTools from "../assets/e527242af51a4a3d5a76a9787b060a26b6da4
 const icons = [
     {
         id: 0,
-        position: { left: '84%', top: 'calc(50% + 104.52px)' },
+        position: { left: '90%', top: 'calc(50% + 11.6vh)' },
         borderColor: 'rgba(255, 208, 76, 0.2)',
         shadowColor: 'rgba(255, 208, 76, 0.2)',
         insetShadowColor: 'rgba(255, 208, 76, 0.17)',
         glowColor: 'rgba(31, 170, 84, 0.04)',
         image: img6687D1Be6301F78Fecf93Bc763Bd507De1Ccf48089402Fa4UOYhhM4ZWeg3AkxNwMMdc44TbzMuFvnANywZtcyIzg,
         imageStyle: { width: '187.5%', height: '100.2%', left: '0', top: '-0.1%' },
-        wrapperSize: { width: '67.906px', height: '67.906px' }
+        wrapperSize: { width: '4.7vw', height: '4.7vw' }
     },
     {
         id: 1,
-        position: { left: '75.5%', top: 'calc(50% + 77.46px)' },
+        position: { left: '80%', top: 'calc(50% + 8.6vh)' },
         borderColor: 'rgba(27, 106, 114, 0.4)',
         shadowColor: 'rgba(27, 106, 114, 0.4)',
         insetShadowColor: 'rgba(27, 106, 114, 0.3)',
         glowColor: 'rgba(31, 170, 84, 0.04)',
         image: imgB9B3C47F590C9Afc97BcB866Bad86A72,
         imageStyle: { width: '233.11%', height: '151.69%', left: '-114.9%', top: '-26.4%' },
-        wrapperSize: { width: '78.373px', height: '67.782px' }
+        wrapperSize: { width: '5.4vw', height: '4.7vw' }
     },
     {
         id: 2,
-        position: { left: '67%', top: 'calc(50% + 126.59px)' },
+        position: { left: '70%', top: 'calc(50% + 14.1vh)' },
         borderColor: 'rgba(166, 190, 234, 0.3)',
         shadowColor: 'rgba(197, 210, 233, 0.2)',
         insetShadowColor: 'rgba(197, 210, 233, 0.2)',
         glowColor: 'rgba(31, 170, 84, 0.04)',
         image: imgImages1,
         imageStyle: { width: '177.17%', height: '137.2%', left: '-38.58%', top: '-18.9%' },
-        wrapperSize: { width: '52.554px', height: '67.865px' }
+        wrapperSize: { width: '3.6vw', height: '4.7vw' }
     },
     {
         id: 3,
-        position: { left: '58.5%', top: 'calc(50% + 111.34px)' },
+        position: { left: '60%', top: 'calc(50% + 12.4vh)' },
         borderColor: 'rgba(66, 133, 244, 0.3)',
         shadowColor: 'rgba(66, 133, 244, 0.25)',
         insetShadowColor: 'rgba(66, 133, 244, 0.25)',
         glowColor: 'rgba(31, 170, 84, 0.04)',
         image: imgGtmLogo,
         imageStyle: { width: '233.58%', height: '131.23%', left: '-72.75%', top: '0' },
-        wrapperSize: { width: '68.045px', height: '68.127px' }
+        wrapperSize: { width: '4.7vw', height: '4.7vw' }
     },
     {
         id: 4,
-        position: { left: '50%', top: 'calc(50% + 96.65px)' },
+        position: { left: '50%', top: 'calc(50% + 10.7vh)' },
         borderColor: 'rgba(155, 92, 143, 0.3)',
         shadowColor: 'rgba(155, 92, 143, 0.3)',
         insetShadowColor: 'rgba(155, 92, 143, 0.3)',
         glowColor: 'rgba(31, 170, 84, 0.04)',
         image: imgWoocommerceLogo1,
         imageStyle: { width: '293.33%', height: '99.69%', left: '0', top: '0' },
-        wrapperSize: { width: '91.505px', height: '54.225px' }
+        wrapperSize: { width: '6.3vw', height: '3.8vw' }
     },
     {
         id: 5,
-        position: { left: '41.5%', top: 'calc(50% + 140.23px)' },
+        position: { left: '40%', top: 'calc(50% + 15.6vh)' },
         borderColor: 'rgba(227, 116, 0, 0.23)',
         shadowColor: 'rgba(227, 116, 0, 0.23)',
         insetShadowColor: 'rgba(227, 116, 0, 0.2)',
         glowColor: 'rgba(31, 170, 84, 0.04)',
         image: imgGoogleAnalyticsLogo1,
         imageStyle: { width: '196.72%', height: '100%', left: '-49.18%', top: '0' },
-        wrapperSize: { width: '61.503px', height: '68.057px' }
+        wrapperSize: { width: '4.3vw', height: '4.7vw' }
     },
     {
         id: 6,
-        position: { left: '33%', top: 'calc(50% + 138.45px)' },
+        position: { left: '30%', top: 'calc(50% + 15.4vh)' },
         borderColor: 'rgba(149, 190, 70, 0.23)',
         shadowColor: 'rgba(149, 190, 70, 0.2)',
         insetShadowColor: 'rgba(149, 190, 70, 0.2)',
         glowColor: 'rgba(31, 170, 84, 0.04)',
         image: img3583589718ShopifyLogoWhiteTransparent,
         imageStyle: { width: '398.41%', height: '100%', left: '0', top: '0' },
-        wrapperSize: { width: '59.543px', height: '67.846px' }
+        wrapperSize: { width: '4.1vw', height: '4.7vw' }
     },
     {
         id: 7,
-        position: { left: '24.5%', top: 'calc(50% + 79.3px)' },
+        position: { left: '20%', top: 'calc(50% + 8.8vh)' },
         borderColor: 'rgba(255, 50, 0, 0.2)',
         shadowColor: 'rgba(255, 50, 0, 0.19)',
         insetShadowColor: 'rgba(255, 50, 0, 0.2)',
         glowColor: 'rgba(31, 170, 84, 0.04)',
         image: imgHotjarIcon,
         imageStyle: { width: '100%', height: '100%', objectFit: 'cover' as const, objectPosition: '50% 50%' },
-        wrapperSize: { width: '68.136px', height: '68.136px' }
+        wrapperSize: { width: '4.7vw', height: '4.7vw' }
     },
     {
         id: 8,
-        position: { left: '16%', top: 'calc(50% + 109.67px)' },
+        position: { left: '10%', top: 'calc(50% + 12.2vh)' },
         borderColor: 'rgba(35, 109, 201, 0.25)',
         shadowColor: 'rgba(35, 109, 201, 0.26)',
         insetShadowColor: 'rgba(35, 109, 201, 0.25)',
         glowColor: 'rgba(31, 170, 84, 0.04)',
         image: imgMicrosoftClarityIcon,
         imageStyle: { width: '100%', height: '100%', objectFit: 'cover' as const, objectPosition: '50% 50%' },
-        wrapperSize: { width: '67.913px', height: '67.913px' }
+        wrapperSize: { width: '4.7vw', height: '4.7vw' }
     },
 ];
 
@@ -132,13 +132,13 @@ function AnimatedIcon({ icon, index }: AnimatedIconProps) {
             }}
         >
             <motion.div
-                className="border border-solid backdrop-blur-[10.22px] rounded-[136.272px] w-[60px] h-[60px] lg:w-[135.813px] lg:h-[135.813px]"
+                className="border border-solid backdrop-blur-[0.71vw] rounded-[10vw] w-[8.35vw] aspect-square"
                 initial={{
                     y: 0,
                     scale: 1,
                 }}
                 animate={{
-                    y: [0, -60, 0, -35, 0],
+                    y: ['0vw', '-4.16vw', '0vw', '-2.43vw', '0vw'],
                     scale: [1, 1.18, 1, 1.1, 1],
                 }}
                 transition={{
@@ -153,15 +153,15 @@ function AnimatedIcon({ icon, index }: AnimatedIconProps) {
                 }}
             >
                 <div className="absolute inset-0 pointer-events-none rounded-[inherit]"
-                    style={{ boxShadow: `inset 0px 10px 14px 0px ${icon.insetShadowColor}` }} />
+                    style={{ boxShadow: `inset 0px ${0.69}vw ${0.97}vw 0px ${icon.insetShadowColor}` }} />
                 <div aria-hidden="true"
-                    className="absolute inset-0 pointer-events-none rounded-[136.272px] border border-solid"
+                    className="absolute inset-0 pointer-events-none rounded-[10vw] border border-solid"
                     style={{
                         borderColor: icon.borderColor,
-                        boxShadow: `0px 0px 29.026px 14px ${icon.shadowColor}`
+                        boxShadow: `0px 0px ${2.01}vw ${0.97}vw ${icon.shadowColor}`
                     }} />
                 <div
-                    className="flex flex-col items-center justify-center w-full h-full p-[32.705px] overflow-hidden rounded-[inherit] relative z-10"
+                    className="flex flex-col items-center justify-center w-full h-full p-[2.2vw] overflow-hidden rounded-[inherit] relative z-10"
                 >
                     <div className="relative overflow-hidden shrink-0" style={icon.wrapperSize}>
                         <img
@@ -172,6 +172,7 @@ function AnimatedIcon({ icon, index }: AnimatedIconProps) {
                                 position: 'absolute'
                             }}
                             className="max-w-none pointer-events-none"
+                            decoding="async"
                         />
                     </div>
                 </div>
@@ -193,14 +194,14 @@ export default function PartnersAndTools() {
             ))}
 
             {/* Content Section */}
-            <div className="absolute left-1/2 top-[100px] -translate-x-1/2 w-full max-w-[1144px] px-4 flex flex-col gap-6 items-center text-center z-20">
+            <div className="absolute left-1/2 top-[11.1vh] -translate-x-1/2 w-full max-w-[79.4vw] px-4 flex flex-col gap-6 items-center text-center z-20">
                 <h1
-                    className="font-['Sora',sans-serif] font-semibold text-[32px] lg:text-[59.443px] leading-[1.2] lg:leading-[69.35px] tracking-[-2.3777px] bg-cover bg-center bg-no-repeat bg-clip-text text-transparent w-full"
+                    className="font-['Sora',sans-serif] font-semibold text-[32px] lg:text-[4.1vw] leading-[1.2] lg:leading-[4.8vw] tracking-[-0.16vw] bg-cover bg-center bg-no-repeat bg-clip-text text-transparent w-full"
                     style={{ backgroundImage: `url('${imgOurPartnersTools}')` }}
                 >
                     Our Partners & Tools
                 </h1>
-                <p className="font-['Sora',sans-serif] font-normal text-[16px] lg:text-[20px] leading-[28px] text-[rgba(255,255,255,0.8)] w-full max-w-[764px]">
+                <p className="font-['Sora',sans-serif] font-normal text-[16px] lg:text-[1.4vw] leading-[1.9vw] text-[rgba(255,255,255,0.8)] w-full max-w-[53vw]">
                     We work with the most trusted tools and platforms in the GCC and globally to ensure accurate tracking, effective testing, and scalable growth.
                 </p>
             </div>

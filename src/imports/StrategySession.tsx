@@ -43,7 +43,7 @@ const normalizeWebsiteUrl = (url: string): string => {
 
 function Frame5() {
   return (
-    <div className="relative flex flex-col items-center w-full px-4 text-center mt-[60px] lg:mt-[120px]">
+    <div className="relative flex flex-col items-center w-full px-[1.1vw] text-center mt-[4.2vw] lg:mt-[8.3vw]">
       <p className="bg-center bg-clip-text bg-cover bg-no-repeat css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[1.2] lg:leading-[84.026px] relative shrink-0 text-[40px] lg:text-[72.022px] text-center tracking-[-2.8809px] w-full max-w-[1105px]" style={{ WebkitTextFillColor: "transparent", backgroundImage: `url('${imgBookYourFreeStrategySession}')` }}>
         Book Your Free Strategy Session
       </p>
@@ -116,7 +116,7 @@ function Stepper({ currentStep, maxStepReached, onStepClick }: any) {
       {/* Arrows */}
       {/* Arrows - Hidden on Mobile */}
       {[1, 2, 3, 4].map((idx) => (
-        <div key={idx} className="hidden lg:block absolute h-0 top-[calc(50%-12.5px)] translate-y-[-50%] w-[40px]" style={{ left: `calc(${idx * 20}% + 10px)` }}>
+        <div key={idx} className="hidden lg:block absolute h-0 top-[26px] translate-y-[-50%] w-[40px]" style={{ left: `calc(${idx * 20}% - 20px)` }}>
           <div className="absolute inset-[-0.5px_0]">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 40 1">
               <path d="M0 0.5H40" stroke="var(--stroke-0, white)" strokeOpacity="0.5" />
@@ -259,8 +259,8 @@ export default function StrategySession() {
     switch (currentStep) {
       case 1:
         return (
-          <div className="flex flex-col gap-[60px] items-center w-full">
-            <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[40px] text-[34px] text-center text-white tracking-[-1.36px]">Number of conversions per MONTH on average?</p>
+          <div className="flex flex-col gap-[4.2vw] items-center w-full">
+            <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[40px] text-[2.4vw] text-center text-white tracking-[-1.36px]">Number of conversions per MONTH on average?</p>
             <div className="flex flex-col gap-[24px] items-center w-full">
               <div className="flex flex-col lg:flex-row gap-[24px] w-full justify-center">
                 <OptionCard text="Fewer Than 100" isSelected={formData.conversionVolume === "Fewer Than 100"} onClick={() => handleSelect("conversionVolume", "Fewer Than 100")} />
@@ -275,8 +275,8 @@ export default function StrategySession() {
         );
       case 2:
         return (
-          <div className="flex flex-col gap-[60px] items-center w-full">
-            <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[40px] text-[34px] text-center text-white tracking-[-1.36px]">What is your primary conversion objective?</p>
+          <div className="flex flex-col gap-[4.2vw] items-center w-full">
+            <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[40px] text-[2.4vw] text-center text-white tracking-[-1.36px]">What is your primary conversion objective?</p>
             {formData.primaryObjective === "Other" ? (
               <div className="w-full max-w-[624px] flex flex-col gap-4">
                 <Input name="customObjective" value={formData.customObjective} onChange={handleInputChange} placeholder="Specify your objective..." className="bg-white/10 border-[#31da72]/30 text-white placeholder:text-white/40 h-14 w-full" />
@@ -297,8 +297,8 @@ export default function StrategySession() {
         );
       case 3:
         return (
-          <div className="flex flex-col gap-[60px] items-center w-full">
-            <p className="font-semibold text-[34px] text-white">What is your website?</p>
+          <div className="flex flex-col gap-[4.2vw] items-center w-full">
+            <p className="font-semibold text-[2.4vw] text-white">What is your website?</p>
             <div className="w-full max-w-[500px] flex flex-col gap-2">
               <Input name="website" value={formData.website} onChange={handleInputChange} placeholder="https://yourwebsite.com" className={`bg-white/10 border-2 ${validationErrors.website ? 'border-red-500' : 'border-[#31da72]/30'} text-white h-14`} />
               {validationErrors.website && <p className="text-red-500 text-sm">{validationErrors.website}</p>}
@@ -307,8 +307,8 @@ export default function StrategySession() {
         );
       case 4:
         return (
-          <div className="flex flex-col gap-[60px] items-center w-full">
-            <p className="font-semibold text-[34px] text-white">Contact Information</p>
+          <div className="flex flex-col gap-[4.2vw] items-center w-full">
+            <p className="font-semibold text-[2.4vw] text-white">Contact Information</p>
             <div className="w-[500px] flex flex-col gap-6">
               <Input name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="First Name" className="bg-white/10 border-[#31da72]/30 text-white h-14" />
               <div className="flex flex-col gap-2">
@@ -337,13 +337,13 @@ export default function StrategySession() {
   };
 
   return (
-    <div className="bg-[#020601] relative w-full h-auto pb-[200px] flex flex-col">
+    <div className="bg-[#020601] relative w-full h-auto pb-[13.8vw] flex flex-col">
       <Frame5 />
 
       {/* Card Design - Switched to relative to push sections below it */}
       {/* Card Design - Switched to relative to push sections below it */}
       <div
-        className="relative flex flex-col min-h-[733px] h-auto items-center justify-center mx-auto rounded-[24px] mt-[40px] w-full max-w-[1240px] z-10 animate-wave-fast"
+        className="relative flex flex-col min-h-[50.9vw] h-auto items-center justify-center mx-auto rounded-[24px] mt-[2.8vw] w-full max-w-[1240px] z-10 animate-wave-fast"
         data-name="Card"
         style={{
           backgroundImage: "linear-gradient(155.126deg, rgba(255, 255, 255, 0.12) 2.6545%, rgba(255, 255, 255, 0) 44.796%), url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 1240 733\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(196.13 40.783 -59.815 70.828 573.8 102.21)\\\'><stop stop-color=\\\'rgba(0,0,0,1)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(0,0,0,1)\\\' offset=\\\'0.55823\\\'/><stop stop-color=\\\'rgba(0,0,0,0.3)\\\' offset=\\\'0.73997\\\'/><stop stop-color=\\\'rgba(0,0,0,0)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>'), linear-gradient(87.1906deg, rgb(66, 102, 164) 0%, rgb(146, 235, 180) 25%, rgb(66, 102, 164) 50%, rgb(146, 235, 180) 75%, rgb(66, 102, 164) 100%)",
@@ -361,7 +361,7 @@ export default function StrategySession() {
             animation: wave-gradient 8s ease-in-out infinite;
           }
         `}</style>
-        <div aria-hidden="true" className="absolute border-[1.5px] border-[rgba(255,255,255,0.05)] border-solid inset-0 pointer-events-none rounded-[24px]" />
+        <div aria-hidden="true" className="absolute border-[1.5px] border-white/40 border-solid inset-0 pointer-events-none rounded-[24px]" />
 
         <div className="content-stretch flex flex-col gap-[40px] min-h-[645px] h-auto items-center relative shrink-0 w-full pt-[40px] px-8">
           {!showThankYouMessage && <Stepper currentStep={currentStep} maxStepReached={maxStepReached} onStepClick={setCurrentStep} />}
@@ -384,7 +384,7 @@ export default function StrategySession() {
           </div>
         </div>
 
-        <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_-16.5px_36.9px_0px_rgba(255,255,255,0.4)]" />
+        <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_16.5px_36.9px_0px_rgba(255,255,255,0.4)]" />
       </div>
     </div>
   );

@@ -302,17 +302,17 @@ function Bg() {
               <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
               <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
               <feOffset dy="4.69033" />
-              <feGaussianBlur stdDeviation="49.8347" />
+              <feGaussianBlur stdDeviation="40" />
               <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
-              <feColorMatrix type="matrix" values="0 0 0 0 0.208333 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0" />
-              <feBlend in2="shape" mode="color-burn" result="effect1_innerShadow_1_288" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.05 0 0 0 0 0.15 0 0 0 0 0.1 0 0 0 1 0" />
+              <feBlend in2="shape" mode="multiply" result="effect1_innerShadow_1_288" />
               <feColorMatrix in="SourceAlpha" result="hardAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
               <feOffset />
-              <feGaussianBlur stdDeviation="20.5202" />
+              <feGaussianBlur stdDeviation="20" />
               <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
-              <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0 0 0 0 0 0.84 0 0 0 1 0" />
-              <feBlend in2="effect1_innerShadow_1_288" mode="color-dodge" result="effect2_innerShadow_1_288" />
-              <feGaussianBlur result="effect3_foregroundBlur_1_288" stdDeviation="70.3549" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.4 0 0 0 0 0.9 0 0 0 0 0.5 0 0 0 1 0" />
+              <feBlend in2="effect1_innerShadow_1_288" mode="screen" result="effect2_innerShadow_1_288" />
+              <feGaussianBlur result="effect3_foregroundBlur_1_288" stdDeviation="60" />
             </filter>
             <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="11.7258" id="filter1_f_1_288" width="11.7258" x="263.187" y="1012.26">
               <feFlood floodOpacity="0" result="BackgroundImageFix" />
@@ -762,7 +762,7 @@ function Bg() {
             <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1398.73" id="filter90_f_1_288" width="1384.59" x="737.369" y="-3.8147e-06">
               <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-              <feGaussianBlur result="effect1_foregroundBlur_1_288" stdDeviation="150" />
+              <feGaussianBlur result="effect1_foregroundBlur_1_288" stdDeviation="60" />
             </filter>
             <linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_1_288" x1="1600.86" x2="513.061" y1="417.486" y2="1306.31">
               <stop stopColor="#04060A" />
@@ -781,19 +781,19 @@ function Frame2() {
   return (
     <div className="content-stretch flex gap-[16px] items-start relative shrink-0">
       <div className="h-[27.788px] relative shrink-0 w-[52px]" data-name="6687d1be6301f78fecf93bc7_63bd507de1ccf48089402fa4_uOYhhM4z-weg3akxNwMMdc44TbzMuFvnANywZTCYIzg">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img6687D1Be6301F78Fecf93Bc763Bd507De1Ccf48089402Fa4UOYhhM4ZWeg3AkxNwMMdc44TbzMuFvnANywZtcyIzg} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img6687D1Be6301F78Fecf93Bc763Bd507De1Ccf48089402Fa4UOYhhM4ZWeg3AkxNwMMdc44TbzMuFvnANywZtcyIzg} decoding="async" />
       </div>
       <div className="h-[28.042px] mix-blend-plus-lighter relative shrink-0 w-[64px]" data-name="b9b3c47f-590c-9afc-97bc-b866bad86a72">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[151.69%] left-[-8.92%] max-w-none top-[-26.4%] w-[118.15%]" src={imgB9B3C47F590C9Afc97BcB866Bad86A72} />
+          <img alt="" className="absolute h-[151.69%] left-[-8.92%] max-w-none top-[-26.4%] w-[118.15%]" src={imgB9B3C47F590C9Afc97BcB866Bad86A72} decoding="async" />
         </div>
       </div>
       <div className="h-[27.885px] relative shrink-0 w-[97.5px]" data-name="358-3589718_shopify-logo-white-transparent 1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img3583589718ShopifyLogoWhiteTransparent1} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img3583589718ShopifyLogoWhiteTransparent1} decoding="async" />
       </div>
       <div className="h-[27.857px] relative shrink-0 w-[48.75px]" data-name="Woocommerce_logo 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[99.69%] left-0 max-w-none top-0 w-[282.86%]" src={imgWoocommerceLogo1} />
+          <img alt="" className="absolute h-[99.69%] left-0 max-w-none top-0 w-[282.86%]" src={imgWoocommerceLogo1} decoding="async" />
         </div>
       </div>
     </div>
@@ -848,7 +848,7 @@ function Component() {
   return (
     <div className="h-[60px] relative shrink-0 w-[289.128px] client-logo" data-name="Component 2">
       <div className="absolute h-[60px] left-0 top-0 w-[289.128px]" data-name="2fe3278a-ce58-4000-b160-a7415574aac1">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img2Fe3278ACe584000B160A7415574Aac1} />
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={img2Fe3278ACe584000B160A7415574Aac1} decoding="async" />
       </div>
     </div>
   );
@@ -859,7 +859,7 @@ function Component1() {
     <div className="h-[60px] relative shrink-0 w-[168px] client-logo" data-name="Component 3">
       <div className="absolute h-[60px] left-0 top-0 w-[168px]" data-name="Squadio Logo 1">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[332.31%] left-[-9.57%] max-w-none top-[-115.69%] w-[118.81%]" src={imgSquadioLogo1} />
+          <img alt="" className="absolute h-[332.31%] left-[-9.57%] max-w-none top-[-115.69%] w-[118.81%]" src={imgSquadioLogo1} decoding="async" />
         </div>
       </div>
     </div>
@@ -981,7 +981,7 @@ function Component3() {
     <div className="h-[60.228px] relative shrink-0 w-[72px] client-logo" data-name="Component 5">
       <div className="absolute h-[60.228px] left-0 top-0 w-[72px]" data-name="Vitrine-Furniture-09082019_ee834ce7-e8ea-4e00-878d-60378a796ff0_410x">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[167.73%] left-[-25.86%] max-w-none top-[-25.91%] w-[155.89%]" src={imgVitrineFurniture09082019Ee834Ce7E8Ea4E00878D60378A796Ff0410X} />
+          <img alt="" className="absolute h-[167.73%] left-[-25.86%] max-w-none top-[-25.91%] w-[155.89%]" src={imgVitrineFurniture09082019Ee834Ce7E8Ea4E00878D60378A796Ff0410X} decoding="async" />
         </div>
       </div>
     </div>
@@ -993,7 +993,7 @@ function Component4() {
     <div className="h-[72px] relative shrink-0 w-[90px] client-logo" data-name="Component 6">
       <div className="absolute h-[72px] left-0 top-0 w-[90px]" data-name="el kalb el 4a2y - white and no background">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[106.4%] left-[-25.73%] max-w-none top-[-2.86%] w-[151.54%]" src={imgElKalbEl4A2YWhiteAndNoBackground} />
+          <img alt="" className="absolute h-[106.4%] left-[-25.73%] max-w-none top-[-2.86%] w-[151.54%]" src={imgElKalbEl4A2YWhiteAndNoBackground} decoding="async" />
         </div>
       </div>
     </div>
@@ -1005,7 +1005,7 @@ function Component5() {
     <div className="h-[72.259px] relative shrink-0 w-[83.436px] client-logo" data-name="Component 7">
       <div className="absolute h-[72.259px] left-0 top-0 w-[83.436px]" data-name="Regal EN logo-01">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[182.04%] left-[-28.83%] max-w-none top-[-41.42%] w-[157.66%]" src={imgRegalEnLogo01} />
+          <img alt="" className="absolute h-[182.04%] left-[-28.83%] max-w-none top-[-41.42%] w-[157.66%]" src={imgRegalEnLogo01} decoding="async" />
         </div>
       </div>
     </div>
@@ -1087,7 +1087,7 @@ function HeaderVideo() {
     <div className="-translate-x-1/2 absolute h-[662px] left-1/2 top-[933px] w-[1180px]" data-name="Header Video">
       <Hero />
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute left-0 max-w-none size-full top-0 grayscale" src={imgHeaderVideo} />
+        <img alt="" className="absolute left-0 max-w-none size-full top-0 grayscale" src={imgHeaderVideo} decoding="async" />
       </div>
     </div>
   );

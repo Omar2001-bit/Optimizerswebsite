@@ -14,6 +14,7 @@ import Footer from "@/imports/Footer";
 import AnimatedHeroSection from "@/imports/AnimatedHeroSection";
 import AnimatedCaseStudies from "@/imports/AnimatedCaseStudies";
 import HeaderSection from "@/imports/HeaderSection";
+import { HeaderNav } from "@/imports/Frame2147223128";
 
 
 interface ServiceCardProps {
@@ -182,87 +183,92 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <div className="global-persistent-header">
+        <HeaderNav />
+      </div>
       <div className="bg-[#020601] w-full min-h-screen relative flex flex-col">
         <HeaderSection />
-        <div className="flex flex-col lg:flex-row gap-[40px] lg:gap-[100px] p-[24px] lg:p-[100px] items-center lg:items-start" id="services">
-          {/* Left Side - Text */}
-          <div className="flex flex-col gap-[32px] w-full lg:w-[538px] shrink-0 items-center lg:items-start text-center lg:text-left lg:sticky lg:top-10 lg:self-start lg:h-fit z-10">
-            <div
-              className="relative min-w-full w-[min-content]"
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontWeight: 600,
-                fontSize: 'clamp(60px, 10vw, 100px)',
-                lineHeight: '1.1',
-                letterSpacing: '-4px',
-                backgroundImage: `url('${imgOurServices}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                color: 'transparent'
-              }}
-            >
-              <p className="mb-0 m-0">Our</p>
-              <p className="m-0">Services</p>
+        <div style={{ position: 'relative', background: '#020601' }}>
+          <div className="flex flex-col lg:flex-row gap-[2.8vw] lg:gap-[7vw] p-[1.7vw] lg:p-[7vw] items-center lg:items-start" id="services">
+            {/* Left Side - Text */}
+            <div className="flex flex-col gap-[2.2vw] w-full lg:w-[37.3vw] shrink-0 items-center lg:items-start text-center lg:text-left lg:sticky lg:top-10 lg:self-start lg:h-fit z-10">
+              <div
+                className="relative min-w-full w-[min-content]"
+                style={{
+                  fontFamily: "'Sora', sans-serif",
+                  fontWeight: 600,
+                  fontSize: 'clamp(60px, 10vw, 100px)',
+                  lineHeight: '1.1',
+                  letterSpacing: '-4px',
+                  backgroundImage: `url('${imgOurServices}')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  color: 'transparent'
+                }}
+              >
+                <p className="mb-0 m-0">Our</p>
+                <p className="m-0">Services</p>
+              </div>
+              <p
+                className="m-0 w-full lg:w-[460px]"
+                style={{
+                  fontFamily: "'Sora', sans-serif",
+                  fontWeight: 400,
+                  fontSize: '20px',
+                  lineHeight: '28px',
+                  color: 'rgba(255,255,255,0.8)'
+                }}
+              >
+                We follow a systematic 6-step approach that has generated millions in additional revenue for e-commerce brands across the GCC.
+              </p>
+              <button
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-[#020601] h-[50px] rounded-[100px] px-[28px] py-[12px] border border-[#6ae499] relative overflow-hidden w-fit cursor-pointer hover:scale-105 transition-transform"
+                style={{
+                  fontFamily: "'Sora', sans-serif",
+                  fontWeight: 600,
+                  fontSize: '18px',
+                  lineHeight: '21.6px',
+                  color: 'white',
+                  boxShadow: 'inset 0px 0px 30px 0px rgba(106,228,153,0.6)'
+                }}
+              >
+                Book a Free CRO Audit
+              </button>
             </div>
-            <p
-              className="m-0 w-full lg:w-[460px]"
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontWeight: 400,
-                fontSize: '20px',
-                lineHeight: '28px',
-                color: 'rgba(255,255,255,0.8)'
-              }}
-            >
-              We follow a systematic 6-step approach that has generated millions in additional revenue for e-commerce brands across the GCC.
-            </p>
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-[#020601] h-[50px] rounded-[100px] px-[28px] py-[12px] border border-[#6ae499] relative overflow-hidden w-fit cursor-pointer hover:scale-105 transition-transform"
-              style={{
-                fontFamily: "'Sora', sans-serif",
-                fontWeight: 600,
-                fontSize: '18px',
-                lineHeight: '21.6px',
-                color: 'white',
-                boxShadow: 'inset 0px 0px 30px 0px rgba(106,228,153,0.6)'
-              }}
-            >
-              Book a Free CRO Audit
-            </button>
-          </div>
 
-          {/* Right Side - Service Cards (Vertical Stack) */}
-          <div className="flex flex-col w-full items-center lg:items-start gap-[40px] lg:gap-[72px]">
-            {services.map((service, index) => (
-              <ServiceCard key={index} {...service} />
-            ))}
+            {/* Right Side - Service Cards (Vertical Stack) */}
+            <div className="flex flex-col w-full items-center lg:items-start gap-[2.8vw] lg:gap-[5vw]">
+              {services.map((service, index) => (
+                <ServiceCard key={index} {...service} />
+              ))}
+            </div>
           </div>
+          <div id="case-studies">
+            <AnimatedHeroSection />
+          </div>
+          <Component333 />
+          <ProcessWithAnimation />
+          <Table />
+          <AnimatedCaseStudies />
+          <Frame2147223150 />
+          <div id="roi-calculator">
+            <ROICalculator />
+          </div>
+          <PartnersAndTools />
+          <div className="relative w-full h-auto" id="contact">
+            <StrategySession />
+          </div>
+          <div id="team">
+            <MeetTheTeam />
+          </div>
+          <FAQSection />
+          <GallerySection />
+          <Footer />
         </div>
-        <Component333 />
-        <div id="case-studies">
-          <AnimatedHeroSection />
-        </div>
-        <ProcessWithAnimation />
-        <Table />
-        <AnimatedCaseStudies />
-        <Frame2147223150 />
-        <div id="roi-calculator">
-          <ROICalculator />
-        </div>
-        <PartnersAndTools />
-        <div className="relative w-full h-auto" id="contact">
-          <StrategySession />
-        </div>
-        <div id="team">
-          <MeetTheTeam />
-        </div>
-        <FAQSection />
-        <GallerySection />
-        <Footer />
       </div>
       <Toaster />
     </QueryClientProvider>

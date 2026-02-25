@@ -76,7 +76,7 @@ function Link() {
 
 function Frame19() {
     return (
-        <div className="relative flex flex-col gap-[32px] lg:gap-[48px] items-start w-full lg:w-[450px] shrink-0">
+        <div className="relative flex flex-col gap-[2.2vw] lg:gap-[3.3vw] items-start w-full lg:w-[31.25vw] shrink-0">
             <p className="bg-center bg-clip-text bg-cover bg-no-repeat css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[1.1] min-w-full relative shrink-0 text-[40px] lg:text-[78px] tracking-[-1px] lg:tracking-[-2px] w-full" style={{ WebkitTextFillColor: "transparent", backgroundImage: `url('${imgFrequentlyAskedQuestions}')` }}>
                 Frequently<br />Asked<br />Questions
             </p>
@@ -87,7 +87,7 @@ function Frame19() {
 
 export default function FAQSection() {
     return (
-        <div className="bg-[#020601] relative size-full min-h-screen pt-[60px] lg:pt-[100px] pb-0 px-[15px] lg:px-[30px] overflow-hidden">
+        <div className="bg-[#020601] relative size-full min-h-screen pt-[4.2vw] lg:pt-[7vw] pb-0 px-[1.1vw] lg:px-[2.1vw] overflow-hidden">
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-32 items-start lg:w-[85%] lg:max-w-[1440px] mx-auto">
                 <Frame19 />
                 <div className="flex flex-col w-full gap-4">
@@ -108,14 +108,14 @@ export default function FAQSection() {
                                     className="absolute inset-0 pointer-events-none rounded-[16px]"
                                     style={{
                                         padding: "1px",
-                                        background: "linear-gradient(135deg, #4ade80 0%, transparent 20%, transparent 80%, #4ade80 100%)",
+                                        background: "radial-gradient(ellipse 50% 60% at 0% 0%, #4ade80 0%, transparent 100%), radial-gradient(ellipse 50% 60% at 100% 100%, #4ade80 0%, transparent 100%)",
                                         WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                                         WebkitMaskComposite: "xor",
                                         maskComposite: "exclude",
                                     }}
                                 />
 
-                                <AccordionTrigger className="flex items-center justify-between gap-4 w-full p-[32px] hover:no-underline [&[data-state=open]>svg]:rotate-180 [&[data-state=open]_.question-text]:text-white text-white font-['Sora',sans-serif] cursor-pointer">
+                                <AccordionTrigger className="flex items-center justify-between gap-4 w-full p-[32px] hover:no-underline [&[data-state=open]>svg]:rotate-180 [&>svg]:size-8 [&>svg]:text-white [&[data-state=open]_.question-text]:text-white text-white font-['Sora',sans-serif] cursor-pointer">
                                     <div className="question-text text-[18px] lg:text-[24px] font-bold leading-tight text-left transition-colors duration-300">
                                         {faq.question}
                                     </div>

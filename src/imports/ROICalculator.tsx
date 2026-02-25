@@ -24,9 +24,9 @@ function Frame() {
 
 function Frame1() {
   return (
-    <div className="content-stretch flex flex-col items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col items-center lg:items-start relative shrink-0 w-full">
       <ol className="block css-7ll8x1 font-['Sora:SemiBold',sans-serif] font-semibold leading-[0] relative shrink-0 text-[23px] text-white tracking-[-0.46px] w-full" start={1}>
-        <li className="css-4hzbpn ms-[34.5px]">
+        <li className="css-4hzbpn ms-[34.5px] lg:ms-0">
           <span className="leading-[28px]">{`Start  Entering Your Data`}</span>
         </li>
       </ol>
@@ -77,7 +77,7 @@ function Frame13({ currency, onCurrencyChange }: { currency: string; onCurrencyC
           </div>
         </div>
       </div>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px] blur-[1px]" />
     </div>
   );
 }
@@ -114,8 +114,8 @@ function LinearArrowsAltArrowDown() {
 function BackgroundOverlayBorderOverlayBlur({ onClick }: { onClick?: () => void }) {
   return (
     <div onClick={onClick} className="cursor-pointer backdrop-blur-[3.3px] content-stretch flex flex-col h-[48px] items-center justify-center p-[7.04px] relative rounded-[8px] shrink-0 w-[64px]" data-name="Background+Overlay+Border+OverlayBlur" style={{ backgroundImage: "linear-gradient(90deg, rgba(106, 228, 153, 0.2) 0%, rgba(106, 228, 153, 0.2) 100%), url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 64 48\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(4.599 0 0 2.4 32 0)\\\'><stop stop-color=\\\'rgba(168,127,255,0.04)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(168,127,255,0)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)" }}>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
-      <LinearArrowsAltArrowDown />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px]" />
+      <p className="text-white text-[24px] font-bold">-</p>
     </div>
   );
 }
@@ -132,7 +132,7 @@ function Frame14({ value, onChange }: { value: number; onChange: (val: number) =
           className="absolute inset-0 w-full h-full bg-transparent text-center text-white font-['Sora'] font-semibold text-[18px] focus:outline-none z-10"
         />
       </div>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px] blur-[1px]" />
     </div>
   );
 }
@@ -152,8 +152,8 @@ function LinearArrowsAltArrowDown1() {
 function BackgroundOverlayBorderOverlayBlur1({ onClick }: { onClick?: () => void }) {
   return (
     <div onClick={onClick} className="cursor-pointer backdrop-blur-[3.3px] content-stretch flex flex-col h-[48px] items-center justify-center p-[7.04px] relative rounded-[8px] shrink-0 w-[64px]" data-name="Background+Overlay+Border+OverlayBlur" style={{ backgroundImage: "linear-gradient(90deg, rgba(106, 228, 153, 0.2) 0%, rgba(106, 228, 153, 0.2) 100%), url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 64 48\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(4.599 0 0 2.4 32 0)\\\'><stop stop-color=\\\'rgba(168,127,255,0.04)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(168,127,255,0)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)" }}>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
-      <LinearArrowsAltArrowDown1 />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px]" />
+      <p className="text-white text-[24px] font-bold">+</p>
     </div>
   );
 }
@@ -215,14 +215,14 @@ function Link({ onReset }: { onReset: () => void }) {
         <DivBtnLabel />
       </div>
       <div className="absolute inset-0 pointer-events-none rounded-[inherit] shadow-[inset_0px_0px_30px_0px_rgba(106,228,153,0.6)]" />
-      <div aria-hidden="true" className="absolute border border-[#6ae499] border-solid inset-0 pointer-events-none rounded-[100px]" />
+      <div aria-hidden="true" className="absolute border border-[#6ae499]/30 border-solid inset-0 pointer-events-none rounded-[100px] blur-[1px]" />
     </div>
   );
 }
 
 function Frame38({ currency, onCurrencyChange, monthlyUsers, onMonthlyUsersChange, onReset }: any) {
   return (
-    <div className="content-stretch flex gap-[24px] items-end relative shrink-0 w-full">
+    <div className="content-stretch flex flex-wrap gap-[24px] items-end justify-center lg:justify-start relative shrink-0 w-full">
       <Frame18 currency={currency} onCurrencyChange={onCurrencyChange} />
       <Frame19 monthlyUsers={monthlyUsers} onMonthlyUsersChange={onMonthlyUsersChange} />
       <Link onReset={onReset} />
@@ -232,7 +232,8 @@ function Frame38({ currency, onCurrencyChange, monthlyUsers, onMonthlyUsersChang
 
 function Frame3({ currency, onCurrencyChange, monthlyUsers, onMonthlyUsersChange, onReset }: any) {
   return (
-    <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[24px] items-center p-[24px] relative rounded-[16px] shrink-0 w-full" data-name="FormContainer">
+      <div aria-hidden="true" className="absolute border border-white/40 border-solid inset-0 pointer-events-none rounded-[16px] blur-[1px]" />
       <Frame1 />
       <Frame38
         currency={currency}
@@ -247,9 +248,9 @@ function Frame3({ currency, onCurrencyChange, monthlyUsers, onMonthlyUsersChange
 
 function Frame2() {
   return (
-    <div className="content-stretch flex flex-col items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col items-center lg:items-start relative shrink-0 w-full">
       <ol className="block css-7ll8x1 font-['Sora:SemiBold',sans-serif] font-semibold leading-[0] relative shrink-0 text-[23px] text-white tracking-[-0.46px] w-full" start={2}>
-        <li className="css-4hzbpn ms-[34.5px]">
+        <li className="css-4hzbpn ms-[34.5px] lg:ms-0">
           <span className="leading-[28px]">Now Calculate Your ROI Projection</span>
         </li>
       </ol>
@@ -259,7 +260,7 @@ function Frame2() {
 
 function Frame7() {
   return (
-    <div className="content-stretch flex flex-col items-start justify-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col items-center justify-center relative shrink-0 w-full">
       <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[28px] relative shrink-0 text-[23px] text-center text-white tracking-[-0.46px] w-full">CURRENT</p>
     </div>
   );
@@ -316,8 +317,8 @@ function LinearArrowsAltArrowDown2() {
 function BackgroundOverlayBorderOverlayBlur2({ onClick }: { onClick?: () => void }) {
   return (
     <div onClick={onClick} className="cursor-pointer backdrop-blur-[3.3px] content-stretch flex flex-col h-[48px] items-center justify-center p-[7.04px] relative rounded-[8px] shrink-0 w-[64px]" data-name="Background+Overlay+Border+OverlayBlur" style={{ backgroundImage: "linear-gradient(90deg, rgba(95, 130, 191, 0.2) 0%, rgba(95, 130, 191, 0.2) 100%), url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 64 48\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(4.599 0 0 2.4 32 0)\\\'><stop stop-color=\\\'rgba(168,127,255,0.04)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(168,127,255,0)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)" }}>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
-      <LinearArrowsAltArrowDown2 />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px]" />
+      <p className="text-white text-[24px] font-bold">-</p>
     </div>
   );
 }
@@ -325,19 +326,19 @@ function BackgroundOverlayBorderOverlayBlur2({ onClick }: { onClick?: () => void
 function Frame17({ value, onChange }: { value: number; onChange: (val: number) => void }) {
   return (
     <div className="backdrop-blur-[3.3px] h-[48px] relative rounded-[8px] shrink-0 w-[220px]" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 220 48\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(15.809 0 0 2.4 110 0)\\\'><stop stop-color=\\\'rgba(168,127,255,0.04)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(168,127,255,0)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)" }}>
-      <div className="content-stretch flex flex-col items-center justify-center overflow-clip p-[7.04px] relative rounded-[inherit] size-full">
-        <input
-          type="number"
-          step="0.1"
-          value={value}
-          onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
-          className="absolute inset-0 w-full h-full bg-transparent text-center text-white font-['Sora'] font-semibold text-[18px] focus:outline-none z-10"
-        />
-        <div className="css-g0mm18 flex flex-col font-['Sora:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[18px] text-center text-white pointer-events-none">
-          <p className="css-ew64yg leading-[21.6px]">{value}%</p>
+      <div className="flex items-center justify-center relative size-full z-10">
+        <div className="flex items-center">
+          <input
+            type="number"
+            step="0.1"
+            value={value}
+            onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
+            className="bg-transparent text-right text-white font-['Sora'] font-semibold text-[18px] focus:outline-none w-[60px]"
+          />
+          <span className="text-white font-semibold text-[18px] ml-1 pointer-events-none">%</span>
         </div>
       </div>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px] blur-[1px]" />
     </div>
   );
 }
@@ -357,8 +358,8 @@ function LinearArrowsAltArrowDown3() {
 function BackgroundOverlayBorderOverlayBlur3({ onClick }: { onClick?: () => void }) {
   return (
     <div onClick={onClick} className="cursor-pointer backdrop-blur-[3.3px] content-stretch flex flex-col h-[48px] items-center justify-center p-[7.04px] relative rounded-[8px] shrink-0 w-[64px]" data-name="Background+Overlay+Border+OverlayBlur" style={{ backgroundImage: "linear-gradient(90deg, rgba(95, 130, 191, 0.2) 0%, rgba(95, 130, 191, 0.2) 100%), url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 64 48\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(4.599 0 0 2.4 32 0)\\\'><stop stop-color=\\\'rgba(168,127,255,0.04)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(168,127,255,0)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)" }}>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
-      <LinearArrowsAltArrowDown3 />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px]" />
+      <p className="text-white text-[24px] font-bold">+</p>
     </div>
   );
 }
@@ -385,7 +386,7 @@ function Frame15({ value, onValueChange }: { value: number; onValueChange: (v: n
 
 function Frame21({ value, onValueChange }: { value: number; onValueChange: (v: number) => void }) {
   return (
-    <div className="content-stretch flex flex-col gap-[20px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[12px] items-center relative shrink-0 w-full">
       <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[0px] text-center text-white w-full">
         <span className="leading-[19px] text-[16px]">Your</span>
         <span className="leading-[21.6px] text-[18px]"> </span>
@@ -448,8 +449,8 @@ function LinearArrowsAltArrowDown4() {
 function BackgroundOverlayBorderOverlayBlur4({ onClick }: { onClick?: () => void }) {
   return (
     <div onClick={onClick} className="cursor-pointer backdrop-blur-[3.3px] content-stretch flex flex-col h-[48px] items-center justify-center p-[7.04px] relative rounded-[8px] shrink-0 w-[64px]" data-name="Background+Overlay+Border+OverlayBlur" style={{ backgroundImage: "linear-gradient(90deg, rgba(95, 130, 191, 0.2) 0%, rgba(95, 130, 191, 0.2) 100%), url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 64 48\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(4.599 0 0 2.4 32 0)\\\'><stop stop-color=\\\'rgba(168,127,255,0.04)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(168,127,255,0)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)" }}>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
-      <LinearArrowsAltArrowDown4 />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px]" />
+      <p className="text-white text-[24px] font-bold">-</p>
     </div>
   );
 }
@@ -481,7 +482,7 @@ function Frame22({ value, currency }: { value: number, currency: string }) {
         </div>
         {currency === "SAR" ? <SaudiRiyalSymbol /> : <span className="text-white font-semibold">{currency}</span>}
       </div>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px]" />
     </div>
   );
 }
@@ -501,8 +502,8 @@ function LinearArrowsAltArrowDown5() {
 function BackgroundOverlayBorderOverlayBlur5({ onClick }: { onClick?: () => void }) {
   return (
     <div onClick={onClick} className="cursor-pointer backdrop-blur-[3.3px] content-stretch flex flex-col h-[48px] items-center justify-center p-[7.04px] relative rounded-[8px] shrink-0 w-[64px]" data-name="Background+Overlay+Border+OverlayBlur" style={{ backgroundImage: "linear-gradient(90deg, rgba(95, 130, 191, 0.2) 0%, rgba(95, 130, 191, 0.2) 100%), url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 64 48\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(4.599 0 0 2.4 32 0)\\\'><stop stop-color=\\\'rgba(168,127,255,0.04)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(168,127,255,0)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)" }}>
-      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white inset-0 pointer-events-none rounded-[8px]" />
-      <LinearArrowsAltArrowDown5 />
+      <div aria-hidden="true" className="absolute border-[0.5px] border-solid border-white/20 inset-0 pointer-events-none rounded-[8px]" />
+      <p className="text-white text-[24px] font-bold">+</p>
     </div>
   );
 }
@@ -529,7 +530,7 @@ function Frame24({ value, onValueChange, currency }: { value: number; onValueCha
 
 function Frame25({ value, onValueChange, currency }: { value: number; onValueChange: (v: number) => void; currency: string }) {
   return (
-    <div className="content-stretch flex flex-col gap-[20px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[12px] items-center relative shrink-0 w-full">
       <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[0px] text-center text-white w-full">
         <span className="leading-[19px] text-[16px]">Your</span>
         <span className="leading-[21.6px] text-[18px]"> </span>
@@ -555,7 +556,7 @@ function Frame32({ currentCR, onCurrentCRChange, currentAOV, onCurrentAOVChange,
 
 function Frame29({ value, onValueChange }: { value: number; onValueChange: (v: number) => void }) {
   return (
-    <div className="content-stretch flex flex-col gap-[20px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[12px] items-center relative shrink-0 w-full">
       <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[0px] text-center text-white w-full">
         <span className="leading-[19px] text-[16px]">Your</span>
         <span className="leading-[21.6px] text-[18px]"> </span>
@@ -570,7 +571,7 @@ function Frame29({ value, onValueChange }: { value: number; onValueChange: (v: n
 
 function Frame42({ value, onValueChange, currency }: { value: number; onValueChange: (v: number) => void; currency: string }) {
   return (
-    <div className="content-stretch flex flex-col gap-[20px] items-center relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[12px] items-center relative shrink-0 w-full">
       <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[0px] text-center text-white w-full">
         <span className="leading-[19px] text-[16px]">Your</span>
         <span className="leading-[21.6px] text-[18px]"> </span>
@@ -622,10 +623,10 @@ function Frame9({ value, currency }: { value: number; currency: string }) {
 function BackgroundOverlayBorderOverlayBlur6({ value, currency }: { value: number; currency: string }) {
   return (
     <div className="backdrop-blur-[7.5px] flex-[1_0_0] min-h-px min-w-px relative rounded-[16px]" data-name="Background+Overlay+Border+OverlayBlur" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\\"0 0 220 92\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\" preserveAspectRatio=\\\"none\\\"><rect x=\\\"0\\\" y=\\\"0\\\" height=\\\"100%\\\" width=\\\"100%\\\" fill=\\\"url(%23grad)\\\" opacity=\\\"1\\\"/><defs><radialGradient id=\\\"grad\\\" gradientUnits=\\\"userSpaceOnUse\\\" cx=\\\"0\\\" cy=\\\"0\\\" r=\\\"10\\\" gradientTransform=\\\"matrix(15.809 0 0 4.6 110 0)\\\"><stop stop-color=\\\"rgba(168,127,255,0.04)\\\" offset=\\\"0\\\"/><stop stop-color=\\\"rgba(168,127,255,0)\\\" offset=\\\"1\\\"/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)" }}>
-      <div aria-hidden="true" className="absolute border border-[rgba(135,162,207,0.2)] border-solid inset-0 pointer-events-none rounded-[16px]" />
+      <div aria-hidden="true" className="absolute border border-[rgba(135,162,207,0.15)] border-solid inset-0 pointer-events-none rounded-[16px] blur-[1px]" />
       <div className="flex flex-col items-center justify-center size-full">
         <div className="content-stretch flex flex-col gap-[12px] items-center justify-center p-[20px] relative w-full">
-          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full">Current Monthly Revenue</p>
+          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full whitespace-nowrap">Current Monthly Revenue</p>
           <Frame9 value={value} currency={currency} />
         </div>
       </div>
@@ -646,10 +647,10 @@ function Frame10({ value, currency }: { value: number; currency: string }) {
 function BackgroundOverlayBorderOverlayBlur7({ value, currency }: { value: number; currency: string }) {
   return (
     <div className="backdrop-blur-[7.5px] flex-[1_0_0] min-h-px min-w-px relative rounded-[16px]" data-name="Background+Overlay+Border+OverlayBlur" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\\"0 0 220 92\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\" preserveAspectRatio=\\\"none\\\"><rect x=\\\"0\\\" y=\\\"0\\\" height=\\\"100%\\\" width=\\\"100%\\\" fill=\\\"url(%23grad)\\\" opacity=\\\"1\\\"/><defs><radialGradient id=\\\"grad\\\" gradientUnits=\\\"userSpaceOnUse\\\" cx=\\\"0\\\" cy=\\\"0\\\" r=\\\"10\\\" gradientTransform=\\\"matrix(15.809 0 0 4.6 110 0)\\\"><stop stop-color=\\\"rgba(168,127,255,0.04)\\\" offset=\\\"0\\\"/><stop stop-color=\\\"rgba(168,127,255,0)\\\" offset=\\\"1\\\"/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)" }}>
-      <div aria-hidden="true" className="absolute border border-[rgba(135,162,207,0.2)] border-solid inset-0 pointer-events-none rounded-[16px]" />
+      <div aria-hidden="true" className="absolute border border-[rgba(135,162,207,0.15)] border-solid inset-0 pointer-events-none rounded-[16px] blur-[1px]" />
       <div className="flex flex-col items-center justify-center size-full">
         <div className="content-stretch flex flex-col gap-[12px] items-center justify-center p-[20px] relative w-full">
-          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full">Current Annual Revenue</p>
+          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full whitespace-nowrap">Current Annual Revenue</p>
           <Frame10 value={value} currency={currency} />
         </div>
       </div>
@@ -682,7 +683,7 @@ function Frame48({ results, currency, currentCR, onCurrentCRChange, currentAOV, 
 function BackgroundOverlayBorderOverlayBlur8(props: any) {
   return (
     <div className="content-stretch flex flex-col gap-[24px] h-full items-center p-[24px] relative rounded-[16px] shrink-0 w-full max-w-[500px]" data-name="Background+Overlay+Border+OverlayBlur">
-      <div aria-hidden="true" className="absolute border border-[#505050] border-solid inset-0 pointer-events-none rounded-[16px]" />
+      <div aria-hidden="true" className="absolute border border-white/40 border-solid inset-0 pointer-events-none rounded-[16px] blur-[1px]" />
       <Frame7 />
       <Frame48 {...props} />
     </div>
@@ -705,7 +706,6 @@ function LinearArrowsTransferHorizontal() {
 function BackgroundOverlayBorderOverlayBlur9() {
   return (
     <div className="content-stretch flex flex-col items-center justify-center p-[7.04px] relative rounded-[8px] shrink-0 size-[48px]" data-name="Background+Overlay+Border+OverlayBlur">
-      <div aria-hidden="true" className="absolute border border-[rgba(255,255,255,0.8)] border-solid inset-0 pointer-events-none rounded-[8px]" />
       <LinearArrowsTransferHorizontal />
     </div>
   );
@@ -713,7 +713,7 @@ function BackgroundOverlayBorderOverlayBlur9() {
 
 function Frame8() {
   return (
-    <div className="content-stretch flex flex-col items-start justify-center relative shrink-0 w-[408px]">
+    <div className="content-stretch flex flex-col items-center justify-center relative shrink-0 w-full lg:w-[408px]">
       <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[28px] relative shrink-0 text-[23px] text-center text-white tracking-[-0.46px] w-full">NEW</p>
     </div>
   );
@@ -734,7 +734,7 @@ function BackgroundOverlayBorderOverlayBlur14({ value, currency }: { value: numb
       <div aria-hidden="true" className="absolute border border-[rgba(106,228,153,0.2)] border-solid inset-0 pointer-events-none rounded-[16px]" />
       <div className="flex flex-col items-center justify-center size-full">
         <div className="content-stretch flex flex-col gap-[12px] items-center justify-center p-[20px] relative w-full">
-          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full">New Monthly Revenue</p>
+          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full whitespace-nowrap">New Monthly Revenue</p>
           <Frame11 value={value} currency={currency} />
         </div>
       </div>
@@ -758,7 +758,7 @@ function BackgroundOverlayBorderOverlayBlur15({ value, currency }: { value: numb
       <div aria-hidden="true" className="absolute border border-[rgba(106,228,153,0.2)] border-solid inset-0 pointer-events-none rounded-[16px]" />
       <div className="flex flex-col items-center justify-center size-full">
         <div className="content-stretch flex flex-col gap-[12px] items-center justify-center p-[20px] relative w-full">
-          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full">New Annual Revenue</p>
+          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full whitespace-nowrap">New Annual Revenue</p>
           <Frame12 value={value} currency={currency} />
         </div>
       </div>
@@ -790,10 +790,7 @@ function BackgroundOverlayBorderOverlayBlur16({ value, currency }: { value: numb
       <div aria-hidden="true" className="absolute border border-[rgba(106,228,153,0.2)] border-solid inset-0 pointer-events-none rounded-[16px]" />
       <div className="flex flex-col items-center justify-center size-full">
         <div className="content-stretch flex flex-col gap-[12px] items-center justify-center p-[20px] relative w-full">
-          <div className="font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full">
-            <p className="css-4hzbpn mb-0">{`Additional Revenue `}</p>
-            <p className="css-4hzbpn">/ Month</p>
-          </div>
+          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full whitespace-nowrap">Additional Revenue / Month</p>
           <Frame43 value={value} currency={currency} />
         </div>
       </div>
@@ -816,10 +813,7 @@ function BackgroundOverlayBorderOverlayBlur17({ value }: { value: number }) {
       <div aria-hidden="true" className="absolute border border-[rgba(106,228,153,0.2)] border-solid inset-0 pointer-events-none rounded-[16px]" />
       <div className="flex flex-col items-center justify-center size-full">
         <div className="content-stretch flex flex-col gap-[12px] items-center justify-center p-[20px] relative w-full">
-          <div className="font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full">
-            <p className="css-4hzbpn mb-0">{`% Increase in `}</p>
-            <p className="css-4hzbpn">Revenue</p>
-          </div>
+          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full whitespace-nowrap">% Increase in Revenue</p>
           <Frame44 value={value} />
         </div>
       </div>
@@ -848,10 +842,10 @@ function Frame45({ value }: { value: number }) {
 function BackgroundOverlayBorderOverlayBlur18({ value }: { value: number }) {
   return (
     <div className="backdrop-blur-[7.5px] relative rounded-[16px] shrink-0 w-full" data-name="Background+Overlay+Border+OverlayBlur" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\\"0 0 452 92\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\" preserveAspectRatio=\\\"none\\\"><rect x=\\\"0\\\" y=\\\"0\\\" height=\\\"100%\\\" width=\\\"100%\\\" fill=\\\"url(%23grad)\\\" opacity=\\\"1\\\"/><defs><radialGradient id=\\\"grad\\\" gradientUnits=\\\"userSpaceOnUse\\\" cx=\\\"0\\\" cy=\\\"0\\\" r=\\\"10\\\" gradientTransform=\\\"matrix(32.481 0 0 4.6 226 0)\\\"><stop stop-color=\\\"rgba(168,127,255,0.04)\\\" offset=\\\"0\\\"/><stop stop-color=\\\"rgba(168,127,255,0)\\\" offset=\\\"1\\\"/></radialGradient></defs></svg>'), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)" }}>
-      <div aria-hidden="true" className="absolute border border-[rgba(106,228,153,0.2)] border-solid inset-0 pointer-events-none rounded-[16px]" />
+      <div aria-hidden="true" className="absolute border border-[rgba(106,228,153,0.15)] border-solid inset-0 pointer-events-none rounded-[16px] blur-[1px]" />
       <div className="flex flex-col items-center justify-center size-full">
         <div className="content-stretch flex flex-col gap-[12px] items-center justify-center p-[20px] relative w-full">
-          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full">New number of conversions / Month</p>
+          <p className="css-4hzbpn font-['Sora:Regular',sans-serif] font-normal leading-[17px] relative shrink-0 text-[14px] text-center text-white w-full whitespace-nowrap">New number of conversions / Month</p>
           <Frame45 value={value} />
         </div>
       </div>
@@ -894,7 +888,7 @@ function Frame49({ results, newCR, onNewCRChange, newAOV, onNewAOVChange, curren
 function BackgroundOverlayBorderOverlayBlur19(props: any) {
   return (
     <div className="content-stretch flex flex-col gap-[24px] h-[733px] items-center p-[24px] relative rounded-[16px] shrink-0 w-[500px]" data-name="Background+Overlay+Border+OverlayBlur">
-      <div aria-hidden="true" className="absolute border border-[#505050] border-solid inset-0 pointer-events-none rounded-[16px]" />
+      <div aria-hidden="true" className="absolute border border-white/40 border-solid inset-0 pointer-events-none rounded-[16px] blur-[1px]" />
       <Frame8 />
       <Frame49 {...props} />
     </div>
@@ -1004,8 +998,17 @@ function Card() {
         .animate-wave-fast {
           animation: wave-gradient 8s ease-in-out infinite;
         }
+        /* Hide numeric input spinners */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        input[type="number"] {
+          -moz-appearance: textfield;
+        }
       `}</style>
-      <div aria-hidden="true" className="absolute border-[1.5px] border-[rgba(255,255,255,0)] border-solid inset-0 pointer-events-none rounded-[24px]" />
+      <div aria-hidden="true" className="absolute border-[1.5px] border-white/40 border-solid inset-0 pointer-events-none rounded-[24px]" />
       <div className="flex items-center justify-center relative shrink-0">
         <div className="flex-none w-full">
           <Frame34 />

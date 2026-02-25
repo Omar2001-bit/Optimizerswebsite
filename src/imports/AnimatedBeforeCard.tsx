@@ -179,12 +179,11 @@ export function AnimatedBeforeCard() {
         height={589}
         className="absolute inset-0 cursor-grab active:cursor-grabbing"
       />
-      {/* Border Overlay with corner highlights */}
       <div
-        className="absolute inset-0 pointer-events-none rounded-[43px]"
+        className="absolute inset-0 pointer-events-none rounded-[43px] blur-[4px]"
         style={{
-          padding: "1px",
-          background: "linear-gradient(135deg, #4ade80 0%, transparent 20%, transparent 80%, #4ade80 100%)",
+          padding: "1.5px",
+          background: "linear-gradient(to bottom, transparent 0%, transparent 40%, rgba(255,255,255,0.1) 60%, rgba(255,255,255,0.3) 100%)",
           WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
           WebkitMaskComposite: "xor",
           maskComposite: "exclude",
