@@ -8,42 +8,30 @@ import Section5 from "./Section5";
 import imgTopclientsResults4 from "../assets/f6cb95ddf6fbcaa6d79196a0ac804e1747a8b1c4.webp";
 import '../styles/top-clients-scroll.css';
 
-const BackgroundSlide = ({ Section, opacity, mouseX, mouseY, parallaxGain }: any) => {
-    const display = useTransform(opacity, (v) => (v as number) > 0 ? "block" : "none");
-    const pointerEvents = useTransform(opacity, (v) => (v as number) > 0.5 ? "auto" : "none");
+const SectionSlide = ({ Section, bgOpacity, contentOpacity, counterY, mockupX, mockupY }: any) => {
+    // Sharp visibility gate for rendering
+    const isVisible = useTransform(bgOpacity, (v) => (v as number) > 0);
 
     return (
         <motion.div
             className="tc-slide-wrapper"
             style={{
-                opacity,
-                zIndex: 0,
-                display,
-                pointerEvents,
+                display: useTransform(isVisible, (v) => v ? "block" : "none"),
+                pointerEvents: useTransform(bgOpacity, (v) => (v as number) > 0.5 ? "auto" : "none"),
+                zIndex: 10,
                 willChange: 'opacity'
             }}
         >
-            <Section isActive={true} renderMode="bg" mouseX={mouseX} mouseY={mouseY} parallaxGain={parallaxGain} />
-        </motion.div>
-    );
-};
-
-const ContentSlide = ({ Section, opacity, counterY, mouseX, mouseY, parallaxGain }: any) => {
-    const display = useTransform(opacity, (v) => (v as number) > 0 ? "block" : "none");
-    const pointerEvents = useTransform(opacity, (v) => (v as number) > 0.5 ? "auto" : "none");
-
-    return (
-        <motion.div
-            className="tc-slide-wrapper"
-            style={{
-                opacity,
-                zIndex: 10,
-                display,
-                pointerEvents,
-                willChange: 'opacity, transform'
-            }}
-        >
-            <Section isActive={true} renderMode="content" counterY={counterY} mouseX={mouseX} mouseY={mouseY} parallaxGain={parallaxGain} />
+            {/* Background Layer moved inside Section via renderMode */}
+            <Section
+                isActive={true}
+                renderMode="full"
+                bgOpacity={bgOpacity}
+                contentOpacity={contentOpacity}
+                counterY={counterY}
+                mockupX={mockupX}
+                mockupY={mockupY}
+            />
         </motion.div>
     );
 };
@@ -65,14 +53,17 @@ export default function AnimatedHeroSection() {
     });
 
     // ── Mouse tracking for Parallax ──
-    const mouseX = useMotionValue(0); // Normalized -0.5 to 0.5
+    const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
     const smoothMouseX = useSpring(mouseX, { stiffness: 50, damping: 20 });
     const smoothMouseY = useSpring(mouseY, { stiffness: 50, damping: 20 });
 
-    const [isInView, setIsInView] = useState(false);
+    // Centralize parallax transforms
+    const rawX = useTransform(smoothMouseX, [-0.5, 0.5], [-60, 60]);
+    const rawY = useTransform(smoothMouseY, [-0.5, 0.5], [-60, 60]);
 
+    const [isInView, setIsInView] = useState(false);
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
             setIsInView(entry.isIntersecting);
@@ -89,20 +80,13 @@ export default function AnimatedHeroSection() {
                 mouseY.set(0);
                 return;
             }
-
-            // Mockup is centered approx at 50vw, 55vh
             const mouseX_raw = e.clientX / window.innerWidth;
             const mouseY_raw = e.clientY / window.innerHeight;
-
             const dx = mouseX_raw - 0.5;
             const dy = mouseY_raw - 0.55;
             const distance = Math.sqrt(dx * dx + dy * dy);
-
-            // Weight: 1.0 at center, 0.0 at 0.35 distance (approx 35vw)
             const radius = 0.35;
             const weight = Math.max(0, 1 - (distance / radius));
-
-            // INVERT values to create a "push" effect away from mouse
             mouseX.set(-dx * weight);
             mouseY.set(-(mouseY_raw - 0.5) * weight);
         };
@@ -110,7 +94,6 @@ export default function AnimatedHeroSection() {
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, [isInView, mouseX, mouseY]);
 
-    // ── Mount Gating (Only mount slides near viewport) ──
     const [mountedIndices, setMountedIndices] = useState<number[]>([0, 1]);
     const isSnapping = useRef(false);
     const lastSnapTime = useRef(0);
@@ -131,15 +114,10 @@ export default function AnimatedHeroSection() {
                 return active;
             });
 
-            // ── Reactive Transition Triggering (Auto-Snap) ──
             const now = Date.now();
             if (isSnapping.current || (now - lastSnapTime.current < 1500) || !containerRef.current) return;
-
-            // Use RAW velocity to capture intent without spring lag
             const velocity = scrollYProgress.getVelocity();
             const absVel = Math.abs(velocity);
-
-            // Clear any pending "rest" snaps while user is moving
             if (restTimeout.current) clearTimeout(restTimeout.current);
 
             const handleSnap = (target: number) => {
@@ -150,12 +128,10 @@ export default function AnimatedHeroSection() {
                 const containerHeight = rect.height;
                 const viewportHeight = window.innerHeight;
                 const targetY = containerTop + (target * (containerHeight - viewportHeight));
-
                 window.scrollTo({ top: targetY, behavior: 'smooth' });
                 setTimeout(() => { isSnapping.current = false; }, 1500);
             };
 
-            // LAYER 1: Active Velocity Triggers (Capture fast intent)
             if (absVel > 0.001) {
                 lastDirection.current = velocity > 0 ? "down" : "up";
                 if (velocity > 0) {
@@ -169,22 +145,17 @@ export default function AnimatedHeroSection() {
                     else if (latest < 0.71 && latest > 0.65) handleSnap(0.56);
                     else if (latest < 0.95 && latest > 0.89) handleSnap(0.80);
                 }
-            }
-            // LAYER 2: Rest-Zone Snapping (Catches slides that stop mid-way)
-            else if (absVel < 0.0001) {
+            } else if (absVel < 0.0001) {
                 restTimeout.current = setTimeout(() => {
                     if (isSnapping.current) return;
-
                     const zones = [
                         { range: [0.16, 0.24], targets: { down: 0.32, up: 0.08 } },
                         { range: [0.40, 0.48], targets: { down: 0.56, up: 0.32 } },
                         { range: [0.64, 0.72], targets: { down: 0.80, up: 0.56 } },
                         { range: [0.88, 0.96], targets: { down: 0.98, up: 0.80 } }
                     ];
-
                     for (const zone of zones) {
                         if (latest >= zone.range[0] && latest <= zone.range[1]) {
-                            // Favor the direction the user was last moving
                             const target = lastDirection.current === "up" ? zone.targets.up : zone.targets.down;
                             handleSnap(target);
                             break;
@@ -199,67 +170,64 @@ export default function AnimatedHeroSection() {
         };
     }, [smoothScroll, scrollYProgress]);
 
-    // ─── Scroll timeline with REST ZONES (Sequential/Organized) ───
-    // 1000vh total height
-    // Slide 1: rest 0.00–0.16 | exit 0.16–0.20
-    // Slide 2: enter 0.20–0.24 | rest 0.24–0.40 | exit 0.40–0.44
-    // Slide 3: enter 0.44–0.48 | rest 0.48–0.64 | exit 0.64–0.68
-    // Slide 4: enter 0.68–0.72 | rest 0.72–0.88 | exit 0.88–0.92
-    // Slide 5: enter 0.92–0.96 | rest 0.96–1.00
+    // ── STABLE TRANSFORM ARRAYS (Prevents re-creation on re-render) ──
+    const bgOpacityRefs = useRef([
+        [0.00, 0.16, 0.20],
+        [0.16, 0.20, 0.24, 0.40, 0.44],
+        [0.40, 0.44, 0.48, 0.64, 0.68],
+        [0.64, 0.68, 0.72, 0.88, 0.92],
+        [0.88, 0.92, 0.96, 1.0],
+    ]);
 
-    // ── Background opacities (crossfade, no movement) ──
-    const bgOps = [
-        useTransform(smoothScroll, [0.00, 0.16, 0.20], [1, 1, 0]),
-        useTransform(smoothScroll, [0.16, 0.20, 0.24, 0.40, 0.44], [0, 0, 1, 1, 0]),
-        useTransform(smoothScroll, [0.40, 0.44, 0.48, 0.64, 0.68], [0, 0, 1, 1, 0]),
-        useTransform(smoothScroll, [0.64, 0.68, 0.72, 0.88, 0.92], [0, 0, 1, 1, 0]),
-        useTransform(smoothScroll, [0.88, 0.92, 0.96, 1.0], [0, 0, 1, 1]),
-    ];
+    const counterYRefs = useRef([
+        ['0%', '0%', '-100%'],
+        ['100%', '100%', '0%', '0%', '-100%'],
+        ['100%', '100%', '0%', '0%', '-100%'],
+        ['100%', '100%', '0%', '0%', '-100%'],
+        ['100%', '100%', '0%', '0%'],
+    ]);
 
-    // ── Per-element counter Y (100% → 0% → -100%) ──
-    const counterYs = [
-        useTransform(smoothScroll, [0.00, 0.16, 0.20], ['0%', '0%', '-100%']),
-        useTransform(smoothScroll, [0.16, 0.20, 0.24, 0.40, 0.44], ['100%', '100%', '0%', '0%', '-100%']),
-        useTransform(smoothScroll, [0.40, 0.44, 0.48, 0.64, 0.68], ['100%', '100%', '0%', '0%', '-100%']),
-        useTransform(smoothScroll, [0.64, 0.68, 0.72, 0.88, 0.92], ['100%', '100%', '0%', '0%', '-100%']),
-        useTransform(smoothScroll, [0.88, 0.92, 0.96, 1.0], ['100%', '100%', '0%', '0%']),
-    ];
+    const bgOps = bgOpacityRefs.current.map((range, i) =>
+        useTransform(smoothScroll, range, i === 0 ? [1, 1, 0] : i === 4 ? [0, 0, 1, 1] : [0, 0, 1, 1, 0])
+    );
 
-    // ── Parallax Gain (1 during rest, 0 during exit/enter) ──
-    const parallaxGains = [
-        useTransform(smoothScroll, [0.00, 0.16, 0.20], [1, 1, 0]),
-        useTransform(smoothScroll, [0.16, 0.20, 0.24, 0.40, 0.44], [0, 0, 1, 1, 0]),
-        useTransform(smoothScroll, [0.40, 0.44, 0.48, 0.64, 0.68], [0, 0, 1, 1, 0]),
-        useTransform(smoothScroll, [0.64, 0.68, 0.72, 0.88, 0.92], [0, 0, 1, 1, 0]),
-        useTransform(smoothScroll, [0.88, 0.92, 0.96, 1.0], [0, 0, 1, 1]),
-    ];
+    const counterYs = counterYRefs.current.map((output, i) =>
+        useTransform(smoothScroll, bgOpacityRefs.current[i], output)
+    );
 
-    // ── Visibility gate (sharp on/off — NOT a fade) ──
-    const visGates = [
-        useTransform(smoothScroll, [0.00, 0.20, 0.201], [1, 1, 0]),
-        useTransform(smoothScroll, [0.199, 0.20, 0.44, 0.441], [0, 1, 1, 0]),
-        useTransform(smoothScroll, [0.439, 0.44, 0.68, 0.681], [0, 1, 1, 0]),
-        useTransform(smoothScroll, [0.679, 0.68, 0.92, 0.921], [0, 1, 1, 0]),
-        useTransform(smoothScroll, [0.919, 0.92, 1.0], [0, 1, 1]),
-    ];
+    const visGates = bgOpacityRefs.current.map((range, i) => {
+        const r = [...range];
+        if (i === 0) return useTransform(smoothScroll, [0.00, 0.20, 0.201], [1, 1, 0]);
+        if (i === 4) return useTransform(smoothScroll, [0.919, 0.92, 1.0], [0, 1, 1]);
+        return useTransform(smoothScroll, [r[0] - 0.001, r[0], r[3], r[3] + 0.001], [0, 1, 1, 0]);
+    });
+
+    // Centralized mockup parallax mockupX/mockupY
+    const parallaxGains = bgOpacityRefs.current.map((range, i) =>
+        useTransform(smoothScroll, range, i === 0 ? [1, 1, 0] : i === 4 ? [0, 0, 1, 1] : [0, 0, 1, 1, 0])
+    );
+
+    // Final mockupX/Y per section
+    const mockupXs = parallaxGains.map(gain => useTransform([rawX, gain], ([x, g]) => (x as number) * (g as number)));
+    const mockupYs = parallaxGains.map(gain => useTransform([rawY, gain], ([y, g]) => (y as number) * (g as number)));
 
     return (
         <div ref={containerRef} className="tc-scroll-container">
             <div className="tc-sticky-wrapper">
-                {/* Background Layer — crossfade, no y movement */}
+                {/* Unified Section Layer */}
                 {sections.map((Section, i) => mountedIndices.includes(i) && (
-                    <BackgroundSlide
-                        key={`bg-${i}`}
+                    <SectionSlide
+                        key={`slide-${i}`}
                         Section={Section}
-                        opacity={bgOps[i]}
-                        mouseX={smoothMouseX}
-                        mouseY={smoothMouseY}
-                        parallaxGain={parallaxGains[i]}
+                        bgOpacity={bgOps[i]}
+                        contentOpacity={visGates[i]}
+                        counterY={counterYs[i]}
+                        mockupX={mockupXs[i]}
+                        mockupY={mockupYs[i]}
                     />
                 ))}
 
-
-                {/* Persistent Title — always visible, no movement */}
+                {/* Persistent Title */}
                 <div className="tc-persistent-ui" style={{ zIndex: 20 }}>
                     <p
                         className="absolute bg-center bg-clip-text bg-cover bg-no-repeat font-['Sora',sans-serif] font-semibold leading-[1.1] left-[5.5vw] lowercase text-[76.3px] top-[7vh] tracking-[-0.04em]"
@@ -278,20 +246,7 @@ export default function AnimatedHeroSection() {
                     </p>
                 </div>
 
-                {/* Content Layer — per-element counter animation */}
-                {sections.map((Section, i) => mountedIndices.includes(i) && (
-                    <ContentSlide
-                        key={`content-${i}`}
-                        Section={Section}
-                        opacity={visGates[i]}
-                        counterY={counterYs[i]}
-                        mouseX={smoothMouseX}
-                        mouseY={smoothMouseY}
-                        parallaxGain={parallaxGains[i]}
-                    />
-                ))}
-
-                {/* Persistent CTA — always on top */}
+                {/* Persistent CTA */}
                 <div className="tc-persistent-ui" style={{ zIndex: 50 }}>
                     <div className="absolute left-[5.5vw] top-[80vh] flex flex-col gap-[3vh] items-start">
                         <p className="font-['Sora',sans-serif] font-normal leading-normal text-white text-[20px]">
