@@ -45,14 +45,79 @@ export default function AnimatedCaseStudies() {
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ['start start', 'end end'],
+        offset: ['start 0.4', 'end end'],
     });
 
     const roundedScroll = useSpring(scrollYProgress, {
-        stiffness: 80,
-        damping: 25,
+        stiffness: 25,
+        damping: 18,
         restDelta: 0.001,
     });
+
+    // ── Wheel-event hijack: one tick = one slide (slides 2-4 only) ──
+    const isSnapping = useRef(false);
+    // Only the gate opening is scroll-driven; all 4 case study slides snap
+    const SNAP_TARGETS = [0.17, 0.36, 0.57, 0.84];
+    const SNAP_THRESHOLD = 0.13; // hijack only after gate animation finishes
+    const LOCK_DURATION = 1800;
+
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+
+        const handleWheel = (e: WheelEvent) => {
+            // Disable scroll hijack on tablet/mobile
+            if (window.innerWidth < 1024) return;
+            // Only hijack if the sticky wrapper is filling the viewport
+            const rect = el.getBoundingClientRect();
+            if (rect.top > 0 || rect.bottom < window.innerHeight) return;
+
+            const progress = scrollYProgress.get();
+
+            // Let the first two slides (gate + slide 1) scroll naturally
+            if (progress < SNAP_THRESHOLD) return;
+
+            // Ignore tiny trackpad inertia/bounce events — let them pass through
+            if (Math.abs(e.deltaY) < 3) return;
+
+            // If already animating, consume the event but do nothing
+            if (isSnapping.current) {
+                e.preventDefault();
+                return;
+            }
+
+            const direction = e.deltaY > 0 ? 1 : -1;
+
+            // Find the current snap index
+            let currentIdx = 0;
+            for (let i = SNAP_TARGETS.length - 1; i >= 0; i--) {
+                if (progress >= SNAP_TARGETS[i] - 0.02) {
+                    currentIdx = i;
+                    break;
+                }
+            }
+
+            const nextIdx = currentIdx + direction;
+
+            // If scrolling beyond the section bounds, let the page scroll naturally
+            if (nextIdx < 0 || nextIdx >= SNAP_TARGETS.length) return;
+
+            e.preventDefault();
+            isSnapping.current = true;
+
+            const target = SNAP_TARGETS[nextIdx];
+            const containerHeight = el.scrollHeight;
+            const viewportHeight = window.innerHeight;
+            const containerTop = rect.top + window.scrollY;
+            const targetY = containerTop + (target * (containerHeight - viewportHeight));
+
+            window.scrollTo({ top: targetY, behavior: 'instant' });
+            setTimeout(() => { isSnapping.current = false; }, LOCK_DURATION);
+        };
+
+        el.addEventListener('wheel', handleWheel, { passive: false });
+        return () => el.removeEventListener('wheel', handleWheel);
+    }, [scrollYProgress]);
 
     const gateProgress = useTransform(scrollYProgress, [0, 0.12], [0, 1]);
 

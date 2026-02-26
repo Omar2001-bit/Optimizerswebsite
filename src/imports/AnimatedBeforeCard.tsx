@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Matter from 'matter-js';
 
 const labels = [
@@ -15,7 +15,7 @@ const labels = [
   "No Research"
 ];
 
-export function AnimatedBeforeCard() {
+export function AnimatedBeforeCard({ sectionVisible = false }: { sectionVisible?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const engineRef = useRef<Matter.Engine | null>(null);
@@ -23,28 +23,8 @@ export function AnimatedBeforeCard() {
   const renderRef = useRef<number | null>(null);
   const bodiesRef = useRef<{ body: Matter.Body; label: string; width: number; height: number }[]>([]);
 
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible || !canvasRef.current || !containerRef.current) return;
+    if (!sectionVisible || !canvasRef.current || !containerRef.current) return;
 
     const width = 570;
     const height = 589;
@@ -165,7 +145,7 @@ export function AnimatedBeforeCard() {
       if (engineRef.current) Matter.Engine.clear(engineRef.current);
       if (worldRef.current) Matter.World.clear(worldRef.current, false);
     };
-  }, [isVisible]);
+  }, [sectionVisible]);
 
   return (
     <div

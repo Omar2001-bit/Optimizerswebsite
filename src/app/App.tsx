@@ -189,7 +189,7 @@ export default function App() {
       <div className="bg-[#020601] w-full min-h-screen relative flex flex-col">
         <HeaderSection />
         <div style={{ position: 'relative', background: '#020601' }}>
-          <div className="flex flex-col lg:flex-row gap-[2.8vw] lg:gap-[7vw] p-[1.7vw] lg:p-[7vw] items-center lg:items-start" id="services">
+          <div className="flex flex-col lg:flex-row gap-[2.8vw] lg:gap-[7vw] p-[1.7vw] lg:p-[7vw] items-center lg:items-start" id="services" style={{ scrollMarginTop: '100px' }}>
             {/* Left Side - Text */}
             <div className="flex flex-col gap-[2.2vw] w-full lg:w-[37.3vw] shrink-0 items-center lg:items-start text-center lg:text-left lg:sticky lg:top-10 lg:self-start lg:h-fit z-10">
               <div

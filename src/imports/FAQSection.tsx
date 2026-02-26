@@ -64,7 +64,7 @@ function DivBtnLabel() {
 
 function Link() {
     return (
-        <div className="bg-[#020601] h-[50px] relative rounded-[100px] shrink-0 cursor-pointer hover:opacity-80 transition-opacity shadow-[0px_0px_25px_rgba(106,228,153,0.3)]" data-name="Link">
+        <div className="bg-[#020601] h-[50px] relative rounded-[100px] shrink-0 cursor-pointer hover:opacity-80 transition-opacity shadow-[0px_0px_25px_rgba(106,228,153,0.3)]" data-name="Link" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
             <div className="content-stretch flex h-full items-center justify-center overflow-clip px-[28px] py-[12px] relative rounded-[inherit]">
                 <DivBtnLabel />
             </div>

@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from "react";
 import svgPaths from "./svg-gpil48nekb";
 import clsx from "clsx";
 import imgOurProvenConversionOptimizationProcess from "../assets/f107a7f40e4d7ea19ffc42c38dbf8e17414a5f3b.webp";
@@ -79,8 +80,29 @@ function BackgroundImageAndText({ text, additionalClassNames = "" }: BackgroundI
 }
 
 export default function ProcessWithAnimation() {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [sectionVisible, setSectionVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setSectionVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0, rootMargin: '-80% 0px 0px 0px' }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <div className="bg-[#020601] relative w-full min-h-screen py-20 shrink-0 overflow-hidden flex flex-col items-center gap-10" data-name="Process">
+        <div ref={sectionRef} className="bg-[#020601] relative w-full min-h-screen py-20 shrink-0 overflow-hidden flex flex-col items-center gap-10" data-name="Process">
 
             {/* Title Section */}
             <div className="flex flex-col gap-[32px] items-center text-center z-10 px-4 max-w-full">
@@ -108,7 +130,7 @@ export default function ProcessWithAnimation() {
                     <p className="font-['Sora:SemiBold',sans-serif] font-semibold text-[40px] lg:text-[88px] text-[rgba(255,255,255,0.2)] text-center tracking-[3.5px] -mb-[26px] lg:-mb-[50px] relative z-0">Before</p>
                     <div className="relative z-10">
                         <ProcessBackgroundImage additionalClassNames="" noRotation={true}>
-                            <AnimatedBeforeCard />
+                            <AnimatedBeforeCard sectionVisible={sectionVisible} />
                         </ProcessBackgroundImage>
                     </div>
                 </div>
@@ -118,7 +140,7 @@ export default function ProcessWithAnimation() {
                     <p className="font-['Sora:SemiBold',sans-serif] font-semibold text-[40px] lg:text-[88px] text-[rgba(255,255,255,0.2)] text-center tracking-[3.5px] -mb-[26px] lg:-mb-[50px] relative z-0">After</p>
                     <div className="relative z-10">
                         <ProcessBackgroundImage additionalClassNames="" noRotation={true}>
-                            <AnimatedProcessCard />
+                            <AnimatedProcessCard sectionVisible={sectionVisible} />
                         </ProcessBackgroundImage>
                     </div>
                 </div>

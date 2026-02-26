@@ -157,16 +157,7 @@ export default function StrategySession() {
   // Mock mutation for demonstration if no backend is present
   const submitContactMutation = useMutation({
     mutationFn: async (data: any) => {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-
-      // If we want to try the real API but fall back to mock:
-      try {
-        return await apiRequest("POST", "/api/contact", data);
-      } catch (e) {
-        console.warn("API submission failed, using mock success for flow demo:", e);
-        return { success: true, message: "Mock success" };
-      }
+      return await apiRequest("POST", "/api/contact", data);
     },
     onSuccess: () => {
       toast({ title: "Success!", description: "Information captured! Please choose a slot for our meeting." });
@@ -260,7 +251,7 @@ export default function StrategySession() {
       case 1:
         return (
           <div className="flex flex-col gap-[4.2vw] items-center w-full">
-            <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[40px] text-[2.4vw] text-center text-white tracking-[-1.36px]">Number of conversions per MONTH on average?</p>
+            <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[1.3] text-[20px] lg:text-[2.4vw] text-center text-white tracking-[-1.36px]">Number of conversions per MONTH on average?</p>
             <div className="flex flex-col gap-[24px] items-center w-full">
               <div className="flex flex-col lg:flex-row gap-[24px] w-full justify-center">
                 <OptionCard text="Fewer Than 100" isSelected={formData.conversionVolume === "Fewer Than 100"} onClick={() => handleSelect("conversionVolume", "Fewer Than 100")} />
@@ -276,7 +267,7 @@ export default function StrategySession() {
       case 2:
         return (
           <div className="flex flex-col gap-[4.2vw] items-center w-full">
-            <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[40px] text-[2.4vw] text-center text-white tracking-[-1.36px]">What is your primary conversion objective?</p>
+            <p className="css-4hzbpn font-['Sora:SemiBold',sans-serif] font-semibold leading-[1.3] text-[20px] lg:text-[2.4vw] text-center text-white tracking-[-1.36px]">What is your primary conversion objective?</p>
             {formData.primaryObjective === "Other" ? (
               <div className="w-full max-w-[624px] flex flex-col gap-4">
                 <Input name="customObjective" value={formData.customObjective} onChange={handleInputChange} placeholder="Specify your objective..." className="bg-white/10 border-[#31da72]/30 text-white placeholder:text-white/40 h-14 w-full" />
@@ -298,7 +289,7 @@ export default function StrategySession() {
       case 3:
         return (
           <div className="flex flex-col gap-[4.2vw] items-center w-full">
-            <p className="font-semibold text-[2.4vw] text-white">What is your website?</p>
+            <p className="font-semibold text-[20px] lg:text-[2.4vw] text-white">What is your website?</p>
             <div className="w-full max-w-[500px] flex flex-col gap-2">
               <Input name="website" value={formData.website} onChange={handleInputChange} placeholder="https://yourwebsite.com" className={`bg-white/10 border-2 ${validationErrors.website ? 'border-red-500' : 'border-[#31da72]/30'} text-white h-14`} />
               {validationErrors.website && <p className="text-red-500 text-sm">{validationErrors.website}</p>}
@@ -308,8 +299,8 @@ export default function StrategySession() {
       case 4:
         return (
           <div className="flex flex-col gap-[4.2vw] items-center w-full">
-            <p className="font-semibold text-[2.4vw] text-white">Contact Information</p>
-            <div className="w-[500px] flex flex-col gap-6">
+            <p className="font-semibold text-[20px] lg:text-[2.4vw] text-white">Contact Information</p>
+            <div className="w-full max-w-[500px] flex flex-col gap-6">
               <Input name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="First Name" className="bg-white/10 border-[#31da72]/30 text-white h-14" />
               <div className="flex flex-col gap-2">
                 <Input name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" className={`bg-white/10 border-2 ${validationErrors.email ? 'border-red-500' : 'border-[#31da72]/30'} text-white h-14`} />
@@ -321,7 +312,7 @@ export default function StrategySession() {
       case 5:
         return (
           <div className="flex flex-col items-center gap-6 w-full py-8">
-            <p className="font-semibold text-[34px] text-white">Schedule Your Strategy Call</p>
+            <p className="font-semibold text-[24px] lg:text-[34px] text-white">Schedule Your Strategy Call</p>
             <div className="w-full">
               <InlineWidget
                 url="https://calendly.com/neamatalla/cro"
@@ -343,7 +334,7 @@ export default function StrategySession() {
       {/* Card Design - Switched to relative to push sections below it */}
       {/* Card Design - Switched to relative to push sections below it */}
       <div
-        className="relative flex flex-col min-h-[50.9vw] h-auto items-center justify-center mx-auto rounded-[24px] mt-[2.8vw] w-full max-w-[1240px] z-10 animate-wave-fast"
+        className="relative flex flex-col min-h-[70vh] lg:min-h-[50.9vw] h-auto items-center justify-center mx-[16px] lg:mx-auto rounded-[24px] mt-[24px] lg:mt-[2.8vw] w-auto lg:w-full max-w-[1240px] z-10 animate-wave-fast"
         data-name="Card"
         style={{
           backgroundImage: "linear-gradient(155.126deg, rgba(255, 255, 255, 0.12) 2.6545%, rgba(255, 255, 255, 0) 44.796%), url('data:image/svg+xml;utf8,<svg viewBox=\\\'0 0 1240 733\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\' preserveAspectRatio=\\\'none\\\'><rect x=\\\'0\\\' y=\\\'0\\\' height=\\\'100%\\\' width=\\\'100%\\\' fill=\\\'url(%23grad)\\\' opacity=\\\'1\\\'/><defs><radialGradient id=\\\'grad\\\' gradientUnits=\\\'userSpaceOnUse\\\' cx=\\\'0\\\' cy=\\\'0\\\' r=\\\'10\\\' gradientTransform=\\\'matrix(196.13 40.783 -59.815 70.828 573.8 102.21)\\\'><stop stop-color=\\\'rgba(0,0,0,1)\\\' offset=\\\'0\\\'/><stop stop-color=\\\'rgba(0,0,0,1)\\\' offset=\\\'0.55823\\\'/><stop stop-color=\\\'rgba(0,0,0,0.3)\\\' offset=\\\'0.73997\\\'/><stop stop-color=\\\'rgba(0,0,0,0)\\\' offset=\\\'1\\\'/></radialGradient></defs></svg>'), linear-gradient(87.1906deg, rgb(66, 102, 164) 0%, rgb(146, 235, 180) 25%, rgb(66, 102, 164) 50%, rgb(146, 235, 180) 75%, rgb(66, 102, 164) 100%)",

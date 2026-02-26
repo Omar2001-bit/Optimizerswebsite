@@ -105,16 +105,17 @@ function AnimatedLabel({ children, angle, colorIndex, isActive }: AnimatedLabelP
   );
 }
 
-export function AnimatedProcessCard() {
+export function AnimatedProcessCard({ sectionVisible = false }: { sectionVisible?: boolean }) {
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
+    if (!sectionVisible) return;
     const interval = setInterval(() => {
       // Indefinite increment to avoid coordinate jumps in CSS transitions at 360->0
       setRotation(prev => prev + 60);
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [sectionVisible]);
 
   const labels = [
     { name: 'Discovery', baseAngle: 270 },

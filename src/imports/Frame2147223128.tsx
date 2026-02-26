@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import svgPaths from "./svg-ahyjsadytk";
 import img6687D1Be6301F78Fecf93Bc763Bd507De1Ccf48089402Fa4UOYhhM4ZWeg3AkxNwMMdc44TbzMuFvnANywZtcyIzg from "../assets/5c2837e232462b4d4fbcb5d03a7b4d3d04ae2294.webp";
 import imgB9B3C47F590C9Afc97BcB866Bad86A72 from "../assets/45fdc402ef0fb2fb47ced0eabff3aed75e3aa444.webp";
@@ -1243,12 +1243,50 @@ function Frame() {
   );
 }
 
-function Header() {
+function MobileNavOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const navItems = [
+    { label: 'Services', id: 'services' },
+    { label: 'ROI Calculator', id: 'roi-calculator' },
+    { label: 'Case Studies', id: 'case-studies' },
+    { label: 'Team', id: 'team' },
+    { label: 'Contact', id: 'contact' },
+  ];
+
   return (
-    <div className="-translate-x-1/2 bg-[#020601] content-stretch flex h-[88px] items-center justify-between overflow-x-clip overflow-y-auto pointer-events-auto px-[64px] py-[24px] rounded-[4px] sticky top-0 w-[1440px]" data-name="Header">
+    <div className={`mobile-nav-overlay ${isOpen ? 'open' : ''}`}>
+      {navItems.map((item) => (
+        <p
+          key={item.id}
+          onClick={() => {
+            document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+            onClose();
+          }}
+        >
+          {item.label}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function Header({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boolean; setMobileMenuOpen: (v: boolean) => void }) {
+  return (
+    <div className="-translate-x-1/2 bg-[#020601] content-stretch flex h-[88px] items-center justify-between overflow-x-clip overflow-y-auto pointer-events-auto px-[64px] py-[24px] rounded-[4px] sticky top-0 w-[1440px] max-w-[100vw]" data-name="Header">
       <Frame3 />
       <Links />
-      <Frame />
+      <div className="content-stretch flex gap-[20px] items-center justify-end relative shrink-0">
+        <User />
+        <Link />
+        <button
+          className={`mobile-menu-btn ${mobileMenuOpen ? 'open' : ''}`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
     </div>
   );
 }
@@ -1266,10 +1304,15 @@ export function TabletLayer() {
 }
 
 export function HeaderNav() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div className="absolute bottom-0 h-[930px] left-1/2 pointer-events-none top-0">
-      <Header />
-    </div>
+    <>
+      <div className="absolute bottom-0 h-[930px] left-1/2 pointer-events-none top-0 w-full max-w-[1440px]">
+        <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+      </div>
+      <MobileNavOverlay isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+    </>
   );
 }
 
@@ -1279,7 +1322,7 @@ export default function Frame5() {
       <Bg />
       <Frame10 />
       <HeaderVideo />
-      <div className="absolute bottom-0 h-[930px] left-1/2 pointer-events-none top-0">
+      <div className="absolute bottom-0 h-[930px] left-1/2 pointer-events-none top-0 w-full max-w-[1440px]">
         <Header />
       </div>
     </div>

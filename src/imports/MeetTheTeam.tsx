@@ -528,8 +528,9 @@ export default function MeetTheTeam() {
     useEffect(() => {
         const update = () => {
             const scaleX = (window.innerWidth - 60) / CANVAS_WIDTH;
-            // Removed Math.min(..., 1) to allow upscaling to full width
-            setScale(scaleX);
+            // On mobile, ensure minimum readable scale
+            const minScale = window.innerWidth < 768 ? 0.35 : 0;
+            setScale(Math.max(scaleX, minScale));
         };
         update();
         window.addEventListener("resize", update);
