@@ -1,21 +1,24 @@
+import React, { Suspense } from "react";
 import imgOurServices from "../assets/462979b8a94cb599bf6cf91c5d11489a30eeae28.webp";
 import Component333 from "@/imports/Component333";
-import ROICalculator from "@/imports/ROICalculator";
 import ProcessWithAnimation from "@/imports/ProcessWithAnimation";
 import Table from "@/imports/Table";
-import MeetTheTeam from "@/imports/MeetTheTeam";
-import PartnersAndTools from "@/imports/PartnersAndTools";
-
 import Frame2147223150 from "@/imports/Frame2147223150";
 import StrategySession from "@/imports/StrategySession";
-import GallerySection from "@/imports/GallerySection";
-import FAQSection from "@/imports/FAQSection";
 import Footer from "@/imports/Footer";
 import AnimatedHeroSection from "@/imports/AnimatedHeroSection";
-import AnimatedCaseStudies from "@/imports/AnimatedCaseStudies";
 import HeaderSection from "@/imports/HeaderSection";
 import { HeaderNav } from "@/imports/Frame2147223128";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from "@/app/components/ui/sonner";
 
+// Lazy-loaded components (below the fold)
+const ROICalculator = React.lazy(() => import("@/imports/ROICalculator"));
+const MeetTheTeam = React.lazy(() => import("@/imports/MeetTheTeam"));
+const PartnersAndTools = React.lazy(() => import("@/imports/PartnersAndTools"));
+const GallerySection = React.lazy(() => import("@/imports/GallerySection"));
+const FAQSection = React.lazy(() => import("@/imports/FAQSection"));
+const AnimatedCaseStudies = React.lazy(() => import("@/imports/AnimatedCaseStudies"));
 
 interface ServiceCardProps {
   number: string;
@@ -135,9 +138,6 @@ function ServiceCard({ number, title, description, isLarger }: ServiceCardProps)
   );
 }
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Toaster } from "@/app/components/ui/sonner";
-
 const queryClient = new QueryClient();
 
 export default function App() {
@@ -251,22 +251,46 @@ export default function App() {
             <AnimatedHeroSection />
           </div>
           <Component333 />
-          <ProcessWithAnimation />
-          <Table />
-          <AnimatedCaseStudies />
-          <Frame2147223150 />
-          <div id="roi-calculator">
-            <ROICalculator />
+          <div className="content-visibility-auto">
+            <ProcessWithAnimation />
           </div>
-          <PartnersAndTools />
-          <div className="relative w-full h-auto" id="contact">
+          <div className="content-visibility-auto">
+            <Table />
+          </div>
+          <Suspense fallback={<div className="w-full min-h-[100px]" />}>
+            <AnimatedCaseStudies />
+          </Suspense>
+          <div className="content-visibility-auto">
+            <Frame2147223150 />
+          </div>
+          <div id="roi-calculator" className="content-visibility-auto">
+            <Suspense fallback={<div className="w-full min-h-[100px]" />}>
+              <ROICalculator />
+            </Suspense>
+          </div>
+          <Suspense fallback={<div className="w-full min-h-[100px]" />}>
+            <div className="content-visibility-auto">
+              <PartnersAndTools />
+            </div>
+          </Suspense>
+          <div className="relative w-full h-auto content-visibility-auto" id="contact">
             <StrategySession />
           </div>
-          <div id="team">
-            <MeetTheTeam />
+          <div id="team" className="content-visibility-auto">
+            <Suspense fallback={<div className="w-full min-h-[100px]" />}>
+              <MeetTheTeam />
+            </Suspense>
           </div>
-          <FAQSection />
-          <GallerySection />
+          <Suspense fallback={<div className="w-full min-h-[100px]" />}>
+            <div className="content-visibility-auto">
+              <FAQSection />
+            </div>
+          </Suspense>
+          <Suspense fallback={<div className="w-full min-h-[100px]" />}>
+            <div className="content-visibility-auto">
+              <GallerySection />
+            </div>
+          </Suspense>
           <Footer />
         </div>
       </div>

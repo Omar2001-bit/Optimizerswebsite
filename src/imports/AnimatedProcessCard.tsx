@@ -79,10 +79,11 @@ function AnimatedLabel({ children, angle, colorIndex, isActive }: AnimatedLabelP
 
   return (
     <div
-      className="absolute flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 ease-in-out"
+      className="absolute flex items-center justify-center transition-all duration-1000 ease-in-out"
       style={{
-        left: `${x}px`,
-        top: `${y}px`,
+        transform: `translate3d(calc(${x}px - 50%), calc(${y}px - 50%), 0)`,
+        left: 0,
+        top: 0,
         zIndex: isActive ? 30 : 20,
       }}
     >

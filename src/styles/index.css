@@ -136,3 +136,9 @@ body {
     mix-blend-mode: normal !important;
     filter: none !important;
 }
+
+/* ===== Performance Optimization ===== */
+.content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+}

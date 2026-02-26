@@ -1075,7 +1075,7 @@ function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         src={headerVideoMp4}
       />
     </div>
@@ -1087,7 +1087,7 @@ function HeaderVideo() {
     <div className="-translate-x-1/2 absolute h-[662px] left-1/2 top-[933px] w-[1180px]" data-name="Header Video">
       <Hero />
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute left-0 max-w-none size-full top-0 grayscale" src={imgHeaderVideo} decoding="async" />
+        <img alt="" className="absolute left-0 max-w-none size-full top-0 grayscale" src={imgHeaderVideo} fetchPriority="high" />
       </div>
     </div>
   );
