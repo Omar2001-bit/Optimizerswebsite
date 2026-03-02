@@ -2,7 +2,7 @@
 .tc-scroll-container {
     position: relative;
     width: 100%;
-    min-height: 1000vh;
+    min-height: 350vh;
     background: #020601;
 }
 
